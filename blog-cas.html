@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Blog CAS - IB</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: #f5f0e8;
+            color: #3e3529;
+            line-height: 1.7;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background-color: #5c7a52;
+            color: #f5f0e8;
+            text-align: center;
+            padding: 60px 20px 40px;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        /* ===== NAVEGACION ===== */
+        nav {
+            background-color: #4a6341;
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 0 20px;
+        }
+
+        nav ul li a {
+            color: #f5f0e8;
+            text-decoration: none;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            background-color: #7a9e6d;
+        }
+
+        /* ===== CONTENEDOR PRINCIPAL ===== */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* ===== SECCIONES ===== */
+        section {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border-left: 4px solid #5c7a52;
+        }
+
+        section h2 {
+            font-size: 1.8rem;
+            color: #5c7a52;
+            margin-bottom: 20px;
+            font-weight: 400;
+            border-bottom: 1px solid #e0d8cc;
+            padding-bottom: 10px;
+        }
+
+        section h3 {
+            font-size: 1.3rem;
+            color: #7a6b52;
+            margin: 25px 0 12px;
+            font-weight: 600;
+        }
+
+        section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* ===== PRESENTACION PERSONAL ===== */
+        .perfil {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .foto-perfil {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #5c7a52;
+            flex-shrink: 0;
+        }
+
+        .foto-placeholder {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: #d4cbb8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            color: #7a6b52;
+            text-align: center;
+            border: 4px solid #5c7a52;
+            flex-shrink: 0;
+        }
+
+        .info-personal {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .info-personal ul {
+            list-style: none;
+            margin: 15px 0;
+        }
+
+        .info-personal ul li {
+            padding: 6px 0;
+            border-bottom: 1px dashed #e0d8cc;
+        }
+
+        .info-personal ul li strong {
+            color: #5c7a52;
+        }
+
+        /* ===== GALERIA ===== */
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .galeria-item {
+            background-color: #f5f0e8;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .galeria-item .img-placeholder {
+            width: 100%;
+            height: 180px;
+            background-color: #d4cbb8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #7a6b52;
+            font-size: 0.85rem;
+        }
+
+        .galeria-item p {
+            padding: 12px;
+            font-size: 0.9rem;
+            font-style: italic;
+            text-align: center;
+        }
+
+        /* ===== VIDEO PLACEHOLDER ===== */
+        .video-placeholder {
+            width: 100%;
+            max-width: 560px;
+            height: 315px;
+            background-color: #d4cbb8;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #7a6b52;
+            margin: 20px auto;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* ===== RESULTADOS DE APRENDIZAJE ===== */
+        .resultado {
+            background-color: #faf7f2;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid #e0d8cc;
+        }
+
+        .resultado .numero {
+            display: inline-block;
+            background-color: #5c7a52;
+            color: #fff;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-size: 0.9rem;
+            margin-right: 10px;
+        }
+
+        .resultado h3 {
+            display: inline;
+            vertical-align: middle;
+        }
+
+        .evidencia {
+            background-color: #fff;
+            border-radius: 6px;
+            padding: 18px;
+            margin-top: 15px;
+            border-left: 3px solid #b5a88a;
+        }
+
+        .evidencia h4 {
+            color: #7a6b52;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .evidencia .img-placeholder {
+            width: 100%;
+            height: 150px;
+            background-color: #e8e0d0;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #7a6b52;
+            font-size: 0.85rem;
+            margin-top: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #5c7a52;
+            color: #fff;
+            padding: 3px 12px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            margin: 4px 2px;
+        }
+
+        .tag.creatividad { background-color: #8b6f47; }
+        .tag.actividad { background-color: #5c7a52; }
+        .tag.servicio { background-color: #4a7a8b; }
+
+        /* ===== POEMA / REFLEXION ===== */
+        blockquote {
+            background-color: #faf7f2;
+            border-left: 3px solid #b5a88a;
+            padding: 20px 25px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #5a4e3c;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: #4a6341;
+            color: #f5f0e8;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            section {
+                padding: 25px 20px;
+            }
+
+            .perfil {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav ul {
+                gap: 4px;
+            }
+
+            nav ul li a {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <h1>Mi Blog CAS</h1>
+        <p>Creatividad, Actividad y Servicio &mdash; Programa del Diploma IB</p>
+    </header>
+
+    <!-- ===== NAVEGACION ===== -->
+    <nav>
+        <ul>
+            <li><a href="#sobre-mi" class="active">Sobre Mi</a></li>
+            <li><a href="#presentacion-blog">El Blog</a></li>
+            <li><a href="#ra1">RA 1</a></li>
+            <li><a href="#ra2">RA 2</a></li>
+            <li><a href="#ra3">RA 3</a></li>
+            <li><a href="#ra4">RA 4</a></li>
+            <li><a href="#ra5">RA 5</a></li>
+            <li><a href="#ra6">RA 6</a></li>
+            <li><a href="#ra7">RA 7</a></li>
+            <li><a href="#reflexiones">Reflexiones</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <!-- ===== SECCION: SOBRE MI ===== -->
+        <section id="sobre-mi">
+            <h2>Sobre Mi</h2>
+            <div class="perfil">
+                <div class="foto-placeholder">Tu foto aqui<br>(reemplazar)</div>
+                <div class="info-personal">
+                    <h3>Hola, soy [Tu Nombre]</h3>
+                    <p>Escribe aqui tu presentacion personal. Cuenta sobre ti, lo que te apasiona, tus suenos y lo que te motiva cada dia. Este es tu espacio para compartir quien eres.</p>
+                    <ul>
+                        <li><strong>Colegio:</strong> [Nombre del colegio]</li>
+                        <li><strong>Grado:</strong> [Tu grado]</li>
+                        <li><strong>Lugar favorito:</strong> [Escribe aqui]</li>
+                        <li><strong>Lo que me hace feliz:</strong> [Escribe aqui]</li>
+                        <li><strong>Una conversacion que me marco:</strong> [Escribe aqui]</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Lugares significativos para mi</h3>
+            <p>Describe esos lugares que tienen un significado especial en tu vida. Pueden ser sitios de tu ciudad, de viajes, o incluso rincones de tu hogar.</p>
+
+            <h3>Sentimientos y momentos importantes</h3>
+            <p>Comparte aquellos momentos que te han marcado y los sentimientos que te definen. Este blog es un diario de tu crecimiento.</p>
+        </section>
+
+        <!-- ===== SECCION: PRESENTACION DEL BLOG ===== -->
+        <section id="presentacion-blog">
+            <h2>Presentacion del Blog</h2>
+            <p>Este blog es mi portafolio CAS del Programa del Diploma del Bachillerato Internacional. Aqui documento mis experiencias de <strong>Creatividad</strong>, <strong>Actividad</strong> y <strong>Servicio</strong>, y reflexiono sobre como cada una de ellas me ha ayudado a crecer como persona.</p>
+
+            <p>A lo largo de este blog encontraras fotos, dibujos, poemas, videos y reflexiones que evidencian mi recorrido por los siete resultados de aprendizaje del CAS.</p>
+
+            <h3>Galeria</h3>
+            <div class="galeria">
+                <div class="galeria-item">
+                    <div class="img-placeholder">Foto 1<br>(reemplazar con tu imagen)</div>
+                    <p>Descripcion de la foto</p>
+                </div>
+                <div class="galeria-item">
+                    <div class="img-placeholder">Foto 2<br>(reemplazar con tu imagen)</div>
+                    <p>Descripcion de la foto</p>
+                </div>
+                <div class="galeria-item">
+                    <div class="img-placeholder">Foto 3<br>(reemplazar con tu imagen)</div>
+                    <p>Descripcion de la foto</p>
+                </div>
+            </div>
+
+            <h3>Un poema que me inspira</h3>
+            <blockquote>
+                Escribe aqui un poema que sea significativo para ti,<br>
+                puede ser propio o de un autor que admires.<br>
+                Este espacio es para tu expresion creativa.
+            </blockquote>
+
+            <h3>Video</h3>
+            <div class="video-placeholder">
+                Aqui va tu video<br>
+                (Reemplaza este bloque con un &lt;iframe&gt; de YouTube o sube tu video)
+            </div>
+        </section>
+
+        <!-- ===== RESULTADOS DE APRENDIZAJE ===== -->
+
+        <!-- RA 1 -->
+        <section id="ra1">
+            <h2>Resultado de Aprendizaje 1</h2>
+            <div class="resultado">
+                <span class="numero">1</span>
+                <h3>Identificar las fortalezas propias y las areas en las que se necesita mejorar</h3>
+                <p>Reflexiona sobre tus habilidades, talentos y las areas donde puedes crecer.</p>
+
+                <div class="evidencia">
+                    <h4>Evidencia 1</h4>
+                    <span class="tag creatividad">Creatividad</span>
+                    <p>Describe tu primera experiencia CAS relacionada con este resultado. Explica que actividad realizaste, que fortalezas descubriste y que areas identificaste para mejorar.</p>
+                    <div class="img-placeholder">Foto o evidencia (reemplazar)</div>
+                </div>
+
+                <div class="evidencia">
+                    <h4>Evidencia 2</h4>
+                    <span class="tag actividad">Actividad</span>
+                    <p>Describe tu segunda experiencia CAS relacionada con este resultado. Muestra como has avanzado en el reconocimiento de tus fortalezas y areas de mejora.</p>
+                    <div class="img-placeholder">Foto o evidencia (reemplazar)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RA 2 -->
+        <section id="ra2">
+            <h2>Resultado de Aprendizaje 2</h2>
+            <div class="resultado">
+                <span class="numero">2</span>
+                <h3>Demostrar que se han afrontado desafios y se han desarrollado nuevas habilidades</h3>
+                <p>Muestra como has salido de tu zona de confort y que nuevas habilidades has adquirido.</p>
+
+                <div class="evidencia">
+                    <h4>Evidencia 1</h4>
+                    <span class="tag actividad">Actividad</span>
+                    <p>Describe un desafio que enfrentaste y como lo superaste. Que habilidades nuevas desarrollaste?</p>
+                    <div class="img-placeholder">Foto o evidencia (reemplazar)</div>
+                </div>
+
+                <div class="evidencia">
+                    <h4>Evidencia 2</h4>
+                    <span class="tag creatividad">Creatividad</span>
+                    <p>Describe otro desafio diferente. Como esta experiencia complementa la anterior?</p>
+                    <div class="img-placeholder">Foto o evidencia (reemplazar)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RA 3 -->
+        <section id="ra3">
+            <h2>Resultado de Aprendizaje 3</h2>
+            <div class="resultado">
+                <span class="numero">3</span>
+                <h3>Demostrar como se inicia y planifica una experiencia CAS</h3>
+                <p>Evidencia tu capacidad para planificar, organizar y llevar a cabo experiencias CAS.</p>
+
+                <div class="evidencia">
+                    <h4>Evidencia 1</h4>
+                    <span class="tag servicio">Servicio</span>
+                    <p>Describe como planificaste una experiencia CAS desde cero. Que pasos seguiste? Como te organizaste?</p>
+                    <div class="img-placeholder">Foto o evidencia (reemplazar)</div>
+                </div>
+
+                <div class="evidencia">
+                    <h4>Evidencia 2</h4>
+                    <span class="tag creatividad">Creatividad</span>
+                    <p>Describe otra experiencia que hayas iniciado y planificado. Como mejoraste tu proceso de planificacion?</p>
+                    <div class="img-placeholder">Foto o evidencia (reemplazar)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RA 4 -->
+        <section id="ra4">
+            <h2>Resultado de Aprendizaje 4</h2>
+            <div class="resultado">
+                <span class="numero">4</span>
+                <h3>Mostrar compromiso y perseverancia en las experiencias CAS</h3>
+                <p>Demuestra tu dedicacion y constancia a lo largo de tus experiencias.</p>
+
+                <div class="evidencia">
+                    <h4>Evidencia 1</h4>
+                    <span class="tag actividad">Actividad</span>
+                    <p>Describe una experiencia donde demostraste compromiso a largo plazo. Que obstaculos encontraste y como perseveraste?</p>
+                    <div class="img-placeholder">Foto o evidencia (reemplazar)</div>
+                </div>
+
+                <div class="evidencia">
+                    <h4>Evidencia 2</h4>
+                    <span class="tag servicio">Servicio</span>
+                    <p>Describe otra experiencia de compromiso sostenido. Como se refleja tu crecimiento personal?</p>
+                    <div class="img-placeholder">Foto o evidencia (reemplazar)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RA 5 -->
+        <section id="ra5">
+            <h2>Resultado de Aprendizaje 5</h2>
+            <div class="resultado">
+                <span class="numero">5</span>
+                <h3>Demostrar habilidades y reconocer los beneficios del trabajo colaborativo</h3>
+                <p>Muestra como has trabajado en equipo y que has aprendido de la colaboracion.</p>
+
+                <div class="evidencia">
+                    <h4>Evidencia 1</h4>
+                    <span class="tag servicio">Servicio</span>
+                    <p>Describe una experiencia de trabajo en equipo. Cual fue tu rol? Que aprendiste de trabajar con otros?</p>
+                    <div class="img-placeholder">Foto o evidencia (reemplazar)</div>
+                </div>
+
+                <div class="evidencia">
+                    <h4>Evidencia 2</h4>
+                    <span class="tag actividad">Actividad</span>
+                    <p>Describe otra experiencia colaborativa. Como mejoraron tus habilidades de trabajo en equipo?</p>
+                    <div class="img-placeholder">Foto o evidencia (reemplazar)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RA 6 -->
+        <section id="ra6">
+            <h2>Resultado de Aprendizaje 6</h2>
+            <div class="resultado">
+                <span class="numero">6</span>
+                <h3>Demostrar compromiso con temas de importancia global</h3>
+                <p>Evidencia como te has involucrado con problematicas que afectan al mundo.</p>
+
+                <div class="evidencia">
+                    <h4>Evidencia 1</h4>
+                    <span class="tag servicio">Servicio</span>
+                    <p>Describe como participaste en una actividad relacionada con un tema global (medio ambiente, pobreza, educacion, salud, etc.).</p>
+                    <div class="img-placeholder">Foto o evidencia (reemplazar)</div>
+                </div>
+
+                <div class="evidencia">
+                    <h4>Evidencia 2</h4>
+                    <span class="tag creatividad">Creatividad</span>
+                    <p>Describe otra experiencia relacionada con temas globales. Como amplio tu perspectiva?</p>
+                    <div class="img-placeholder">Foto o evidencia (reemplazar)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RA 7 -->
+        <section id="ra7">
+            <h2>Resultado de Aprendizaje 7</h2>
+            <div class="resultado">
+                <span class="numero">7</span>
+                <h3>Reconocer y considerar la etica de las decisiones y acciones</h3>
+                <p>Reflexiona sobre las implicaciones eticas de tus experiencias CAS.</p>
+
+                <div class="evidencia">
+                    <h4>Evidencia 1</h4>
+                    <span class="tag servicio">Servicio</span>
+                    <p>Describe una situacion donde tuviste que tomar una decision etica. Que consideraste? Como actuaste?</p>
+                    <div class="img-placeholder">Foto o evidencia (reemplazar)</div>
+                </div>
+
+                <div class="evidencia">
+                    <h4>Evidencia 2</h4>
+                    <span class="tag actividad">Actividad</span>
+                    <p>Describe otra experiencia donde la etica fue importante. Que aprendiste sobre tus propios valores?</p>
+                    <div class="img-placeholder">Foto o evidencia (reemplazar)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECCION: REFLEXIONES ===== -->
+        <section id="reflexiones">
+            <h2>Reflexiones Finales</h2>
+            <p>Este es el espacio para tu reflexion general sobre todo tu recorrido CAS. Piensa en como has crecido, que has aprendido y como estas experiencias te han transformado.</p>
+
+            <blockquote>
+                Escribe aqui tu reflexion final sobre tu experiencia CAS.<br>
+                Como te sientes al mirar hacia atras y ver todo lo que has logrado?<br>
+                Que te llevas de este proceso para tu vida futura?
+            </blockquote>
+
+            <h3>Lo que aprendi de mi mismo</h3>
+            <p>[Escribe aqui tus aprendizajes personales]</p>
+
+            <h3>Mensaje para futuros estudiantes CAS</h3>
+            <p>[Comparte un consejo o mensaje inspirador para quienes vienen despues de ti]</p>
+        </section>
+
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <p>Blog CAS &mdash; Programa del Diploma IB &mdash; [Tu Nombre] &mdash; [Ano]</p>
+    </footer>
+
+    <!-- ===== SCROLL SUAVE ===== -->
+    <script>
+        document.querySelectorAll('nav a').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                var targetId = this.getAttribute('href').substring(1);
+                var target = document.getElementById(targetId);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                document.querySelectorAll('nav a').forEach(function(a) { a.classList.remove('active'); });
+                this.classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>

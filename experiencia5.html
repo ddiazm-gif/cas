@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiencia 5 — Mi Blog CAS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: #f5f0e8; color: #3e3529; line-height: 1.7; overflow-x: hidden; }
+
+        header {
+            background: linear-gradient(135deg, #2d5a27 0%, #5c7a52 40%, #7a9e6e 70%, #4a6341 100%);
+            color: #f5f0e8; text-align: center; padding: 50px 20px 35px; position: relative; overflow: hidden;
+        }
+        header::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.08) 0%, transparent 50%);
+            animation: headerShimmer 8s ease-in-out infinite alternate;
+        }
+        @keyframes headerShimmer { 0% { transform: translate(0,0); } 100% { transform: translate(2%,-2%); } }
+
+        header h1 { font-family: 'Playfair Display', Georgia, serif; font-size: 2.4rem; font-weight: 700; letter-spacing: 2px; position: relative; z-index: 2; }
+        header p { font-size: 1rem; opacity: 0.9; font-style: italic; position: relative; z-index: 2; margin-top: 5px; }
+
+        nav { background-color: #3a5232; display: flex; flex-wrap: wrap; justify-content: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+        nav > a, nav > .dropdown { position: relative; }
+        nav > a, nav > .dropdown > a { display: block; color: #f5f0e8; text-decoration: none; padding: 0.85rem 1.4rem; font-size: 0.95rem; font-weight: 500; transition: all 0.3s ease; position: relative; }
+        nav > a::after, nav > .dropdown > a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 3px; background: linear-gradient(90deg, #a8d89a, #f5f0e8); transition: all 0.3s ease; transform: translateX(-50%); border-radius: 3px; }
+        nav > a:hover::after, nav > .dropdown:hover > a::after { width: 80%; }
+        nav > a:hover, nav > .dropdown:hover > a { background-color: rgba(255,255,255,0.1); }
+        nav > a.active { background-color: #7a6b52; }
+        nav > a.active::after { width: 80%; background: #f5f0e8; }
+        .dropdown.active > a { background-color: #7a6b52; }
+        .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background-color: #3a5232; min-width: 220px; box-shadow: 0 8px 30px rgba(0,0,0,0.25); z-index: 200; border-radius: 0 0 12px 12px; overflow: hidden; max-height: 400px; overflow-y: auto; }
+        .dropdown:hover .dropdown-menu { display: block; }
+        .dropdown-menu a { display: block; color: #f5f0e8; text-decoration: none; padding: 0.7rem 1.4rem; font-size: 0.9rem; transition: all 0.2s; border-left: 3px solid transparent; }
+        .dropdown-menu a:hover { background-color: rgba(255,255,255,0.1); border-left-color: #a8d89a; padding-left: 1.8rem; }
+        .dropdown-menu a.active { background-color: #7a6b52; border-left-color: #f5f0e8; }
+
+        .container { max-width: 960px; margin: 2.5rem auto; padding: 0 1.5rem; }
+
+        .exp-header { text-align: center; margin-bottom: 2rem; }
+        .exp-header h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 2.2rem; color: #5c7a52; }
+        .exp-header h3 { font-size: 1.1rem; color: #7a6b52; font-weight: 400; margin-top: 0.3rem; }
+
+        .badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; margin: 1.2rem 0; }
+        .badge { padding: 0.4rem 1.2rem; border-radius: 20px; font-size: 0.85rem; color: #f5f0e8; font-weight: 500; transition: all 0.3s ease; cursor: default; }
+        .badge:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .badge-c { background: linear-gradient(135deg, #5c7a52, #7a9e6e); }
+        .badge-a { background: linear-gradient(135deg, #7a6b52, #a8956e); }
+        .badge-s { background: linear-gradient(135deg, #4a6341, #6b8a5e); }
+
+        /* CAS PERCENTAGE BARS */
+        .cas-percentages { background: #ffffff; border-radius: 14px; padding: 25px 30px; margin: 20px 0 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border-left: 5px solid #5c7a52; }
+        .cas-percentages h4 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.2rem; color: #5c7a52; margin-bottom: 18px; display: flex; align-items: center; gap: 8px; }
+        .cas-bar-item { margin-bottom: 14px; }
+        .cas-bar-item:last-child { margin-bottom: 0; }
+        .cas-bar-label { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-weight: 500; font-size: 0.9rem; }
+        .cas-bar-label i { margin-right: 6px; }
+        .cas-bar { height: 14px; background-color: #e8e0d0; border-radius: 10px; overflow: hidden; }
+        .cas-bar-fill { height: 100%; border-radius: 10px; position: relative; overflow: hidden; transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        .cas-bar-fill::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); animation: shimmer 2s infinite; }
+        @keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+        .cas-bar-fill.bar-c { background: linear-gradient(90deg, #5c7a52, #7a9e6e); }
+        .cas-bar-fill.bar-a { background: linear-gradient(90deg, #7a6b52, #a8956e); }
+        .cas-bar-fill.bar-s { background: linear-gradient(90deg, #4a6341, #6b8a5e); }
+
+        .learning-outcome { background: linear-gradient(135deg, #f5f0e8, #e8e0d0); border-left: 4px solid #5c7a52; padding: 1.2rem 1.4rem; margin-bottom: 2rem; border-radius: 0 10px 10px 0; transition: all 0.3s ease; }
+        .learning-outcome:hover { transform: translateX(5px); border-left-color: #7a9e6e; }
+        .learning-outcome strong { color: #5c7a52; }
+
+        /* CAS STAGES */
+        .cas-stages { display: flex; justify-content: space-between; gap: 10px; margin: 20px 0 30px; flex-wrap: wrap; }
+        .cas-stage { flex: 1; min-width: 100px; text-align: center; padding: 15px 8px; background: #ffffff; border-radius: 12px; border: 2px solid #e0d8cc; transition: all 0.4s ease; cursor: default; }
+        .cas-stage:hover { transform: translateY(-4px); border-color: #5c7a52; box-shadow: 0 6px 20px rgba(92,122,82,0.15); }
+        .cas-stage i { font-size: 1.5rem; color: #5c7a52; display: block; margin-bottom: 6px; }
+        .cas-stage span { font-size: 0.78rem; font-weight: 600; color: #3e3529; }
+
+        section.content-section { background: #ffffff; border-radius: 14px; padding: 30px; margin-bottom: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border-left: 5px solid #5c7a52; transition: all 0.3s ease; position: relative; overflow: hidden; }
+        section.content-section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(92,122,82,0.02) 0%, transparent 50%); pointer-events: none; }
+        section.content-section:hover { box-shadow: 0 8px 35px rgba(0,0,0,0.1); transform: translateY(-2px); }
+        section.content-section h4 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.3rem; color: #5c7a52; border-bottom: 2px solid #e0d8cc; padding-bottom: 0.5rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 10px; }
+        section.content-section h4 i { font-size: 1.1rem; }
+        section.content-section p { text-align: justify; }
+
+        .video-placeholder { width: 100%; max-width: 560px; height: 315px; margin: 1rem auto; background: linear-gradient(135deg, #d4cbb8, #c0b49e); display: flex; align-items: center; justify-content: center; text-align: center; border-radius: 12px; color: #7a6b52; font-size: 0.95rem; padding: 1rem; transition: all 0.4s ease; }
+        .video-placeholder:hover { transform: scale(1.02); box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
+
+        .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
+        .photo-item { text-align: center; transition: all 0.4s ease; }
+        .photo-item:hover { transform: translateY(-5px); }
+        .photo-placeholder { width: 100%; height: 200px; background: linear-gradient(135deg, #d4cbb8, #c0b49e); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #7a6b52; font-size: 0.95rem; transition: all 0.3s ease; }
+        .photo-item:hover .photo-placeholder { box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+        .photo-item p { margin-top: 0.5rem; font-size: 0.85rem; color: #7a6b52; font-style: italic; }
+
+        .prev-next { display: flex; justify-content: space-between; margin: 3rem 0 1rem; }
+        .prev-next a { background: linear-gradient(135deg, #5c7a52, #4a6341); color: #f5f0e8; text-decoration: none; padding: 0.8rem 1.8rem; border-radius: 10px; font-size: 0.95rem; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(92,122,82,0.3); }
+        .prev-next a:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(92,122,82,0.4); }
+        .prev-next .disabled { visibility: hidden; }
+
+        footer { background: linear-gradient(135deg, #3a5232, #4a6341); color: #f5f0e8; text-align: center; padding: 25px 20px; font-size: 0.9rem; margin-top: 2rem; }
+        footer i { margin: 0 3px; }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.6rem; }
+            nav { flex-direction: column; align-items: stretch; }
+            nav > a, nav > .dropdown > a { text-align: center; }
+            .dropdown-menu { position: static; box-shadow: none; border-radius: 0; }
+            .prev-next { flex-direction: column; gap: 1rem; align-items: center; }
+            .cas-stages { flex-direction: column; }
+            .cas-stage { min-width: auto; }
+            section.content-section { padding: 20px 18px; }
+        }
+
+
+        /* EDIT MODE */
+        .cas-percentages { position: relative; }
+        .edit-btn {
+            position: absolute; top: 12px; right: 12px;
+            width: 36px; height: 36px; border-radius: 50%;
+            background: linear-gradient(135deg, #5c7a52, #4a6341);
+            color: #f5f0e8; border: none; cursor: pointer;
+            font-size: 0.9rem; display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s ease; box-shadow: 0 3px 10px rgba(92,122,82,0.3);
+            z-index: 5;
+        }
+        .edit-btn:hover { transform: scale(1.1); box-shadow: 0 5px 15px rgba(92,122,82,0.4); }
+        .edit-btn.active { background: linear-gradient(135deg, #c0392b, #e74c3c); }
+
+        .cas-slider-row { display: none; align-items: center; gap: 10px; margin-top: 8px; }
+        .cas-slider-row.show { display: flex; }
+        .cas-slider-row input[type=range] {
+            flex: 1; height: 6px; -webkit-appearance: none; appearance: none;
+            background: #e0d8cc; border-radius: 4px; outline: none;
+        }
+        .cas-slider-row input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%;
+            background: #5c7a52; cursor: pointer; border: 3px solid #fff;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+        .cas-slider-row .slider-val { font-weight: 600; font-size: 0.85rem; min-width: 35px; text-align: center; color: #5c7a52; }
+
+        .password-modal {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+        .password-modal.show { display: flex; }
+        .password-box {
+            background: #fff; border-radius: 16px; padding: 35px; text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2); max-width: 380px; width: 90%;
+            animation: modalIn 0.3s ease;
+        }
+        @keyframes modalIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .password-box h3 { font-family: 'Playfair Display', Georgia, serif; color: #5c7a52; margin-bottom: 8px; }
+        .password-box p { font-size: 0.85rem; color: #7a6b52; margin-bottom: 18px; }
+        .password-box input {
+            width: 100%; padding: 12px 16px; border: 2px solid #e0d8cc; border-radius: 10px;
+            font-size: 1rem; font-family: 'Inter', sans-serif; outline: none; transition: border-color 0.3s;
+        }
+        .password-box input:focus { border-color: #5c7a52; }
+        .password-box .btn-row { display: flex; gap: 10px; margin-top: 15px; }
+        .password-box button {
+            flex: 1; padding: 10px; border: none; border-radius: 10px; font-size: 0.9rem;
+            font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-family: 'Inter', sans-serif;
+        }
+        .btn-confirm { background: linear-gradient(135deg, #5c7a52, #4a6341); color: #f5f0e8; }
+        .btn-confirm:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(92,122,82,0.3); }
+        .btn-cancel { background: #e8e0d0; color: #3e3529; }
+        .btn-cancel:hover { background: #d4cbb8; }
+        .password-error { color: #c0392b; font-size: 0.8rem; margin-top: 8px; display: none; }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-leaf"></i> Mi Blog CAS</h1>
+        <p>Creatividad, Actividad y Servicio</p>
+    </header>
+    <nav>
+        <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+        <div class="dropdown active">
+            <a href="#"><i class="fas fa-star"></i> Experiencias &#9662;</a>
+            <div class="dropdown-menu">
+                <a href="experiencia1.html">Experiencia 1</a>
+                <a href="experiencia2.html">Experiencia 2</a>
+                <a href="experiencia3.html">Experiencia 3</a>
+                <a href="experiencia4.html">Experiencia 4</a>
+                <a href="experiencia5.html" class="active">Experiencia 5</a>
+                <a href="experiencia6.html">Experiencia 6</a>
+                <a href="experiencia7.html">Experiencia 7</a>
+                <a href="experiencia8.html">Experiencia 8</a>
+                <a href="experiencia9.html">Experiencia 9</a>
+                <a href="experiencia10.html">Experiencia 10</a>
+                <a href="experiencia11.html">Experiencia 11</a>
+                <a href="experiencia12.html">Experiencia 12</a>
+                <a href="experiencia13.html">Experiencia 13</a>
+                <a href="experiencia14.html">Experiencia 14</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#"><i class="fas fa-project-diagram"></i> Proyectos &#9662;</a>
+            <div class="dropdown-menu">
+                <a href="proyecto1.html">Proyecto 1</a>
+                <a href="proyecto2.html">Proyecto 2</a>
+            </div>
+        </div>
+        <a href="reflexiones.html"><i class="fas fa-pen-fancy"></i> Reflexiones</a>
+    </nav>
+    <div class="container">
+        <div class="exp-header">
+            <h2>Experiencia 5</h2>
+            <h3>[Nombre de la experiencia]</h3>
+        </div>
+        <div class="badges">
+            <span class="badge badge-c"><i class="fas fa-palette"></i> Creatividad</span>
+            <span class="badge badge-a"><i class="fas fa-running"></i> Actividad</span>
+            <span class="badge badge-s"><i class="fas fa-hands-helping"></i> Servicio</span>
+        </div>
+
+        <!-- CAS PERCENTAGE BARS -->
+        <div class="cas-percentages">
+            <button class="edit-btn" onclick="toggleEdit()" title="Editar porcentajes"><i class="fas fa-pen"></i></button>
+            <h4><i class="fas fa-chart-pie"></i> Distribucion CAS</h4>
+            <div class="cas-bar-item">
+                <div class="cas-bar-label">
+                    <span><i class="fas fa-palette" style="color:#5c7a52"></i> Creatividad</span>
+                    <span>40%</span>
+                </div>
+                <div class="cas-bar"><div class="cas-bar-fill bar-c" style="width:40%"></div></div>
+            </div>
+            <div class="cas-bar-item">
+                <div class="cas-bar-label">
+                    <span><i class="fas fa-running" style="color:#7a6b52"></i> Actividad</span>
+                    <span>30%</span>
+                </div>
+                <div class="cas-bar"><div class="cas-bar-fill bar-a" style="width:30%"></div></div>
+            </div>
+            <div class="cas-bar-item">
+                <div class="cas-bar-label">
+                    <span><i class="fas fa-hands-helping" style="color:#4a6341"></i> Servicio</span>
+                    <span>30%</span>
+                </div>
+                <div class="cas-bar"><div class="cas-bar-fill bar-s" style="width:30%"></div></div>
+            </div>
+        </div>
+
+        <!-- 5 CAS STAGES -->
+        <div class="cas-stages">
+            <div class="cas-stage">
+                <i class="fas fa-search"></i>
+                <span>Investigacion</span>
+            </div>
+            <div class="cas-stage">
+                <i class="fas fa-clipboard-list"></i>
+                <span>Preparacion</span>
+            </div>
+            <div class="cas-stage">
+                <i class="fas fa-bolt"></i>
+                <span>Accion</span>
+            </div>
+            <div class="cas-stage">
+                <i class="fas fa-brain"></i>
+                <span>Reflexion</span>
+            </div>
+            <div class="cas-stage">
+                <i class="fas fa-eye"></i>
+                <span>Demostracion</span>
+            </div>
+        </div>
+
+        <div class="learning-outcome">
+            <strong><i class="fas fa-trophy"></i> Resultado de aprendizaje asociado:</strong> [Describe aqui el resultado de aprendizaje asociado a esta experiencia]
+        </div>
+
+        <section class="content-section">
+            <h4><i class="fas fa-align-left"></i> Descripcion</h4>
+            <p>[Escribe aqui la descripcion de tu experiencia CAS. Explica en que consistio la actividad, donde se llevo a cabo, quienes participaron y cual fue tu rol. Detalla los objetivos que te planteaste y como los abordaste a lo largo de la experiencia.]</p>
+        </section>
+        <section class="content-section">
+            <h4><i class="fas fa-lightbulb"></i> Reflexion</h4>
+            <p>[Escribe aqui tu reflexion personal sobre esta experiencia. Que aprendiste? Como te sentiste? Que desafios enfrentaste y como los superaste? De que manera esta experiencia contribuyo a tu crecimiento personal?]</p>
+        </section>
+        <section class="content-section">
+            <h4><i class="fas fa-video"></i> Video</h4>
+            <div class="video-placeholder"><i class="fas fa-play-circle" style="font-size:2rem;margin-bottom:8px;display:block"></i>Sube tu video aqui<br>(reemplazar con iframe de YouTube)</div>
+        </section>
+        <section class="content-section">
+            <h4><i class="fas fa-camera"></i> Fotos</h4>
+            <div class="photo-grid">
+                <div class="photo-item"><div class="photo-placeholder">Foto 1</div><p>[Descripcion de la foto 1]</p></div>
+                <div class="photo-item"><div class="photo-placeholder">Foto 2</div><p>[Descripcion de la foto 2]</p></div>
+                <div class="photo-item"><div class="photo-placeholder">Foto 3</div><p>[Descripcion de la foto 3]</p></div>
+                <div class="photo-item"><div class="photo-placeholder">Foto 4</div><p>[Descripcion de la foto 4]</p></div>
+                <div class="photo-item"><div class="photo-placeholder">Foto 5</div><p>[Descripcion de la foto 5]</p></div>
+                <div class="photo-item"><div class="photo-placeholder">Foto 6</div><p>[Descripcion de la foto 6]</p></div>
+                <div class="photo-item"><div class="photo-placeholder">Foto 7</div><p>[Descripcion de la foto 7]</p></div>
+                <div class="photo-item"><div class="photo-placeholder">Foto 8</div><p>[Descripcion de la foto 8]</p></div>
+            </div>
+        </section>
+        <div class="prev-next">
+            <a href="experiencia4.html">&larr; Anterior</a>
+            <a href="experiencia6.html">Siguiente &rarr;</a>
+        </div>
+    </div>
+    <footer>
+        <p><i class="fas fa-leaf"></i> Blog CAS &mdash; Programa del Diploma IB &mdash; Dylan Diaz &mdash; 2026</p>
+    </footer>
+
+    <div class="password-modal" id="pwModal">
+        <div class="password-box">
+            <h3><i class="fas fa-lock"></i> Modo Editor</h3>
+            <p>Ingresa la contrasena para editar los porcentajes</p>
+            <input type="password" id="pwInput" placeholder="Contrasena...">
+            <div class="password-error" id="pwError">Contrasena incorrecta</div>
+            <div class="btn-row">
+                <button class="btn-cancel" onclick="closePwModal()">Cancelar</button>
+                <button class="btn-confirm" onclick="checkPassword()">Entrar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const EDIT_PASSWORD = 'dylan2026';
+        let editMode = false;
+
+        function getPageId() {
+            return window.location.pathname.split('/').pop().replace('.html','');
+        }
+
+        function loadSaved() {
+            const id = getPageId();
+            const saved = localStorage.getItem('cas_' + id);
+            if (saved) {
+                const data = JSON.parse(saved);
+                updateBar('c', data.c);
+                updateBar('a', data.a);
+                updateBar('s', data.s);
+            }
+        }
+
+        function updateBar(type, val) {
+            const fill = document.querySelector('.cas-bar-fill.bar-' + type);
+            const labels = document.querySelectorAll('.cas-bar-label');
+            const map = {c: 0, a: 1, s: 2};
+            if (fill) fill.style.width = val + '%';
+            if (labels[map[type]]) labels[map[type]].querySelector('span:last-child').textContent = val + '%';
+            const slider = document.getElementById('slider-' + type);
+            if (slider) slider.value = val;
+            const sliderVal = document.getElementById('val-' + type);
+            if (sliderVal) sliderVal.textContent = val + '%';
+        }
+
+        function saveValues() {
+            const id = getPageId();
+            const c = document.getElementById('slider-c').value;
+            const a = document.getElementById('slider-a').value;
+            const s = document.getElementById('slider-s').value;
+            localStorage.setItem('cas_' + id, JSON.stringify({c:+c, a:+a, s:+s}));
+        }
+
+        function toggleEdit() {
+            if (!editMode) {
+                document.getElementById('pwModal').classList.add('show');
+                document.getElementById('pwInput').value = '';
+                document.getElementById('pwError').style.display = 'none';
+                setTimeout(() => document.getElementById('pwInput').focus(), 100);
+            } else {
+                editMode = false;
+                document.querySelector('.edit-btn').classList.remove('active');
+                document.querySelectorAll('.cas-slider-row').forEach(r => r.classList.remove('show'));
+            }
+        }
+
+        function closePwModal() {
+            document.getElementById('pwModal').classList.remove('show');
+        }
+
+        function checkPassword() {
+            if (document.getElementById('pwInput').value === EDIT_PASSWORD) {
+                editMode = true;
+                closePwModal();
+                document.querySelector('.edit-btn').classList.add('active');
+                document.querySelectorAll('.cas-slider-row').forEach(r => r.classList.add('show'));
+            } else {
+                document.getElementById('pwError').style.display = 'block';
+            }
+        }
+
+        document.getElementById('pwInput')?.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') checkPassword();
+        });
+
+        ['c','a','s'].forEach(type => {
+            const slider = document.getElementById('slider-' + type);
+            if (slider) {
+                slider.addEventListener('input', function() {
+                    updateBar(type, +this.value);
+                    document.getElementById('val-' + type).textContent = this.value + '%';
+                    saveValues();
+                });
+            }
+        });
+
+        loadSaved();
+    </script>
+</body>
+</html>

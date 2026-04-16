@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflexiones Finales — Mi Blog CAS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: #f5f0e8; color: #3e3529; line-height: 1.7; overflow-x: hidden; }
+
+        header {
+            background: linear-gradient(135deg, #2d5a27 0%, #5c7a52 40%, #7a9e6e 70%, #4a6341 100%);
+            color: #f5f0e8; text-align: center; padding: 50px 20px 35px; position: relative; overflow: hidden;
+        }
+        header::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.08) 0%, transparent 50%);
+            animation: headerShimmer 8s ease-in-out infinite alternate;
+        }
+        @keyframes headerShimmer { 0% { transform: translate(0,0); } 100% { transform: translate(2%,-2%); } }
+
+        header h1 { font-family: 'Playfair Display', Georgia, serif; font-size: 2.4rem; font-weight: 700; letter-spacing: 2px; position: relative; z-index: 2; }
+        header p { font-size: 1rem; opacity: 0.9; font-style: italic; position: relative; z-index: 2; margin-top: 5px; }
+
+        nav { background-color: #3a5232; display: flex; flex-wrap: wrap; justify-content: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+        nav > a, nav > .dropdown { position: relative; }
+        nav > a, nav > .dropdown > a { display: block; color: #f5f0e8; text-decoration: none; padding: 0.85rem 1.4rem; font-size: 0.95rem; font-weight: 500; transition: all 0.3s ease; position: relative; }
+        nav > a::after, nav > .dropdown > a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 3px; background: linear-gradient(90deg, #a8d89a, #f5f0e8); transition: all 0.3s ease; transform: translateX(-50%); border-radius: 3px; }
+        nav > a:hover::after, nav > .dropdown:hover > a::after { width: 80%; }
+        nav > a:hover, nav > .dropdown:hover > a { background-color: rgba(255,255,255,0.1); }
+        nav > a.active { background-color: #7a6b52; }
+        nav > a.active::after { width: 80%; background: #f5f0e8; }
+        .dropdown.active > a { background-color: #7a6b52; }
+        .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background-color: #3a5232; min-width: 220px; box-shadow: 0 8px 30px rgba(0,0,0,0.25); z-index: 200; border-radius: 0 0 12px 12px; overflow: hidden; max-height: 400px; overflow-y: auto; }
+        .dropdown:hover .dropdown-menu { display: block; }
+        .dropdown-menu a { display: block; color: #f5f0e8; text-decoration: none; padding: 0.7rem 1.4rem; font-size: 0.9rem; transition: all 0.2s; border-left: 3px solid transparent; }
+        .dropdown-menu a:hover { background-color: rgba(255,255,255,0.1); border-left-color: #a8d89a; padding-left: 1.8rem; }
+        .dropdown-menu a.active { background-color: #7a6b52; border-left-color: #f5f0e8; }
+
+        .container { max-width: 960px; margin: 2.5rem auto; padding: 0 1.5rem; }
+
+        .page-header { text-align: center; margin-bottom: 2.5rem; }
+        .page-header h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 2.2rem; color: #5c7a52; }
+        .page-header p { font-size: 1.05rem; color: #7a6b52; font-style: italic; margin-top: 0.3rem; }
+
+        /* CONTENT SECTIONS */
+        section.content-section { background: #ffffff; border-radius: 14px; padding: 30px; margin-bottom: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border-left: 5px solid #5c7a52; transition: all 0.3s ease; position: relative; overflow: hidden; }
+        section.content-section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(92,122,82,0.02) 0%, transparent 50%); pointer-events: none; }
+        section.content-section:hover { box-shadow: 0 8px 35px rgba(0,0,0,0.1); transform: translateY(-2px); }
+        section.content-section h4 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.3rem; color: #5c7a52; border-bottom: 2px solid #e0d8cc; padding-bottom: 0.5rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 10px; }
+        section.content-section h4 i { font-size: 1.1rem; }
+        section.content-section p { text-align: justify; }
+
+        p.placeholder { color: #7a6b52; font-style: italic; }
+
+        /* RA CARDS */
+        .ra-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1.2rem; margin-top: 1.2rem; }
+        .ra-card {
+            background: #ffffff; border-radius: 12px; padding: 1.4rem; position: relative; overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06); border-left: 4px solid #5c7a52;
+            transition: all 0.4s ease; cursor: default;
+        }
+        .ra-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(92,122,82,0.03) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .ra-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.12); border-left-color: #7a9e6e; }
+        .ra-card:nth-child(even) { border-left-color: #7a6b52; }
+        .ra-card:nth-child(even):hover { border-left-color: #a8956e; }
+        .ra-card h5 { font-family: 'Playfair Display', Georgia, serif; font-size: 1rem; color: #4a6341; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px; }
+        .ra-card h5 i { font-size: 0.9rem; color: #5c7a52; }
+        .ra-card p { font-size: 0.9rem; color: #7a6b52; font-style: italic; }
+
+        /* MESSAGE BOX */
+        .message-box {
+            background: #ffffff; border-radius: 14px; padding: 2rem 2.5rem; margin-top: 1.2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06); border-left: 5px solid #7a6b52;
+            position: relative; overflow: hidden; transition: all 0.3s ease;
+        }
+        .message-box::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(122,107,82,0.03) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .message-box:hover { box-shadow: 0 8px 35px rgba(0,0,0,0.1); transform: translateY(-2px); }
+        .message-box p { font-style: italic; color: #7a6b52; text-align: justify; position: relative; z-index: 1; }
+        .message-box .quote-icon { font-size: 2.5rem; color: rgba(122,107,82,0.15); position: absolute; top: 15px; right: 25px; }
+
+        /* MOMENTS GRID */
+        .moments-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.2rem; }
+        .moment-card {
+            background: #ffffff; border-radius: 12px; overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06); transition: all 0.4s ease;
+        }
+        .moment-card:hover { transform: translateY(-5px); box-shadow: 0 10px 35px rgba(0,0,0,0.12); }
+        .moment-card .img-placeholder {
+            width: 100%; height: 220px;
+            background: linear-gradient(135deg, #d4cbb8, #c0b49e);
+            display: flex; align-items: center; justify-content: center;
+            color: #7a6b52; font-size: 0.95rem; transition: all 0.3s ease;
+        }
+        .moment-card:hover .img-placeholder { background: linear-gradient(135deg, #c0b49e, #b0a48e); }
+        .moment-card p { padding: 1rem; font-size: 0.9rem; color: #7a6b52; font-style: italic; text-align: center; }
+
+        footer { background: linear-gradient(135deg, #3a5232, #4a6341); color: #f5f0e8; text-align: center; padding: 25px 20px; font-size: 0.9rem; margin-top: 2rem; }
+        footer i { margin: 0 3px; }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.6rem; }
+            nav { flex-direction: column; align-items: stretch; }
+            nav > a, nav > .dropdown > a { text-align: center; }
+            .dropdown-menu { position: static; box-shadow: none; border-radius: 0; }
+            .ra-grid { grid-template-columns: 1fr; }
+            .moments-grid { grid-template-columns: 1fr; }
+            section.content-section { padding: 20px 18px; }
+            .message-box { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-leaf"></i> Mi Blog CAS</h1>
+        <p>Creatividad, Actividad y Servicio</p>
+    </header>
+    <nav>
+        <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+        <div class="dropdown">
+            <a href="#"><i class="fas fa-star"></i> Experiencias &#9662;</a>
+            <div class="dropdown-menu">
+                <a href="experiencia1.html">Experiencia 1</a>
+                <a href="experiencia2.html">Experiencia 2</a>
+                <a href="experiencia3.html">Experiencia 3</a>
+                <a href="experiencia4.html">Experiencia 4</a>
+                <a href="experiencia5.html">Experiencia 5</a>
+                <a href="experiencia6.html">Experiencia 6</a>
+                <a href="experiencia7.html">Experiencia 7</a>
+                <a href="experiencia8.html">Experiencia 8</a>
+                <a href="experiencia9.html">Experiencia 9</a>
+                <a href="experiencia10.html">Experiencia 10</a>
+                <a href="experiencia11.html">Experiencia 11</a>
+                <a href="experiencia12.html">Experiencia 12</a>
+                <a href="experiencia13.html">Experiencia 13</a>
+                <a href="experiencia14.html">Experiencia 14</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#"><i class="fas fa-project-diagram"></i> Proyectos &#9662;</a>
+            <div class="dropdown-menu">
+                <a href="proyecto1.html">Proyecto 1</a>
+                <a href="proyecto2.html">Proyecto 2</a>
+            </div>
+        </div>
+        <a href="reflexiones.html" class="active"><i class="fas fa-pen-fancy"></i> Reflexiones</a>
+    </nav>
+    <div class="container">
+        <div class="page-header">
+            <h2><i class="fas fa-feather-alt"></i> Reflexiones Finales</h2>
+            <p>Una mirada hacia atras sobre mi recorrido CAS</p>
+        </div>
+
+        <section class="content-section">
+            <h4><i class="fas fa-seedling"></i> Reflexion sobre crecimiento personal</h4>
+            <p class="placeholder">[Reflexiona sobre como has crecido como persona a lo largo de tu experiencia CAS. Que version de ti mismo eras al comenzar y quien eres ahora? Que momentos marcaron un antes y un despues en tu desarrollo personal?]</p>
+        </section>
+
+        <section class="content-section">
+            <h4><i class="fas fa-star"></i> Lo que aprendi sobre mis fortalezas</h4>
+            <p class="placeholder">[Describe las fortalezas que descubriste o confirmaste durante CAS. Que habilidades no sabias que tenias? En que areas te destacaste? Como puedes aplicar estas fortalezas en el futuro?]</p>
+        </section>
+
+        <section class="content-section">
+            <h4><i class="fas fa-mountain"></i> Desafios que me transformaron</h4>
+            <p class="placeholder">[Habla sobre los retos mas significativos que enfrentaste. Como los superaste? Que aprendiste de los momentos dificiles? Como te fortalecieron estas experiencias?]</p>
+        </section>
+
+        <section class="content-section">
+            <h4><i class="fas fa-users"></i> Valor del trabajo en equipo</h4>
+            <p class="placeholder">[Reflexiona sobre las experiencias de colaboracion. Que aprendiste al trabajar con otros? Como manejaste los conflictos? Que rol tendias a asumir en los equipos y por que?]</p>
+        </section>
+
+        <section class="content-section">
+            <h4><i class="fas fa-globe-americas"></i> Conexion con el mundo</h4>
+            <p class="placeholder">[Como te conectaste con tu comunidad y el mundo a traves de CAS? Que problemas sociales o globales comprendes mejor ahora? Como cambio tu perspectiva sobre tu rol en la sociedad?]</p>
+        </section>
+
+        <section class="content-section">
+            <h4><i class="fas fa-balance-scale"></i> Etica y valores</h4>
+            <p class="placeholder">[Que dilemas eticos enfrentaste durante CAS? Como influyeron tus valores en tus decisiones? Que principios guiaron tus acciones y como se fortalecieron a lo largo del programa?]</p>
+        </section>
+
+        <section class="content-section">
+            <h4><i class="fas fa-trophy"></i> Resumen de Resultados de Aprendizaje</h4>
+            <div class="ra-grid">
+                <div class="ra-card">
+                    <h5><i class="fas fa-search"></i> RA 1: Identificar fortalezas y areas de crecimiento</h5>
+                    <p>[Breve resumen de como demostraste este resultado a lo largo de CAS.]</p>
+                </div>
+                <div class="ra-card">
+                    <h5><i class="fas fa-tools"></i> RA 2: Desarrollar nuevas habilidades</h5>
+                    <p>[Breve resumen de como demostraste este resultado a lo largo de CAS.]</p>
+                </div>
+                <div class="ra-card">
+                    <h5><i class="fas fa-clipboard-list"></i> RA 3: Planificar e iniciar actividades</h5>
+                    <p>[Breve resumen de como demostraste este resultado a lo largo de CAS.]</p>
+                </div>
+                <div class="ra-card">
+                    <h5><i class="fas fa-fist-raised"></i> RA 4: Compromiso y perseverancia</h5>
+                    <p>[Breve resumen de como demostraste este resultado a lo largo de CAS.]</p>
+                </div>
+                <div class="ra-card">
+                    <h5><i class="fas fa-handshake"></i> RA 5: Trabajo colaborativo</h5>
+                    <p>[Breve resumen de como demostraste este resultado a lo largo de CAS.]</p>
+                </div>
+                <div class="ra-card">
+                    <h5><i class="fas fa-globe"></i> RA 6: Compromiso con temas de importancia global</h5>
+                    <p>[Breve resumen de como demostraste este resultado a lo largo de CAS.]</p>
+                </div>
+                <div class="ra-card">
+                    <h5><i class="fas fa-balance-scale"></i> RA 7: Reconocer y considerar aspectos eticos</h5>
+                    <p>[Breve resumen de como demostraste este resultado a lo largo de CAS.]</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h4><i class="fas fa-envelope-open-text"></i> Mensaje para futuros estudiantes CAS</h4>
+            <div class="message-box">
+                <i class="fas fa-quote-right quote-icon"></i>
+                <p>[Escribe un mensaje sincero para los estudiantes que estan por comenzar su recorrido CAS. Que consejo les darias? Que te hubiera gustado saber al inicio? Que les deseas para su experiencia?]</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h4><i class="fas fa-heart"></i> Mis momentos CAS favoritos</h4>
+            <div class="moments-grid">
+                <div class="moment-card">
+                    <div class="img-placeholder"><i class="fas fa-image" style="font-size:2rem;margin-right:8px;opacity:0.5"></i> Foto 1 (280x220)</div>
+                    <p>[Descripcion de tu momento CAS favorito]</p>
+                </div>
+                <div class="moment-card">
+                    <div class="img-placeholder"><i class="fas fa-image" style="font-size:2rem;margin-right:8px;opacity:0.5"></i> Foto 2 (280x220)</div>
+                    <p>[Descripcion de otro momento memorable]</p>
+                </div>
+                <div class="moment-card">
+                    <div class="img-placeholder"><i class="fas fa-image" style="font-size:2rem;margin-right:8px;opacity:0.5"></i> Foto 3 (280x220)</div>
+                    <p>[Descripcion de un tercer momento especial]</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p><i class="fas fa-leaf"></i> Dylan Diaz &mdash; 2026</p>
+    </footer>
+</body>
+</html>
