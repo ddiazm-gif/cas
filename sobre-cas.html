@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre CAS — Mi Blog CAS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: #f5f0e8; color: #3e3529; line-height: 1.7; overflow-x: hidden; }
+
+        header {
+            background: linear-gradient(135deg, #2d5a27 0%, #5c7a52 40%, #7a9e6e 70%, #4a6341 100%);
+            color: #f5f0e8; text-align: center; padding: 50px 20px 35px; position: relative; overflow: hidden;
+        }
+        header::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.08) 0%, transparent 50%);
+            animation: headerShimmer 8s ease-in-out infinite alternate;
+        }
+        @keyframes headerShimmer { 0% { transform: translate(0,0); } 100% { transform: translate(2%,-2%); } }
+        header h1 { font-family: 'Playfair Display', Georgia, serif; font-size: 2.4rem; font-weight: 700; letter-spacing: 2px; position: relative; z-index: 2; }
+        header p { font-size: 1rem; opacity: 0.9; font-style: italic; position: relative; z-index: 2; margin-top: 5px; }
+
+        nav { background-color: #3a5232; display: flex; flex-wrap: wrap; justify-content: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+        nav > a, nav > .dropdown { position: relative; }
+        nav > a, nav > .dropdown > a { display: block; color: #f5f0e8; text-decoration: none; padding: 0.85rem 1.4rem; font-size: 0.95rem; font-weight: 500; transition: all 0.3s ease; position: relative; }
+        nav > a::after, nav > .dropdown > a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 3px; background: linear-gradient(90deg, #a8d89a, #f5f0e8); transition: all 0.3s ease; transform: translateX(-50%); border-radius: 3px; }
+        nav > a:hover::after, nav > .dropdown:hover > a::after { width: 80%; }
+        nav > a:hover, nav > .dropdown:hover > a { background-color: rgba(255,255,255,0.1); }
+        nav > a.active { background-color: #7a6b52; }
+        nav > a.active::after { width: 80%; background: #f5f0e8; }
+        .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background-color: #3a5232; min-width: 220px; box-shadow: 0 8px 30px rgba(0,0,0,0.25); z-index: 200; border-radius: 0 0 12px 12px; overflow: hidden; max-height: 400px; overflow-y: auto; }
+        .dropdown:hover .dropdown-menu { display: block; }
+        .dropdown-menu a { display: block; color: #f5f0e8; text-decoration: none; padding: 0.7rem 1.4rem; font-size: 0.9rem; transition: all 0.2s; border-left: 3px solid transparent; }
+        .dropdown-menu a:hover { background-color: rgba(255,255,255,0.1); border-left-color: #a8d89a; padding-left: 1.8rem; }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+
+        .page-title { text-align: center; margin-bottom: 2.5rem; }
+        .page-title h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 2.5rem; color: #5c7a52; margin-bottom: 8px; }
+        .page-title p { font-size: 1.1rem; color: #7a6b52; font-style: italic; }
+
+        section {
+            background-color: #ffffff; border-radius: 16px; padding: 40px; margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06); border-left: 5px solid #5c7a52;
+            transition: all 0.4s ease; position: relative; overflow: hidden;
+        }
+        section:hover { box-shadow: 0 8px 40px rgba(0,0,0,0.1); transform: translateY(-2px); }
+        section h3 {
+            font-family: 'Playfair Display', Georgia, serif; font-size: 1.7rem; color: #5c7a52;
+            margin-bottom: 18px; font-weight: 600; border-bottom: 2px solid #e0d8cc; padding-bottom: 12px;
+            display: flex; align-items: center; gap: 12px;
+        }
+        section h4 { font-size: 1.2rem; color: #7a6b52; margin: 20px 0 10px; font-weight: 600; }
+        section p { margin-bottom: 12px; text-align: justify; }
+
+        /* PILARES CAS */
+        .pilares-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 25px 0; }
+        .pilar-card {
+            background: linear-gradient(135deg, #faf7f2, #f5f0e8); border-radius: 14px; padding: 25px;
+            text-align: center; border-top: 5px solid #5c7a52; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); cursor: default;
+        }
+        .pilar-card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(92,122,82,0.2); }
+        .pilar-card.creatividad { border-top-color: #5c7a52; }
+        .pilar-card.actividad { border-top-color: #7a6b52; }
+        .pilar-card.servicio { border-top-color: #4a6341; }
+        .pilar-card .pilar-icon {
+            width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 15px; font-size: 2rem; color: #f5f0e8;
+        }
+        .pilar-card.creatividad .pilar-icon { background: linear-gradient(135deg, #5c7a52, #7a9e6e); }
+        .pilar-card.actividad .pilar-icon { background: linear-gradient(135deg, #7a6b52, #a8956e); }
+        .pilar-card.servicio .pilar-icon { background: linear-gradient(135deg, #4a6341, #6b8a5e); }
+        .pilar-card h4 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.4rem; color: #5c7a52; margin: 0 0 10px; }
+        .pilar-card p { font-size: 0.95rem; color: #5a4e3c; text-align: center; }
+
+        /* RA CARDS */
+        .ra-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; margin-top: 20px; }
+        .ra-item {
+            background: linear-gradient(135deg, #faf7f2, #f5f0e8); border-radius: 12px; padding: 20px;
+            border-left: 4px solid #5c7a52; transition: all 0.4s ease; position: relative;
+        }
+        .ra-item:hover { transform: translateY(-4px); box-shadow: 0 6px 20px rgba(0,0,0,0.08); border-left-color: #7a9e6e; }
+        .ra-item .ra-num {
+            position: absolute; top: 15px; right: 18px; font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2rem; font-weight: 700; color: #5c7a52; opacity: 0.25;
+        }
+        .ra-item h4 { font-size: 1rem; color: #3e3529; margin-bottom: 8px; padding-right: 40px; }
+        .ra-item p { font-size: 0.88rem; color: #5a4e3c; margin: 0; }
+
+        /* ETAPAS */
+        .etapas-flow { display: flex; justify-content: space-between; gap: 12px; margin: 25px 0; flex-wrap: wrap; }
+        .etapa-card {
+            flex: 1; min-width: 150px; background: linear-gradient(135deg, #ffffff, #faf7f2); border-radius: 12px;
+            padding: 22px 15px; text-align: center; border: 2px solid #e0d8cc; transition: all 0.4s ease; position: relative;
+        }
+        .etapa-card:hover { transform: translateY(-5px); border-color: #5c7a52; box-shadow: 0 8px 20px rgba(92,122,82,0.15); }
+        .etapa-card .etapa-num {
+            position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+            background: linear-gradient(135deg, #5c7a52, #4a6341); color: #f5f0e8;
+            width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 0.85rem; box-shadow: 0 3px 8px rgba(92,122,82,0.3);
+        }
+        .etapa-card i { font-size: 1.8rem; color: #5c7a52; margin: 8px 0 10px; display: block; }
+        .etapa-card h5 { font-size: 0.95rem; color: #3e3529; margin-bottom: 6px; font-weight: 600; }
+        .etapa-card p { font-size: 0.78rem; color: #7a6b52; text-align: center; margin: 0; }
+
+        /* INFO CARDS */
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 20px 0; }
+        .info-card {
+            background: linear-gradient(135deg, #faf7f2, #f5f0e8); border-radius: 12px; padding: 22px;
+            border-left: 4px solid #7a6b52; transition: all 0.3s ease;
+        }
+        .info-card:hover { transform: translateX(5px); border-left-color: #5c7a52; }
+        .info-card i { font-size: 1.8rem; color: #5c7a52; margin-bottom: 10px; display: block; }
+        .info-card strong { font-size: 1.5rem; color: #5c7a52; font-family: 'Playfair Display', Georgia, serif; display: block; margin-bottom: 5px; }
+        .info-card span { font-size: 0.9rem; color: #5a4e3c; }
+
+        blockquote {
+            background: linear-gradient(135deg, #faf7f2, #f5f0e8); border-left: 4px solid #b5a88a;
+            padding: 22px 28px; margin: 20px 0; font-style: italic; color: #5a4e3c; border-radius: 0 12px 12px 0;
+            transition: all 0.3s ease;
+        }
+        blockquote:hover { border-left-color: #5c7a52; transform: translateX(5px); }
+
+        ul.styled-list { list-style: none; padding-left: 0; }
+        ul.styled-list li { padding: 8px 0 8px 28px; position: relative; border-bottom: 1px dashed #e0d8cc; }
+        ul.styled-list li:last-child { border-bottom: none; }
+        ul.styled-list li::before {
+            content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
+            position: absolute; left: 0; top: 8px; color: #5c7a52;
+        }
+
+        footer { background: linear-gradient(135deg, #3a5232, #4a6341); color: #f5f0e8; text-align: center; padding: 35px 20px; margin-top: 40px; }
+        footer p { font-size: 0.9rem; opacity: 0.8; }
+        footer i { margin: 0 3px; }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.8rem; }
+            section { padding: 25px 20px; }
+            .etapas-flow { flex-direction: column; }
+        }
+        @media (max-width: 600px) {
+            nav { flex-direction: column; align-items: stretch; }
+            nav > a, nav > .dropdown > a { text-align: center; }
+            .dropdown-menu { position: static; box-shadow: none; border-radius: 0; }
+        }
+
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-leaf"></i> Mi Blog CAS</h1>
+        <p>Creatividad, Actividad y Servicio &mdash; Programa del Diploma IB</p>
+    </header>
+
+    <nav>
+        <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+        <a href="sobre-cas.html" class="active"><i class="fas fa-info-circle"></i> Sobre CAS</a>
+        <div class="dropdown">
+            <a href="#"><i class="fas fa-star"></i> Experiencias &#9662;</a>
+            <div class="dropdown-menu">
+                <a href="experiencia1.html">Experiencia 1</a>
+                <a href="experiencia2.html">Experiencia 2</a>
+                <a href="experiencia3.html">Experiencia 3</a>
+                <a href="experiencia4.html">Experiencia 4</a>
+                <a href="experiencia5.html">Experiencia 5</a>
+                <a href="experiencia6.html">Experiencia 6</a>
+                <a href="experiencia7.html">Experiencia 7</a>
+                <a href="experiencia8.html">Experiencia 8</a>
+                <a href="experiencia9.html">Experiencia 9</a>
+                <a href="experiencia10.html">Experiencia 10</a>
+                <a href="experiencia11.html">Experiencia 11</a>
+                <a href="experiencia12.html">Experiencia 12</a>
+                <a href="experiencia13.html">Experiencia 13</a>
+                <a href="experiencia14.html">Experiencia 14</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#"><i class="fas fa-project-diagram"></i> Proyectos &#9662;</a>
+            <div class="dropdown-menu">
+                <a href="proyecto1.html">Proyecto 1</a>
+                <a href="proyecto2.html">Proyecto 2</a>
+            </div>
+        </div>
+        <a href="reflexiones.html"><i class="fas fa-pen-fancy"></i> Reflexiones</a>
+    </nav>
+
+    <div class="container">
+        <div class="page-title">
+            <h2><i class="fas fa-info-circle"></i> Que es CAS?</h2>
+            <p>Conoce el programa que transforma estudiantes en personas integrales</p>
+        </div>
+
+        <!-- INTRO -->
+        <section>
+            <h3><i class="fas fa-book-open"></i> Introduccion</h3>
+            <p><strong>CAS</strong> son las siglas de <strong>Creatividad, Actividad y Servicio</strong>, uno de los tres componentes troncales del <strong>Programa del Diploma del Bachillerato Internacional (IB)</strong>. Es un programa formativo que va mas alla de lo academico y busca el desarrollo integral del estudiante.</p>
+            <p>A diferencia de las materias tradicionales, CAS no se evalua con examenes ni notas. Lo que importa es el <strong>proceso</strong>, las experiencias vividas, las reflexiones generadas y el crecimiento personal logrado a lo largo de los dos anos del Diploma.</p>
+            <blockquote>
+                <i class="fas fa-quote-left" style="color:#5c7a52;margin-right:8px"></i>
+                "CAS permite a los estudiantes dejar de ser meros observadores para convertirse en participantes activos de su propia educacion y de su comunidad."
+            </blockquote>
+        </section>
+
+        <!-- LOS 3 PILARES -->
+        <section>
+            <h3><i class="fas fa-columns"></i> Los Tres Pilares de CAS</h3>
+            <p>CAS se construye sobre tres areas fundamentales que se complementan entre si:</p>
+
+            <div class="pilares-grid">
+                <div class="pilar-card creatividad">
+                    <div class="pilar-icon"><i class="fas fa-palette"></i></div>
+                    <h4>Creatividad</h4>
+                    <p>Exploracion y ampliacion de ideas que conducen a un producto o representacion original o interpretativa. Incluye artes, musica, escritura, diseno y otras formas de expresion creativa.</p>
+                </div>
+                <div class="pilar-card actividad">
+                    <div class="pilar-icon"><i class="fas fa-running"></i></div>
+                    <h4>Actividad</h4>
+                    <p>Esfuerzo fisico que contribuye a un estilo de vida saludable. Incluye deportes individuales y de equipo, danza, senderismo, yoga y cualquier actividad que promueva el bienestar fisico.</p>
+                </div>
+                <div class="pilar-card servicio">
+                    <div class="pilar-icon"><i class="fas fa-hands-helping"></i></div>
+                    <h4>Servicio</h4>
+                    <p>Compromiso colaborativo y reciproco con la comunidad en respuesta a una necesidad genuina. Busca generar un impacto positivo, evitando el asistencialismo y respetando la dignidad de todos.</p>
+                </div>
+            </div>
+
+            <p style="margin-top:15px"><strong>Importante:</strong> Debe existir un <em>equilibrio razonable</em> entre los tres pilares a lo largo del programa CAS. Cada experiencia puede combinar uno o varios pilares.</p>
+        </section>
+
+        <!-- LOS 7 RA -->
+        <section>
+            <h3><i class="fas fa-trophy"></i> Los 7 Resultados de Aprendizaje</h3>
+            <p>Para completar CAS satisfactoriamente, el estudiante debe demostrar los siete resultados de aprendizaje al menos <strong>dos veces</strong> a lo largo de los dos anos:</p>
+
+            <div class="ra-grid">
+                <div class="ra-item">
+                    <span class="ra-num">1</span>
+                    <h4>Identificar fortalezas y areas de crecimiento</h4>
+                    <p>Reconocer tus propias capacidades y aspectos por mejorar.</p>
+                </div>
+                <div class="ra-item">
+                    <span class="ra-num">2</span>
+                    <h4>Demostrar nuevos desafios y habilidades</h4>
+                    <p>Atreverse a hacer cosas nuevas y desarrollar competencias.</p>
+                </div>
+                <div class="ra-item">
+                    <span class="ra-num">3</span>
+                    <h4>Planificar e iniciar actividades</h4>
+                    <p>Mostrar capacidad de iniciativa y organizacion personal.</p>
+                </div>
+                <div class="ra-item">
+                    <span class="ra-num">4</span>
+                    <h4>Compromiso y perseverancia</h4>
+                    <p>Mantener el esfuerzo a pesar de los obstaculos.</p>
+                </div>
+                <div class="ra-item">
+                    <span class="ra-num">5</span>
+                    <h4>Trabajo colaborativo en equipo</h4>
+                    <p>Desarrollar habilidades para trabajar con otros.</p>
+                </div>
+                <div class="ra-item">
+                    <span class="ra-num">6</span>
+                    <h4>Compromiso con temas globales</h4>
+                    <p>Tomar conciencia de problematicas de importancia mundial.</p>
+                </div>
+                <div class="ra-item">
+                    <span class="ra-num">7</span>
+                    <h4>Considerar las implicaciones eticas</h4>
+                    <p>Reflexionar sobre los aspectos eticos de las decisiones.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- LAS 5 ETAPAS -->
+        <section>
+            <h3><i class="fas fa-route"></i> Las 5 Etapas CAS</h3>
+            <p>Toda experiencia o proyecto CAS debe seguir estas cinco etapas:</p>
+
+            <div class="etapas-flow">
+                <div class="etapa-card">
+                    <div class="etapa-num">1</div>
+                    <i class="fas fa-search"></i>
+                    <h5>Investigacion</h5>
+                    <p>Identificar intereses y necesidades</p>
+                </div>
+                <div class="etapa-card">
+                    <div class="etapa-num">2</div>
+                    <i class="fas fa-clipboard-list"></i>
+                    <h5>Preparacion</h5>
+                    <p>Planificar la actividad y recursos</p>
+                </div>
+                <div class="etapa-card">
+                    <div class="etapa-num">3</div>
+                    <i class="fas fa-bolt"></i>
+                    <h5>Accion</h5>
+                    <p>Llevar a cabo la actividad</p>
+                </div>
+                <div class="etapa-card">
+                    <div class="etapa-num">4</div>
+                    <i class="fas fa-brain"></i>
+                    <h5>Reflexion</h5>
+                    <p>Analizar lo aprendido y sentido</p>
+                </div>
+                <div class="etapa-card">
+                    <div class="etapa-num">5</div>
+                    <i class="fas fa-eye"></i>
+                    <h5>Demostracion</h5>
+                    <p>Compartir evidencias y resultados</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- DATOS CLAVE -->
+        <section>
+            <h3><i class="fas fa-info-circle"></i> Datos Importantes</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <strong>18 meses</strong>
+                    <span>Duracion minima del programa</span>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-project-diagram"></i>
+                    <strong>2 proyectos</strong>
+                    <span>Minimo (1 por ano), de 1 mes minimo</span>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-users"></i>
+                    <strong>Max. 4 personas</strong>
+                    <span>Por proyecto colaborativo</span>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-comments"></i>
+                    <strong>3 entrevistas</strong>
+                    <span>Formales con el asesor CAS</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- LA REFLEXION -->
+        <section>
+            <h3><i class="fas fa-lightbulb"></i> La Reflexion en CAS</h3>
+            <p>La reflexion es el corazon de CAS. No basta con hacer actividades, hay que pensar sobre lo que vivimos y lo que aprendimos. Una buena reflexion CAS debe incluir <strong>cuatro elementos clave</strong>:</p>
+
+            <ul class="styled-list">
+                <li><strong>Describir que paso:</strong> Narrar los hechos de manera objetiva.</li>
+                <li><strong>Expresar sentimientos:</strong> Compartir las emociones que generaste.</li>
+                <li><strong>Generar ideas:</strong> Proponer nuevos pensamientos o aprendizajes.</li>
+                <li><strong>Plantear preguntas:</strong> Cuestionar y abrir nuevas reflexiones.</li>
+            </ul>
+
+            <p style="margin-top:15px">Las reflexiones pueden tomar muchas formas: textos escritos, videos, dibujos, poemas, fotografias con descripciones, audios, etc. Lo importante es que sean autenticas y profundas.</p>
+        </section>
+
+        <!-- POR QUE ES IMPORTANTE -->
+        <section>
+            <h3><i class="fas fa-heart"></i> Por Que es Importante CAS?</h3>
+            <p>CAS es mucho mas que un requisito para obtener el Diploma del IB. Es una <strong>oportunidad unica de crecimiento personal</strong> que te prepara para la vida.</p>
+
+            <h4><i class="fas fa-star" style="color:#5c7a52"></i> Beneficios para el estudiante:</h4>
+            <ul class="styled-list">
+                <li>Desarrollas habilidades blandas como liderazgo, comunicacion y trabajo en equipo.</li>
+                <li>Descubres talentos y pasiones que no sabias que tenias.</li>
+                <li>Construyes conciencia social y empatia hacia otras realidades.</li>
+                <li>Aprendes a planificar, ejecutar y reflexionar sobre tus propias acciones.</li>
+                <li>Generas un impacto positivo en tu comunidad.</li>
+                <li>Te conviertes en una persona mas integral y preparada para la universidad y la vida.</li>
+            </ul>
+
+            <blockquote style="margin-top:20px">
+                <i class="fas fa-quote-left" style="color:#5c7a52;margin-right:8px"></i>
+                "CAS no es algo que haces para el IB. Es algo que el IB te permite hacer para ti mismo y para los demas."
+            </blockquote>
+        </section>
+
+        <!-- PERFIL DEL ESTUDIANTE IB -->
+        <section>
+            <h3><i class="fas fa-graduation-cap"></i> Perfil del Estudiante del IB</h3>
+            <p>CAS busca desarrollar los <strong>10 atributos</strong> del perfil del estudiante del IB:</p>
+
+            <div class="info-grid">
+                <div class="info-card"><i class="fas fa-search"></i><strong>Indagador</strong><span>Curioso por aprender</span></div>
+                <div class="info-card"><i class="fas fa-book"></i><strong>Informado e instruido</strong><span>Conocimientos amplios</span></div>
+                <div class="info-card"><i class="fas fa-brain"></i><strong>Pensador</strong><span>Critico y creativo</span></div>
+                <div class="info-card"><i class="fas fa-comments"></i><strong>Buen comunicador</strong><span>Expresa ideas con claridad</span></div>
+                <div class="info-card"><i class="fas fa-balance-scale"></i><strong>Integro</strong><span>Honesto y justo</span></div>
+                <div class="info-card"><i class="fas fa-globe"></i><strong>De mentalidad abierta</strong><span>Respeta otras culturas</span></div>
+                <div class="info-card"><i class="fas fa-hand-holding-heart"></i><strong>Solidario</strong><span>Empatico y servicial</span></div>
+                <div class="info-card"><i class="fas fa-shield-alt"></i><strong>Audaz</strong><span>Enfrenta retos con valor</span></div>
+                <div class="info-card"><i class="fas fa-yin-yang"></i><strong>Equilibrado</strong><span>Bienestar integral</span></div>
+                <div class="info-card"><i class="fas fa-sync-alt"></i><strong>Reflexivo</strong><span>Evalua sus acciones</span></div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p><i class="fas fa-leaf"></i> Blog CAS &mdash; Programa del Diploma IB &mdash; Dylan Diaz &mdash; 2026</p>
+    </footer>
+</body>
+</html>

@@ -92,9 +92,12 @@
         .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
         .photo-item { text-align: center; transition: all 0.4s ease; }
         .photo-item:hover { transform: translateY(-5px); }
-        .photo-placeholder { width: 100%; height: 200px; background: linear-gradient(135deg, #d4cbb8, #c0b49e); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #7a6b52; font-size: 0.95rem; transition: all 0.3s ease; }
+        .photo-placeholder { width: 100%; height: 200px; background: linear-gradient(135deg, #d4cbb8, #c0b49e); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #7a6b52; font-size: 0.95rem; transition: all 0.3s ease; padding: 10px; }
         .photo-item:hover .photo-placeholder { box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
-        .photo-item p { margin-top: 0.5rem; font-size: 0.85rem; color: #7a6b52; font-style: italic; }
+        .photo-item img { width: 100%; height: 220px; object-fit: cover; border-radius: 10px; transition: all 0.4s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.08); cursor: pointer; }
+        .photo-item:hover img { box-shadow: 0 8px 25px rgba(0,0,0,0.15); transform: scale(1.02); }
+        .photo-item p { margin-top: 0.6rem; font-size: 0.85rem; color: #7a6b52; font-style: italic; }
+        .video-grid { display: flex; flex-direction: column; gap: 1.5rem; }
 
         .prev-next { display: flex; justify-content: space-between; margin: 3rem 0 1rem; }
         .prev-next a { background: linear-gradient(135deg, #5c7a52, #4a6341); color: #f5f0e8; text-decoration: none; padding: 0.8rem 1.8rem; border-radius: 10px; font-size: 0.95rem; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(92,122,82,0.3); }
@@ -182,6 +185,7 @@
     </header>
     <nav>
         <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+        <a href="sobre-cas.html"><i class="fas fa-info-circle"></i> Sobre CAS</a>
         <div class="dropdown active">
             <a href="#"><i class="fas fa-star"></i> Experiencias &#9662;</a>
             <div class="dropdown-menu">
@@ -213,12 +217,10 @@
     <div class="container">
         <div class="exp-header">
             <h2>Experiencia 1</h2>
-            <h3>[Nombre de la experiencia]</h3>
+            <h3><i class="fas fa-cookie-bite" style="color:#7a6b52"></i> Aprendiendo a Hacer Galletas con Chips de Chocolate</h3>
         </div>
         <div class="badges">
             <span class="badge badge-c"><i class="fas fa-palette"></i> Creatividad</span>
-            <span class="badge badge-a"><i class="fas fa-running"></i> Actividad</span>
-            <span class="badge badge-s"><i class="fas fa-hands-helping"></i> Servicio</span>
         </div>
 
         <!-- CAS PERCENTAGE BARS -->
@@ -228,23 +230,26 @@
             <div class="cas-bar-item">
                 <div class="cas-bar-label">
                     <span><i class="fas fa-palette" style="color:#5c7a52"></i> Creatividad</span>
-                    <span>40%</span>
+                    <span>80%</span>
                 </div>
-                <div class="cas-bar"><div class="cas-bar-fill bar-c" style="width:40%"></div></div>
+                <div class="cas-bar"><div class="cas-bar-fill bar-c" style="width:80%"></div></div>
+                <div class="cas-slider-row"><input type="range" id="slider-c" min="0" max="100" value="80"><span class="slider-val" id="val-c">80%</span></div>
             </div>
             <div class="cas-bar-item">
                 <div class="cas-bar-label">
                     <span><i class="fas fa-running" style="color:#7a6b52"></i> Actividad</span>
-                    <span>30%</span>
+                    <span>15%</span>
                 </div>
-                <div class="cas-bar"><div class="cas-bar-fill bar-a" style="width:30%"></div></div>
+                <div class="cas-bar"><div class="cas-bar-fill bar-a" style="width:15%"></div></div>
+                <div class="cas-slider-row"><input type="range" id="slider-a" min="0" max="100" value="15"><span class="slider-val" id="val-a">15%</span></div>
             </div>
             <div class="cas-bar-item">
                 <div class="cas-bar-label">
                     <span><i class="fas fa-hands-helping" style="color:#4a6341"></i> Servicio</span>
-                    <span>30%</span>
+                    <span>5%</span>
                 </div>
-                <div class="cas-bar"><div class="cas-bar-fill bar-s" style="width:30%"></div></div>
+                <div class="cas-bar"><div class="cas-bar-fill bar-s" style="width:5%"></div></div>
+                <div class="cas-slider-row"><input type="range" id="slider-s" min="0" max="100" value="5"><span class="slider-val" id="val-s">5%</span></div>
             </div>
         </div>
 
@@ -273,32 +278,104 @@
         </div>
 
         <div class="learning-outcome">
-            <strong><i class="fas fa-trophy"></i> Resultado de aprendizaje asociado:</strong> [Describe aqui el resultado de aprendizaje asociado a esta experiencia]
+            <strong><i class="fas fa-trophy"></i> Resultado de aprendizaje asociado:</strong> RA2 - Demostrar que se han abordado desafios y desarrollado nuevas habilidades en el proceso. Aprendi a hacer galletas desde cero, algo que nunca habia hecho antes, y eso fue un reto bien grande para mi.
         </div>
 
         <section class="content-section">
             <h4><i class="fas fa-align-left"></i> Descripcion</h4>
-            <p>[Escribe aqui la descripcion de tu experiencia CAS. Explica en que consistio la actividad, donde se llevo a cabo, quienes participaron y cual fue tu rol. Detalla los objetivos que te planteaste y como los abordaste a lo largo de la experiencia.]</p>
+            <p>Para mi primera experiencia CAS decidi aprender a hacer galletas con chips de chocolate. La verdad es que nunca habia cocinado nada en mi vida, ni siquiera me habia animado a entrar a la cocina, asi que cuando lo eligi sabia que iba a ser un reto. Lo hice junto con unos amigos del colegio en la casa de uno de ellos, un sabado en la tarde.</p>
         </section>
+
+        <section class="content-section">
+            <h4><i class="fas fa-search"></i> Indagacion</h4>
+            <p>Antes de empezar a hacer las galletas, lo primero que hicimos fue <strong>investigar</strong> bien para no fallar en el intento. Como ninguno de nosotros tenia experiencia en reposteria, sabiamos que necesitabamos guiarnos de algo confiable.</p>
+            <p>Nos sentamos todos juntos con una laptop y empezamos a ver videos en YouTube de recetas de galletas con chips de chocolate. Vimos varios canales hasta que encontramos uno que explicaba bien paso a paso. Tambien leimos algunos blogs de cocina para comparar las cantidades de los ingredientes y asegurarnos que la receta era buena.</p>
+            <p>Durante la indagacion descubri cosas que no sabia, como por ejemplo que existen diferentes tipos de azucar (rubia, blanca, glass) y que cada una le da un sabor distinto a las galletas. Tambien aprendi que hay que precalentar el horno antes de meter las galletas. Anotamos todo en una hoja para no olvidarnos. Esta etapa fue clave porque nos dio confianza para empezar sabiendo lo que ibamos a hacer.</p>
+        </section>
+
+        <section class="content-section">
+            <h4><i class="fas fa-clipboard-list"></i> Preparacion</h4>
+            <p>Despues de investigar, paso a la fase de <strong>preparacion</strong>. Hicimos una lista de todo lo que necesitabamos: mantequilla Gloria, chocolate en barra, harina, azucar rubia, huevos, esencia de vainilla, polvo de hornear y sal. Como en la casa no habia algunos ingredientes, nos repartimos quien iba a traer cada cosa.</p>
+            <p>El dia de la actividad, llegamos temprano a la casa de mi amigo y empezamos por organizar todo. Sacamos los utensilios que ibamos a usar: la balanza electronica para pesar con precision, la batidora electrica, los bowls grandes y chicos, las cucharas, la bandeja para el horno y el papel manteca.</p>
+            <p>Tambien nos pusimos de acuerdo en los <strong>roles</strong>: una persona se encargaba de pesar los ingredientes, otra de derretir el chocolate y la mantequilla, otra de mezclar y yo me ofreci para usar la batidora. Lavamos bien las manos, nos remangamos y limpiamos la mesa de la cocina antes de empezar. Tener todo preparado y organizado antes de comenzar nos ahorro mucho tiempo y evito que estuvieramos corriendo de un lado a otro buscando cosas.</p>
+        </section>
+
+        <section class="content-section">
+            <h4><i class="fas fa-bolt"></i> Accion</h4>
+            <p>Llego el momento de la <strong>accion</strong>, que era la parte que mas nervios me daba pero tambien la mas emocionante. Empezamos pesando el chocolate en la balanza y partiendolo en trozos pequenos para que se derritiera mas rapido. Lo pusimos en un bowl junto con la mantequilla y lo derretimos a bano maria, que basicamente es poner un bowl encima de una olla con agua caliente para que el calor sea suave y no se queme.</p>
+            <p>Mientras eso se derretia, otros companeros pesaban la harina, el azucar y los demas ingredientes secos. Cuando todo estuvo listo, mezclamos los ingredientes humedos con los secos en un bowl grande. Aqui vino mi parte: agarrar la batidora electrica y batir todo hasta que quedara una masa uniforme. Al principio salia un poco de polvo de harina por todos lados jaja, pero despues le agarre la mano.</p>
+            <p>Cuando la masa estuvo lista, le agregamos los chips de chocolate y la mezclamos con una cuchara. Luego formamos bolitas pequenas con las manos y las pusimos en la bandeja con papel manteca, dejando espacio entre cada una para que no se peguen al hornearse. Las metimos al horno (que ya habiamos precalentado) durante unos 12 minutos. Mientras se horneaban, aprovechamos para empezar a lavar los utensilios sucios. Cuando las sacamos, la cocina olia increible y vimos que las galletas habian salido doradas y perfectas.</p>
+        </section>
+
         <section class="content-section">
             <h4><i class="fas fa-lightbulb"></i> Reflexion</h4>
-            <p>[Escribe aqui tu reflexion personal sobre esta experiencia. Que aprendiste? Como te sentiste? Que desafios enfrentaste y como los superaste? De que manera esta experiencia contribuyo a tu crecimiento personal?]</p>
+            <p><strong>Que aprendi?</strong> Aprendi que cocinar, especialmente la reposteria, es mucho mas dificil de lo que parece. Hay que ser super preciso con las medidas porque si te pasas de un ingrediente, todo cambia. Tambien aprendi tecnicas que nunca habia escuchado, como lo del bano maria o batir la masa hasta que tenga "punto de letra". Ahora entiendo por que mi mama se demora tanto cuando cocina cosas dulces.</p>
+            <p><strong>Como me senti?</strong> Al principio me senti bien nervioso porque pensaba que iba a malograr todo. Tenia miedo de echar mucha harina o de que las galletas salieran quemadas. Pero cuando vi que mis amigos tampoco sabian bien lo que estaban haciendo, me relaje y empezamos a reirnos de los errores. Cuando abrimos el horno y vimos que las galletas habian salido bien, senti una emocion super genial, como de "wow, si pude".</p>
+            <p><strong>Que desafios enfrente?</strong> El mayor reto fue mi propia inseguridad. Como nunca habia cocinado, no me sentia capaz y todo el rato pensaba que iba a fallar. Otro desafio fue trabajar en equipo, porque al principio todos queriamos hacer lo mismo y nos chocabamos en la cocina. Tuvimos que aprender a organizarnos y darnos roles para que todo fluyera mejor. Tambien fue dificil tener paciencia para esperar que la masa repose y que las galletas se horneen, porque ya queriamos probarlas.</p>
+            <p><strong>Como contribuyo a mi crecimiento?</strong> Esta experiencia me ayudo a darme cuenta que si me animo, puedo aprender cosas nuevas que pensaba que no eran lo mio. Antes pensaba que la cocina no era para mi, pero ahora ya me animo a hacer cosas en casa de vez en cuando. Tambien aprendi a valorar mucho mas el trabajo de mi mama, porque ahora entiendo lo dificil que es cocinar y dejar la cocina limpia despues. En general me hizo sentir mas independiente y capaz.</p>
         </section>
         <section class="content-section">
-            <h4><i class="fas fa-video"></i> Video</h4>
-            <div class="video-placeholder"><i class="fas fa-play-circle" style="font-size:2rem;margin-bottom:8px;display:block"></i>Sube tu video aqui<br>(reemplazar con iframe de YouTube)</div>
+            <h4><i class="fas fa-video"></i> Videos</h4>
+            <div class="video-grid">
+                <div>
+                    <p style="text-align:center;font-weight:600;color:#5c7a52;margin-bottom:10px"><i class="fas fa-play-circle"></i> Video 1: Preparacion de la masa</p>
+                    <video controls style="width:100%;max-width:560px;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.1);display:block;margin:0 auto">
+                        <source src="videos/experiencia1/video1.MOV" type="video/quicktime">
+                        <source src="videos/experiencia1/video1.MOV" type="video/mp4">
+                        Tu navegador no soporta este video.
+                    </video>
+                </div>
+                <div style="margin-top:25px">
+                    <p style="text-align:center;font-weight:600;color:#5c7a52;margin-bottom:10px"><i class="fas fa-play-circle"></i> Video 2: Resultado final de las galletas</p>
+                    <div class="video-placeholder">
+                        <i class="fas fa-video" style="font-size:2.5rem;margin-bottom:10px;display:block"></i>
+                        <strong>Espacio reservado para el segundo video</strong><br>
+                        <small>(Pendiente: agregar el video del resultado final)</small>
+                    </div>
+                </div>
+            </div>
         </section>
         <section class="content-section">
-            <h4><i class="fas fa-camera"></i> Fotos</h4>
+            <h4><i class="fas fa-camera"></i> Fotos del Proceso</h4>
             <div class="photo-grid">
-                <div class="photo-item"><div class="photo-placeholder">Foto 1</div><p>[Descripcion de la foto 1]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 2</div><p>[Descripcion de la foto 2]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 3</div><p>[Descripcion de la foto 3]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 4</div><p>[Descripcion de la foto 4]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 5</div><p>[Descripcion de la foto 5]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 6</div><p>[Descripcion de la foto 6]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 7</div><p>[Descripcion de la foto 7]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 8</div><p>[Descripcion de la foto 8]</p></div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia1/01-investigacion-equipo.jpeg" alt="Investigacion en equipo">
+                    <p>El equipo investigando la receta antes de empezar</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia1/02-pesando-chocolate.jpeg" alt="Pesando el chocolate">
+                    <p>Pesando con precision el chocolate en la balanza</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia1/03-preparando-utensilios.jpeg" alt="Preparando utensilios">
+                    <p>Preparando los utensilios y limpiando el area</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia1/04-mantequilla-derritiendose.jpeg" alt="Mantequilla derritiendose">
+                    <p>Derritiendo la mantequilla a bano maria</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia1/05-midiendo-ingredientes.jpeg" alt="Midiendo ingredientes">
+                    <p>Midiendo la cantidad exacta de azucar y harina</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia1/06-equipo-trabajando.jpeg" alt="Equipo trabajando">
+                    <p>Trabajando en equipo y aprendiendo juntos</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia1/07-mezclando-batidora.jpeg" alt="Mezclando con la batidora">
+                    <p>Batiendo la masa hasta lograr la consistencia perfecta</p>
+                </div>
+                <div class="photo-item">
+                    <div class="photo-placeholder" style="border:2px dashed #7a6b52;background:rgba(212,203,184,0.3)">
+                        <div style="text-align:center">
+                            <i class="fas fa-cookie-bite" style="font-size:2.5rem;margin-bottom:8px;display:block;color:#7a6b52"></i>
+                            <strong>Foto pendiente</strong><br>
+                            <small>(Resultado final - galletas terminadas)</small>
+                        </div>
+                    </div>
+                    <p>Las galletas listas y horneadas</p>
+                </div>
             </div>
         </section>
         <div class="prev-next">
