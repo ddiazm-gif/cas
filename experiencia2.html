@@ -214,12 +214,11 @@
     <div class="container">
         <div class="exp-header">
             <h2>Experiencia 2</h2>
-            <h3>[Nombre de la experiencia]</h3>
+            <h3><i class="fas fa-wheelchair" style="color:#7a6b52"></i> Voluntariado: Armando y Entregando Sillas de Ruedas</h3>
         </div>
         <div class="badges">
-            <span class="badge badge-c"><i class="fas fa-palette"></i> Creatividad</span>
-            <span class="badge badge-a"><i class="fas fa-running"></i> Actividad</span>
             <span class="badge badge-s"><i class="fas fa-hands-helping"></i> Servicio</span>
+            <span class="badge badge-a"><i class="fas fa-running"></i> Actividad</span>
         </div>
 
         <!-- CAS PERCENTAGE BARS -->
@@ -229,9 +228,10 @@
             <div class="cas-bar-item">
                 <div class="cas-bar-label">
                     <span><i class="fas fa-palette" style="color:#5c7a52"></i> Creatividad</span>
-                    <span>40%</span>
+                    <span>10%</span>
                 </div>
-                <div class="cas-bar"><div class="cas-bar-fill bar-c" style="width:40%"></div></div>
+                <div class="cas-bar"><div class="cas-bar-fill bar-c" style="width:10%"></div></div>
+                <div class="cas-slider-row"><input type="range" id="slider-c" min="0" max="100" value="10"><span class="slider-val" id="val-c">10%</span></div>
             </div>
             <div class="cas-bar-item">
                 <div class="cas-bar-label">
@@ -239,13 +239,15 @@
                     <span>30%</span>
                 </div>
                 <div class="cas-bar"><div class="cas-bar-fill bar-a" style="width:30%"></div></div>
+                <div class="cas-slider-row"><input type="range" id="slider-a" min="0" max="100" value="30"><span class="slider-val" id="val-a">30%</span></div>
             </div>
             <div class="cas-bar-item">
                 <div class="cas-bar-label">
                     <span><i class="fas fa-hands-helping" style="color:#4a6341"></i> Servicio</span>
-                    <span>30%</span>
+                    <span>60%</span>
                 </div>
-                <div class="cas-bar"><div class="cas-bar-fill bar-s" style="width:30%"></div></div>
+                <div class="cas-bar"><div class="cas-bar-fill bar-s" style="width:60%"></div></div>
+                <div class="cas-slider-row"><input type="range" id="slider-s" min="0" max="100" value="60"><span class="slider-val" id="val-s">60%</span></div>
             </div>
         </div>
 
@@ -274,32 +276,80 @@
         </div>
 
         <div class="learning-outcome">
-            <strong><i class="fas fa-trophy"></i> Resultado de aprendizaje asociado:</strong> [Describe aqui el resultado de aprendizaje asociado a esta experiencia]
+            <strong><i class="fas fa-trophy"></i> Resultado de aprendizaje asociado:</strong> RA3 - Demostrar como iniciar y planificar una experiencia CAS, y RA6 - Demostrar compromiso con asuntos de importancia global. Participar en una jornada de voluntariado organizada me permitio actuar frente a una problematica social (la falta de acceso a movilidad para personas con discapacidad) y reflexionar sobre la realidad de otros.
         </div>
 
         <section class="content-section">
             <h4><i class="fas fa-align-left"></i> Descripcion</h4>
-            <p>[Escribe aqui la descripcion de tu experiencia CAS. Explica en que consistio la actividad, donde se llevo a cabo, quienes participaron y cual fue tu rol. Detalla los objetivos que te planteaste y como los abordaste a lo largo de la experiencia.]</p>
+            <p>Para esta experiencia CAS participe como voluntario en una jornada de armado y entrega de sillas de ruedas para personas con discapacidad, organizada en una iglesia. La actividad se llevo a cabo junto con un grupo de voluntarios mayores que ya tenian experiencia haciendo este tipo de trabajo, ademas de varios companeros del colegio.</p>
+            <p>Mi rol consistio en dos partes claramente diferenciadas: primero armar las sillas (montar las ruedas, ajustar los tornillos, colocar los reposapies, los apoyabrazos y los respaldos), y despues participar en la entrega directa a las personas que las necesitaban. Esta segunda parte fue la mas significativa porque pudimos sentarnos en un circulo con los beneficiarios, escuchar sus historias y compartir un momento de reflexion sobre la fe y la vida.</p>
         </section>
+
+        <section class="content-section">
+            <h4><i class="fas fa-search"></i> Indagacion</h4>
+            <p>Antes de ir a la jornada me informe sobre el contexto del voluntariado. La iglesia trabajaba con la fundacion <em>Camino de Vida</em>, que importa sillas de ruedas desde el exterior y las entrega gratuitamente a personas en situacion de vulnerabilidad que no pueden costearlas por su cuenta.</p>
+            <p>Tambien investigue un poco sobre como armar correctamente las sillas: vi unos videos cortos para entender que piezas tiene una silla estandar, cuales son los puntos de ajuste mas importantes y por que es tan critico que todo quede bien apretado (es literalmente la movilidad y la seguridad de una persona). Aprendi que una silla mal armada puede causar caidas o lesiones, asi que la responsabilidad era grande.</p>
+        </section>
+
+        <section class="content-section">
+            <h4><i class="fas fa-clipboard-list"></i> Preparacion</h4>
+            <p>La preparacion incluyo coordinar el transporte hasta la iglesia, llegar puntuales para no atrasar la jornada y vestirnos con ropa comoda (zapatillas cerradas y polo) porque ibamos a estar agachados moviendo piezas durante varias horas. Los organizadores nos entregaron una camiseta roja con la frase <strong>"Para servirte con mucho gusto"</strong>, que se convirtio en el uniforme de la jornada y marcaba que eramos voluntarios.</p>
+            <p>Tambien nos dieron una pequena induccion al llegar: nos explicaron el orden del armado, cuales eran las herramientas disponibles, como verificar que las ruedas estuvieran firmes y como recibir respetuosamente a las personas beneficiarias cuando llegaran. Esa charla previa me ayudo a entrar a la actividad con seguridad y sin sentirme perdido.</p>
+        </section>
+
+        <section class="content-section">
+            <h4><i class="fas fa-bolt"></i> Accion</h4>
+            <p>La primera parte de la jornada fue puramente <strong>armado</strong>. Las sillas venian desarmadas dentro de cajas grandes de carton. Nos organizamos por estaciones: unos sacaban las piezas, otros montaban el marco, otros ponian las ruedas grandes traseras y las pequenas delanteras, y otros se encargaban de los detalles finales (frenos, reposapies, apoyabrazos). Yo trabaje en montaje de marco y ruedas. Tuve que aprender a ajustar tornillos con la fuerza justa, porque si quedaban flojos la silla se tambaleaba y si los apretaba demasiado podia trozar la rosca.</p>
+            <p>Despues de armar varias sillas, las probamos sentandonos en ellas para revisar que rodaran bien, que los frenos respondieran y que estuvieran completamente seguras. Esta prueba fue clave porque encontramos pequenos detalles para corregir antes de entregarlas.</p>
+            <p>La <strong>segunda parte</strong> fue la entrega. Llegaron las personas beneficiarias acompanadas de sus familias. Nos sentamos todos en un gran circulo y cada una de las personas con discapacidad nos conto su historia: como quedaron en silla de ruedas (algunos por accidentes, otros por enfermedades, otros de nacimiento), como fue el proceso de adaptarse, y como encontraron en su fe en Dios un apoyo para no rendirse. Despues les entregamos formalmente las sillas. Ver la cara de la persona cuando se sento por primera vez en su nueva silla fue un momento que no voy a olvidar.</p>
+        </section>
+
         <section class="content-section">
             <h4><i class="fas fa-lightbulb"></i> Reflexion</h4>
-            <p>[Escribe aqui tu reflexion personal sobre esta experiencia. Que aprendiste? Como te sentiste? Que desafios enfrentaste y como los superaste? De que manera esta experiencia contribuyo a tu crecimiento personal?]</p>
+            <p><strong>Que aprendi?</strong> Aprendi cosas practicas, como armar una silla de ruedas paso a paso y trabajar coordinado en una linea de produccion improvisada. Pero lo mas importante que aprendi fue de las historias de los beneficiarios. Ellos hablaron sin amargura, con mucha paz y esperanza, a pesar de las situaciones tan duras que habian vivido. Eso me hizo darme cuenta de que la felicidad no depende de las circunstancias externas sino de la actitud que uno elige tener frente a ellas.</p>
+            <p><strong>Como me senti?</strong> Al inicio me senti nervioso e incluso un poco incomodo, porque no sabia como tratar a las personas que iban a recibir las sillas (tenia miedo de decir algo torpe o de ser condescendiente). Pero cuando empezamos a conversar todo fluyo con naturalidad: ellos no querian lastima, querian que los escucharamos como personas. Al final de la jornada me senti agradecido, tranquilo y con una mezcla de alegria por haber ayudado y de reflexion profunda por todo lo que escuche.</p>
+            <p><strong>Que desafios enfrente?</strong> El desafio fisico fue real: pasamos varias horas agachados, levantando piezas pesadas y armando sillas, asi que termine cansado y con la espalda adolorida. Pero el desafio mas grande fue el emocional. Escuchar como una persona quedo paraplejica por un accidente, o como una madre cuenta lo dificil que es mover a su hijo sin una silla adecuada, te golpea. Tuve que aprender a estar presente y a no desviar la mirada, a escuchar de verdad sin sentir pena, sino respeto.</p>
+            <p><strong>Como contribuyo a mi crecimiento?</strong> Esta experiencia me cambio la forma de ver el mundo. Antes pensaba mucho en cosas pequenas que me molestaban del dia a dia (un examen mal, una discusion tonta, no tener algo que queria) y despues de esta jornada todo eso se relativiza. Aprendi a valorar lo que tengo: poder caminar, poder estudiar, tener salud, tener una familia que me apoya. Tambien me ayudo a entender que el servicio no es darle algo al otro desde una posicion superior, sino encontrarse con el otro como iguales. Las personas con discapacidad me ensenaron a mi mucho mas de lo que yo les pude ayudar a ellas.</p>
         </section>
+
         <section class="content-section">
             <h4><i class="fas fa-video"></i> Video</h4>
-            <div class="video-placeholder"><i class="fas fa-play-circle" style="font-size:2rem;margin-bottom:8px;display:block"></i>Sube tu video aqui<br>(reemplazar con iframe de YouTube)</div>
+            <div>
+                <p style="text-align:center;font-weight:600;color:#5c7a52;margin-bottom:10px"><i class="fas fa-play-circle"></i> El circulo de testimonios: escuchando sus historias</p>
+                <video controls style="width:100%;max-width:720px;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.1);display:block;margin:0 auto">
+                    <source src="videos/experiencia2/video1.mp4" type="video/mp4">
+                    Tu navegador no soporta este video.
+                </video>
+            </div>
         </section>
+
         <section class="content-section">
-            <h4><i class="fas fa-camera"></i> Fotos</h4>
+            <h4><i class="fas fa-camera"></i> Fotos del Proceso</h4>
             <div class="photo-grid">
-                <div class="photo-item"><div class="photo-placeholder">Foto 1</div><p>[Descripcion de la foto 1]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 2</div><p>[Descripcion de la foto 2]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 3</div><p>[Descripcion de la foto 3]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 4</div><p>[Descripcion de la foto 4]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 5</div><p>[Descripcion de la foto 5]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 6</div><p>[Descripcion de la foto 6]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 7</div><p>[Descripcion de la foto 7]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 8</div><p>[Descripcion de la foto 8]</p></div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia2/01-listo-para-entregar.jpeg" alt="Listo para entregar las sillas">
+                    <p>Con las sillas terminadas y listas para ser entregadas</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia2/02-armando-silla.jpeg" alt="Armando una silla de ruedas">
+                    <p>Probando una de las primeras sillas que termine de armar</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia2/03-equipo-probando.jpeg" alt="Equipo probando las sillas">
+                    <p>Con los companeros probando las sillas antes de la entrega</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia2/04-entregando-con-gusto.jpeg" alt="Camiseta para servirte con mucho gusto">
+                    <p>"Para servirte con mucho gusto" &mdash; el polo que nos dio la fundacion</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia2/05-circulo-testimonios.jpeg" alt="Circulo de testimonios">
+                    <p>El momento mas importante: escuchando sus historias</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia2/06-compartiendo.jpeg" alt="Compartiendo con los beneficiarios">
+                    <p>Compartiendo el espacio con los beneficiarios y sus familias</p>
+                </div>
             </div>
         </section>
         <div class="prev-next">
