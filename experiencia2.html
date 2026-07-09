@@ -61,7 +61,7 @@
         .cas-bar-label { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-weight: 500; font-size: 0.9rem; }
         .cas-bar-label i { margin-right: 6px; }
         .cas-bar { height: 14px; background-color: #e8e0d0; border-radius: 10px; overflow: hidden; }
-        .cas-bar-fill { height: 100%; border-radius: 10px; position: relative; overflow: hidden; transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        .cas-bar-fill { height: 100%; min-width: 10%; border-radius: 10px; position: relative; overflow: hidden; transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
         .cas-bar-fill::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); animation: shimmer 2s infinite; }
         @keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
         .cas-bar-fill.bar-c { background: linear-gradient(90deg, #5c7a52, #7a9e6e); }
@@ -225,7 +225,6 @@
 
         <!-- CAS PERCENTAGE BARS -->
         <div class="cas-percentages">
-            <button class="edit-btn" onclick="toggleEdit()" title="Editar porcentajes"><i class="fas fa-pen"></i></button>
             <h4><i class="fas fa-chart-pie"></i> Distribucion CAS</h4>
             <div class="cas-bar-item">
                 <div class="cas-bar-label">
@@ -333,7 +332,7 @@
                     <p>Con las sillas terminadas y listas para ser entregadas</p>
                 </div>
                 <div class="photo-item">
-                    <img src="imagenes/experiencia2/02-armando-silla.jpeg" alt="Armando una silla de ruedas">
+                    <img src="imagenes/experiencia2/02-armando-silla.jpeg" alt="Armando una silla de ruedas" style="object-position: 50% 18%;">
                     <p>Probando una de las primeras sillas que termine de armar</p>
                 </div>
                 <div class="photo-item">
@@ -349,7 +348,7 @@
                     <p>El momento mas importante: escuchando sus historias</p>
                 </div>
                 <div class="photo-item">
-                    <img src="imagenes/experiencia2/06-compartiendo.jpeg" alt="Compartiendo con los beneficiarios">
+                    <img src="imagenes/experiencia2/06-compartiendo.jpeg" alt="Compartiendo con los beneficiarios" style="object-position: 50% 8%;">
                     <p>Compartiendo el espacio con los beneficiarios y sus familias</p>
                 </div>
             </div>
