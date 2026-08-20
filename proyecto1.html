@@ -104,6 +104,18 @@
         .upload-placeholder:hover { border-color: #5c7a52; background: rgba(92,122,82,0.05); transform: translateY(-2px); }
         .upload-placeholder i { font-size: 2.5rem; display: block; margin-bottom: 0.8rem; color: #5c7a52; }
 
+        /* DOCUMENTO DE PLANIFICACION */
+        .doc-card { display: flex; align-items: center; gap: 16px; text-decoration: none; color: inherit; background: linear-gradient(135deg, rgba(92,122,82,0.07), rgba(92,122,82,0.02)); border: 1.5px solid #d8cfbe; border-radius: 12px; padding: 18px 20px; margin: 1rem 0 0.8rem; transition: all 0.3s ease; }
+        .doc-card:hover { border-color: #5c7a52; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(92,122,82,0.15); }
+        .doc-card > i:first-child { font-size: 2rem; color: #c0392b; flex-shrink: 0; }
+        .doc-card-text { flex: 1; display: flex; flex-direction: column; gap: 3px; }
+        .doc-card-text strong { font-size: 1rem; color: #3e3529; }
+        .doc-card-text span { font-size: 0.82rem; color: #7a6b52; }
+        .doc-card-arrow { color: #5c7a52; transition: transform 0.3s ease; }
+        .doc-card:hover .doc-card-arrow { transform: translateX(4px); }
+        .doc-embed { width: 100%; height: 620px; border: 1.5px solid #e0d8cc; border-radius: 12px; background: #fff; }
+        @media (max-width: 600px) { .doc-embed { height: 420px; } }
+
         .video-placeholder { width: 100%; max-width: 560px; height: 315px; margin: 1rem auto; background: linear-gradient(135deg, #d4cbb8, #c0b49e); display: flex; align-items: center; justify-content: center; text-align: center; border-radius: 12px; color: #7a6b52; font-size: 0.95rem; padding: 1rem; transition: all 0.4s ease; }
         .video-placeholder:hover { transform: scale(1.02); box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
 
@@ -244,23 +256,23 @@
             <div class="cas-bar-item">
                 <div class="cas-bar-label">
                     <span><i class="fas fa-palette" style="color:#5c7a52"></i> Creatividad</span>
-                    <span>50%</span>
+                    <span>45%</span>
                 </div>
-                <div class="cas-bar"><div class="cas-bar-fill bar-c" style="width:50%"></div></div>
+                <div class="cas-bar"><div class="cas-bar-fill bar-c" style="width:45%"></div></div>
                 <div class="cas-slider-row">
-                    <input type="range" id="slider-c" min="0" max="100" value="50">
-                    <span class="slider-val" id="val-c">50%</span>
+                    <input type="range" id="slider-c" min="0" max="100" value="45">
+                    <span class="slider-val" id="val-c">45%</span>
                 </div>
             </div>
             <div class="cas-bar-item">
                 <div class="cas-bar-label">
                     <span><i class="fas fa-running" style="color:#7a6b52"></i> Actividad</span>
-                    <span>5%</span>
+                    <span>10%</span>
                 </div>
-                <div class="cas-bar"><div class="cas-bar-fill bar-a" style="width:5%"></div></div>
+                <div class="cas-bar"><div class="cas-bar-fill bar-a" style="width:10%"></div></div>
                 <div class="cas-slider-row">
-                    <input type="range" id="slider-a" min="0" max="100" value="5">
-                    <span class="slider-val" id="val-a">5%</span>
+                    <input type="range" id="slider-a" min="0" max="100" value="10">
+                    <span class="slider-val" id="val-a">10%</span>
                 </div>
             </div>
             <div class="cas-bar-item">
@@ -304,14 +316,14 @@
             <h4><i class="fas fa-clipboard-check"></i> Planificacion</h4>
 
             <div class="sub-heading"><i class="fas fa-bullseye"></i> Objetivo general</div>
-            <p>Democratizar el acceso a la informacion legal basica en el Peru, creando una plataforma web totalmente gratuita donde cualquier persona pueda encontrar y descargar modelos de documentos legales sin costo ni registro, ayudando especialmente a quienes no pueden pagar un abogado para cada tramite.</p>
+            <p>Que cualquier persona en el Peru pueda conseguir gratis los documentos legales que necesita para sus tramites. Para eso hice una pagina donde entras, buscas el documento y lo descargas. No cobra nada y no hay que registrarse. Pense sobre todo en la gente que no tiene plata para pagarle un abogado cada vez que necesita un papel.</p>
 
             <div class="sub-heading"><i class="fas fa-list-ol"></i> Objetivos especificos</div>
             <ul class="spec-list">
-                <li>Desarrollar y publicar la pagina web modelo.pe con modelos legales gratuitos en formato Word, listos para descargar sin necesidad de registro.</li>
-                <li>Reunir y organizar mas de 4000 modelos por areas del derecho y categorias, para que sean faciles de buscar y filtrar.</li>
-                <li>Agregar herramientas utiles como calculadoras legales (plazos procesales, pension alimenticia, beneficios sociales), un glosario y los valores oficiales 2026.</li>
-                <li>Actuar de forma etica y transparente, incluyendo un aviso legal que aclara que los modelos son referenciales y no reemplazan la asesoria de un abogado colegiado.</li>
+                <li>Armar la pagina modelo.pe y publicarla, con los documentos en Word para descargarlos de una y sin registrarse.</li>
+                <li>Juntar mas de 4000 documentos y ordenarlos por tema, para que sea facil encontrar el que uno busca.</li>
+                <li>Agregar cosas que sirvan de verdad: calculadoras (plazos, pension de alimentos, beneficios sociales), un glosario y los valores oficiales 2026.</li>
+                <li>Ser honesto sobre como esta hecho: dejar claro que los documentos los genere con inteligencia artificial, que son solo una guia y que conviene revisarlos con un abogado.</li>
             </ul>
 
             <div class="sub-heading"><i class="fas fa-calendar-alt"></i> Cronograma</div>
@@ -330,35 +342,44 @@
             </div>
 
             <div class="sub-heading"><i class="fas fa-tools"></i> Recursos necesarios</div>
-            <p>Una computadora con conexion a internet, un dominio web (.pe) y hosting para el sitio, herramientas de desarrollo web, herramientas de inteligencia artificial para redactar los borradores de los documentos, y fuentes legales peruanas actualizadas para verificar la informacion.</p>
+            <p>Una computadora con conexion a internet, un dominio web (.pe) y hosting para el sitio, herramientas de desarrollo web y herramientas de inteligencia artificial, que use tanto para redactar los documentos como para programar partes de la pagina.</p>
 
             <div class="sub-heading"><i class="fas fa-users"></i> Equipo de trabajo</div>
-            <p>El proyecto fue iniciado y desarrollado por mi, Dylan Diaz, encargandome del desarrollo web, la generacion y organizacion del contenido, y el mantenimiento del sitio. Conte con la orientacion puntual de un amigo abogado de mi papa, quien me ayudo a entender las necesidades legales reales de las personas.</p>
+            <p>Lo hice yo solo: la pagina, los documentos y el mantenimiento, apoyandome bastante en inteligencia artificial. Ademas, un amigo abogado de mi papa me oriento al principio para entender que necesitaba de verdad la gente.</p>
 
             <div class="sub-heading"><i class="fas fa-file-upload"></i> Documento de planificacion</div>
-            <div class="upload-placeholder">
-                <i class="fas fa-cloud-upload-alt"></i>
-                <p>Sube aqui una imagen o PDF de tu documento de planificacion</p>
-                <p style="font-size:0.85rem;margin-top:0.5rem;opacity:0.7">[Arrastra tu archivo o haz clic para subir]</p>
-            </div>
+            <a href="documentos/planificacion-proyecto1.pdf" target="_blank" class="doc-card">
+                <i class="fas fa-file-pdf"></i>
+                <div class="doc-card-text">
+                    <strong>Planificacion &mdash; Proyecto 1: modelo.pe</strong>
+                    <span>PDF &middot; 3 paginas &middot; abrir en una pestana nueva</span>
+                </div>
+                <i class="fas fa-arrow-right doc-card-arrow"></i>
+            </a>
+            <object data="documentos/planificacion-proyecto1.pdf" type="application/pdf" class="doc-embed">
+                <p style="text-align:center;padding:1rem">Tu navegador no puede mostrar el PDF aqui. <a href="documentos/planificacion-proyecto1.pdf" target="_blank">Abrelo en una pestana nueva</a>.</p>
+            </object>
         </section>
 
         <section class="content-section">
             <h4><i class="fas fa-cogs"></i> Desarrollo y ejecucion</h4>
-            <p>La idea de modelo.pe nacio de una necesidad real: mientras mi abuela llevaba unos tramites legales, un amigo abogado de mi papa me conto lo dificil que era para muchas personas encontrar modelos de documentos legales gratuitos y confiables en internet. Ahi me di cuenta de que las personas que no pueden pagar un abogado quedan en desventaja incluso para tramites sencillos, y decidi crear una solucion.</p>
-            <p>Empece investigando el problema y comparando otras paginas legales para ver que faltaba. Luego disene y desarrolle la pagina web, definiendo como organizar los documentos para que fueran faciles de buscar. Para generar los borradores de los modelos me apoye en herramientas de inteligencia artificial, y los organice por areas del derecho y categorias. Con el tiempo el sitio crecio hasta reunir mas de 4000 modelos legales en formato Word, ademas de calculadoras legales (plazos procesales, pension alimenticia, beneficios sociales, entre otras), un glosario y los valores oficiales 2026.</p>
-            <p>Una decision importante fue ser transparente con los usuarios: como los modelos se generan sin intervencion de especialistas, incluí un aviso legal claro que aclara que son formatos referenciales y que se recomienda verificar con un abogado colegiado. Hoy modelo.pe recibe alrededor de 6,000 visitas al mes de personas que usan estos documentos para sus tramites, y sigo manteniendolo y ampliandolo.</p>
+            <p>La idea salio de algo que vi en mi casa. Mientras mi abuela hacia unos tramites legales, un amigo abogado de mi papa me conto lo dificil que es para mucha gente encontrar modelos de documentos gratis y confiables en internet. Me quedo dando vueltas que una persona que no puede pagar un abogado quede en desventaja hasta para un tramite simple, asi que quise hacer algo.</p>
+            <p>Empece mirando otras paginas legales para ver que les faltaba. Despues arme la pagina y pense como ordenar los documentos para que uno encuentre rapido lo que busca. Los borradores de los modelos los genere con inteligencia artificial, porque redactar 4000 documentos a mano habria sido imposible, y despues los revise y los ordene por areas del derecho. La IA tambien me ayudo bastante a programar partes del sitio. Con el tiempo crecio hasta tener mas de 4000 documentos en Word, ademas de calculadoras (plazos, pension de alimentos, beneficios sociales y otras), un glosario y los valores oficiales 2026. Hoy entran alrededor de 6,000 personas al mes y lo sigo manteniendo.</p>
+            <p>Justamente porque los documentos salen de una IA y no de un abogado, puse un aviso legal bien visible en el sitio: son formatos referenciales, no estan revisados por un especialista y conviene confirmarlos con un abogado colegiado antes de usarlos.</p>
         </section>
 
         <section class="content-section">
             <h4><i class="fas fa-trophy"></i> Resultados de aprendizaje demostrados</h4>
-            <p><strong>RA6 &mdash; Demostrar compromiso con asuntos de importancia global.</strong> La falta de acceso a la justicia es un problema social que afecta a muchas personas de bajos recursos que no pueden pagar un abogado. Con modelo.pe ofrezco mas de 4000 modelos legales gratuitos que hoy ayudan a alrededor de 6,000 personas al mes, actuando de forma concreta frente a una problematica de importancia global como es la desigualdad en el acceso a la justicia.</p>
-            <p><strong>RA7 &mdash; Reconocer y afrontar las implicancias eticas de mis acciones.</strong> Publicar documentos legales conlleva una gran responsabilidad, porque un error podria perjudicar a un usuario. Por eso afronto esta implicancia de forma honesta: el sitio incluye un aviso legal que aclara que los modelos son formatos referenciales, elaborados sin intervencion de especialistas, y recomienda verificar con un abogado colegiado antes de usarlos. Ademas no solicito datos personales sensibles. Ser transparente sobre los limites de mi proyecto es parte central de actuar con etica.</p>
+            <p><strong>RA6 &mdash; Demostrar compromiso con asuntos de importancia global.</strong> Que la gente sin plata no pueda acceder a la justicia es un problema que pasa en todos lados, no solo aca. Con modelo.pe puse mas de 4000 documentos legales gratis que hoy usan unas 6,000 personas al mes. No arregla el problema de fondo, pero es algo concreto que hice frente a una desigualdad real.</p>
+            <p><strong>RA7 &mdash; Reconocer y afrontar las implicancias eticas de mis acciones.</strong> Publicar documentos legales es una responsabilidad grande: si alguien usa uno mal, le puede perjudicar. Y en mi caso hay algo mas: los documentos los genere con inteligencia artificial, no un abogado. Pude haberlo ocultado para que el proyecto se viera mas serio, pero me parecio deshonesto. Por eso el sitio dice claramente que son formatos referenciales, que no estan revisados por un especialista y que hay que confirmarlos con un abogado colegiado. Tampoco pido datos personales. Para mi, decir de que esta hecho mi proyecto y cuales son sus limites es la parte etica mas importante de todo esto.</p>
         </section>
 
         <section class="content-section">
             <h4><i class="fas fa-lightbulb"></i> Reflexion del proyecto</h4>
-            <p>Este proyecto empezo como una necesidad de mi propia familia y hoy ayuda a miles de personas al mes, lo que me hizo sentir que la tecnologia puede tener un impacto social real. Aprendi a ser responsable y transparente con la informacion que publico, sobre todo en un tema tan delicado como el legal, y entendi la importancia de reconocer los limites de mi proyecto siendo honesto con los usuarios en lugar de aparentar mas de lo que ofrece. Tambien desarrolle habilidades tecnicas de desarrollo web y de organizacion de contenido. Si lo hiciera diferente, buscaria sumar la revision de abogados voluntarios para dar aun mas confianza a los usuarios. Me quedo con la satisfaccion de haber creado, desde una necesidad personal, algo util que sigue creciendo y sirviendo a la comunidad.</p>
+            <p>Esto empezo por algo que pasaba en mi propia casa y hoy lo usan miles de personas al mes. Todavia me parece raro pensarlo.</p>
+            <p>Lo que mas me quedo fue aprender a ser honesto con lo que publico. En un tema legal, un error le puede complicar la vida a alguien, y era facil caer en la tentacion de que el proyecto pareciera mas serio de lo que es. Decidi hacer lo contrario: decir que los documentos los hizo una IA y que hay que revisarlos con un abogado. Prefiero eso a que alguien confie de mas en mi pagina.</p>
+            <p>Tambien aprendi bastante de programacion y de como organizar tanta informacion. Y aprendi a usar la inteligencia artificial en serio: al principio sentia que apoyarme en ella era hacer trampa, pero igual tenia que entender el problema, saber que pedirle y revisar todo lo que salia.</p>
+            <p>Si lo volviera a hacer, buscaria que abogados voluntarios revisaran los modelos, para que la gente pueda confiar mas. Por ahora me quedo contento de haber hecho algo util que sigue creciendo.</p>
         </section>
 
         <section class="content-section">
