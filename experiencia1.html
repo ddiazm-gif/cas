@@ -179,6 +179,12 @@
         .video-grid > div { min-width: 0; }
         .cas-video { width: 100%; max-width: 480px; max-height: 360px; display: block; margin: 0 auto; border-radius: 12px; background: #1f2a1c; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
         .video-grid .video-placeholder { height: 240px; max-width: 100%; }
+        /* DRAFT HELPERS */
+        .draft-banner { display: flex; align-items: center; gap: 10px; background: #fff8e1; border: 1px dashed #d4a72c; color: #7a5c12; border-radius: 10px; padding: 0.8rem 1.1rem; margin: 0 0 1.5rem; font-size: 0.88rem; }
+        .fill { background: #fff3c4; color: #7a5c12; padding: 1px 6px; border-radius: 4px; font-style: italic; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+        .photo-placeholder i { font-size: 2.2rem; opacity: 0.7; }
+        .photo-tip { font-size: 0.85rem; color: #7a6b52; background: #f5f0e8; border-radius: 8px; padding: 0.7rem 1rem; margin-bottom: 0.5rem; text-align: left !important; }
+
     </style>
 </head>
 <body>
@@ -220,153 +226,165 @@
     <div class="container">
         <div class="exp-header">
             <h2>Experiencia 1</h2>
-            <h3><i class="fas fa-cookie-bite" style="color:#7a6b52"></i> Aprendiendo a Hacer Galletas con Chips de Chocolate</h3>
+            <h3><i class="fas fa-globe-americas" style="color:#7a6b52"></i> Un Mes de Intercambio en Toronto, Canadá</h3>
         </div>
         <div class="badges">
+            <span class="badge badge-a"><i class="fas fa-running"></i> Actividad</span>
             <span class="badge badge-c"><i class="fas fa-palette"></i> Creatividad</span>
+            <span class="badge badge-s"><i class="fas fa-hands-helping"></i> Servicio</span>
         </div>
 
         <!-- CAS PERCENTAGE BARS -->
         <div class="cas-percentages">
-            <h4><i class="fas fa-chart-pie"></i> Distribucion CAS</h4>
+            <h4><i class="fas fa-chart-pie"></i> Distribución CAS</h4>
             <div class="cas-bar-item">
                 <div class="cas-bar-label">
                     <span><i class="fas fa-palette" style="color:#5c7a52"></i> Creatividad</span>
-                    <span>75%</span>
+                    <span>30%</span>
                 </div>
-                <div class="cas-bar"><div class="cas-bar-fill bar-c" style="width:75%"></div></div>
-                <div class="cas-slider-row"><input type="range" id="slider-c" min="0" max="100" value="75"><span class="slider-val" id="val-c">75%</span></div>
+                <div class="cas-bar"><div class="cas-bar-fill bar-c" style="width:30%"></div></div>
+                <div class="cas-slider-row"><input type="range" id="slider-c" min="0" max="100" value="30"><span class="slider-val" id="val-c">30%</span></div>
             </div>
             <div class="cas-bar-item">
                 <div class="cas-bar-label">
                     <span><i class="fas fa-running" style="color:#7a6b52"></i> Actividad</span>
-                    <span>15%</span>
+                    <span>55%</span>
                 </div>
-                <div class="cas-bar"><div class="cas-bar-fill bar-a" style="width:15%"></div></div>
-                <div class="cas-slider-row"><input type="range" id="slider-a" min="0" max="100" value="15"><span class="slider-val" id="val-a">15%</span></div>
+                <div class="cas-bar"><div class="cas-bar-fill bar-a" style="width:55%"></div></div>
+                <div class="cas-slider-row"><input type="range" id="slider-a" min="0" max="100" value="55"><span class="slider-val" id="val-a">55%</span></div>
             </div>
             <div class="cas-bar-item">
                 <div class="cas-bar-label">
                     <span><i class="fas fa-hands-helping" style="color:#4a6341"></i> Servicio</span>
-                    <span>10%</span>
+                    <span>15%</span>
                 </div>
-                <div class="cas-bar"><div class="cas-bar-fill bar-s" style="width:10%"></div></div>
-                <div class="cas-slider-row"><input type="range" id="slider-s" min="0" max="100" value="10"><span class="slider-val" id="val-s">10%</span></div>
+                <div class="cas-bar"><div class="cas-bar-fill bar-s" style="width:15%"></div></div>
+                <div class="cas-slider-row"><input type="range" id="slider-s" min="0" max="100" value="15"><span class="slider-val" id="val-s">15%</span></div>
             </div>
         </div>
 
         <!-- 5 CAS STAGES -->
         <div class="cas-stages">
-            <div class="cas-stage">
-                <i class="fas fa-search"></i>
-                <span>Investigacion</span>
-            </div>
-            <div class="cas-stage">
-                <i class="fas fa-clipboard-list"></i>
-                <span>Preparacion</span>
-            </div>
-            <div class="cas-stage">
-                <i class="fas fa-bolt"></i>
-                <span>Accion</span>
-            </div>
-            <div class="cas-stage">
-                <i class="fas fa-brain"></i>
-                <span>Reflexion</span>
-            </div>
-            <div class="cas-stage">
-                <i class="fas fa-eye"></i>
-                <span>Demostracion</span>
-            </div>
+            <div class="cas-stage"><i class="fas fa-search"></i><span>Investigación</span></div>
+            <div class="cas-stage"><i class="fas fa-clipboard-list"></i><span>Preparación</span></div>
+            <div class="cas-stage"><i class="fas fa-bolt"></i><span>Acción</span></div>
+            <div class="cas-stage"><i class="fas fa-brain"></i><span>Reflexión</span></div>
+            <div class="cas-stage"><i class="fas fa-eye"></i><span>Demostración</span></div>
         </div>
 
         <div class="learning-outcome">
-            <strong><i class="fas fa-trophy"></i> Resultado de aprendizaje asociado:</strong> RA2 - Demostrar que se han abordado desafios y desarrollado nuevas habilidades en el proceso. Aprendi a hacer galletas desde cero, algo que nunca habia hecho antes, y eso fue un reto bien grande para mi.
+            <strong><i class="fas fa-trophy"></i> Resultado de aprendizaje asociado:</strong> RA1 - Identificar en uno mismo las fortalezas y las áreas en que es necesario mejorar. Vivir un mes en otro país me mostró que tengo facilidad para conectar con otros latinoamericanos, pero también que me cuesta abrirme con personas que no hablan mi idioma ni piensan como yo, y que eso es algo que puedo trabajar.
         </div>
 
         <section class="content-section">
-            <h4><i class="fas fa-align-left"></i> Descripcion</h4>
-            <p>Para mi primera experiencia CAS decidi aprender a hacer galletas con chips de chocolate. La verdad es que nunca habia cocinado nada en mi vida, ni siquiera me habia animado a entrar a la cocina, asi que cuando lo eligi sabia que iba a ser un reto. Lo hice junto con unos amigos del colegio en la casa de uno de ellos, un sabado en la tarde.</p>
+            <h4><i class="fas fa-align-left"></i> Descripción</h4>
+            <p>En julio de 2025 viajé a Toronto, Canadá, para pasar un mes en <strong>ELI Camps</strong>, un campamento de verano para adolescentes de todo el mundo. El colegio fue el intermediario y viajé junto con otros compañeros del Champagnat. Nos quedamos en la <strong>residencia de la Universidad de Toronto</strong>, donde funciona el campamento.</p>
+            <p>En las mañanas teníamos clases de inglés, pero lo que cuento en esta experiencia es todo lo demás: los deportes que hicimos en las tardes (básquet, vóley y frisbee), el <strong>show de talentos</strong> que preparamos con mi clase y, sobre todo, lo que significó convivir un mes con chicos de otros países, en otro idioma y lejos de mi familia.</p>
         </section>
 
         <section class="content-section">
-            <h4><i class="fas fa-search"></i> Indagacion</h4>
-            <p>Antes de empezar a hacer las galletas, lo primero que hicimos fue <strong>investigar</strong> bien para no fallar en el intento. Como ninguno de nosotros tenia experiencia en reposteria, sabiamos que necesitabamos guiarnos de algo confiable.</p>
-            <p>Nos sentamos todos juntos con una laptop y empezamos a ver videos en YouTube de recetas de galletas con chips de chocolate. Vimos varios canales hasta que encontramos uno que explicaba bien paso a paso. Tambien leimos algunos blogs de cocina para comparar las cantidades de los ingredientes y asegurarnos que la receta era buena.</p>
-            <p>Durante la indagacion descubri cosas que no sabia, como por ejemplo que existen diferentes tipos de azucar (rubia, blanca, glass) y que cada una le da un sabor distinto a las galletas. Tambien aprendi que hay que precalentar el horno antes de meter las galletas. Anotamos todo en una hoja para no olvidarnos. Esta etapa fue clave porque nos dio confianza para empezar sabiendo lo que ibamos a hacer.</p>
+            <h4><i class="fas fa-search"></i> Indagación</h4>
+            <p>Antes de viajar averigüé cómo era el campamento. Supe que recibía a chicos de 13 a 17 años de muchos países, que íbamos a vivir en la residencia de la universidad y que, además de las clases, había deportes, actividades en grupo y excursiones los fines de semana.</p>
+            <p>También me informé un poco sobre Toronto: que es una de las ciudades con más diversidad del mundo y que en julio hace calor, no el frío que uno se imagina de Canadá. Saber eso me ayudó a hacerme una idea, pero la verdad es que no sabía cómo me iba a ir hablando inglés todo el día.</p>
         </section>
 
         <section class="content-section">
-            <h4><i class="fas fa-clipboard-list"></i> Preparacion</h4>
-            <p>Despues de investigar, paso a la fase de <strong>preparacion</strong>. Hicimos una lista de todo lo que necesitabamos: mantequilla Gloria, chocolate en barra, harina, azucar rubia, huevos, esencia de vainilla, polvo de hornear y sal. Como en la casa no habia algunos ingredientes, nos repartimos quien iba a traer cada cosa.</p>
-            <p>El dia de la actividad, llegamos temprano a la casa de mi amigo y empezamos por organizar todo. Sacamos los utensilios que ibamos a usar: la balanza electronica para pesar con precision, la batidora electrica, los bowls grandes y chicos, las cucharas, la bandeja para el horno y el papel manteca.</p>
-            <p>Tambien nos pusimos de acuerdo en los <strong>roles</strong>: una persona se encargaba de pesar los ingredientes, otra de derretir el chocolate y la mantequilla, otra de mezclar y yo me ofreci para usar la batidora. Lavamos bien las manos, nos remangamos y limpiamos la mesa de la cocina antes de empezar. Tener todo preparado y organizado antes de comenzar nos ahorro mucho tiempo y evito que estuvieramos corriendo de un lado a otro buscando cosas.</p>
+            <h4><i class="fas fa-clipboard-list"></i> Preparación</h4>
+            <p>La preparación la coordinamos a través del colegio, que se encargó de la inscripción y de organizar el viaje del grupo. Por mi parte, tuve que preparar mi maleta para un mes entero, llevar ropa para hacer deporte y hacerme a la idea de que iba a estar mucho tiempo sin mi familia.</p>
+            <p>Lo que más me preocupaba era el idioma. Sabía que me iba a tocar hablar inglés con gente de todos lados, así que antes del viaje traté de practicar un poco más para no llegar tan nervioso.</p>
         </section>
 
         <section class="content-section">
-            <h4><i class="fas fa-bolt"></i> Accion</h4>
-            <p>Llego el momento de la <strong>accion</strong>, que era la parte que mas nervios me daba pero tambien la mas emocionante. Empezamos pesando el chocolate en la balanza y partiendolo en trozos pequenos para que se derritiera mas rapido. Lo pusimos en un bowl junto con la mantequilla y lo derretimos a bano maria, que basicamente es poner un bowl encima de una olla con agua caliente para que el calor sea suave y no se queme.</p>
-            <p>Mientras eso se derretia, otros companeros pesaban la harina, el azucar y los demas ingredientes secos. Cuando todo estuvo listo, mezclamos los ingredientes humedos con los secos en un bowl grande. Aqui vino mi parte: agarrar la batidora electrica y batir todo hasta que quedara una masa uniforme. Al principio salia un poco de polvo de harina por todos lados jaja, pero despues le agarre la mano.</p>
-            <p>Cuando la masa estuvo lista, le agregamos los chips de chocolate y la mezclamos con una cuchara. Luego formamos bolitas pequenas con las manos y las pusimos en la bandeja con papel manteca, dejando espacio entre cada una para que no se peguen al hornearse. Las metimos al horno (que ya habiamos precalentado) durante unos 12 minutos. Mientras se horneaban, aprovechamos para empezar a lavar los utensilios sucios. Cuando las sacamos, la cocina olia increible y vimos que las galletas habian salido doradas y perfectas. Al final no nos las comimos todas: separamos una parte y la compartimos con nuestras familias.</p>
+            <h4><i class="fas fa-bolt"></i> Acción</h4>
+            <p>Al llegar a la residencia me tocó un cuarto para mí solo, aunque había chicos que compartían. Al principio fue raro no tener a nadie con quien hablar en el cuarto, así que a veces me iba a dormir al cuarto de mi amigo. Poco a poco me fui acostumbrando a organizarme solo: levantarme a tiempo, cuidar mis cosas y manejar mi día.</p>
+            <p>En las tardes hacíamos deporte. Jugamos <strong>básquet, vóley y frisbee</strong> con chicos de otros países, y ahí me di cuenta de que el deporte ayuda mucho a romper el hielo: en la cancha no importa tanto el idioma, uno se entiende con pases y jugadas.</p>
+            <p>Otra parte importante fue el <strong>show de talentos</strong>. Cada clase tenía que preparar una presentación, así que con mis compañeros de clase, que eran de distintos países, tuvimos que ponernos de acuerdo, ensayar y presentarlo frente a todo el campamento. En mi clase preparamos una <strong>actuación</strong>, y subir a actuar en inglés frente a chicos de todo el mundo fue uno de los momentos que más nervios me dio, pero también de los que más disfruté.</p>
+            <p>También ayudé a algunos amigos que tenían problemas con el inglés <strong>traduciéndoles cosas</strong>: lo que decían los monitores, las instrucciones de una actividad o conversaciones con otros chicos. Me sentí útil, porque sabía lo que era no entender nada al principio.</p>
         </section>
 
         <section class="content-section">
-            <h4><i class="fas fa-lightbulb"></i> Reflexion</h4>
-            <p><strong>Que aprendi?</strong> Aprendi que cocinar, especialmente la reposteria, es mucho mas dificil de lo que parece. Hay que ser super preciso con las medidas porque si te pasas de un ingrediente, todo cambia. Tambien aprendi tecnicas que nunca habia escuchado, como lo del bano maria o batir la masa hasta que tenga "punto de letra". Ahora entiendo por que mi mama se demora tanto cuando cocina cosas dulces.</p>
-            <p><strong>Como me senti?</strong> Al principio me senti bien nervioso porque pensaba que iba a malograr todo. Tenia miedo de echar mucha harina o de que las galletas salieran quemadas. Pero cuando vi que mis amigos tampoco sabian bien lo que estaban haciendo, me relaje y empezamos a reirnos de los errores. Cuando abrimos el horno y vimos que las galletas habian salido bien, senti una emocion super genial, como de "wow, si pude".</p>
-            <p><strong>Que desafios enfrente?</strong> El mayor reto fue mi propia inseguridad. Como nunca habia cocinado, no me sentia capaz y todo el rato pensaba que iba a fallar. Otro desafio fue trabajar en equipo, porque al principio todos queriamos hacer lo mismo y nos chocabamos en la cocina. Tuvimos que aprender a organizarnos y darnos roles para que todo fluyera mejor. Tambien fue dificil tener paciencia para esperar que la masa repose y que las galletas se horneen, porque ya queriamos probarlas.</p>
-            <p><strong>Como contribuyo a mi crecimiento?</strong> Esta experiencia me ayudo a darme cuenta que si me animo, puedo aprender cosas nuevas que pensaba que no eran lo mio. Antes pensaba que la cocina no era para mi, pero ahora ya me animo a hacer cosas en casa de vez en cuando. Tambien aprendi a valorar mucho mas el trabajo de mi mama, porque ahora entiendo lo dificil que es cocinar y dejar la cocina limpia despues. En general me hizo sentir mas independiente y capaz.</p>
+            <h4><i class="fas fa-lightbulb"></i> Reflexión</h4>
+            <p><strong>¿Qué aprendí?</strong> Aprendí que cada persona trae una forma distinta de pensar según de dónde viene. Al principio eso me chocaba, pero con el tiempo entendí que escuchar esas diferencias es justamente lo que hace valioso conocer gente de otros países.</p>
+            <p><strong>¿Cómo me sentí?</strong> Los primeros días me sentí un poco fuera de lugar. Me costaba entrar en las conversaciones y a veces me quedaba solo con los que hablaban español. Con el paso de las semanas me fui soltando y terminé el mes mucho más seguro de mí mismo.</p>
+            <p><strong>¿Qué desafíos enfrenté?</strong> Lo que más me costó fue <strong>socializar con las personas que no hablaban español</strong>. No era solo el idioma: tenían costumbres y formas de pensar diferentes a las mías y no sabía bien cómo acercarme. Lo fui superando poco a poco, sobre todo gracias al deporte y al show de talentos, donde no quedaba otra que trabajar juntos.</p>
+            <p><strong>¿Cómo contribuyó a mi crecimiento?</strong> Esta experiencia me ayudó a conocerme mejor. Descubrí que una de mis <strong>fortalezas</strong> es conectar rápido con otros latinoamericanos: con mexicanos, colombianos y chicos de otros países de la región me entendía muy fácil y hacíamos amigos enseguida. Pero también identifiqué un <strong>área en la que tengo que mejorar</strong>: salir de mi zona de confort y abrirme con personas diferentes a mí. Ahora sé que es algo que puedo trabajar, porque en Toronto lo empecé a lograr.</p>
         </section>
+
         <section class="content-section">
-            <h4><i class="fas fa-video"></i> Video</h4>
+            <h4><i class="fas fa-video"></i> Videos</h4>
             <div class="video-grid">
                 <div>
-                    <p style="text-align:center;font-weight:600;color:#5c7a52;margin-bottom:10px"><i class="fas fa-play-circle"></i> Preparacion de la masa</p>
+                    <p style="text-align:center;font-weight:600;color:#5c7a52;margin-bottom:10px"><i class="fas fa-play-circle"></i> Video 1: Partido de básquet con chicos de otros países en el campamento</p>
                     <video controls preload="metadata" class="cas-video">
-                        <source src="videos/experiencia1/video1.mp4" type="video/mp4">
+                        <source src="videos/experiencia1/video1-basquet.mp4" type="video/mp4">
+                        Tu navegador no soporta este video.
+                    </video>
+                </div>
+                <div>
+                    <p style="text-align:center;font-weight:600;color:#5c7a52;margin-bottom:10px"><i class="fas fa-play-circle"></i> Video 2: El show de talentos: el baile de mis compañeros de otra clase</p>
+                    <video controls preload="metadata" class="cas-video">
+                        <source src="videos/experiencia1/video2-escenario.mp4" type="video/mp4">
                         Tu navegador no soporta este video.
                     </video>
                 </div>
             </div>
         </section>
+
         <section class="content-section">
             <h4><i class="fas fa-camera"></i> Fotos del Proceso</h4>
             <div class="photo-grid">
                 <div class="photo-item">
-                    <img src="imagenes/experiencia1/01-investigacion-equipo.jpeg" alt="Investigacion en equipo">
-                    <p>El equipo investigando la receta antes de empezar</p>
+                    <img src="imagenes/experiencia1/01-llegada-aeropuerto-toronto.jpg" alt="Llegando al aeropuerto de Toronto con mis compañeros del Champagnat">
+                    <p>Llegando al aeropuerto de Toronto con mis compañeros del Champagnat</p>
                 </div>
                 <div class="photo-item">
-                    <img src="imagenes/experiencia1/02-pesando-chocolate.jpeg" alt="Pesando el chocolate">
-                    <p>Pesando con precision el chocolate en la balanza</p>
+                    <img src="imagenes/experiencia1/02-camino-al-campus.jpg" alt="Primer día: caminando hacia el campus de la Universidad de Toronto">
+                    <p>Primer día: caminando hacia el campus de la Universidad de Toronto</p>
                 </div>
                 <div class="photo-item">
-                    <img src="imagenes/experiencia1/03-preparando-utensilios.jpeg" alt="Preparando utensilios">
-                    <p>Preparando los utensilios y limpiando el area</p>
+                    <img src="imagenes/experiencia1/03-cuarto-residencia.jpg" alt="En la residencia de la universidad, donde vivimos todo el mes">
+                    <p>En la residencia de la universidad, donde vivimos todo el mes</p>
                 </div>
                 <div class="photo-item">
-                    <img src="imagenes/experiencia1/04-mantequilla-derritiendose.jpeg" alt="Mantequilla derritiendose">
-                    <p>Derritiendo la mantequilla a bano maria</p>
+                    <img src="imagenes/experiencia1/08-bandera-peru-comedor.jpg" alt="Con la bandera del Perú en el comedor de la universidad" style="object-position: 50% 30%;">
+                    <p>Con la bandera del Perú en el comedor de la universidad</p>
                 </div>
                 <div class="photo-item">
-                    <img src="imagenes/experiencia1/05-midiendo-ingredientes.jpeg" alt="Midiendo ingredientes">
-                    <p>Midiendo la cantidad exacta de azucar y harina</p>
+                    <img src="imagenes/experiencia1/09-voley.jpg" alt="Jugando vóley en las tardes del campamento" style="object-position: 50% 30%;">
+                    <p>Jugando vóley en las tardes del campamento</p>
                 </div>
                 <div class="photo-item">
-                    <img src="imagenes/experiencia1/06-equipo-trabajando.jpeg" alt="Equipo trabajando">
-                    <p>Trabajando en equipo y aprendiendo juntos</p>
+                    <img src="imagenes/experiencia1/10-uno-con-amigos-asiaticos.jpg" alt="Jugando UNO con chicos de Asia: aquí empecé a soltarme con quienes no hablaban español">
+                    <p>Jugando UNO con chicos de Asia: aquí empecé a soltarme con quienes no hablaban español</p>
                 </div>
                 <div class="photo-item">
-                    <img src="imagenes/experiencia1/07-mezclando-batidora.jpeg" alt="Mezclando con la batidora">
-                    <p>Batiendo la masa hasta lograr la consistencia perfecta</p>
+                    <img src="imagenes/experiencia1/11-amigo-en-el-barco.jpg" alt="Con un amigo que hice en el campamento, en el paseo en barco" style="object-position: 50% 30%;">
+                    <p>Con un amigo que hice en el campamento, en el paseo en barco</p>
                 </div>
                 <div class="photo-item">
-                    <img src="imagenes/experiencia1/08-resultado-final.jpg" alt="Galletas con chips de chocolate terminadas" style="object-position: 50% 65%;">
-                    <p>El resultado final: nuestras galletas con chips de chocolate recien horneadas</p>
+                    <img src="imagenes/experiencia1/12-grupo-internacional.jpg" alt="Con amigos de distintos países del campamento">
+                    <p>Con amigos de distintos países del campamento</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia1/07-amigos-de-varios-paises.jpg" alt="Chicos de varios países juntos en el campus">
+                    <p>Chicos de varios países juntos en el campus</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia1/20-salon-con-todo-el-campamento.jpg" alt="Todo el campamento reunido en uno de los salones de la universidad" style="object-position: 50% 40%;">
+                    <p>Todo el campamento reunido en uno de los salones de la universidad</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia1/18-cataratas-del-niagara.jpg" alt="En la excursión a las Cataratas del Niágara">
+                    <p>En la excursión a las Cataratas del Niágara</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia1/21-ultima-noche.jpg" alt="La última noche en la residencia, con las maletas listas">
+                    <p>La última noche en la residencia, con las maletas listas</p>
                 </div>
             </div>
         </section>
         <div class="prev-next">
-            <a class="disabled" href="#">&larr; Anterior</a>
+            <a href="#" class="disabled">&larr; Anterior</a>
             <a href="experiencia2.html">Siguiente &rarr;</a>
         </div>
     </div>

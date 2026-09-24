@@ -92,9 +92,11 @@
         .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
         .photo-item { text-align: center; transition: all 0.4s ease; }
         .photo-item:hover { transform: translateY(-5px); }
-        .photo-placeholder { width: 100%; height: 200px; background: linear-gradient(135deg, #d4cbb8, #c0b49e); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #7a6b52; font-size: 0.95rem; transition: all 0.3s ease; }
+        .photo-placeholder { width: 100%; height: 200px; background: linear-gradient(135deg, #d4cbb8, #c0b49e); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #7a6b52; font-size: 0.95rem; transition: all 0.3s ease; padding: 10px; }
         .photo-item:hover .photo-placeholder { box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
-        .photo-item p { margin-top: 0.5rem; font-size: 0.85rem; color: #7a6b52; font-style: italic; }
+        .photo-item img { width: 100%; height: 220px; object-fit: cover; border-radius: 10px; transition: all 0.4s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.08); cursor: pointer; }
+        .photo-item:hover img { box-shadow: 0 8px 25px rgba(0,0,0,0.15); transform: scale(1.02); }
+        .photo-item p { margin-top: 0.6rem; font-size: 0.85rem; color: #7a6b52; font-style: italic; }
 
         .prev-next { display: flex; justify-content: space-between; margin: 3rem 0 1rem; }
         .prev-next a { background: linear-gradient(135deg, #5c7a52, #4a6341); color: #f5f0e8; text-decoration: none; padding: 0.8rem 1.8rem; border-radius: 10px; font-size: 0.95rem; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(92,122,82,0.3); }
@@ -173,6 +175,12 @@
         .btn-cancel:hover { background: #d4cbb8; }
         .password-error { color: #c0392b; font-size: 0.8rem; margin-top: 8px; display: none; }
         html { scroll-behavior: smooth; }
+        /* DRAFT HELPERS */
+        .draft-banner { display: flex; align-items: center; gap: 10px; background: #fff8e1; border: 1px dashed #d4a72c; color: #7a5c12; border-radius: 10px; padding: 0.8rem 1.1rem; margin: 0 0 1.5rem; font-size: 0.88rem; }
+        .fill { background: #fff3c4; color: #7a5c12; padding: 1px 6px; border-radius: 4px; font-style: italic; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+        .photo-placeholder i { font-size: 2.2rem; opacity: 0.7; }
+        .photo-tip { font-size: 0.85rem; color: #7a6b52; background: #f5f0e8; border-radius: 8px; padding: 0.7rem 1rem; margin-bottom: 0.5rem; text-align: left !important; }
+
     </style>
 </head>
 <body>
@@ -214,91 +222,111 @@
     <div class="container">
         <div class="exp-header">
             <h2>Experiencia 7</h2>
-            <h3>[Nombre de la experiencia]</h3>
+            <h3><i class="fas fa-hospital" style="color:#7a6b52"></i> Voluntariado en un Hospital</h3>
         </div>
         <div class="badges">
-            <span class="badge badge-c"><i class="fas fa-palette"></i> Creatividad</span>
-            <span class="badge badge-a"><i class="fas fa-running"></i> Actividad</span>
             <span class="badge badge-s"><i class="fas fa-hands-helping"></i> Servicio</span>
+            <span class="badge badge-c"><i class="fas fa-palette"></i> Creatividad</span>
         </div>
+
+        <div class="draft-banner"><i class="fas fa-pencil-ruler"></i> <span><strong>Borrador:</strong> lo resaltado en amarillo son datos por completar después de la actividad.</span></div>
 
         <!-- CAS PERCENTAGE BARS -->
         <div class="cas-percentages">
-            <h4><i class="fas fa-chart-pie"></i> Distribucion CAS</h4>
+            <h4><i class="fas fa-chart-pie"></i> Distribución CAS</h4>
             <div class="cas-bar-item">
                 <div class="cas-bar-label">
                     <span><i class="fas fa-palette" style="color:#5c7a52"></i> Creatividad</span>
-                    <span>40%</span>
+                    <span>20%</span>
                 </div>
-                <div class="cas-bar"><div class="cas-bar-fill bar-c" style="width:40%"></div></div>
+                <div class="cas-bar"><div class="cas-bar-fill bar-c" style="width:20%"></div></div>
+                <div class="cas-slider-row"><input type="range" id="slider-c" min="0" max="100" value="20"><span class="slider-val" id="val-c">20%</span></div>
             </div>
             <div class="cas-bar-item">
                 <div class="cas-bar-label">
                     <span><i class="fas fa-running" style="color:#7a6b52"></i> Actividad</span>
-                    <span>30%</span>
+                    <span>10%</span>
                 </div>
-                <div class="cas-bar"><div class="cas-bar-fill bar-a" style="width:30%"></div></div>
+                <div class="cas-bar"><div class="cas-bar-fill bar-a" style="width:10%"></div></div>
+                <div class="cas-slider-row"><input type="range" id="slider-a" min="0" max="100" value="10"><span class="slider-val" id="val-a">10%</span></div>
             </div>
             <div class="cas-bar-item">
                 <div class="cas-bar-label">
                     <span><i class="fas fa-hands-helping" style="color:#4a6341"></i> Servicio</span>
-                    <span>30%</span>
+                    <span>70%</span>
                 </div>
-                <div class="cas-bar"><div class="cas-bar-fill bar-s" style="width:30%"></div></div>
+                <div class="cas-bar"><div class="cas-bar-fill bar-s" style="width:70%"></div></div>
+                <div class="cas-slider-row"><input type="range" id="slider-s" min="0" max="100" value="70"><span class="slider-val" id="val-s">70%</span></div>
             </div>
         </div>
 
         <!-- 5 CAS STAGES -->
         <div class="cas-stages">
-            <div class="cas-stage">
-                <i class="fas fa-search"></i>
-                <span>Investigacion</span>
-            </div>
-            <div class="cas-stage">
-                <i class="fas fa-clipboard-list"></i>
-                <span>Preparacion</span>
-            </div>
-            <div class="cas-stage">
-                <i class="fas fa-bolt"></i>
-                <span>Accion</span>
-            </div>
-            <div class="cas-stage">
-                <i class="fas fa-brain"></i>
-                <span>Reflexion</span>
-            </div>
-            <div class="cas-stage">
-                <i class="fas fa-eye"></i>
-                <span>Demostracion</span>
-            </div>
+            <div class="cas-stage"><i class="fas fa-search"></i><span>Investigación</span></div>
+            <div class="cas-stage"><i class="fas fa-clipboard-list"></i><span>Preparación</span></div>
+            <div class="cas-stage"><i class="fas fa-bolt"></i><span>Acción</span></div>
+            <div class="cas-stage"><i class="fas fa-brain"></i><span>Reflexión</span></div>
+            <div class="cas-stage"><i class="fas fa-eye"></i><span>Demostración</span></div>
         </div>
 
         <div class="learning-outcome">
-            <strong><i class="fas fa-trophy"></i> Resultado de aprendizaje asociado:</strong> [Describe aqui el resultado de aprendizaje asociado a esta experiencia]
+            <strong><i class="fas fa-trophy"></i> Resultado de aprendizaje asociado:</strong> RA7 - Reconocer y considerar la ética de las elecciones y las acciones. En un hospital las personas están en un momento muy vulnerable, así que tuve que pensar en cómo tratarlas con respeto, cuidar su privacidad y entender qué cosas me tocaba hacer y cuáles no.
         </div>
 
         <section class="content-section">
-            <h4><i class="fas fa-align-left"></i> Descripcion</h4>
-            <p>[Escribe aqui la descripcion de tu experiencia CAS. Explica en que consistio la actividad, donde se llevo a cabo, quienes participaron y cual fue tu rol. Detalla los objetivos que te planteaste y como los abordaste a lo largo de la experiencia.]</p>
+            <h4><i class="fas fa-align-left"></i> Descripción</h4>
+            <p>Para esta experiencia CAS hice un voluntariado en <span class="fill">[nombre del hospital]</span>, en el área de <span class="fill">[pediatría / adultos mayores / sala de espera / otra]</span>. Fui junto con <span class="fill">[con quién fuiste: compañeros, un grupo de voluntarios, la parroquia, etc.]</span> el <span class="fill">[fecha o fechas]</span>.</p>
+            <p>Como no soy médico ni enfermero, mi rol no era atender a los pacientes, sino <strong>acompañarlos</strong> y hacerles el rato más llevadero. Lo que hicimos fue <span class="fill">[tus tareas: conversar con los pacientes, jugar o leer con los niños, hacer manualidades, repartir algo, ayudar en la sala de espera, etc.]</span>.</p>
         </section>
+
         <section class="content-section">
-            <h4><i class="fas fa-lightbulb"></i> Reflexion</h4>
-            <p>[Escribe aqui tu reflexion personal sobre esta experiencia. Que aprendiste? Como te sentiste? Que desafios enfrentaste y como los superaste? De que manera esta experiencia contribuyo a tu crecimiento personal?]</p>
+            <h4><i class="fas fa-search"></i> Indagación</h4>
+            <p>Antes de ir me informé sobre cómo funciona el voluntariado en un hospital, porque no es como cualquier otro lugar. Averigüé que <span class="fill">[quién organiza el voluntariado y qué requisitos pidieron: permiso de los padres, carné de vacunas, charla previa, etc.]</span>.</p>
+            <p>También aprendí algunas reglas básicas que me parecieron muy importantes: lavarse las manos antes y después de estar con cada paciente, no ir si uno está resfriado, no tomar fotos a los pacientes sin permiso y no preguntarles por su enfermedad si ellos no quieren hablar de eso. Entendí que en un hospital lo primero es no hacer daño, aunque sea sin querer.</p>
         </section>
+
+        <section class="content-section">
+            <h4><i class="fas fa-clipboard-list"></i> Preparación</h4>
+            <p>Para prepararme <span class="fill">[qué preparaste: juegos, cuentos, dibujos para pintar, tarjetas con mensajes, manualidades, etc.]</span>. La idea era llevar algo sencillo que ayudara a romper el hielo y que los pacientes pudieran disfrutar sin moverse mucho.</p>
+            <p>El día de la actividad nos dieron una inducción donde nos explicaron <span class="fill">[lo que les explicaron: por dónde podían circular, qué salas no podían visitar, cómo presentarse con los pacientes, etc.]</span>. Fuimos con <span class="fill">[ropa o uniforme que usaron: mandil, polo del voluntariado, mascarilla]</span>.</p>
+        </section>
+
+        <section class="content-section">
+            <h4><i class="fas fa-bolt"></i> Acción</h4>
+            <p>Al llegar <span class="fill">[cuenta cómo empezó: a qué sala entraron primero, cómo se presentaron, cómo reaccionaron los pacientes]</span>.</p>
+            <p>Durante la jornada <span class="fill">[describe lo que hiciste paso a paso: las actividades, cuánto tiempo estuviste con cada persona, cómo se organizó el grupo]</span>.</p>
+            <p>El momento que más me marcó fue <span class="fill">[una conversación, un niño que se rio, un paciente que te contó su historia, un familiar que les agradeció]</span>.</p>
+        </section>
+
+        <section class="content-section">
+            <h4><i class="fas fa-lightbulb"></i> Reflexión</h4>
+            <p><strong>¿Qué aprendí?</strong> Aprendí que a veces ayudar no significa hacer algo grande, sino simplemente estar presente. Muchas personas en un hospital pasan horas solas o aburridas, y una conversación o un juego les cambia el día. <span class="fill">[Agrega algo concreto que aprendiste de los pacientes o del personal del hospital.]</span></p>
+            <p><strong>¿Cómo me sentí?</strong> <span class="fill">[Cómo te sentiste antes de entrar (nervios, miedo a no saber qué decir), durante y al salir.]</span></p>
+            <p><strong>¿Qué desafíos enfrenté?</strong> <span class="fill">[Por ejemplo: ver a personas sufriendo, no saber qué decir, mantener la calma, respetar las reglas aunque quisieras hacer más.]</span> Aprendí a manejarlo <span class="fill">[cómo lo manejaste]</span>.</p>
+            <p><strong>¿Cómo contribuyó a mi crecimiento?</strong> <span class="fill">[Qué cambió en tu forma de ver la salud, tu familia o a las personas enfermas. Puedes conectarlo con la Experiencia 6 (sillas de ruedas), porque en las dos te tocó acompañar a personas en situaciones difíciles.]</span></p>
+        </section>
+
         <section class="content-section">
             <h4><i class="fas fa-video"></i> Video</h4>
-            <div class="video-placeholder"><i class="fas fa-play-circle" style="font-size:2rem;margin-bottom:8px;display:block"></i>Sube tu video aqui<br>(reemplazar con iframe de YouTube)</div>
+            <div class="video-placeholder">
+                <div>
+                    <i class="fas fa-video" style="font-size:2.5rem;margin-bottom:10px;display:block"></i>
+                    <strong>Espacio para el video del voluntariado</strong><br>
+                    <small>Idea: grábate contando la experiencia al salir del hospital, sin mostrar pacientes</small>
+                </div>
+            </div>
         </section>
+
         <section class="content-section">
-            <h4><i class="fas fa-camera"></i> Fotos</h4>
+            <h4><i class="fas fa-camera"></i> Fotos del Proceso</h4>
+            <p class="photo-tip"><i class="fas fa-info-circle"></i> En los hospitales casi nunca se puede fotografiar a los pacientes. Pide permiso al encargado y prioriza fotos del grupo de voluntarios, los materiales que llevaron o la entrada del hospital.</p>
             <div class="photo-grid">
-                <div class="photo-item"><div class="photo-placeholder">Foto 1</div><p>[Descripcion de la foto 1]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 2</div><p>[Descripcion de la foto 2]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 3</div><p>[Descripcion de la foto 3]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 4</div><p>[Descripcion de la foto 4]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 5</div><p>[Descripcion de la foto 5]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 6</div><p>[Descripcion de la foto 6]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 7</div><p>[Descripcion de la foto 7]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 8</div><p>[Descripcion de la foto 8]</p></div>
+                <div class="photo-item"><div class="photo-placeholder"><i class="fas fa-hospital"></i></div><p>Llegando al hospital</p></div>
+                <div class="photo-item"><div class="photo-placeholder"><i class="fas fa-users"></i></div><p>El grupo de voluntarios</p></div>
+                <div class="photo-item"><div class="photo-placeholder"><i class="fas fa-chalkboard-teacher"></i></div><p>La inducción antes de empezar</p></div>
+                <div class="photo-item"><div class="photo-placeholder"><i class="fas fa-puzzle-piece"></i></div><p>Los materiales que preparamos</p></div>
+                <div class="photo-item"><div class="photo-placeholder"><i class="fas fa-hands-helping"></i></div><p>Durante la actividad (con permiso)</p></div>
+                <div class="photo-item"><div class="photo-placeholder"><i class="fas fa-heart"></i></div><p>Al terminar la jornada</p></div>
             </div>
         </section>
         <div class="prev-next">

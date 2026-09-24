@@ -179,12 +179,6 @@
         .video-grid > div { min-width: 0; }
         .cas-video { width: 100%; max-width: 480px; max-height: 360px; display: block; margin: 0 auto; border-radius: 12px; background: #1f2a1c; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
         .video-grid .video-placeholder { height: 240px; max-width: 100%; }
-        /* DRAFT HELPERS */
-        .draft-banner { display: flex; align-items: center; gap: 10px; background: #fff8e1; border: 1px dashed #d4a72c; color: #7a5c12; border-radius: 10px; padding: 0.8rem 1.1rem; margin: 0 0 1.5rem; font-size: 0.88rem; }
-        .fill { background: #fff3c4; color: #7a5c12; padding: 1px 6px; border-radius: 4px; font-style: italic; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
-        .photo-placeholder i { font-size: 2.2rem; opacity: 0.7; }
-        .photo-tip { font-size: 0.85rem; color: #7a6b52; background: #f5f0e8; border-radius: 8px; padding: 0.7rem 1rem; margin-bottom: 0.5rem; text-align: left !important; }
-
     </style>
 </head>
 <body>
@@ -226,107 +220,111 @@
     <div class="container">
         <div class="exp-header">
             <h2>Experiencia 6</h2>
-            <h3><i class="fas fa-globe-americas" style="color:#7a6b52"></i> Un Mes de Intercambio en Toronto, Canadá</h3>
+            <h3><i class="fas fa-wheelchair" style="color:#7a6b52"></i> Voluntariado: Armando y Entregando Sillas de Ruedas</h3>
         </div>
         <div class="badges">
-            <span class="badge badge-a"><i class="fas fa-running"></i> Actividad</span>
-            <span class="badge badge-c"><i class="fas fa-palette"></i> Creatividad</span>
             <span class="badge badge-s"><i class="fas fa-hands-helping"></i> Servicio</span>
+            <span class="badge badge-a"><i class="fas fa-running"></i> Actividad</span>
         </div>
 
         <!-- CAS PERCENTAGE BARS -->
         <div class="cas-percentages">
-            <h4><i class="fas fa-chart-pie"></i> Distribución CAS</h4>
+            <h4><i class="fas fa-chart-pie"></i> Distribucion CAS</h4>
             <div class="cas-bar-item">
                 <div class="cas-bar-label">
                     <span><i class="fas fa-palette" style="color:#5c7a52"></i> Creatividad</span>
-                    <span>30%</span>
+                    <span>10%</span>
                 </div>
-                <div class="cas-bar"><div class="cas-bar-fill bar-c" style="width:30%"></div></div>
-                <div class="cas-slider-row"><input type="range" id="slider-c" min="0" max="100" value="30"><span class="slider-val" id="val-c">30%</span></div>
+                <div class="cas-bar"><div class="cas-bar-fill bar-c" style="width:10%"></div></div>
+                <div class="cas-slider-row"><input type="range" id="slider-c" min="0" max="100" value="10"><span class="slider-val" id="val-c">10%</span></div>
             </div>
             <div class="cas-bar-item">
                 <div class="cas-bar-label">
                     <span><i class="fas fa-running" style="color:#7a6b52"></i> Actividad</span>
-                    <span>55%</span>
+                    <span>30%</span>
                 </div>
-                <div class="cas-bar"><div class="cas-bar-fill bar-a" style="width:55%"></div></div>
-                <div class="cas-slider-row"><input type="range" id="slider-a" min="0" max="100" value="55"><span class="slider-val" id="val-a">55%</span></div>
+                <div class="cas-bar"><div class="cas-bar-fill bar-a" style="width:30%"></div></div>
+                <div class="cas-slider-row"><input type="range" id="slider-a" min="0" max="100" value="30"><span class="slider-val" id="val-a">30%</span></div>
             </div>
             <div class="cas-bar-item">
                 <div class="cas-bar-label">
                     <span><i class="fas fa-hands-helping" style="color:#4a6341"></i> Servicio</span>
-                    <span>15%</span>
+                    <span>60%</span>
                 </div>
-                <div class="cas-bar"><div class="cas-bar-fill bar-s" style="width:15%"></div></div>
-                <div class="cas-slider-row"><input type="range" id="slider-s" min="0" max="100" value="15"><span class="slider-val" id="val-s">15%</span></div>
+                <div class="cas-bar"><div class="cas-bar-fill bar-s" style="width:60%"></div></div>
+                <div class="cas-slider-row"><input type="range" id="slider-s" min="0" max="100" value="60"><span class="slider-val" id="val-s">60%</span></div>
             </div>
         </div>
 
         <!-- 5 CAS STAGES -->
         <div class="cas-stages">
-            <div class="cas-stage"><i class="fas fa-search"></i><span>Investigación</span></div>
-            <div class="cas-stage"><i class="fas fa-clipboard-list"></i><span>Preparación</span></div>
-            <div class="cas-stage"><i class="fas fa-bolt"></i><span>Acción</span></div>
-            <div class="cas-stage"><i class="fas fa-brain"></i><span>Reflexión</span></div>
-            <div class="cas-stage"><i class="fas fa-eye"></i><span>Demostración</span></div>
+            <div class="cas-stage">
+                <i class="fas fa-search"></i>
+                <span>Investigacion</span>
+            </div>
+            <div class="cas-stage">
+                <i class="fas fa-clipboard-list"></i>
+                <span>Preparacion</span>
+            </div>
+            <div class="cas-stage">
+                <i class="fas fa-bolt"></i>
+                <span>Accion</span>
+            </div>
+            <div class="cas-stage">
+                <i class="fas fa-brain"></i>
+                <span>Reflexion</span>
+            </div>
+            <div class="cas-stage">
+                <i class="fas fa-eye"></i>
+                <span>Demostracion</span>
+            </div>
         </div>
 
         <div class="learning-outcome">
-            <strong><i class="fas fa-trophy"></i> Resultado de aprendizaje asociado:</strong> RA1 - Identificar en uno mismo las fortalezas y las áreas en que es necesario mejorar. Vivir un mes en otro país me mostró que tengo facilidad para conectar con otros latinoamericanos, pero también que me cuesta abrirme con personas que no hablan mi idioma ni piensan como yo, y que eso es algo que puedo trabajar.
+            <strong><i class="fas fa-trophy"></i> Resultado de aprendizaje asociado:</strong> RA6 - Demostrar compromiso con asuntos de importancia global. Participar en una jornada de voluntariado organizada me permitio actuar frente a una problematica social (la falta de acceso a movilidad para personas con discapacidad) y reflexionar sobre la realidad de otros.
         </div>
 
         <section class="content-section">
-            <h4><i class="fas fa-align-left"></i> Descripción</h4>
-            <p>En julio de 2025 viajé a Toronto, Canadá, para pasar un mes en <strong>ELI Camps</strong>, un campamento de verano para adolescentes de todo el mundo. El colegio fue el intermediario y viajé junto con otros compañeros del Champagnat. Nos quedamos en la <strong>residencia de la Universidad de Toronto</strong>, donde funciona el campamento.</p>
-            <p>En las mañanas teníamos clases de inglés, pero lo que cuento en esta experiencia es todo lo demás: los deportes que hicimos en las tardes (básquet, vóley y frisbee), el <strong>show de talentos</strong> que preparamos con mi clase y, sobre todo, lo que significó convivir un mes con chicos de otros países, en otro idioma y lejos de mi familia.</p>
+            <h4><i class="fas fa-align-left"></i> Descripcion</h4>
+            <p>Para esta experiencia CAS participe como voluntario en una jornada de armado y entrega de sillas de ruedas para personas con discapacidad, organizada en una iglesia. La actividad se llevo a cabo junto con un grupo de voluntarios mayores que ya tenian experiencia haciendo este tipo de trabajo, ademas de varios companeros del colegio.</p>
+            <p>Mi rol consistio en dos partes claramente diferenciadas: primero armar las sillas (montar las ruedas, ajustar los tornillos, colocar los reposapies, los apoyabrazos y los respaldos), y despues participar en la entrega directa a las personas que las necesitaban. Esta segunda parte fue la mas significativa porque pudimos sentarnos en un circulo con los beneficiarios, escuchar sus historias y compartir un momento de reflexion sobre la fe y la vida.</p>
         </section>
 
         <section class="content-section">
-            <h4><i class="fas fa-search"></i> Indagación</h4>
-            <p>Antes de viajar averigüé cómo era el campamento. Supe que recibía a chicos de 13 a 17 años de muchos países, que íbamos a vivir en la residencia de la universidad y que, además de las clases, había deportes, actividades en grupo y excursiones los fines de semana.</p>
-            <p>También me informé un poco sobre Toronto: que es una de las ciudades con más diversidad del mundo y que en julio hace calor, no el frío que uno se imagina de Canadá. Saber eso me ayudó a hacerme una idea, pero la verdad es que no sabía cómo me iba a ir hablando inglés todo el día.</p>
+            <h4><i class="fas fa-search"></i> Indagacion</h4>
+            <p>Antes de ir a la jornada me informe sobre el contexto del voluntariado. La iglesia trabajaba con la fundacion <em>Camino de Vida</em>, que importa sillas de ruedas desde el exterior y las entrega gratuitamente a personas en situacion de vulnerabilidad que no pueden costearlas por su cuenta.</p>
+            <p>Tambien investigue un poco sobre como armar correctamente las sillas: vi unos videos cortos para entender que piezas tiene una silla estandar, cuales son los puntos de ajuste mas importantes y por que es tan critico que todo quede bien apretado (es literalmente la movilidad y la seguridad de una persona). Aprendi que una silla mal armada puede causar caidas o lesiones, asi que la responsabilidad era grande.</p>
         </section>
 
         <section class="content-section">
-            <h4><i class="fas fa-clipboard-list"></i> Preparación</h4>
-            <p>La preparación la coordinamos a través del colegio, que se encargó de la inscripción y de organizar el viaje del grupo. Por mi parte, tuve que preparar mi maleta para un mes entero, llevar ropa para hacer deporte y hacerme a la idea de que iba a estar mucho tiempo sin mi familia.</p>
-            <p>Lo que más me preocupaba era el idioma. Sabía que me iba a tocar hablar inglés con gente de todos lados, así que antes del viaje traté de practicar un poco más para no llegar tan nervioso.</p>
+            <h4><i class="fas fa-clipboard-list"></i> Preparacion</h4>
+            <p>La preparacion incluyo coordinar el transporte hasta la iglesia, llegar puntuales para no atrasar la jornada y vestirnos con ropa comoda (zapatillas cerradas y polo) porque ibamos a estar agachados moviendo piezas durante varias horas. Los organizadores nos entregaron una camiseta roja con la frase <strong>"Para servirte con mucho gusto"</strong>, que se convirtio en el uniforme de la jornada y marcaba que eramos voluntarios.</p>
+            <p>Tambien nos dieron una pequena induccion al llegar: nos explicaron el orden del armado, cuales eran las herramientas disponibles, como verificar que las ruedas estuvieran firmes y como recibir respetuosamente a las personas beneficiarias cuando llegaran. Esa charla previa me ayudo a entrar a la actividad con seguridad y sin sentirme perdido.</p>
         </section>
 
         <section class="content-section">
-            <h4><i class="fas fa-bolt"></i> Acción</h4>
-            <p>Al llegar a la residencia me tocó un cuarto para mí solo, aunque había chicos que compartían. Al principio fue raro no tener a nadie con quien hablar en el cuarto, así que a veces me iba a dormir al cuarto de mi amigo. Poco a poco me fui acostumbrando a organizarme solo: levantarme a tiempo, cuidar mis cosas y manejar mi día.</p>
-            <p>En las tardes hacíamos deporte. Jugamos <strong>básquet, vóley y frisbee</strong> con chicos de otros países, y ahí me di cuenta de que el deporte ayuda mucho a romper el hielo: en la cancha no importa tanto el idioma, uno se entiende con pases y jugadas.</p>
-            <p>Otra parte importante fue el <strong>show de talentos</strong>. Cada clase tenía que preparar una presentación, así que con mis compañeros de clase, que eran de distintos países, tuvimos que ponernos de acuerdo, ensayar y presentarlo frente a todo el campamento. En mi clase preparamos una <strong>actuación</strong>, y subir a actuar en inglés frente a chicos de todo el mundo fue uno de los momentos que más nervios me dio, pero también de los que más disfruté.</p>
-            <p>También ayudé a algunos amigos que tenían problemas con el inglés <strong>traduciéndoles cosas</strong>: lo que decían los monitores, las instrucciones de una actividad o conversaciones con otros chicos. Me sentí útil, porque sabía lo que era no entender nada al principio.</p>
+            <h4><i class="fas fa-bolt"></i> Accion</h4>
+            <p>La primera parte de la jornada fue puramente <strong>armado</strong>. Las sillas venian desarmadas dentro de cajas grandes de carton. Nos organizamos por estaciones: unos sacaban las piezas, otros montaban el marco, otros ponian las ruedas grandes traseras y las pequenas delanteras, y otros se encargaban de los detalles finales (frenos, reposapies, apoyabrazos). Yo trabaje en montaje de marco y ruedas. Tuve que aprender a ajustar tornillos con la fuerza justa, porque si quedaban flojos la silla se tambaleaba y si los apretaba demasiado podia trozar la rosca.</p>
+            <p>Despues de armar varias sillas, las probamos sentandonos en ellas para revisar que rodaran bien, que los frenos respondieran y que estuvieran completamente seguras. Esta prueba fue clave porque encontramos pequenos detalles para corregir antes de entregarlas.</p>
+            <p>La <strong>segunda parte</strong> fue la entrega. Llegaron las personas beneficiarias acompanadas de sus familias. Nos sentamos todos en un gran circulo y cada una de las personas con discapacidad nos conto su historia: como quedaron en silla de ruedas (algunos por accidentes, otros por enfermedades, otros de nacimiento), como fue el proceso de adaptarse, y como encontraron en su fe en Dios un apoyo para no rendirse. Despues les entregamos formalmente las sillas. Ver la cara de la persona cuando se sento por primera vez en su nueva silla fue un momento que no voy a olvidar.</p>
         </section>
 
         <section class="content-section">
-            <h4><i class="fas fa-lightbulb"></i> Reflexión</h4>
-            <p><strong>¿Qué aprendí?</strong> Aprendí que cada persona trae una forma distinta de pensar según de dónde viene. Al principio eso me chocaba, pero con el tiempo entendí que escuchar esas diferencias es justamente lo que hace valioso conocer gente de otros países.</p>
-            <p><strong>¿Cómo me sentí?</strong> Los primeros días me sentí un poco fuera de lugar. Me costaba entrar en las conversaciones y a veces me quedaba solo con los que hablaban español. Con el paso de las semanas me fui soltando y terminé el mes mucho más seguro de mí mismo.</p>
-            <p><strong>¿Qué desafíos enfrenté?</strong> Lo que más me costó fue <strong>socializar con las personas que no hablaban español</strong>. No era solo el idioma: tenían costumbres y formas de pensar diferentes a las mías y no sabía bien cómo acercarme. Lo fui superando poco a poco, sobre todo gracias al deporte y al show de talentos, donde no quedaba otra que trabajar juntos.</p>
-            <p><strong>¿Cómo contribuyó a mi crecimiento?</strong> Esta experiencia me ayudó a conocerme mejor. Descubrí que una de mis <strong>fortalezas</strong> es conectar rápido con otros latinoamericanos: con mexicanos, colombianos y chicos de otros países de la región me entendía muy fácil y hacíamos amigos enseguida. Pero también identifiqué un <strong>área en la que tengo que mejorar</strong>: salir de mi zona de confort y abrirme con personas diferentes a mí. Ahora sé que es algo que puedo trabajar, porque en Toronto lo empecé a lograr.</p>
+            <h4><i class="fas fa-lightbulb"></i> Reflexion</h4>
+            <p><strong>Que aprendi?</strong> Aprendi cosas practicas, como armar una silla de ruedas paso a paso y trabajar coordinado en una linea de produccion improvisada. Pero lo mas importante que aprendi fue de las historias de los beneficiarios. Ellos hablaron sin amargura, con mucha paz y esperanza, a pesar de las situaciones tan duras que habian vivido. Eso me hizo darme cuenta de que la felicidad no depende de las circunstancias externas sino de la actitud que uno elige tener frente a ellas.</p>
+            <p><strong>Como me senti?</strong> Al inicio me senti nervioso e incluso un poco incomodo, porque no sabia como tratar a las personas que iban a recibir las sillas (tenia miedo de decir algo torpe o de ser condescendiente). Pero cuando empezamos a conversar todo fluyo con naturalidad: ellos no querian lastima, querian que los escucharamos como personas. Al final de la jornada me senti agradecido, tranquilo y con una mezcla de alegria por haber ayudado y de reflexion profunda por todo lo que escuche.</p>
+            <p><strong>Que desafios enfrente?</strong> El desafio fisico fue real: pasamos varias horas agachados, levantando piezas pesadas y armando sillas, asi que termine cansado y con la espalda adolorida. Pero el desafio mas grande fue el emocional. Escuchar como una persona quedo paraplejica por un accidente, o como una madre cuenta lo dificil que es mover a su hijo sin una silla adecuada, te golpea. Tuve que aprender a estar presente y a no desviar la mirada, a escuchar de verdad sin sentir pena, sino respeto.</p>
+            <p><strong>Como contribuyo a mi crecimiento?</strong> Esta experiencia me cambio la forma de ver el mundo. Antes pensaba mucho en cosas pequenas que me molestaban del dia a dia (un examen mal, una discusion tonta, no tener algo que queria) y despues de esta jornada todo eso se relativiza. Aprendi a valorar lo que tengo: poder caminar, poder estudiar, tener salud, tener una familia que me apoya. Tambien me ayudo a entender que el servicio no es darle algo al otro desde una posicion superior, sino encontrarse con el otro como iguales. Las personas con discapacidad me ensenaron a mi mucho mas de lo que yo les pude ayudar a ellas.</p>
         </section>
 
         <section class="content-section">
-            <h4><i class="fas fa-video"></i> Videos</h4>
-            <div class="video-grid">
-                <div>
-                    <p style="text-align:center;font-weight:600;color:#5c7a52;margin-bottom:10px"><i class="fas fa-play-circle"></i> Video 1: Partido de básquet con chicos de otros países en el campamento</p>
-                    <video controls preload="metadata" class="cas-video">
-                        <source src="videos/experiencia6/video1-basquet.mp4" type="video/mp4">
-                        Tu navegador no soporta este video.
-                    </video>
-                </div>
-                <div>
-                    <p style="text-align:center;font-weight:600;color:#5c7a52;margin-bottom:10px"><i class="fas fa-play-circle"></i> Video 2: El show de talentos: el baile de mis compañeros de otra clase</p>
-                    <video controls preload="metadata" class="cas-video">
-                        <source src="videos/experiencia6/video2-escenario.mp4" type="video/mp4">
-                        Tu navegador no soporta este video.
-                    </video>
-                </div>
+            <h4><i class="fas fa-video"></i> Video</h4>
+            <div>
+                <p style="text-align:center;font-weight:600;color:#5c7a52;margin-bottom:10px"><i class="fas fa-play-circle"></i> El circulo de testimonios: escuchando sus historias</p>
+                <video controls preload="metadata" class="cas-video">
+                    <source src="videos/experiencia6/video1.mp4" type="video/mp4">
+                    Tu navegador no soporta este video.
+                </video>
             </div>
         </section>
 
@@ -334,52 +332,28 @@
             <h4><i class="fas fa-camera"></i> Fotos del Proceso</h4>
             <div class="photo-grid">
                 <div class="photo-item">
-                    <img src="imagenes/experiencia6/01-llegada-aeropuerto-toronto.jpg" alt="Llegando al aeropuerto de Toronto con mis compañeros del Champagnat">
-                    <p>Llegando al aeropuerto de Toronto con mis compañeros del Champagnat</p>
+                    <img src="imagenes/experiencia6/01-listo-para-entregar.jpeg" alt="Listo para entregar las sillas">
+                    <p>Con las sillas terminadas y listas para ser entregadas</p>
                 </div>
                 <div class="photo-item">
-                    <img src="imagenes/experiencia6/02-camino-al-campus.jpg" alt="Primer día: caminando hacia el campus de la Universidad de Toronto">
-                    <p>Primer día: caminando hacia el campus de la Universidad de Toronto</p>
+                    <img src="imagenes/experiencia6/02-armando-silla.jpeg" alt="Armando una silla de ruedas" style="object-position: 50% 18%;">
+                    <p>Probando una de las primeras sillas que termine de armar</p>
                 </div>
                 <div class="photo-item">
-                    <img src="imagenes/experiencia6/03-cuarto-residencia.jpg" alt="En la residencia de la universidad, donde vivimos todo el mes">
-                    <p>En la residencia de la universidad, donde vivimos todo el mes</p>
+                    <img src="imagenes/experiencia6/03-equipo-probando.jpeg" alt="Equipo probando las sillas">
+                    <p>Con los companeros probando las sillas antes de la entrega</p>
                 </div>
                 <div class="photo-item">
-                    <img src="imagenes/experiencia6/08-bandera-peru-comedor.jpg" alt="Con la bandera del Perú en el comedor de la universidad" style="object-position: 50% 30%;">
-                    <p>Con la bandera del Perú en el comedor de la universidad</p>
+                    <img src="imagenes/experiencia6/04-entregando-con-gusto.jpeg" alt="Camiseta para servirte con mucho gusto">
+                    <p>"Para servirte con mucho gusto" &mdash; el polo que nos dio la fundacion</p>
                 </div>
                 <div class="photo-item">
-                    <img src="imagenes/experiencia6/09-voley.jpg" alt="Jugando vóley en las tardes del campamento" style="object-position: 50% 30%;">
-                    <p>Jugando vóley en las tardes del campamento</p>
+                    <img src="imagenes/experiencia6/05-circulo-testimonios.jpeg" alt="Circulo de testimonios">
+                    <p>El momento mas importante: escuchando sus historias</p>
                 </div>
                 <div class="photo-item">
-                    <img src="imagenes/experiencia6/10-uno-con-amigos-asiaticos.jpg" alt="Jugando UNO con chicos de Asia: aquí empecé a soltarme con quienes no hablaban español">
-                    <p>Jugando UNO con chicos de Asia: aquí empecé a soltarme con quienes no hablaban español</p>
-                </div>
-                <div class="photo-item">
-                    <img src="imagenes/experiencia6/11-amigo-en-el-barco.jpg" alt="Con un amigo que hice en el campamento, en el paseo en barco" style="object-position: 50% 30%;">
-                    <p>Con un amigo que hice en el campamento, en el paseo en barco</p>
-                </div>
-                <div class="photo-item">
-                    <img src="imagenes/experiencia6/12-grupo-internacional.jpg" alt="Con amigos de distintos países del campamento">
-                    <p>Con amigos de distintos países del campamento</p>
-                </div>
-                <div class="photo-item">
-                    <img src="imagenes/experiencia6/07-amigos-de-varios-paises.jpg" alt="Chicos de varios países juntos en el campus">
-                    <p>Chicos de varios países juntos en el campus</p>
-                </div>
-                <div class="photo-item">
-                    <img src="imagenes/experiencia6/20-salon-con-todo-el-campamento.jpg" alt="Todo el campamento reunido en uno de los salones de la universidad" style="object-position: 50% 40%;">
-                    <p>Todo el campamento reunido en uno de los salones de la universidad</p>
-                </div>
-                <div class="photo-item">
-                    <img src="imagenes/experiencia6/18-cataratas-del-niagara.jpg" alt="En la excursión a las Cataratas del Niágara">
-                    <p>En la excursión a las Cataratas del Niágara</p>
-                </div>
-                <div class="photo-item">
-                    <img src="imagenes/experiencia6/21-ultima-noche.jpg" alt="La última noche en la residencia, con las maletas listas">
-                    <p>La última noche en la residencia, con las maletas listas</p>
+                    <img src="imagenes/experiencia6/06-compartiendo.jpeg" alt="Compartiendo con los beneficiarios" style="object-position: 50% 8%;">
+                    <p>Compartiendo el espacio con los beneficiarios y sus familias</p>
                 </div>
             </div>
         </section>

@@ -175,12 +175,10 @@
         .btn-cancel:hover { background: #d4cbb8; }
         .password-error { color: #c0392b; font-size: 0.8rem; margin-top: 8px; display: none; }
         html { scroll-behavior: smooth; }
-        /* DRAFT HELPERS */
-        .draft-banner { display: flex; align-items: center; gap: 10px; background: #fff8e1; border: 1px dashed #d4a72c; color: #7a5c12; border-radius: 10px; padding: 0.8rem 1.1rem; margin: 0 0 1.5rem; font-size: 0.88rem; }
-        .fill { background: #fff3c4; color: #7a5c12; padding: 1px 6px; border-radius: 4px; font-style: italic; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
-        .photo-placeholder i { font-size: 2.2rem; opacity: 0.7; }
-        .photo-tip { font-size: 0.85rem; color: #7a6b52; background: #f5f0e8; border-radius: 8px; padding: 0.7rem 1rem; margin-bottom: 0.5rem; text-align: left !important; }
-
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; align-items: start; }
+        .video-grid > div { min-width: 0; }
+        .cas-video { width: 100%; max-width: 480px; max-height: 360px; display: block; margin: 0 auto; border-radius: 12px; background: #1f2a1c; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .video-grid .video-placeholder { height: 240px; max-width: 100%; }
     </style>
 </head>
 <body>
@@ -222,14 +220,13 @@
     <div class="container">
         <div class="exp-header">
             <h2>Experiencia 5</h2>
-            <h3><i class="fas fa-hospital" style="color:#7a6b52"></i> Voluntariado en un Hospital</h3>
+            <h3><i class="fas fa-basketball-ball" style="color:#7a6b52"></i> Torneo Internacional de Básquet: Copa Pancho 2026 en Valparaíso</h3>
         </div>
         <div class="badges">
-            <span class="badge badge-s"><i class="fas fa-hands-helping"></i> Servicio</span>
+            <span class="badge badge-a"><i class="fas fa-running"></i> Actividad</span>
             <span class="badge badge-c"><i class="fas fa-palette"></i> Creatividad</span>
+            <span class="badge badge-s"><i class="fas fa-hands-helping"></i> Servicio</span>
         </div>
-
-        <div class="draft-banner"><i class="fas fa-pencil-ruler"></i> <span><strong>Borrador:</strong> lo resaltado en amarillo son datos por completar después de la actividad.</span></div>
 
         <!-- CAS PERCENTAGE BARS -->
         <div class="cas-percentages">
@@ -237,26 +234,26 @@
             <div class="cas-bar-item">
                 <div class="cas-bar-label">
                     <span><i class="fas fa-palette" style="color:#5c7a52"></i> Creatividad</span>
-                    <span>20%</span>
+                    <span>15%</span>
                 </div>
-                <div class="cas-bar"><div class="cas-bar-fill bar-c" style="width:20%"></div></div>
-                <div class="cas-slider-row"><input type="range" id="slider-c" min="0" max="100" value="20"><span class="slider-val" id="val-c">20%</span></div>
+                <div class="cas-bar"><div class="cas-bar-fill bar-c" style="width:15%"></div></div>
+                <div class="cas-slider-row"><input type="range" id="slider-c" min="0" max="100" value="15"><span class="slider-val" id="val-c">15%</span></div>
             </div>
             <div class="cas-bar-item">
                 <div class="cas-bar-label">
                     <span><i class="fas fa-running" style="color:#7a6b52"></i> Actividad</span>
-                    <span>10%</span>
+                    <span>70%</span>
                 </div>
-                <div class="cas-bar"><div class="cas-bar-fill bar-a" style="width:10%"></div></div>
-                <div class="cas-slider-row"><input type="range" id="slider-a" min="0" max="100" value="10"><span class="slider-val" id="val-a">10%</span></div>
+                <div class="cas-bar"><div class="cas-bar-fill bar-a" style="width:70%"></div></div>
+                <div class="cas-slider-row"><input type="range" id="slider-a" min="0" max="100" value="70"><span class="slider-val" id="val-a">70%</span></div>
             </div>
             <div class="cas-bar-item">
                 <div class="cas-bar-label">
                     <span><i class="fas fa-hands-helping" style="color:#4a6341"></i> Servicio</span>
-                    <span>70%</span>
+                    <span>15%</span>
                 </div>
-                <div class="cas-bar"><div class="cas-bar-fill bar-s" style="width:70%"></div></div>
-                <div class="cas-slider-row"><input type="range" id="slider-s" min="0" max="100" value="70"><span class="slider-val" id="val-s">70%</span></div>
+                <div class="cas-bar"><div class="cas-bar-fill bar-s" style="width:15%"></div></div>
+                <div class="cas-slider-row"><input type="range" id="slider-s" min="0" max="100" value="15"><span class="slider-val" id="val-s">15%</span></div>
             </div>
         </div>
 
@@ -270,63 +267,97 @@
         </div>
 
         <div class="learning-outcome">
-            <strong><i class="fas fa-trophy"></i> Resultado de aprendizaje asociado:</strong> RA7 - Reconocer y considerar la ética de las elecciones y las acciones. En un hospital las personas están en un momento muy vulnerable, así que tuve que pensar en cómo tratarlas con respeto, cuidar su privacidad y entender qué cosas me tocaba hacer y cuáles no.
+            <strong><i class="fas fa-trophy"></i> Resultado de aprendizaje asociado:</strong> RA5 - Demostrar las habilidades y reconocer los beneficios de trabajar en colaboración. En un torneo de básquet nadie gana ni pierde solo. Perdimos, pero aprendí que ser parte de un equipo también es apoyar desde la banca cuando no te toca jugar.
         </div>
 
         <section class="content-section">
             <h4><i class="fas fa-align-left"></i> Descripción</h4>
-            <p>Para esta experiencia CAS hice un voluntariado en <span class="fill">[nombre del hospital]</span>, en el área de <span class="fill">[pediatría / adultos mayores / sala de espera / otra]</span>. Fui junto con <span class="fill">[con quién fuiste: compañeros, un grupo de voluntarios, la parroquia, etc.]</span> el <span class="fill">[fecha o fechas]</span>.</p>
-            <p>Como no soy médico ni enfermero, mi rol no era atender a los pacientes, sino <strong>acompañarlos</strong> y hacerles el rato más llevadero. Lo que hicimos fue <span class="fill">[tus tareas: conversar con los pacientes, jugar o leer con los niños, hacer manualidades, repartir algo, ayudar en la sala de espera, etc.]</span>.</p>
+            <p>Para esta experiencia CAS viajé a Chile con mi equipo, la <strong>Academia Marcelo Silva</strong>, para competir en la <strong>Copa Pancho 2026</strong>, un torneo internacional de básquet que se jugó en el Fortín Prat de Valparaíso. Salimos de Lima el 25 de enero y nos quedamos dos semanas. Viajé con mi abuela, que fue la que me acompañó todo el viaje.</p>
+            <p>Jugamos unos siete partidos contra equipos de Chile y de otros lugares, y algunos hasta se transmitieron en vivo por internet. Juego con el número 34. Perdimos, pero luchamos cada partido hasta el final, y lo que me llevé de este viaje va mucho más allá del resultado.</p>
         </section>
 
         <section class="content-section">
             <h4><i class="fas fa-search"></i> Indagación</h4>
-            <p>Antes de ir me informé sobre cómo funciona el voluntariado en un hospital, porque no es como cualquier otro lugar. Averigüé que <span class="fill">[quién organiza el voluntariado y qué requisitos pidieron: permiso de los padres, carné de vacunas, charla previa, etc.]</span>.</p>
-            <p>También aprendí algunas reglas básicas que me parecieron muy importantes: lavarse las manos antes y después de estar con cada paciente, no ir si uno está resfriado, no tomar fotos a los pacientes sin permiso y no preguntarles por su enfermedad si ellos no quieren hablar de eso. Entendí que en un hospital lo primero es no hacer daño, aunque sea sin querer.</p>
+            <p>Antes del viaje sabíamos que íbamos a enfrentar a equipos con mucha experiencia, porque en Chile el básquet juvenil está bastante desarrollado. Con el profesor vimos cómo juegan los equipos de allá: son más físicos, corren mucho la cancha y presionan en defensa. Eso nos hizo entender que no bastaba con tener buena técnica, también teníamos que estar bien preparados físicamente y jugar muy ordenados.</p>
+            <p>También me informé sobre el viaje en sí: cómo era Valparaíso, dónde nos íbamos a quedar y cómo iba a ser la rutina de partidos. Era la primera vez que competía fuera del Perú, así que quería saber a qué me estaba enfrentando.</p>
         </section>
 
         <section class="content-section">
             <h4><i class="fas fa-clipboard-list"></i> Preparación</h4>
-            <p>Para prepararme <span class="fill">[qué preparaste: juegos, cuentos, dibujos para pintar, tarjetas con mensajes, manualidades, etc.]</span>. La idea era llevar algo sencillo que ayudara a romper el hielo y que los pacientes pudieran disfrutar sin moverse mucho.</p>
-            <p>El día de la actividad nos dieron una inducción donde nos explicaron <span class="fill">[lo que les explicaron: por dónde podían circular, qué salas no podían visitar, cómo presentarse con los pacientes, etc.]</span>. Fuimos con <span class="fill">[ropa o uniforme que usaron: mandil, polo del voluntariado, mascarilla]</span>.</p>
+            <p>Entrenamos durante <strong>casi dos meses</strong> antes del viaje. Trabajamos la parte física, los fundamentos y, sobre todo, las jugadas en equipo. El profesor nos armaba las jugadas en su pizarra y las practicábamos una y otra vez hasta que salieran automáticas. Esa parte también tuvo algo de creatividad, porque teníamos que pensar cómo adaptar las jugadas según el rival y buscar soluciones cuando algo no funcionaba.</p>
+            <p>Además de lo deportivo, había que prepararse para viajar: organizar la maleta con la ropa de juego, coordinar con mi abuela y con los demás padres, y estar listos para convivir dos semanas con el equipo lejos de casa.</p>
         </section>
 
         <section class="content-section">
             <h4><i class="fas fa-bolt"></i> Acción</h4>
-            <p>Al llegar <span class="fill">[cuenta cómo empezó: a qué sala entraron primero, cómo se presentaron, cómo reaccionaron los pacientes]</span>.</p>
-            <p>Durante la jornada <span class="fill">[describe lo que hiciste paso a paso: las actividades, cuánto tiempo estuviste con cada persona, cómo se organizó el grupo]</span>.</p>
-            <p>El momento que más me marcó fue <span class="fill">[una conversación, un niño que se rio, un paciente que te contó su historia, un familiar que les agradeció]</span>.</p>
+            <p>El torneo empezó con la <strong>ceremonia de inauguración</strong>, donde desfilamos todos los equipos con nuestros carteles. Ver a tantos equipos juntos me hizo darme cuenta de que esto era algo grande. Después vinieron los partidos, uno tras otro. Algunos estuvieron parejos por momentos, como contra la Universidad de Chile, que íbamos 6 a 6 en el primer cuarto, pero al final no nos alcanzó.</p>
+            <p>Hubo un partido en el que jugué muy mal, y en el siguiente me dejaron en la banca el partido completo. Me dolió, pero no me desanimé. Me quedé parado alentando, gritándole a mis compañeros, pasándoles agua y avisándoles lo que veía desde afuera. Entendí que en ese momento mi forma de ayudar al equipo era esa.</p>
+            <p>Fuera de la cancha también pasaron muchas cosas. Compartí cuarto con mis mejores amigos, Alejandro y Joaquín, y jugamos y nos reímos muchísimo. Un día nos agarró una lluvia fuerte en el terminal de buses y terminamos corriendo y resbalándonos en el agua como niños. Aunque perdíamos, las risas nunca faltaron, y en las tribunas siempre estaban nuestras familias con la bandera del Perú alentándonos.</p>
         </section>
 
         <section class="content-section">
             <h4><i class="fas fa-lightbulb"></i> Reflexión</h4>
-            <p><strong>¿Qué aprendí?</strong> Aprendí que a veces ayudar no significa hacer algo grande, sino simplemente estar presente. Muchas personas en un hospital pasan horas solas o aburridas, y una conversación o un juego les cambia el día. <span class="fill">[Agrega algo concreto que aprendiste de los pacientes o del personal del hospital.]</span></p>
-            <p><strong>¿Cómo me sentí?</strong> <span class="fill">[Cómo te sentiste antes de entrar (nervios, miedo a no saber qué decir), durante y al salir.]</span></p>
-            <p><strong>¿Qué desafíos enfrenté?</strong> <span class="fill">[Por ejemplo: ver a personas sufriendo, no saber qué decir, mantener la calma, respetar las reglas aunque quisieras hacer más.]</span> Aprendí a manejarlo <span class="fill">[cómo lo manejaste]</span>.</p>
-            <p><strong>¿Cómo contribuyó a mi crecimiento?</strong> <span class="fill">[Qué cambió en tu forma de ver la salud, tu familia o a las personas enfermas. Puedes conectarlo con la Experiencia 2, porque en las dos te tocó acompañar a personas en situaciones difíciles.]</span></p>
+            <p><strong>¿Qué aprendí?</strong> Aprendí que el trabajo en equipo no se mide solo por el marcador. Perdimos, pero nunca nos rendimos ni nos echamos la culpa entre nosotros. El profesor siempre nos decía que éramos muy buenos y que teníamos la capacidad de ganar todo lo que nos propusiéramos, que solo nos faltaba creérnoslo, porque él ya creía en nosotros. Esa frase se me quedó grabada: a veces el rival más difícil es la inseguridad de uno mismo.</p>
+            <p><strong>¿Cómo me sentí?</strong> Al principio, emocionado y nervioso por ser mi primer torneo fuera del país. Después de cada derrota me sentía frustrado, sobre todo el día que me mandaron a la banca. Pero ver que el equipo seguía unido me levantaba el ánimo. Al final del viaje me sentí orgulloso de cómo luchamos, aunque el resultado no haya sido el que queríamos.</p>
+            <p><strong>¿Qué desafíos enfrenté?</strong> El más grande fue <strong>no desanimarme cuando me tocó quedarme en la banca</strong>. Lo fácil habría sido quedarme callado y molesto, pero decidí apoyar a mis compañeros desde afuera. También fue difícil levantarse después de perder y volver a salir a la cancha con ganas.</p>
+            <p><strong>¿Cómo contribuyó a mi crecimiento?</strong> Me di cuenta de que ser buen compañero no es solo meter puntos, es estar para el equipo en los momentos malos. También reforcé mucho mi amistad con Alejandro y Joaquín; convivir dos semanas nos unió más de lo que ya estábamos. Y me llevo la lección del profesor: si nosotros no creemos en lo que podemos hacer, nadie lo va a hacer por nosotros.</p>
         </section>
 
         <section class="content-section">
-            <h4><i class="fas fa-video"></i> Video</h4>
-            <div class="video-placeholder">
+            <h4><i class="fas fa-video"></i> Videos</h4>
+            <div class="video-grid">
                 <div>
-                    <i class="fas fa-video" style="font-size:2.5rem;margin-bottom:10px;display:block"></i>
-                    <strong>Espacio para el video del voluntariado</strong><br>
-                    <small>Idea: grábate contando la experiencia al salir del hospital, sin mostrar pacientes</small>
+                    <p style="text-align:center;font-weight:600;color:#5c7a52;margin-bottom:10px"><i class="fas fa-play-circle"></i> Video 1: Con el profesor en el bus camino a un partido</p>
+                    <video controls preload="metadata" class="cas-video">
+                        <source src="videos/experiencia5/video2-bus.mp4" type="video/mp4">
+                        Tu navegador no soporta este video.
+                    </video>
+                </div>
+                <div>
+                    <p style="text-align:center;font-weight:600;color:#5c7a52;margin-bottom:10px"><i class="fas fa-play-circle"></i> Video 2: Perdimos, pero las risas nunca faltaron (la lluvia en el terminal)</p>
+                    <video controls preload="metadata" class="cas-video">
+                        <source src="videos/experiencia5/video1-lluvia.mp4" type="video/mp4">
+                        Tu navegador no soporta este video.
+                    </video>
                 </div>
             </div>
         </section>
 
         <section class="content-section">
             <h4><i class="fas fa-camera"></i> Fotos del Proceso</h4>
-            <p class="photo-tip"><i class="fas fa-info-circle"></i> En los hospitales casi nunca se puede fotografiar a los pacientes. Pide permiso al encargado y prioriza fotos del grupo de voluntarios, los materiales que llevaron o la entrada del hospital.</p>
             <div class="photo-grid">
-                <div class="photo-item"><div class="photo-placeholder"><i class="fas fa-hospital"></i></div><p>Llegando al hospital</p></div>
-                <div class="photo-item"><div class="photo-placeholder"><i class="fas fa-users"></i></div><p>El grupo de voluntarios</p></div>
-                <div class="photo-item"><div class="photo-placeholder"><i class="fas fa-chalkboard-teacher"></i></div><p>La inducción antes de empezar</p></div>
-                <div class="photo-item"><div class="photo-placeholder"><i class="fas fa-puzzle-piece"></i></div><p>Los materiales que preparamos</p></div>
-                <div class="photo-item"><div class="photo-placeholder"><i class="fas fa-hands-helping"></i></div><p>Durante la actividad (con permiso)</p></div>
-                <div class="photo-item"><div class="photo-placeholder"><i class="fas fa-heart"></i></div><p>Al terminar la jornada</p></div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia5/01-aeropuerto-con-mi-abuela.jpg" alt="En el aeropuerto de Lima con mi abuela" style="object-position: 50% 45%;">
+                    <p>Saliendo de Lima con mi abuela, el 25 de enero</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia5/02-inauguracion.jpg" alt="Ceremonia de inauguración de la Copa Pancho 2026">
+                    <p>La ceremonia de inauguración de la Copa Pancho 2026, transmitida en vivo</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia5/03-equipo.jpg" alt="Foto del equipo Academia Marcelo Silva" style="object-position: 50% 40%;">
+                    <p>El equipo completo en el Fortín Prat (yo soy el 34)</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia5/04-pizarra-entrenador.jpg" alt="El profesor explicando una jugada en la pizarra">
+                    <p>El profesor armando la jugada en la pizarra: aquí se trabaja en equipo</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia5/05-vestuario.jpg" alt="En el vestuario con mis compañeros">
+                    <p>En el vestuario antes de salir a la cancha</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia5/06-partido-en-tv.jpg" alt="Partido contra la Universidad de Chile en la televisión">
+                    <p>El partido contra la U de Chile, pasándolo en la tele (6 a 6 en el primer cuarto)</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia5/07-hinchada.jpg" alt="Las familias alentando con la bandera del Perú">
+                    <p>Nuestras familias alentando con la bandera del Perú</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia5/08-ascensor-valparaiso.jpg" alt="Con mis amigos en un ascensor de Valparaíso" style="object-position: 50% 30%;">
+                    <p>Con mis amigos en uno de los ascensores de Valparaíso</p>
+                </div>
             </div>
         </section>
         <div class="prev-next">

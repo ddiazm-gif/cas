@@ -92,11 +92,9 @@
         .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
         .photo-item { text-align: center; transition: all 0.4s ease; }
         .photo-item:hover { transform: translateY(-5px); }
-        .photo-placeholder { width: 100%; height: 200px; background: linear-gradient(135deg, #d4cbb8, #c0b49e); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #7a6b52; font-size: 0.95rem; transition: all 0.3s ease; padding: 10px; }
+        .photo-placeholder { width: 100%; height: 200px; background: linear-gradient(135deg, #d4cbb8, #c0b49e); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #7a6b52; font-size: 0.95rem; transition: all 0.3s ease; }
         .photo-item:hover .photo-placeholder { box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
-        .photo-item img { width: 100%; height: 220px; object-fit: cover; border-radius: 10px; transition: all 0.4s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.08); cursor: pointer; }
-        .photo-item:hover img { box-shadow: 0 8px 25px rgba(0,0,0,0.15); transform: scale(1.02); }
-        .photo-item p { margin-top: 0.6rem; font-size: 0.85rem; color: #7a6b52; font-style: italic; }
+        .photo-item p { margin-top: 0.5rem; font-size: 0.85rem; color: #7a6b52; font-style: italic; }
 
         .prev-next { display: flex; justify-content: space-between; margin: 3rem 0 1rem; }
         .prev-next a { background: linear-gradient(135deg, #5c7a52, #4a6341); color: #f5f0e8; text-decoration: none; padding: 0.8rem 1.8rem; border-radius: 10px; font-size: 0.95rem; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(92,122,82,0.3); }
@@ -175,12 +173,6 @@
         .btn-cancel:hover { background: #d4cbb8; }
         .password-error { color: #c0392b; font-size: 0.8rem; margin-top: 8px; display: none; }
         html { scroll-behavior: smooth; }
-        /* DRAFT HELPERS */
-        .draft-banner { display: flex; align-items: center; gap: 10px; background: #fff8e1; border: 1px dashed #d4a72c; color: #7a5c12; border-radius: 10px; padding: 0.8rem 1.1rem; margin: 0 0 1.5rem; font-size: 0.88rem; }
-        .fill { background: #fff3c4; color: #7a5c12; padding: 1px 6px; border-radius: 4px; font-style: italic; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
-        .photo-placeholder i { font-size: 2.2rem; opacity: 0.7; }
-        .photo-tip { font-size: 0.85rem; color: #7a6b52; background: #f5f0e8; border-radius: 8px; padding: 0.7rem 1rem; margin-bottom: 0.5rem; text-align: left !important; }
-
     </style>
 </head>
 <body>
@@ -222,111 +214,91 @@
     <div class="container">
         <div class="exp-header">
             <h2>Experiencia 4</h2>
-            <h3><i class="fas fa-tshirt" style="color:#7a6b52"></i> Donación de Polos a Personas Necesitadas</h3>
+            <h3>[Nombre de la experiencia]</h3>
         </div>
         <div class="badges">
-            <span class="badge badge-s"><i class="fas fa-hands-helping"></i> Servicio</span>
+            <span class="badge badge-c"><i class="fas fa-palette"></i> Creatividad</span>
             <span class="badge badge-a"><i class="fas fa-running"></i> Actividad</span>
+            <span class="badge badge-s"><i class="fas fa-hands-helping"></i> Servicio</span>
         </div>
-
-        <div class="draft-banner"><i class="fas fa-pencil-ruler"></i> <span><strong>Borrador:</strong> lo resaltado en amarillo son datos por completar después de la actividad.</span></div>
 
         <!-- CAS PERCENTAGE BARS -->
         <div class="cas-percentages">
-            <h4><i class="fas fa-chart-pie"></i> Distribución CAS</h4>
+            <h4><i class="fas fa-chart-pie"></i> Distribucion CAS</h4>
             <div class="cas-bar-item">
                 <div class="cas-bar-label">
                     <span><i class="fas fa-palette" style="color:#5c7a52"></i> Creatividad</span>
-                    <span>10%</span>
+                    <span>40%</span>
                 </div>
-                <div class="cas-bar"><div class="cas-bar-fill bar-c" style="width:10%"></div></div>
-                <div class="cas-slider-row"><input type="range" id="slider-c" min="0" max="100" value="10"><span class="slider-val" id="val-c">10%</span></div>
+                <div class="cas-bar"><div class="cas-bar-fill bar-c" style="width:40%"></div></div>
             </div>
             <div class="cas-bar-item">
                 <div class="cas-bar-label">
                     <span><i class="fas fa-running" style="color:#7a6b52"></i> Actividad</span>
-                    <span>20%</span>
+                    <span>30%</span>
                 </div>
-                <div class="cas-bar"><div class="cas-bar-fill bar-a" style="width:20%"></div></div>
-                <div class="cas-slider-row"><input type="range" id="slider-a" min="0" max="100" value="20"><span class="slider-val" id="val-a">20%</span></div>
+                <div class="cas-bar"><div class="cas-bar-fill bar-a" style="width:30%"></div></div>
             </div>
             <div class="cas-bar-item">
                 <div class="cas-bar-label">
                     <span><i class="fas fa-hands-helping" style="color:#4a6341"></i> Servicio</span>
-                    <span>70%</span>
+                    <span>30%</span>
                 </div>
-                <div class="cas-bar"><div class="cas-bar-fill bar-s" style="width:70%"></div></div>
-                <div class="cas-slider-row"><input type="range" id="slider-s" min="0" max="100" value="70"><span class="slider-val" id="val-s">70%</span></div>
+                <div class="cas-bar"><div class="cas-bar-fill bar-s" style="width:30%"></div></div>
             </div>
         </div>
 
         <!-- 5 CAS STAGES -->
         <div class="cas-stages">
-            <div class="cas-stage"><i class="fas fa-search"></i><span>Investigación</span></div>
-            <div class="cas-stage"><i class="fas fa-clipboard-list"></i><span>Preparación</span></div>
-            <div class="cas-stage"><i class="fas fa-bolt"></i><span>Acción</span></div>
-            <div class="cas-stage"><i class="fas fa-brain"></i><span>Reflexión</span></div>
-            <div class="cas-stage"><i class="fas fa-eye"></i><span>Demostración</span></div>
+            <div class="cas-stage">
+                <i class="fas fa-search"></i>
+                <span>Investigacion</span>
+            </div>
+            <div class="cas-stage">
+                <i class="fas fa-clipboard-list"></i>
+                <span>Preparacion</span>
+            </div>
+            <div class="cas-stage">
+                <i class="fas fa-bolt"></i>
+                <span>Accion</span>
+            </div>
+            <div class="cas-stage">
+                <i class="fas fa-brain"></i>
+                <span>Reflexion</span>
+            </div>
+            <div class="cas-stage">
+                <i class="fas fa-eye"></i>
+                <span>Demostracion</span>
+            </div>
         </div>
 
         <div class="learning-outcome">
-            <strong><i class="fas fa-trophy"></i> Resultado de aprendizaje asociado:</strong> RA3 - Demostrar cómo iniciar y planificar una experiencia CAS. Esta vez no me sumé a algo que ya estaba organizado: yo mismo tuve que pensar la idea, juntar los polos, coordinar con la gente y decidir a quién se los íbamos a llevar.
+            <strong><i class="fas fa-trophy"></i> Resultado de aprendizaje asociado:</strong> [Describe aqui el resultado de aprendizaje asociado a esta experiencia]
         </div>
 
         <section class="content-section">
-            <h4><i class="fas fa-align-left"></i> Descripción</h4>
-            <p>Para esta experiencia CAS organicé una donación de polos para personas que los necesitan. La idea salió porque en mi casa teníamos un montón de polos que ya no usábamos pero que estaban en buen estado, y me pareció un desperdicio que se quedaran guardados en el clóset mientras hay gente que pasa frío o no tiene ropa para cambiarse.</p>
-            <p>Junté polos de mi familia, de mis amigos y de <span class="fill">[compañeros del salón / vecinos]</span>. En total logramos reunir <span class="fill">[número]</span> polos, que entregamos en <span class="fill">[lugar: albergue, parroquia, comunidad, etc.]</span> el <span class="fill">[fecha]</span>. Mi rol fue organizar todo: desde pedir la ropa hasta clasificarla y participar en la entrega.</p>
+            <h4><i class="fas fa-align-left"></i> Descripcion</h4>
+            <p>[Escribe aqui la descripcion de tu experiencia CAS. Explica en que consistio la actividad, donde se llevo a cabo, quienes participaron y cual fue tu rol. Detalla los objetivos que te planteaste y como los abordaste a lo largo de la experiencia.]</p>
         </section>
-
         <section class="content-section">
-            <h4><i class="fas fa-search"></i> Indagación</h4>
-            <p>Antes de empezar a pedir ropa quise saber bien a quién se la íbamos a dar, porque no quería llevar cosas que después no sirvieran. Averigüé qué lugares cerca de mi casa reciben donaciones y encontré <span class="fill">[nombre del lugar u organización]</span>, que ayuda a <span class="fill">[a quiénes: familias, personas en situación de calle, niños, etc.]</span>.</p>
-            <p>Les pregunté qué necesitaban de verdad y me dijeron que <span class="fill">[lo que te dijeron: tallas, si son de niño o adulto, si prefieren polos de manga larga, etc.]</span>. También aprendí que no todo lo que uno dona sirve: la ropa rota, manchada o muy gastada muchas veces termina en la basura, así que era importante donar solo cosas que uno mismo se pondría.</p>
+            <h4><i class="fas fa-lightbulb"></i> Reflexion</h4>
+            <p>[Escribe aqui tu reflexion personal sobre esta experiencia. Que aprendiste? Como te sentiste? Que desafios enfrentaste y como los superaste? De que manera esta experiencia contribuyo a tu crecimiento personal?]</p>
         </section>
-
-        <section class="content-section">
-            <h4><i class="fas fa-clipboard-list"></i> Preparación</h4>
-            <p>Primero hice un mensaje para pedir los polos y lo mandé por <span class="fill">[WhatsApp / el grupo del salón / Instagram]</span>. Puse una fecha límite para recibir todo y expliqué que solo aceptábamos polos limpios y en buen estado.</p>
-            <p>Cuando empezaron a llegar, los revisé uno por uno. Separé los que no estaban en buenas condiciones y los demás los <strong>clasifiqué por talla y por tipo</strong> (niño, mujer, hombre). Después los doblamos y los metimos en bolsas etiquetadas para que la entrega fuera más ordenada y cada persona pudiera recibir algo de su talla. También coordiné <span class="fill">[cómo llegamos: quién nos llevó, a qué hora, quiénes fueron]</span>.</p>
-        </section>
-
-        <section class="content-section">
-            <h4><i class="fas fa-bolt"></i> Acción</h4>
-            <p>El día de la entrega llegamos a <span class="fill">[lugar]</span> con las bolsas. <span class="fill">[Cuenta cómo fue: quién los recibió, cuánta gente había, cómo se organizaron para repartir.]</span></p>
-            <p>Lo que más me marcó fue <span class="fill">[un momento concreto: una persona que te agradeció, un niño que se probó un polo, algo que alguien te contó]</span>.</p>
-            <p>Al final <span class="fill">[cómo terminó la jornada: si sobró ropa, qué hicieron con ella, cómo se despidieron]</span>.</p>
-        </section>
-
-        <section class="content-section">
-            <h4><i class="fas fa-lightbulb"></i> Reflexión</h4>
-            <p><strong>¿Qué aprendí?</strong> Aprendí que organizar algo desde cero es muy diferente a solo sumarse a una actividad. Tuve que pensar en muchos detalles que normalmente no veo: a quién pedirle, cómo convencer a la gente, cómo ordenar todo y cómo llegar. <span class="fill">[Agrega algo que aprendiste de las personas que recibieron los polos.]</span></p>
-            <p><strong>¿Cómo me sentí?</strong> <span class="fill">[Cómo te sentiste antes, durante y después. Por ejemplo: si al inicio pensabas que nadie iba a donar, o si te dio vergüenza pedir.]</span></p>
-            <p><strong>¿Qué desafíos enfrenté?</strong> <span class="fill">[Por ejemplo: que al principio llegaron pocos polos, que hubo ropa que no servía, coordinar horarios, cargar las bolsas.]</span> Lo que hice para resolverlo fue <span class="fill">[cómo lo solucionaste]</span>.</p>
-            <p><strong>¿Cómo contribuyó a mi crecimiento?</strong> Esta experiencia me hizo darme cuenta de lo mucho que tengo y de lo poco que me cuesta compartirlo. Un polo que yo ya ni me ponía puede ser algo importante para otra persona. También me demostró que soy capaz de tomar la iniciativa y sacar adelante algo por mi cuenta. <span class="fill">[Completa con lo que sientas después de la entrega.]</span></p>
-        </section>
-
         <section class="content-section">
             <h4><i class="fas fa-video"></i> Video</h4>
-            <div class="video-placeholder">
-                <div>
-                    <i class="fas fa-video" style="font-size:2.5rem;margin-bottom:10px;display:block"></i>
-                    <strong>Espacio para el video de la entrega</strong><br>
-                    <small>Idea: un video corto de ustedes llegando con las bolsas o repartiendo los polos</small>
-                </div>
-            </div>
+            <div class="video-placeholder"><i class="fas fa-play-circle" style="font-size:2rem;margin-bottom:8px;display:block"></i>Sube tu video aqui<br>(reemplazar con iframe de YouTube)</div>
         </section>
-
         <section class="content-section">
-            <h4><i class="fas fa-camera"></i> Fotos del Proceso</h4>
-            <p class="photo-tip"><i class="fas fa-info-circle"></i> Antes de tomar fotos a las personas que reciben la ropa, pregúntales si están de acuerdo. Si alguien prefiere no salir, toma la foto de espaldas o solo de las manos y las bolsas.</p>
+            <h4><i class="fas fa-camera"></i> Fotos</h4>
             <div class="photo-grid">
-                <div class="photo-item"><div class="photo-placeholder"><i class="fas fa-bullhorn"></i></div><p>El mensaje pidiendo polos</p></div>
-                <div class="photo-item"><div class="photo-placeholder"><i class="fas fa-box-open"></i></div><p>Todos los polos que juntamos</p></div>
-                <div class="photo-item"><div class="photo-placeholder"><i class="fas fa-layer-group"></i></div><p>Clasificando por talla</p></div>
-                <div class="photo-item"><div class="photo-placeholder"><i class="fas fa-shopping-bag"></i></div><p>Las bolsas listas y etiquetadas</p></div>
-                <div class="photo-item"><div class="photo-placeholder"><i class="fas fa-truck"></i></div><p>Llegando al lugar de entrega</p></div>
-                <div class="photo-item"><div class="photo-placeholder"><i class="fas fa-hand-holding-heart"></i></div><p>El momento de la entrega</p></div>
+                <div class="photo-item"><div class="photo-placeholder">Foto 1</div><p>[Descripcion de la foto 1]</p></div>
+                <div class="photo-item"><div class="photo-placeholder">Foto 2</div><p>[Descripcion de la foto 2]</p></div>
+                <div class="photo-item"><div class="photo-placeholder">Foto 3</div><p>[Descripcion de la foto 3]</p></div>
+                <div class="photo-item"><div class="photo-placeholder">Foto 4</div><p>[Descripcion de la foto 4]</p></div>
+                <div class="photo-item"><div class="photo-placeholder">Foto 5</div><p>[Descripcion de la foto 5]</p></div>
+                <div class="photo-item"><div class="photo-placeholder">Foto 6</div><p>[Descripcion de la foto 6]</p></div>
+                <div class="photo-item"><div class="photo-placeholder">Foto 7</div><p>[Descripcion de la foto 7]</p></div>
+                <div class="photo-item"><div class="photo-placeholder">Foto 8</div><p>[Descripcion de la foto 8]</p></div>
             </div>
         </section>
         <div class="prev-next">
