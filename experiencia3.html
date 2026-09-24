@@ -175,7 +175,10 @@
         .btn-cancel:hover { background: #d4cbb8; }
         .password-error { color: #c0392b; font-size: 0.8rem; margin-top: 8px; display: none; }
         html { scroll-behavior: smooth; }
-        .video-grid { display: flex; flex-direction: column; gap: 1.5rem; }
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; align-items: start; }
+        .video-grid > div { min-width: 0; }
+        .cas-video { width: 100%; max-width: 480px; max-height: 360px; display: block; margin: 0 auto; border-radius: 12px; background: #1f2a1c; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .video-grid .video-placeholder { height: 240px; max-width: 100%; }
     </style>
 </head>
 <body>
@@ -305,14 +308,14 @@
             <div class="video-grid">
                 <div>
                     <p style="text-align:center;font-weight:600;color:#5c7a52;margin-bottom:10px"><i class="fas fa-play-circle"></i> Video 1: Con el profesor en el bus camino a un partido</p>
-                    <video controls preload="metadata" style="width:100%;max-width:720px;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.1);display:block;margin:0 auto">
+                    <video controls preload="metadata" class="cas-video">
                         <source src="videos/experiencia3/video2-bus.mp4" type="video/mp4">
                         Tu navegador no soporta este video.
                     </video>
                 </div>
-                <div style="margin-top:25px">
+                <div>
                     <p style="text-align:center;font-weight:600;color:#5c7a52;margin-bottom:10px"><i class="fas fa-play-circle"></i> Video 2: Perdimos, pero las risas nunca faltaron (la lluvia en el terminal)</p>
-                    <video controls preload="metadata" style="width:100%;max-width:720px;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.1);display:block;margin:0 auto">
+                    <video controls preload="metadata" class="cas-video">
                         <source src="videos/experiencia3/video1-lluvia.mp4" type="video/mp4">
                         Tu navegador no soporta este video.
                     </video>

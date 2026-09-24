@@ -175,7 +175,10 @@
         .btn-cancel:hover { background: #d4cbb8; }
         .password-error { color: #c0392b; font-size: 0.8rem; margin-top: 8px; display: none; }
         html { scroll-behavior: smooth; }
-        .video-grid { display: flex; flex-direction: column; gap: 1.5rem; }
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; align-items: start; }
+        .video-grid > div { min-width: 0; }
+        .cas-video { width: 100%; max-width: 480px; max-height: 360px; display: block; margin: 0 auto; border-radius: 12px; background: #1f2a1c; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .video-grid .video-placeholder { height: 240px; max-width: 100%; }
         /* DRAFT HELPERS */
         .draft-banner { display: flex; align-items: center; gap: 10px; background: #fff8e1; border: 1px dashed #d4a72c; color: #7a5c12; border-radius: 10px; padding: 0.8rem 1.1rem; margin: 0 0 1.5rem; font-size: 0.88rem; }
         .fill { background: #fff3c4; color: #7a5c12; padding: 1px 6px; border-radius: 4px; font-style: italic; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
@@ -312,14 +315,14 @@
             <div class="video-grid">
                 <div>
                     <p style="text-align:center;font-weight:600;color:#5c7a52;margin-bottom:10px"><i class="fas fa-play-circle"></i> Video 1: Partido de básquet con chicos de otros países en el campamento</p>
-                    <video controls preload="metadata" style="width:100%;max-width:720px;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.1);display:block;margin:0 auto">
+                    <video controls preload="metadata" class="cas-video">
                         <source src="videos/experiencia6/video1-basquet.mp4" type="video/mp4">
                         Tu navegador no soporta este video.
                     </video>
                 </div>
-                <div style="margin-top:25px">
+                <div>
                     <p style="text-align:center;font-weight:600;color:#5c7a52;margin-bottom:10px"><i class="fas fa-play-circle"></i> Video 2: El show de talentos: el baile de mis compañeros de otra clase</p>
-                    <video controls preload="metadata" style="width:100%;max-width:720px;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.1);display:block;margin:0 auto">
+                    <video controls preload="metadata" class="cas-video">
                         <source src="videos/experiencia6/video2-escenario.mp4" type="video/mp4">
                         Tu navegador no soporta este video.
                     </video>
