@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experiencia 3 — Mi Blog CAS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
@@ -181,6 +182,61 @@
         .photo-placeholder i { font-size: 2.2rem; opacity: 0.7; }
         .photo-tip { font-size: 0.85rem; color: #7a6b52; background: #f5f0e8; border-radius: 8px; padding: 0.7rem 1rem; margin-bottom: 0.5rem; text-align: left !important; }
 
+
+        /* DIARIO CAS: etapas con foto, polaroids y RA final */
+        :root { --tape: rgba(168,216,154,0.75); --tape-2: rgba(232,199,116,0.7); --ink: #3e3529; --leaf: #5c7a52; }
+        .stage-section { padding-top: 40px !important; }
+        .stage-step { position: absolute; top: 12px; left: 30px; font-family: "Caveat", cursive; font-size: 1.15rem; color: #a8956e; }
+        .stage-step b { display: inline-grid; place-items: center; width: 24px; height: 24px; margin-right: 6px; border-radius: 50%; background: var(--leaf); color: #f5f0e8; font-family: "Inter", sans-serif; font-size: 0.75rem; }
+        .stage-row { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 2.2rem; align-items: center; }
+        .stage-row.flip { grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr); }
+        .stage-row.flip .stage-photo { order: -1; }
+        .stage-photo { position: relative; margin: 14px 6px 6px; background: #fff; padding: 10px 10px 46px; box-shadow: 0 12px 30px rgba(62,53,41,0.16), 0 2px 6px rgba(62,53,41,0.08); transform: rotate(-2.2deg); transition: transform 0.45s cubic-bezier(0.16,1,0.3,1), box-shadow 0.45s; }
+        .stage-row.flip .stage-photo { transform: rotate(2deg); }
+        .stage-photo:hover, .stage-row.flip .stage-photo:hover { transform: rotate(0deg) scale(1.03); box-shadow: 0 18px 40px rgba(62,53,41,0.22); }
+        .stage-photo::before { content: ""; position: absolute; top: -13px; left: 50%; width: 96px; height: 26px; background: var(--tape); transform: translateX(-50%) rotate(-4deg); box-shadow: 0 1px 2px rgba(0,0,0,0.08); z-index: 1; }
+        .stage-row.flip .stage-photo::before { background: var(--tape-2); transform: translateX(-50%) rotate(3deg); }
+        .stage-photo img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+        .stage-photo .ph-empty { display: grid; place-items: center; width: 100%; aspect-ratio: 4 / 5; background: repeating-linear-gradient(45deg, #efe8da, #efe8da 10px, #e8e0d0 10px, #e8e0d0 20px); color: #a8956e; font-size: 2.4rem; }
+        .stage-photo figcaption { position: absolute; left: 8px; right: 8px; bottom: 8px; text-align: center; font-family: "Caveat", cursive; font-size: 1.3rem; line-height: 1.05; color: var(--ink); }
+        .photo-grid .photo-item { background: #fff; padding: 9px 9px 12px; box-shadow: 0 8px 22px rgba(62,53,41,0.12); transform: rotate(-1.4deg); }
+        .photo-grid .photo-item:nth-child(even) { transform: rotate(1.3deg); }
+        .photo-grid .photo-item:nth-child(3n) { transform: rotate(-0.6deg); }
+        .photo-grid .photo-item:hover { transform: rotate(0deg) translateY(-6px); }
+        .photo-grid .photo-item img { border-radius: 2px; box-shadow: none; }
+        .photo-grid .photo-item:hover img { transform: none; box-shadow: none; }
+        .photo-grid .photo-item p { font-family: "Caveat", cursive; font-style: normal; font-size: 1.2rem; line-height: 1.15; color: var(--ink); }
+        .ra-final { position: relative; margin: 2.5rem 0 1rem; padding: 34px 32px 30px; border-radius: 22px; background: radial-gradient(circle at 12% 0%, rgba(168,216,154,0.35), transparent 45%), linear-gradient(145deg, #2d5a27, #3a5232 55%, #4a6341); color: #f5f0e8; box-shadow: 0 18px 45px rgba(45,90,39,0.3); overflow: hidden; }
+        .ra-final::after { content: ""; position: absolute; right: -40px; bottom: -40px; width: 180px; height: 180px; border-radius: 50%; border: 2px dashed rgba(245,240,232,0.18); }
+        .ra-final .ra-kicker { font-family: "Caveat", cursive; font-size: 1.45rem; color: #a8d89a; }
+        .ra-final h4 { font-family: "Playfair Display", Georgia, serif; font-size: 1.6rem; margin: 2px 0 18px; line-height: 1.25; }
+        .ra-head { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; margin-bottom: 20px; }
+        .ra-badge { display: grid; place-items: center; min-width: 92px; height: 92px; border-radius: 50%; background: #f5f0e8; color: #2d5a27; font-family: "Playfair Display", serif; font-weight: 700; font-size: 1.9rem; box-shadow: 0 0 0 6px rgba(245,240,232,0.15); transform: rotate(-6deg); }
+        .ra-score { flex: 1; min-width: 230px; }
+        .ra-score .label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.8; }
+        .ra-dots { display: flex; gap: 8px; margin: 8px 0 4px; }
+        .ra-dots span { width: 30px; height: 30px; border-radius: 50%; border: 2px solid rgba(245,240,232,0.5); display: grid; place-items: center; font-size: 0.75rem; font-weight: 600; color: rgba(245,240,232,0.6); }
+        .ra-dots span.on { background: #e8c774; border-color: #e8c774; color: #3a5232; }
+        .ra-score .num { font-family: "Caveat", cursive; font-size: 2rem; line-height: 1; }
+        .ra-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; position: relative; z-index: 1; }
+        .ra-card { background: rgba(245,240,232,0.1); border: 1px solid rgba(245,240,232,0.18); border-radius: 14px; padding: 16px 18px; }
+        .ra-card h5 { font-size: 0.95rem; margin-bottom: 6px; color: #e8c774; display: flex; gap: 8px; align-items: center; }
+        .ra-card p { font-size: 0.93rem; line-height: 1.6; text-align: left; }
+        .ra-card.wide { grid-column: 1 / -1; }
+        .ra-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+        .ra-chips span { background: #f5f0e8; color: #3a5232; border-radius: 20px; padding: 4px 12px; font-size: 0.8rem; font-weight: 500; }
+        .ra-final.pending .ra-badge { background: rgba(245,240,232,0.2); color: #f5f0e8; }
+        @media (max-width: 760px) {
+            .stage-row, .stage-row.flip { grid-template-columns: 1fr; gap: 1.2rem; }
+            .stage-row.flip .stage-photo { order: 0; }
+            .stage-photo { max-width: 300px; margin: 10px auto 4px; }
+            .stage-step { left: 18px; }
+            .ra-grid { grid-template-columns: 1fr; }
+            .ra-final { padding: 28px 20px 24px; }
+            .ra-dots { gap: 6px; }
+            .ra-dots span { width: 26px; height: 26px; }
+        }
+        @media (max-width: 600px) { nav { position: relative; } }
     </style>
 </head>
 <body>
@@ -279,31 +335,55 @@
             <p>Junté polos de mi familia, de mis amigos y de <span class="fill">[compañeros del salón / vecinos]</span>. En total logramos reunir <span class="fill">[número]</span> polos, que entregamos en <span class="fill">[lugar: albergue, parroquia, comunidad, etc.]</span> el <span class="fill">[fecha]</span>. Mi rol fue organizar todo: desde pedir la ropa hasta clasificarla y participar en la entrega.</p>
         </section>
 
-        <section class="content-section">
+        <section class="content-section stage-section">
+            <span class="stage-step"><b>1</b>etapa 1 de 4</span>
             <h4><i class="fas fa-search"></i> Indagación</h4>
+            <div class="stage-row">
+                <div class="stage-text">
             <p>Antes de empezar a pedir ropa quise saber bien a quién se la íbamos a dar, porque no quería llevar cosas que después no sirvieran. Averigüé qué lugares cerca de mi casa reciben donaciones y encontré <span class="fill">[nombre del lugar u organización]</span>, que ayuda a <span class="fill">[a quiénes: familias, personas en situación de calle, niños, etc.]</span>.</p>
             <p>Les pregunté qué necesitaban de verdad y me dijeron que <span class="fill">[lo que te dijeron: tallas, si son de niño o adulto, si prefieren polos de manga larga, etc.]</span>. También aprendí que no todo lo que uno dona sirve: la ropa rota, manchada o muy gastada muchas veces termina en la basura, así que era importante donar solo cosas que uno mismo se pondría.</p>
+                </div>
+                <figure class="stage-photo"><div class="ph-empty"><i class="fas fa-camera"></i></div><figcaption>foto pendiente</figcaption></figure>
+            </div>
         </section>
 
-        <section class="content-section">
+        <section class="content-section stage-section">
+            <span class="stage-step"><b>2</b>etapa 2 de 4</span>
             <h4><i class="fas fa-clipboard-list"></i> Preparación</h4>
+            <div class="stage-row flip">
+                <div class="stage-text">
             <p>Primero hice un mensaje para pedir los polos y lo mandé por <span class="fill">[WhatsApp / el grupo del salón / Instagram]</span>. Puse una fecha límite para recibir todo y expliqué que solo aceptábamos polos limpios y en buen estado.</p>
             <p>Cuando empezaron a llegar, los revisé uno por uno. Separé los que no estaban en buenas condiciones y los demás los <strong>clasifiqué por talla y por tipo</strong> (niño, mujer, hombre). Después los doblamos y los metimos en bolsas etiquetadas para que la entrega fuera más ordenada y cada persona pudiera recibir algo de su talla. También coordiné <span class="fill">[cómo llegamos: quién nos llevó, a qué hora, quiénes fueron]</span>.</p>
+                </div>
+                <figure class="stage-photo"><div class="ph-empty"><i class="fas fa-camera"></i></div><figcaption>foto pendiente</figcaption></figure>
+            </div>
         </section>
 
-        <section class="content-section">
+        <section class="content-section stage-section">
+            <span class="stage-step"><b>3</b>etapa 3 de 4</span>
             <h4><i class="fas fa-bolt"></i> Acción</h4>
+            <div class="stage-row">
+                <div class="stage-text">
             <p>El día de la entrega llegamos a <span class="fill">[lugar]</span> con las bolsas. <span class="fill">[Cuenta cómo fue: quién los recibió, cuánta gente había, cómo se organizaron para repartir.]</span></p>
             <p>Lo que más me marcó fue <span class="fill">[un momento concreto: una persona que te agradeció, un niño que se probó un polo, algo que alguien te contó]</span>.</p>
             <p>Al final <span class="fill">[cómo terminó la jornada: si sobró ropa, qué hicieron con ella, cómo se despidieron]</span>.</p>
+                </div>
+                <figure class="stage-photo"><div class="ph-empty"><i class="fas fa-camera"></i></div><figcaption>foto pendiente</figcaption></figure>
+            </div>
         </section>
 
-        <section class="content-section">
+        <section class="content-section stage-section">
+            <span class="stage-step"><b>4</b>etapa 4 de 4</span>
             <h4><i class="fas fa-lightbulb"></i> Reflexión</h4>
+            <div class="stage-row flip">
+                <div class="stage-text">
             <p><strong>¿Qué aprendí?</strong> Aprendí que organizar algo desde cero es muy diferente a solo sumarse a una actividad. Tuve que pensar en muchos detalles que normalmente no veo: a quién pedirle, cómo convencer a la gente, cómo ordenar todo y cómo llegar. <span class="fill">[Agrega algo que aprendiste de las personas que recibieron los polos.]</span></p>
             <p><strong>¿Cómo me sentí?</strong> <span class="fill">[Cómo te sentiste antes, durante y después. Por ejemplo: si al inicio pensabas que nadie iba a donar, o si te dio vergüenza pedir.]</span></p>
             <p><strong>¿Qué desafíos enfrenté?</strong> <span class="fill">[Por ejemplo: que al principio llegaron pocos polos, que hubo ropa que no servía, coordinar horarios, cargar las bolsas.]</span> Lo que hice para resolverlo fue <span class="fill">[cómo lo solucionaste]</span>.</p>
             <p><strong>¿Cómo contribuyó a mi crecimiento?</strong> Esta experiencia me hizo darme cuenta de lo mucho que tengo y de lo poco que me cuesta compartirlo. Un polo que yo ya ni me ponía puede ser algo importante para otra persona. También me demostró que soy capaz de tomar la iniciativa y sacar adelante algo por mi cuenta. <span class="fill">[Completa con lo que sientas después de la entrega.]</span></p>
+                </div>
+                <figure class="stage-photo"><div class="ph-empty"><i class="fas fa-camera"></i></div><figcaption>foto pendiente</figcaption></figure>
+            </div>
         </section>
 
         <section class="content-section">
@@ -328,6 +408,19 @@
                 <div class="photo-item"><div class="photo-placeholder"><i class="fas fa-truck"></i></div><p>Llegando al lugar de entrega</p></div>
                 <div class="photo-item"><div class="photo-placeholder"><i class="fas fa-hand-holding-heart"></i></div><p>El momento de la entrega</p></div>
             </div>
+        </section>
+        <section class="ra-final pending">
+            <div class="ra-kicker">Mi resultado de aprendizaje</div>
+            <h4>RA3: Demostrar cómo iniciar y planificar una experiencia CAS</h4>
+            <div class="ra-head">
+                <div class="ra-badge">RA3</div>
+                <div class="ra-score">
+                    <div class="label">¿Cuánto lo logré? (del 1 al 7)</div>
+                    <div class="ra-dots"><span class="">1</span><span class="">2</span><span class="">3</span><span class="">4</span><span class="">5</span><span class="">6</span><span class="">7</span></div>
+                    <div class="num">pendiente</div>
+                </div>
+            </div>
+            <div class="ra-grid"><div class="ra-card wide"><h5><i class="fas fa-hourglass-half"></i> Por completar</h5><p>Cuando termine esta experiencia pondré mi puntaje del 1 al 7, por qué me lo pongo y qué me faltó para llegar al 7.</p></div></div>
         </section>
         <div class="prev-next">
             <a href="experiencia2.html">&larr; Anterior</a>

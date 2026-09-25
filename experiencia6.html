@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experiencia 6 — Mi Blog CAS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
@@ -179,6 +180,61 @@
         .video-grid > div { min-width: 0; }
         .cas-video { width: 100%; max-width: 480px; max-height: 360px; display: block; margin: 0 auto; border-radius: 12px; background: #1f2a1c; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
         .video-grid .video-placeholder { height: 240px; max-width: 100%; }
+
+        /* DIARIO CAS: etapas con foto, polaroids y RA final */
+        :root { --tape: rgba(168,216,154,0.75); --tape-2: rgba(232,199,116,0.7); --ink: #3e3529; --leaf: #5c7a52; }
+        .stage-section { padding-top: 40px !important; }
+        .stage-step { position: absolute; top: 12px; left: 30px; font-family: "Caveat", cursive; font-size: 1.15rem; color: #a8956e; }
+        .stage-step b { display: inline-grid; place-items: center; width: 24px; height: 24px; margin-right: 6px; border-radius: 50%; background: var(--leaf); color: #f5f0e8; font-family: "Inter", sans-serif; font-size: 0.75rem; }
+        .stage-row { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 2.2rem; align-items: center; }
+        .stage-row.flip { grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr); }
+        .stage-row.flip .stage-photo { order: -1; }
+        .stage-photo { position: relative; margin: 14px 6px 6px; background: #fff; padding: 10px 10px 46px; box-shadow: 0 12px 30px rgba(62,53,41,0.16), 0 2px 6px rgba(62,53,41,0.08); transform: rotate(-2.2deg); transition: transform 0.45s cubic-bezier(0.16,1,0.3,1), box-shadow 0.45s; }
+        .stage-row.flip .stage-photo { transform: rotate(2deg); }
+        .stage-photo:hover, .stage-row.flip .stage-photo:hover { transform: rotate(0deg) scale(1.03); box-shadow: 0 18px 40px rgba(62,53,41,0.22); }
+        .stage-photo::before { content: ""; position: absolute; top: -13px; left: 50%; width: 96px; height: 26px; background: var(--tape); transform: translateX(-50%) rotate(-4deg); box-shadow: 0 1px 2px rgba(0,0,0,0.08); z-index: 1; }
+        .stage-row.flip .stage-photo::before { background: var(--tape-2); transform: translateX(-50%) rotate(3deg); }
+        .stage-photo img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+        .stage-photo .ph-empty { display: grid; place-items: center; width: 100%; aspect-ratio: 4 / 5; background: repeating-linear-gradient(45deg, #efe8da, #efe8da 10px, #e8e0d0 10px, #e8e0d0 20px); color: #a8956e; font-size: 2.4rem; }
+        .stage-photo figcaption { position: absolute; left: 8px; right: 8px; bottom: 8px; text-align: center; font-family: "Caveat", cursive; font-size: 1.3rem; line-height: 1.05; color: var(--ink); }
+        .photo-grid .photo-item { background: #fff; padding: 9px 9px 12px; box-shadow: 0 8px 22px rgba(62,53,41,0.12); transform: rotate(-1.4deg); }
+        .photo-grid .photo-item:nth-child(even) { transform: rotate(1.3deg); }
+        .photo-grid .photo-item:nth-child(3n) { transform: rotate(-0.6deg); }
+        .photo-grid .photo-item:hover { transform: rotate(0deg) translateY(-6px); }
+        .photo-grid .photo-item img { border-radius: 2px; box-shadow: none; }
+        .photo-grid .photo-item:hover img { transform: none; box-shadow: none; }
+        .photo-grid .photo-item p { font-family: "Caveat", cursive; font-style: normal; font-size: 1.2rem; line-height: 1.15; color: var(--ink); }
+        .ra-final { position: relative; margin: 2.5rem 0 1rem; padding: 34px 32px 30px; border-radius: 22px; background: radial-gradient(circle at 12% 0%, rgba(168,216,154,0.35), transparent 45%), linear-gradient(145deg, #2d5a27, #3a5232 55%, #4a6341); color: #f5f0e8; box-shadow: 0 18px 45px rgba(45,90,39,0.3); overflow: hidden; }
+        .ra-final::after { content: ""; position: absolute; right: -40px; bottom: -40px; width: 180px; height: 180px; border-radius: 50%; border: 2px dashed rgba(245,240,232,0.18); }
+        .ra-final .ra-kicker { font-family: "Caveat", cursive; font-size: 1.45rem; color: #a8d89a; }
+        .ra-final h4 { font-family: "Playfair Display", Georgia, serif; font-size: 1.6rem; margin: 2px 0 18px; line-height: 1.25; }
+        .ra-head { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; margin-bottom: 20px; }
+        .ra-badge { display: grid; place-items: center; min-width: 92px; height: 92px; border-radius: 50%; background: #f5f0e8; color: #2d5a27; font-family: "Playfair Display", serif; font-weight: 700; font-size: 1.9rem; box-shadow: 0 0 0 6px rgba(245,240,232,0.15); transform: rotate(-6deg); }
+        .ra-score { flex: 1; min-width: 230px; }
+        .ra-score .label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.8; }
+        .ra-dots { display: flex; gap: 8px; margin: 8px 0 4px; }
+        .ra-dots span { width: 30px; height: 30px; border-radius: 50%; border: 2px solid rgba(245,240,232,0.5); display: grid; place-items: center; font-size: 0.75rem; font-weight: 600; color: rgba(245,240,232,0.6); }
+        .ra-dots span.on { background: #e8c774; border-color: #e8c774; color: #3a5232; }
+        .ra-score .num { font-family: "Caveat", cursive; font-size: 2rem; line-height: 1; }
+        .ra-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; position: relative; z-index: 1; }
+        .ra-card { background: rgba(245,240,232,0.1); border: 1px solid rgba(245,240,232,0.18); border-radius: 14px; padding: 16px 18px; }
+        .ra-card h5 { font-size: 0.95rem; margin-bottom: 6px; color: #e8c774; display: flex; gap: 8px; align-items: center; }
+        .ra-card p { font-size: 0.93rem; line-height: 1.6; text-align: left; }
+        .ra-card.wide { grid-column: 1 / -1; }
+        .ra-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+        .ra-chips span { background: #f5f0e8; color: #3a5232; border-radius: 20px; padding: 4px 12px; font-size: 0.8rem; font-weight: 500; }
+        .ra-final.pending .ra-badge { background: rgba(245,240,232,0.2); color: #f5f0e8; }
+        @media (max-width: 760px) {
+            .stage-row, .stage-row.flip { grid-template-columns: 1fr; gap: 1.2rem; }
+            .stage-row.flip .stage-photo { order: 0; }
+            .stage-photo { max-width: 300px; margin: 10px auto 4px; }
+            .stage-step { left: 18px; }
+            .ra-grid { grid-template-columns: 1fr; }
+            .ra-final { padding: 28px 20px 24px; }
+            .ra-dots { gap: 6px; }
+            .ra-dots span { width: 26px; height: 26px; }
+        }
+        @media (max-width: 600px) { nav { position: relative; } }
     </style>
 </head>
 <body>
@@ -290,31 +346,55 @@
             <p>Mi rol consistio en dos partes claramente diferenciadas: primero armar las sillas (montar las ruedas, ajustar los tornillos, colocar los reposapies, los apoyabrazos y los respaldos), y despues participar en la entrega directa a las personas que las necesitaban. Esta segunda parte fue la mas significativa porque pudimos sentarnos en un circulo con los beneficiarios, escuchar sus historias y compartir un momento de reflexion sobre la fe y la vida.</p>
         </section>
 
-        <section class="content-section">
+        <section class="content-section stage-section">
+            <span class="stage-step"><b>1</b>etapa 1 de 4</span>
             <h4><i class="fas fa-search"></i> Indagacion</h4>
+            <div class="stage-row">
+                <div class="stage-text">
             <p>Antes de ir a la jornada me informe sobre el contexto del voluntariado. La iglesia trabajaba con la fundacion <em>Camino de Vida</em>, que importa sillas de ruedas desde el exterior y las entrega gratuitamente a personas en situacion de vulnerabilidad que no pueden costearlas por su cuenta.</p>
             <p>Tambien investigue un poco sobre como armar correctamente las sillas: vi unos videos cortos para entender que piezas tiene una silla estandar, cuales son los puntos de ajuste mas importantes y por que es tan critico que todo quede bien apretado (es literalmente la movilidad y la seguridad de una persona). Aprendi que una silla mal armada puede causar caidas o lesiones, asi que la responsabilidad era grande.</p>
+                </div>
+                <figure class="stage-photo"><img src="imagenes/experiencia6/01-listo-para-entregar.jpeg" alt="las sillas listas" loading="lazy"><figcaption>las sillas listas</figcaption></figure>
+            </div>
         </section>
 
-        <section class="content-section">
+        <section class="content-section stage-section">
+            <span class="stage-step"><b>2</b>etapa 2 de 4</span>
             <h4><i class="fas fa-clipboard-list"></i> Preparacion</h4>
+            <div class="stage-row flip">
+                <div class="stage-text">
             <p>La preparacion incluyo coordinar el transporte hasta la iglesia, llegar puntuales para no atrasar la jornada y vestirnos con ropa comoda (zapatillas cerradas y polo) porque ibamos a estar agachados moviendo piezas durante varias horas. Los organizadores nos entregaron una camiseta roja con la frase <strong>"Para servirte con mucho gusto"</strong>, que se convirtio en el uniforme de la jornada y marcaba que eramos voluntarios.</p>
             <p>Tambien nos dieron una pequena induccion al llegar: nos explicaron el orden del armado, cuales eran las herramientas disponibles, como verificar que las ruedas estuvieran firmes y como recibir respetuosamente a las personas beneficiarias cuando llegaran. Esa charla previa me ayudo a entrar a la actividad con seguridad y sin sentirme perdido.</p>
+                </div>
+                <figure class="stage-photo"><img src="imagenes/experiencia6/04-entregando-con-gusto.jpeg" alt="nuestro polo de voluntarios" loading="lazy"><figcaption>nuestro polo de voluntarios</figcaption></figure>
+            </div>
         </section>
 
-        <section class="content-section">
+        <section class="content-section stage-section">
+            <span class="stage-step"><b>3</b>etapa 3 de 4</span>
             <h4><i class="fas fa-bolt"></i> Accion</h4>
+            <div class="stage-row">
+                <div class="stage-text">
             <p>La primera parte de la jornada fue puramente <strong>armado</strong>. Las sillas venian desarmadas dentro de cajas grandes de carton. Nos organizamos por estaciones: unos sacaban las piezas, otros montaban el marco, otros ponian las ruedas grandes traseras y las pequenas delanteras, y otros se encargaban de los detalles finales (frenos, reposapies, apoyabrazos). Yo trabaje en montaje de marco y ruedas. Tuve que aprender a ajustar tornillos con la fuerza justa, porque si quedaban flojos la silla se tambaleaba y si los apretaba demasiado podia trozar la rosca.</p>
             <p>Despues de armar varias sillas, las probamos sentandonos en ellas para revisar que rodaran bien, que los frenos respondieran y que estuvieran completamente seguras. Esta prueba fue clave porque encontramos pequenos detalles para corregir antes de entregarlas.</p>
             <p>La <strong>segunda parte</strong> fue la entrega. Llegaron las personas beneficiarias acompanadas de sus familias. Nos sentamos todos en un gran circulo y cada una de las personas con discapacidad nos conto su historia: como quedaron en silla de ruedas (algunos por accidentes, otros por enfermedades, otros de nacimiento), como fue el proceso de adaptarse, y como encontraron en su fe en Dios un apoyo para no rendirse. Despues les entregamos formalmente las sillas. Ver la cara de la persona cuando se sento por primera vez en su nueva silla fue un momento que no voy a olvidar.</p>
+                </div>
+                <figure class="stage-photo"><img src="imagenes/experiencia6/02-armando-silla.jpeg" alt="probando una silla que armé" loading="lazy"><figcaption>probando una silla que armé</figcaption></figure>
+            </div>
         </section>
 
-        <section class="content-section">
+        <section class="content-section stage-section">
+            <span class="stage-step"><b>4</b>etapa 4 de 4</span>
             <h4><i class="fas fa-lightbulb"></i> Reflexion</h4>
+            <div class="stage-row flip">
+                <div class="stage-text">
             <p><strong>Que aprendi?</strong> Aprendi cosas practicas, como armar una silla de ruedas paso a paso y trabajar coordinado en una linea de produccion improvisada. Pero lo mas importante que aprendi fue de las historias de los beneficiarios. Ellos hablaron sin amargura, con mucha paz y esperanza, a pesar de las situaciones tan duras que habian vivido. Eso me hizo darme cuenta de que la felicidad no depende de las circunstancias externas sino de la actitud que uno elige tener frente a ellas.</p>
             <p><strong>Como me senti?</strong> Al inicio me senti nervioso e incluso un poco incomodo, porque no sabia como tratar a las personas que iban a recibir las sillas (tenia miedo de decir algo torpe o de ser condescendiente). Pero cuando empezamos a conversar todo fluyo con naturalidad: ellos no querian lastima, querian que los escucharamos como personas. Al final de la jornada me senti agradecido, tranquilo y con una mezcla de alegria por haber ayudado y de reflexion profunda por todo lo que escuche.</p>
             <p><strong>Que desafios enfrente?</strong> El desafio fisico fue real: pasamos varias horas agachados, levantando piezas pesadas y armando sillas, asi que termine cansado y con la espalda adolorida. Pero el desafio mas grande fue el emocional. Escuchar como una persona quedo paraplejica por un accidente, o como una madre cuenta lo dificil que es mover a su hijo sin una silla adecuada, te golpea. Tuve que aprender a estar presente y a no desviar la mirada, a escuchar de verdad sin sentir pena, sino respeto.</p>
             <p><strong>Como contribuyo a mi crecimiento?</strong> Esta experiencia me cambio la forma de ver el mundo. Antes pensaba mucho en cosas pequenas que me molestaban del dia a dia (un examen mal, una discusion tonta, no tener algo que queria) y despues de esta jornada todo eso se relativiza. Aprendi a valorar lo que tengo: poder caminar, poder estudiar, tener salud, tener una familia que me apoya. Tambien me ayudo a entender que el servicio no es darle algo al otro desde una posicion superior, sino encontrarse con el otro como iguales. Las personas con discapacidad me ensenaron a mi mucho mas de lo que yo les pude ayudar a ellas.</p>
+                </div>
+                <figure class="stage-photo"><img src="imagenes/experiencia6/05-circulo-testimonios.jpeg" alt="escuchando sus historias" loading="lazy"><figcaption>escuchando sus historias</figcaption></figure>
+            </div>
         </section>
 
         <section class="content-section">
@@ -355,6 +435,23 @@
                     <img src="imagenes/experiencia6/06-compartiendo.jpeg" alt="Compartiendo con los beneficiarios" style="object-position: 50% 8%;">
                     <p>Compartiendo el espacio con los beneficiarios y sus familias</p>
                 </div>
+            </div>
+        </section>
+        <section class="ra-final">
+            <div class="ra-kicker">Mi resultado de aprendizaje</div>
+            <h4>RA6: Demostrar compromiso con asuntos de importancia global</h4>
+            <div class="ra-head">
+                <div class="ra-badge">RA6</div>
+                <div class="ra-score">
+                    <div class="label">¿Cuánto lo logré? (del 1 al 7)</div>
+                    <div class="ra-dots"><span class="on">1</span><span class="on">2</span><span class="on">3</span><span class="on">4</span><span class="on">5</span><span class="on">6</span><span class="">7</span></div>
+                    <div class="num">6 de 7</div>
+                </div>
+            </div>
+            <div class="ra-grid">
+                <div class="ra-card"><h5><i class="fas fa-check-circle"></i> ¿Por qué me pongo un 6?</h5><p>Porque no solo armé sillas: entendí un problema real que pasa en todo el mundo, que muchas personas con discapacidad no pueden pagar algo tan básico como una silla de ruedas. Me informé sobre la fundación Camino de Vida y escuché de primera mano las historias de los beneficiarios. Eso me cambió la forma de ver el problema y de valorar lo que tengo.</p></div>
+                <div class="ra-card"><h5><i class="fas fa-arrow-up"></i> ¿Qué me faltó para el 7?</h5><p>Participé en una jornada que ya estaba organizada por otros, y fue un solo día. Para llegar al 7 tendría que comprometerme más en el tiempo: volver a ayudar a la fundación, informarme de cómo está este problema en otros países o hacer algo propio para que más gente lo conozca.</p></div>
+                <div class="ra-card wide"><h5><i class="fas fa-paperclip"></i> Evidencia en esta página</h5><div class="ra-chips"><span>Armando las sillas</span><span>Probándolas antes de entregarlas</span><span>El círculo de testimonios</span><span>Video de las historias</span></div></div>
             </div>
         </section>
         <div class="prev-next">

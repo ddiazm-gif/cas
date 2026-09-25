@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experiencia 2 — Mi Blog CAS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
@@ -179,6 +180,61 @@
         .video-grid > div { min-width: 0; }
         .cas-video { width: 100%; max-width: 480px; max-height: 360px; display: block; margin: 0 auto; border-radius: 12px; background: #1f2a1c; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
         .video-grid .video-placeholder { height: 240px; max-width: 100%; }
+
+        /* DIARIO CAS: etapas con foto, polaroids y RA final */
+        :root { --tape: rgba(168,216,154,0.75); --tape-2: rgba(232,199,116,0.7); --ink: #3e3529; --leaf: #5c7a52; }
+        .stage-section { padding-top: 40px !important; }
+        .stage-step { position: absolute; top: 12px; left: 30px; font-family: "Caveat", cursive; font-size: 1.15rem; color: #a8956e; }
+        .stage-step b { display: inline-grid; place-items: center; width: 24px; height: 24px; margin-right: 6px; border-radius: 50%; background: var(--leaf); color: #f5f0e8; font-family: "Inter", sans-serif; font-size: 0.75rem; }
+        .stage-row { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 2.2rem; align-items: center; }
+        .stage-row.flip { grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr); }
+        .stage-row.flip .stage-photo { order: -1; }
+        .stage-photo { position: relative; margin: 14px 6px 6px; background: #fff; padding: 10px 10px 46px; box-shadow: 0 12px 30px rgba(62,53,41,0.16), 0 2px 6px rgba(62,53,41,0.08); transform: rotate(-2.2deg); transition: transform 0.45s cubic-bezier(0.16,1,0.3,1), box-shadow 0.45s; }
+        .stage-row.flip .stage-photo { transform: rotate(2deg); }
+        .stage-photo:hover, .stage-row.flip .stage-photo:hover { transform: rotate(0deg) scale(1.03); box-shadow: 0 18px 40px rgba(62,53,41,0.22); }
+        .stage-photo::before { content: ""; position: absolute; top: -13px; left: 50%; width: 96px; height: 26px; background: var(--tape); transform: translateX(-50%) rotate(-4deg); box-shadow: 0 1px 2px rgba(0,0,0,0.08); z-index: 1; }
+        .stage-row.flip .stage-photo::before { background: var(--tape-2); transform: translateX(-50%) rotate(3deg); }
+        .stage-photo img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+        .stage-photo .ph-empty { display: grid; place-items: center; width: 100%; aspect-ratio: 4 / 5; background: repeating-linear-gradient(45deg, #efe8da, #efe8da 10px, #e8e0d0 10px, #e8e0d0 20px); color: #a8956e; font-size: 2.4rem; }
+        .stage-photo figcaption { position: absolute; left: 8px; right: 8px; bottom: 8px; text-align: center; font-family: "Caveat", cursive; font-size: 1.3rem; line-height: 1.05; color: var(--ink); }
+        .photo-grid .photo-item { background: #fff; padding: 9px 9px 12px; box-shadow: 0 8px 22px rgba(62,53,41,0.12); transform: rotate(-1.4deg); }
+        .photo-grid .photo-item:nth-child(even) { transform: rotate(1.3deg); }
+        .photo-grid .photo-item:nth-child(3n) { transform: rotate(-0.6deg); }
+        .photo-grid .photo-item:hover { transform: rotate(0deg) translateY(-6px); }
+        .photo-grid .photo-item img { border-radius: 2px; box-shadow: none; }
+        .photo-grid .photo-item:hover img { transform: none; box-shadow: none; }
+        .photo-grid .photo-item p { font-family: "Caveat", cursive; font-style: normal; font-size: 1.2rem; line-height: 1.15; color: var(--ink); }
+        .ra-final { position: relative; margin: 2.5rem 0 1rem; padding: 34px 32px 30px; border-radius: 22px; background: radial-gradient(circle at 12% 0%, rgba(168,216,154,0.35), transparent 45%), linear-gradient(145deg, #2d5a27, #3a5232 55%, #4a6341); color: #f5f0e8; box-shadow: 0 18px 45px rgba(45,90,39,0.3); overflow: hidden; }
+        .ra-final::after { content: ""; position: absolute; right: -40px; bottom: -40px; width: 180px; height: 180px; border-radius: 50%; border: 2px dashed rgba(245,240,232,0.18); }
+        .ra-final .ra-kicker { font-family: "Caveat", cursive; font-size: 1.45rem; color: #a8d89a; }
+        .ra-final h4 { font-family: "Playfair Display", Georgia, serif; font-size: 1.6rem; margin: 2px 0 18px; line-height: 1.25; }
+        .ra-head { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; margin-bottom: 20px; }
+        .ra-badge { display: grid; place-items: center; min-width: 92px; height: 92px; border-radius: 50%; background: #f5f0e8; color: #2d5a27; font-family: "Playfair Display", serif; font-weight: 700; font-size: 1.9rem; box-shadow: 0 0 0 6px rgba(245,240,232,0.15); transform: rotate(-6deg); }
+        .ra-score { flex: 1; min-width: 230px; }
+        .ra-score .label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.8; }
+        .ra-dots { display: flex; gap: 8px; margin: 8px 0 4px; }
+        .ra-dots span { width: 30px; height: 30px; border-radius: 50%; border: 2px solid rgba(245,240,232,0.5); display: grid; place-items: center; font-size: 0.75rem; font-weight: 600; color: rgba(245,240,232,0.6); }
+        .ra-dots span.on { background: #e8c774; border-color: #e8c774; color: #3a5232; }
+        .ra-score .num { font-family: "Caveat", cursive; font-size: 2rem; line-height: 1; }
+        .ra-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; position: relative; z-index: 1; }
+        .ra-card { background: rgba(245,240,232,0.1); border: 1px solid rgba(245,240,232,0.18); border-radius: 14px; padding: 16px 18px; }
+        .ra-card h5 { font-size: 0.95rem; margin-bottom: 6px; color: #e8c774; display: flex; gap: 8px; align-items: center; }
+        .ra-card p { font-size: 0.93rem; line-height: 1.6; text-align: left; }
+        .ra-card.wide { grid-column: 1 / -1; }
+        .ra-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+        .ra-chips span { background: #f5f0e8; color: #3a5232; border-radius: 20px; padding: 4px 12px; font-size: 0.8rem; font-weight: 500; }
+        .ra-final.pending .ra-badge { background: rgba(245,240,232,0.2); color: #f5f0e8; }
+        @media (max-width: 760px) {
+            .stage-row, .stage-row.flip { grid-template-columns: 1fr; gap: 1.2rem; }
+            .stage-row.flip .stage-photo { order: 0; }
+            .stage-photo { max-width: 300px; margin: 10px auto 4px; }
+            .stage-step { left: 18px; }
+            .ra-grid { grid-template-columns: 1fr; }
+            .ra-final { padding: 28px 20px 24px; }
+            .ra-dots { gap: 6px; }
+            .ra-dots span { width: 26px; height: 26px; }
+        }
+        @media (max-width: 600px) { nav { position: relative; } }
     </style>
 </head>
 <body>
@@ -288,33 +344,57 @@
             <p>Para mi primera experiencia CAS decidi aprender a hacer galletas con chips de chocolate. La verdad es que nunca habia cocinado nada en mi vida, ni siquiera me habia animado a entrar a la cocina, asi que cuando lo eligi sabia que iba a ser un reto. Lo hice junto con unos amigos del colegio en la casa de uno de ellos, un sabado en la tarde.</p>
         </section>
 
-        <section class="content-section">
+        <section class="content-section stage-section">
+            <span class="stage-step"><b>1</b>etapa 1 de 4</span>
             <h4><i class="fas fa-search"></i> Indagacion</h4>
+            <div class="stage-row">
+                <div class="stage-text">
             <p>Antes de empezar a hacer las galletas, lo primero que hicimos fue <strong>investigar</strong> bien para no fallar en el intento. Como ninguno de nosotros tenia experiencia en reposteria, sabiamos que necesitabamos guiarnos de algo confiable.</p>
             <p>Nos sentamos todos juntos con una laptop y empezamos a ver videos en YouTube de recetas de galletas con chips de chocolate. Vimos varios canales hasta que encontramos uno que explicaba bien paso a paso. Tambien leimos algunos blogs de cocina para comparar las cantidades de los ingredientes y asegurarnos que la receta era buena.</p>
             <p>Durante la indagacion descubri cosas que no sabia, como por ejemplo que existen diferentes tipos de azucar (rubia, blanca, glass) y que cada una le da un sabor distinto a las galletas. Tambien aprendi que hay que precalentar el horno antes de meter las galletas. Anotamos todo en una hoja para no olvidarnos. Esta etapa fue clave porque nos dio confianza para empezar sabiendo lo que ibamos a hacer.</p>
+                </div>
+                <figure class="stage-photo"><img src="imagenes/experiencia2/01-investigacion-equipo.jpeg" alt="buscando la receta" loading="lazy"><figcaption>buscando la receta</figcaption></figure>
+            </div>
         </section>
 
-        <section class="content-section">
+        <section class="content-section stage-section">
+            <span class="stage-step"><b>2</b>etapa 2 de 4</span>
             <h4><i class="fas fa-clipboard-list"></i> Preparacion</h4>
+            <div class="stage-row flip">
+                <div class="stage-text">
             <p>Despues de investigar, paso a la fase de <strong>preparacion</strong>. Hicimos una lista de todo lo que necesitabamos: mantequilla Gloria, chocolate en barra, harina, azucar rubia, huevos, esencia de vainilla, polvo de hornear y sal. Como en la casa no habia algunos ingredientes, nos repartimos quien iba a traer cada cosa.</p>
             <p>El dia de la actividad, llegamos temprano a la casa de mi amigo y empezamos por organizar todo. Sacamos los utensilios que ibamos a usar: la balanza electronica para pesar con precision, la batidora electrica, los bowls grandes y chicos, las cucharas, la bandeja para el horno y el papel manteca.</p>
             <p>Tambien nos pusimos de acuerdo en los <strong>roles</strong>: una persona se encargaba de pesar los ingredientes, otra de derretir el chocolate y la mantequilla, otra de mezclar y yo me ofreci para usar la batidora. Lavamos bien las manos, nos remangamos y limpiamos la mesa de la cocina antes de empezar. Tener todo preparado y organizado antes de comenzar nos ahorro mucho tiempo y evito que estuvieramos corriendo de un lado a otro buscando cosas.</p>
+                </div>
+                <figure class="stage-photo"><img src="imagenes/experiencia2/03-preparando-utensilios.jpeg" alt="todo listo para empezar" loading="lazy"><figcaption>todo listo para empezar</figcaption></figure>
+            </div>
         </section>
 
-        <section class="content-section">
+        <section class="content-section stage-section">
+            <span class="stage-step"><b>3</b>etapa 3 de 4</span>
             <h4><i class="fas fa-bolt"></i> Accion</h4>
+            <div class="stage-row">
+                <div class="stage-text">
             <p>Llego el momento de la <strong>accion</strong>, que era la parte que mas nervios me daba pero tambien la mas emocionante. Empezamos pesando el chocolate en la balanza y partiendolo en trozos pequenos para que se derritiera mas rapido. Lo pusimos en un bowl junto con la mantequilla y lo derretimos a bano maria, que basicamente es poner un bowl encima de una olla con agua caliente para que el calor sea suave y no se queme.</p>
             <p>Mientras eso se derretia, otros companeros pesaban la harina, el azucar y los demas ingredientes secos. Cuando todo estuvo listo, mezclamos los ingredientes humedos con los secos en un bowl grande. Aqui vino mi parte: agarrar la batidora electrica y batir todo hasta que quedara una masa uniforme. Al principio salia un poco de polvo de harina por todos lados jaja, pero despues le agarre la mano.</p>
             <p>Cuando la masa estuvo lista, le agregamos los chips de chocolate y la mezclamos con una cuchara. Luego formamos bolitas pequenas con las manos y las pusimos en la bandeja con papel manteca, dejando espacio entre cada una para que no se peguen al hornearse. Las metimos al horno (que ya habiamos precalentado) durante unos 12 minutos. Mientras se horneaban, aprovechamos para empezar a lavar los utensilios sucios. Cuando las sacamos, la cocina olia increible y vimos que las galletas habian salido doradas y perfectas. Al final no nos las comimos todas: separamos una parte y la compartimos con nuestras familias.</p>
+                </div>
+                <figure class="stage-photo"><img src="imagenes/experiencia2/07-mezclando-batidora.jpeg" alt="yo con la batidora" loading="lazy"><figcaption>yo con la batidora</figcaption></figure>
+            </div>
         </section>
 
-        <section class="content-section">
+        <section class="content-section stage-section">
+            <span class="stage-step"><b>4</b>etapa 4 de 4</span>
             <h4><i class="fas fa-lightbulb"></i> Reflexion</h4>
+            <div class="stage-row flip">
+                <div class="stage-text">
             <p><strong>Que aprendi?</strong> Aprendi que cocinar, especialmente la reposteria, es mucho mas dificil de lo que parece. Hay que ser super preciso con las medidas porque si te pasas de un ingrediente, todo cambia. Tambien aprendi tecnicas que nunca habia escuchado, como lo del bano maria o batir la masa hasta que tenga "punto de letra". Ahora entiendo por que mi mama se demora tanto cuando cocina cosas dulces.</p>
             <p><strong>Como me senti?</strong> Al principio me senti bien nervioso porque pensaba que iba a malograr todo. Tenia miedo de echar mucha harina o de que las galletas salieran quemadas. Pero cuando vi que mis amigos tampoco sabian bien lo que estaban haciendo, me relaje y empezamos a reirnos de los errores. Cuando abrimos el horno y vimos que las galletas habian salido bien, senti una emocion super genial, como de "wow, si pude".</p>
             <p><strong>Que desafios enfrente?</strong> El mayor reto fue mi propia inseguridad. Como nunca habia cocinado, no me sentia capaz y todo el rato pensaba que iba a fallar. Otro desafio fue trabajar en equipo, porque al principio todos queriamos hacer lo mismo y nos chocabamos en la cocina. Tuvimos que aprender a organizarnos y darnos roles para que todo fluyera mejor. Tambien fue dificil tener paciencia para esperar que la masa repose y que las galletas se horneen, porque ya queriamos probarlas.</p>
             <p><strong>Como contribuyo a mi crecimiento?</strong> Esta experiencia me ayudo a darme cuenta que si me animo, puedo aprender cosas nuevas que pensaba que no eran lo mio. Antes pensaba que la cocina no era para mi, pero ahora ya me animo a hacer cosas en casa de vez en cuando. Tambien aprendi a valorar mucho mas el trabajo de mi mama, porque ahora entiendo lo dificil que es cocinar y dejar la cocina limpia despues. En general me hizo sentir mas independiente y capaz.</p>
+                </div>
+                <figure class="stage-photo"><img src="imagenes/experiencia2/08-resultado-final.jpg" alt="¡sí salieron!" loading="lazy"><figcaption>¡sí salieron!</figcaption></figure>
+            </div>
         </section>
         <section class="content-section">
             <h4><i class="fas fa-video"></i> Video</h4>
@@ -363,6 +443,23 @@
                     <img src="imagenes/experiencia2/08-resultado-final.jpg" alt="Galletas con chips de chocolate terminadas" style="object-position: 50% 65%;">
                     <p>El resultado final: nuestras galletas con chips de chocolate recien horneadas</p>
                 </div>
+            </div>
+        </section>
+        <section class="ra-final">
+            <div class="ra-kicker">Mi resultado de aprendizaje</div>
+            <h4>RA2: Demostrar que enfrenté un desafío y desarrollé nuevas habilidades</h4>
+            <div class="ra-head">
+                <div class="ra-badge">RA2</div>
+                <div class="ra-score">
+                    <div class="label">¿Cuánto lo logré? (del 1 al 7)</div>
+                    <div class="ra-dots"><span class="on">1</span><span class="on">2</span><span class="on">3</span><span class="on">4</span><span class="on">5</span><span class="on">6</span><span class="">7</span></div>
+                    <div class="num">6 de 7</div>
+                </div>
+            </div>
+            <div class="ra-grid">
+                <div class="ra-card"><h5><i class="fas fa-check-circle"></i> ¿Por qué me pongo un 6?</h5><p>Porque fue un desafío de verdad: nunca había cocinado nada y pensaba que la cocina no era para mí. Aprendí cosas concretas que antes no sabía hacer, como pesar los ingredientes, derretir a baño maría, usar la batidora y organizarnos por roles. Y el resultado lo demuestra: las galletas salieron bien y ahora me animo a cocinar en mi casa.</p></div>
+                <div class="ra-card"><h5><i class="fas fa-arrow-up"></i> ¿Qué me faltó para el 7?</h5><p>Fue una sola tarde y seguimos una receta que encontramos en internet. Para llegar al 7 me hubiera gustado repetirlo yo solo, sin ayuda, o inventar mi propia versión de la receta para demostrar que de verdad aprendí y no solo seguí pasos.</p></div>
+                <div class="ra-card wide"><h5><i class="fas fa-paperclip"></i> Evidencia en esta página</h5><div class="ra-chips"><span>Investigando la receta</span><span>Pesando y midiendo</span><span>Usando la batidora</span><span>Foto del resultado final</span><span>Video de la masa</span></div></div>
             </div>
         </section>
         <div class="prev-next">
