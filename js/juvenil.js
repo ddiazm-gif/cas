@@ -84,9 +84,9 @@
         });
     }
 
+    var ZOOM_SELECTOR = '.stage-photo img, .stage-mini img, .photo-grid img, .filmstrip img, .hero-stack img, .side-photo img, .desc-photo img';
+
     function lightbox() {
-        var imgs = Array.prototype.slice.call(document.querySelectorAll('.stage-photo img, .stage-mini img, .photo-grid img, .filmstrip img, .hero-stack img'));
-        if (!imgs.length) return;
         var lb = document.createElement('div');
         lb.className = 'lb';
         lb.setAttribute('role', 'dialog');
@@ -96,18 +96,33 @@
             '<button class="lb-prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>' +
             '<button class="lb-next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>';
         document.body.appendChild(lb);
-        var big = lb.querySelector('img'), cap = lb.querySelector('figcaption'), idx = 0;
+        var big = lb.querySelector('img'), cap = lb.querySelector('figcaption'), list = [], idx = 0;
         var show = function (i) {
-            idx = (i + imgs.length) % imgs.length;
-            big.src = imgs[idx].currentSrc || imgs[idx].src;
-            big.alt = imgs[idx].alt || '';
-            cap.textContent = imgs[idx].alt || '';
+            idx = (i + list.length) % list.length;
+            big.src = list[idx].src;
+            big.alt = list[idx].alt;
+            cap.textContent = list[idx].alt;
             var fig = lb.querySelector('figure');
             fig.style.animation = 'none'; void fig.offsetWidth; fig.style.animation = '';
         };
         var close = function () { lb.classList.remove('open'); document.body.style.overflow = ''; };
-        imgs.forEach(function (img, i) {
-            img.addEventListener('click', function () { show(i); lb.classList.add('open'); document.body.style.overflow = 'hidden'; });
+        document.addEventListener('click', function (e) {
+            var img = e.target.closest ? e.target.closest(ZOOM_SELECTOR) : null;
+            if (!img || lb.contains(img)) return;
+            var seen = {};
+            list = [];
+            document.querySelectorAll('.filmstrip-track img:not([aria-hidden])').forEach(function (el) {
+                var src = el.getAttribute('src');
+                if (!seen[src]) { seen[src] = 1; list.push({ src: src, alt: el.alt }); }
+            });
+            var src = img.getAttribute('src');
+            if (!seen[src]) list.unshift({ src: src, alt: img.alt });
+            var start = 0;
+            list.forEach(function (it, i) { if (it.src === src) start = i; });
+            list[start].alt = img.alt || list[start].alt;
+            show(start);
+            lb.classList.add('open');
+            document.body.style.overflow = 'hidden';
         });
         lb.querySelector('.lb-close').addEventListener('click', close);
         lb.querySelector('.lb-prev').addEventListener('click', function () { show(idx - 1); });
@@ -121,12 +136,104 @@
         });
     }
 
+    var DOODLES = [
+        '<svg viewBox="0 0 64 64"><path d="M32 6l6.5 16.5L56 24l-13.5 11L47 53 32 43 17 53l4.5-18L8 24l17.5-1.5z"/></svg>',
+        '<svg viewBox="0 0 64 64"><path d="M6 36c8-16 16 16 24 0s16 16 24 0 8-8 8-8"/></svg>',
+        '<svg viewBox="0 0 64 64"><path d="M32 32m-4 0a4 4 0 1 0 8 0a8 8 0 1 0-16 0a12 12 0 1 0 24 0a16 16 0 1 0-32 0"/></svg>',
+        '<svg viewBox="0 0 64 64"><path d="M10 50C22 40 30 28 44 16M44 16l-12 2M44 16l-2 12"/></svg>',
+        '<svg viewBox="0 0 64 64"><path d="M32 54S8 40 8 24a12 12 0 0 1 24-4 12 12 0 0 1 24 4c0 16-24 30-24 30z"/></svg>'
+    ];
+    var DOODLE_COLORS = ['#ff7b6b', '#7cc6f2', '#ffd166', '#b69cf2', '#b8e986'];
+    var TAPES = ['rgba(255,209,102,0.8)', 'rgba(124,198,242,0.8)', 'rgba(255,123,107,0.75)', 'rgba(184,233,134,0.85)'];
+
+    function sideLayer() {
+        var source = Array.prototype.slice.call(document.querySelectorAll('.filmstrip-track img:not([aria-hidden])'));
+        var container = document.querySelector('.container');
+        if (!source.length || !container) return;
+        var layer = document.createElement('div');
+        layer.className = 'side-layer';
+        layer.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(layer);
+        var items = [];
+
+        function build() {
+            layer.innerHTML = '';
+            items = [];
+            var docH = document.documentElement.scrollHeight;
+            layer.style.height = docH + 'px';
+            var gutter = (window.innerWidth - container.offsetWidth) / 2;
+            if (gutter < 150) { layer.style.display = 'none'; return; }
+            layer.style.display = '';
+            var w = Math.min(210, gutter - 44);
+            var top = container.getBoundingClientRect().top + window.scrollY + 380;
+            var bottom = docH - 520;
+            var i = 0;
+            for (var y = top; y < bottom; y += 330) {
+                var left = i % 2 === 0;
+                var x = left ? (gutter - w) / 2 : window.innerWidth - gutter + (gutter - w) / 2;
+                var jitterX = (i * 37 % 30) - 15;
+                if (i % 3 === 2) {
+                    var d = document.createElement('div');
+                    d.className = 'side-doodle';
+                    d.innerHTML = DOODLES[i % DOODLES.length];
+                    d.querySelector('svg').style.stroke = DOODLE_COLORS[i % DOODLE_COLORS.length];
+                    d.style.left = (left ? gutter / 2 - 32 : window.innerWidth - gutter / 2 - 32) + 'px';
+                    d.style.top = y + 'px';
+                    layer.appendChild(d);
+                    items.push({ el: d, y: y, speed: 0.18 });
+                } else {
+                    var img = source[i % source.length];
+                    var fig = document.createElement('figure');
+                    fig.className = 'side-photo';
+                    fig.style.width = w + 'px';
+                    fig.style.left = (x + jitterX) + 'px';
+                    fig.style.top = y + 'px';
+                    fig.style.setProperty('--r', ((i * 53 % 18) - 9) + 'deg');
+                    fig.style.setProperty('--tr', ((i * 29 % 12) - 6) + 'deg');
+                    fig.style.setProperty('--tape-c', TAPES[i % TAPES.length]);
+                    fig.style.setProperty('--ar', i % 4 === 1 ? '1' : '4 / 5');
+                    fig.innerHTML = '<img src="' + img.getAttribute('src') + '" alt="' + img.alt + '" loading="lazy"><figcaption>' + img.alt + '</figcaption>';
+                    layer.appendChild(fig);
+                    items.push({ el: fig, y: y, speed: i % 2 ? 0.1 : -0.08 });
+                }
+                i++;
+            }
+            move();
+        }
+
+        function move() {
+            if (reduceMotion) return;
+            var mid = window.scrollY + window.innerHeight / 2;
+            items.forEach(function (it) { it.el.style.transform = 'translateY(' + ((mid - it.y) * it.speed).toFixed(1) + 'px)'; });
+        }
+
+        var timer;
+        window.addEventListener('resize', function () { clearTimeout(timer); timer = setTimeout(build, 200); });
+        window.addEventListener('scroll', move, { passive: true });
+        window.addEventListener('load', build);
+        build();
+    }
+
+    function descPhoto() {
+        var h = document.querySelector('.content-section h4 .fa-align-left');
+        var pick = document.querySelectorAll('.hero-stack img')[1];
+        if (!h || !pick) return;
+        var section = h.closest('.content-section');
+        section.classList.add('desc-section');
+        var fig = document.createElement('figure');
+        fig.className = 'desc-photo';
+        fig.innerHTML = '<img src="' + pick.getAttribute('src') + '" alt="' + pick.alt + '"><figcaption>' + pick.alt + '</figcaption>';
+        section.querySelector('h4').insertAdjacentElement('afterend', fig);
+    }
+
     document.addEventListener('DOMContentLoaded', function () {
         scrollProgress();
         stageColors();
         stageShortcuts();
         reveals();
         raScore();
+        descPhoto();
+        sideLayer();
         lightbox();
     });
 })();
