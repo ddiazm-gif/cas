@@ -214,6 +214,126 @@
         build();
     }
 
+    var MESES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'set', 'oct', 'nov', 'dic'];
+    function fecha(md) { var p = md.split('-'); return +p[1] + ' ' + MESES[+p[0] - 1]; }
+
+    function growthChart() {
+        document.querySelectorAll('.growth-chart[data-series]').forEach(function (box) {
+            var data = JSON.parse(box.getAttribute('data-series'));
+            var peakDate = box.getAttribute('data-peak');
+            var NS = 'http://www.w3.org/2000/svg';
+            var svg = document.createElementNS(NS, 'svg');
+            box.appendChild(svg);
+            var tip = document.createElement('div');
+            tip.className = 'growth-tip';
+            box.appendChild(tip);
+
+            function render() {
+                var W = box.clientWidth, H = box.clientHeight, L = 44, R = 12, T = 22, B = 28;
+                var max = 1500, n = data.length;
+                var x = function (i) { return L + (W - L - R) * i / (n - 1); };
+                var y = function (v) { return T + (H - T - B) * (1 - v / max); };
+                var pts = data.map(function (d, i) { return x(i).toFixed(1) + ',' + y(d[1]).toFixed(1); });
+                var grid = [0, 500, 1000, 1500].map(function (v) {
+                    return '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + y(v) + '" y2="' + y(v) + '"/>';
+                }).join('');
+                var ylab = [0, 500, 1000, 1500].map(function (v) {
+                    return '<text x="' + (L - 8) + '" y="' + (y(v) + 4) + '" text-anchor="end">' + (v >= 1000 ? (v / 1000).toString().replace('.', ',') + ' mil' : v) + '</text>';
+                }).join('');
+                var step = W < 500 ? 30 : 15, xlab = '';
+                for (var i = 0; i < n; i += step) xlab += '<text x="' + x(i) + '" y="' + (H - 6) + '" text-anchor="middle">' + fecha(data[i][0]) + '</text>';
+                var pk = 0;
+                data.forEach(function (d, i) { if (d[0] === peakDate) pk = i; });
+                var pkAnchor = pk > n * 0.7 ? 'end' : 'start';
+                svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+                svg.innerHTML = '<defs><linearGradient id="growthFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#b8e986" stop-opacity="0.55"/><stop offset="1" stop-color="#b8e986" stop-opacity="0.05"/></linearGradient></defs>' +
+                    '<g class="grid">' + grid + '</g><g class="axis">' + ylab + xlab + '</g>' +
+                    '<path class="area" d="M' + x(0) + ',' + y(0) + 'L' + pts.join('L') + 'L' + x(n - 1) + ',' + y(0) + 'Z"/>' +
+                    '<path class="line" d="M' + pts.join('L') + '"/>' +
+                    '<g class="peak"><circle cx="' + x(pk) + '" cy="' + y(data[pk][1]) + '" r="5"/><text x="' + (x(pk) + (pkAnchor === 'end' ? -10 : 10)) + '" y="' + (y(data[pk][1]) - 8) + '" text-anchor="' + pkAnchor + '">¡récord! ' + data[pk][1] + ' clics el ' + fecha(data[pk][0]) + '</text></g>' +
+                    '<line class="cross" y1="' + T + '" y2="' + (H - B) + '"/><circle class="dot" r="5"/>';
+                var line = svg.querySelector('.line');
+                box.style.setProperty('--len', Math.ceil(line.getTotalLength()));
+
+                svg.onmousemove = function (e) {
+                    var r = svg.getBoundingClientRect();
+                    var i = Math.round((e.clientX - r.left - L) / (W - L - R) * (n - 1));
+                    i = Math.max(0, Math.min(n - 1, i));
+                    var cx = x(i), cy = y(data[i][1]);
+                    var cross = svg.querySelector('.cross'), dot = svg.querySelector('.dot');
+                    cross.setAttribute('x1', cx); cross.setAttribute('x2', cx); cross.style.opacity = 1;
+                    dot.setAttribute('cx', cx); dot.setAttribute('cy', cy); dot.style.opacity = 1;
+                    tip.innerHTML = '<b>' + data[i][1] + '</b> clics · ' + fecha(data[i][0]);
+                    tip.style.left = cx + 'px'; tip.style.top = cy + 'px'; tip.style.opacity = 1;
+                };
+                svg.onmouseleave = function () {
+                    svg.querySelector('.cross').style.opacity = 0; svg.querySelector('.dot').style.opacity = 0; tip.style.opacity = 0;
+                };
+            }
+
+            render();
+            var t;
+            window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(render, 150); });
+            if ('IntersectionObserver' in window && !reduceMotion) {
+                var io = new IntersectionObserver(function (en) {
+                    if (en[0].isIntersecting) { box.classList.add('draw'); io.disconnect(); }
+                }, { threshold: 0.3 });
+                box.classList.add('wait');
+                io.observe(box);
+            }
+        });
+    }
+
+    function casMap() {
+        var el = document.getElementById('cas-map');
+        if (!el || !window.L) return;
+        var LIMA = [-12.0464, -77.0428];
+        var places = [
+            { at: LIMA, label: 'Lima', img: 'imagenes/experiencia2/08-resultado-final.jpg', title: 'Lima, Perú',
+              links: [['experiencia2.html', '🍪 Exp. 2: Galletas desde cero'], ['experiencia6.html', '♿ Exp. 6: Sillas de ruedas'], ['proyecto1.html', '⚖️ Proyecto 1: modelo.pe']] },
+            { at: [-33.0472, -71.6127], label: 'Valparaíso', img: 'imagenes/experiencia5/03-equipo.jpg', title: 'Valparaíso, Chile',
+              links: [['experiencia5.html', '🏀 Exp. 5: Copa Pancho 2026']] },
+            { at: [43.6629, -79.3957], label: 'Toronto', img: 'imagenes/experiencia1/17-mirador-cn-tower.jpg', title: 'Toronto, Canadá',
+              links: [['experiencia1.html', '✈️ Exp. 1: Un mes en ELI Camps']] }
+        ];
+        var map = L.map(el, { scrollWheelZoom: false, zoomControl: true, worldCopyJump: true });
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>', maxZoom: 18
+        }).addTo(map);
+        places.forEach(function (p, i) {
+            if (i > 0) L.polyline([LIMA, p.at], { color: '#ff7b6b', weight: 3, dashArray: '8 10', opacity: 0.9 }).addTo(map);
+            var icon = L.divIcon({ className: '', iconSize: [62, 62], iconAnchor: [31, 31],
+                html: '<div class="pin' + (p.label === 'Lima' ? ' left' : '') + '" data-label="' + p.label + '" style="background-image:url(' + p.img + ')"></div>' });
+            var links = p.links.map(function (l) { return '<a href="' + l[0] + '">' + l[1] + '</a>'; }).join('');
+            L.marker(p.at, { icon: icon, title: p.title }).addTo(map)
+                .bindPopup('<div class="pop"><img src="' + p.img + '" alt=""><h5>' + p.title + '</h5>' + links + '</div>');
+        });
+        map.fitBounds(places.map(function (p) { return p.at; }), { padding: [60, 60] });
+    }
+
+    function mobileNav() {
+        var nav = document.querySelector('nav');
+        if (!nav || nav.querySelector('.nav-toggle')) return;
+        var current = nav.querySelector('a.active, .dropdown-menu a.active');
+        var btn = document.createElement('button');
+        btn.className = 'nav-toggle';
+        btn.setAttribute('aria-expanded', 'false');
+        btn.innerHTML = '<span><i class="fas fa-leaf"></i> ' + (current ? current.textContent.trim() : 'Menú') + '</span><span class="bars"><i class="fas fa-bars"></i></span>';
+        nav.insertBefore(btn, nav.firstChild);
+        btn.addEventListener('click', function () {
+            var open = nav.classList.toggle('open');
+            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            btn.querySelector('.bars i').className = open ? 'fas fa-times' : 'fas fa-bars';
+        });
+        nav.querySelectorAll('.dropdown > a').forEach(function (a) {
+            a.addEventListener('click', function (e) {
+                if (window.innerWidth > 760) return;
+                e.preventDefault();
+                a.parentNode.classList.toggle('open');
+            });
+        });
+    }
+
     function descPhoto() {
         var h = document.querySelector('.content-section h4 .fa-align-left');
         var pick = document.querySelectorAll('.hero-stack img')[1];
@@ -227,12 +347,15 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
+        mobileNav();
         scrollProgress();
         stageColors();
         stageShortcuts();
         reveals();
         raScore();
         descPhoto();
+        growthChart();
+        casMap();
         sideLayer();
         lightbox();
     });

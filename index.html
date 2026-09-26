@@ -817,8 +817,10 @@
         html { scroll-behavior: smooth; }
         @media (max-width: 600px) { nav { position: relative; } }
     </style>
-    <link rel="stylesheet" href="css/juvenil.css?v=8">
-    <script src="js/juvenil.js?v=8" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
+    <link rel="stylesheet" href="css/juvenil.css?v=11">
+    <script src="js/juvenil.js?v=11" defer></script>
 </head>
 <body>
 
@@ -871,23 +873,23 @@
         <div class="stats-grid animate">
             <div class="stat-card">
                 <i class="fas fa-star"></i>
-                <span class="stat-number" data-target="14">0</span>
+                <span class="stat-number" data-target="4">0</span>
                 <span class="stat-label">Experiencias</span>
             </div>
             <div class="stat-card">
                 <i class="fas fa-project-diagram"></i>
-                <span class="stat-number" data-target="2">0</span>
-                <span class="stat-label">Proyectos</span>
+                <span class="stat-number" data-target="1">0</span>
+                <span class="stat-label">Proyecto</span>
             </div>
             <div class="stat-card">
                 <i class="fas fa-lightbulb"></i>
-                <span class="stat-number" data-target="7">0</span>
-                <span class="stat-label">Resultados de Aprendizaje</span>
+                <span class="stat-number" data-target="5">0</span>
+                <span class="stat-label">RA logrados de 7</span>
             </div>
             <div class="stat-card">
-                <i class="fas fa-heart"></i>
-                <span class="stat-number" data-target="3">0</span>
-                <span class="stat-label">Pilares CAS</span>
+                <i class="fas fa-mouse-pointer"></i>
+                <span class="stat-number" data-target="47">0</span>
+                <span class="stat-label">mil clics en modelo.pe</span>
             </div>
         </div>
 
@@ -940,78 +942,58 @@
             </div>
         </section>
 
+        <!-- MAPA CAS -->
+        <section class="animate map-section">
+            <h2><i class="fas fa-map-marked-alt"></i> Mi mapa CAS</h2>
+            <p>Dónde viví cada experiencia. Toca un pin para ver la foto y entrar.</p>
+            <div id="cas-map" role="region" aria-label="Mapa con los lugares de mis experiencias CAS: Lima, Valparaíso y Toronto"></div>
+            <div class="map-legend"><span><b>3</b> ciudades</span><span><b>3</b> países</span><span><b>+17 000 km</b> de viajes (ida y vuelta)</span></div>
+        </section>
+
         <!-- PROGRESO CAS -->
         <section class="animate">
             <h2><i class="fas fa-chart-bar"></i> Mi Progreso CAS</h2>
-            <p>Avance en los tres pilares de Creatividad, Actividad y Servicio a lo largo del programa.</p>
+            <p>Cómo se reparten, en promedio, la Creatividad, la Actividad y el Servicio en mis experiencias y mi proyecto.</p>
 
             <div class="progress-section">
                 <div class="progress-item">
                     <div class="progress-label">
                         <span><i class="fas fa-palette" style="color:#5c7a52"></i> Creatividad</span>
-                        <span>0%</span>
+                        <span>35%</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress-fill creativity" data-width="0"></div>
+                        <div class="progress-fill creativity" data-width="35"></div>
                     </div>
                 </div>
                 <div class="progress-item">
                     <div class="progress-label">
                         <span><i class="fas fa-running" style="color:#7a6b52"></i> Actividad</span>
-                        <span>0%</span>
+                        <span>36%</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress-fill activity" data-width="0"></div>
+                        <div class="progress-fill activity" data-width="36"></div>
                     </div>
                 </div>
                 <div class="progress-item">
                     <div class="progress-label">
                         <span><i class="fas fa-hands-helping" style="color:#4a6341"></i> Servicio</span>
-                        <span>0%</span>
+                        <span>29%</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress-fill service" data-width="0"></div>
+                        <div class="progress-fill service" data-width="29"></div>
                     </div>
                 </div>
             </div>
 
-            <h3><i class="fas fa-trophy"></i> Resultados de Aprendizaje</h3>
-            <div class="learning-outcomes stagger">
-                <div class="lo-card">
-                    <span class="lo-number">1</span>
-                    <div class="lo-title">Identificar fortalezas y áreas de crecimiento</div>
-                    <div class="lo-check"><i class="fas fa-check-circle"></i> En progreso</div>
-                </div>
-                <div class="lo-card">
-                    <span class="lo-number">2</span>
-                    <div class="lo-title">Demostrar nuevos desafíos y habilidades</div>
-                    <div class="lo-check"><i class="fas fa-check-circle"></i> En progreso</div>
-                </div>
-                <div class="lo-card">
-                    <span class="lo-number">3</span>
-                    <div class="lo-title">Planificar e iniciar actividades</div>
-                    <div class="lo-check"><i class="fas fa-check-circle"></i> En progreso</div>
-                </div>
-                <div class="lo-card">
-                    <span class="lo-number">4</span>
-                    <div class="lo-title">Compromiso y perseverancia</div>
-                    <div class="lo-check"><i class="fas fa-check-circle"></i> En progreso</div>
-                </div>
-                <div class="lo-card">
-                    <span class="lo-number">5</span>
-                    <div class="lo-title">Trabajo colaborativo</div>
-                    <div class="lo-check"><i class="fas fa-check-circle"></i> En progreso</div>
-                </div>
-                <div class="lo-card">
-                    <span class="lo-number">6</span>
-                    <div class="lo-title">Compromiso con temas de importancia global</div>
-                    <div class="lo-check"><i class="fas fa-check-circle"></i> En progreso</div>
-                </div>
-                <div class="lo-card">
-                    <span class="lo-number">7</span>
-                    <div class="lo-title">Considerar las implicaciones éticas</div>
-                    <div class="lo-check"><i class="fas fa-check-circle"></i> En progreso</div>
-                </div>
+            <h3><i class="fas fa-trophy"></i> Mi álbum de resultados de aprendizaje <span class="ra-count">5 de 7</span></h3>
+            <div class="ra-album">
+                <a class="ra-sticker" href="experiencia1.html" style="--r:-3deg"><span class="ra-n">RA1</span><img src="imagenes/experiencia1/10-uno-con-amigos-asiaticos.jpg" alt="Intercambio en Canadá" loading="lazy"><b>Identificar fortalezas y áreas de crecimiento</b><small>Intercambio en Canadá</small><span class="ra-mini-dots" aria-label="5 de 7"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></a>
+                <a class="ra-sticker" href="experiencia2.html" style="--r:2deg"><span class="ra-n">RA2</span><img src="imagenes/experiencia2/08-resultado-final.jpg" alt="Galletas desde cero" loading="lazy"><b>Demostrar nuevos desafíos y habilidades</b><small>Galletas desde cero</small><span class="ra-mini-dots" aria-label="6 de 7"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></a>
+                <div class="ra-sticker empty" style="--r:-1.5deg"><span class="ra-n">RA3</span><div class="ra-q">?</div><b>Planificar e iniciar actividades</b><small>¡Me falta esta figurita!</small></div>
+                <div class="ra-sticker empty" style="--r:2.5deg"><span class="ra-n">RA4</span><div class="ra-q">?</div><b>Compromiso y perseverancia</b><small>¡Me falta esta figurita!</small></div>
+                <a class="ra-sticker" href="experiencia5.html" style="--r:-2deg"><span class="ra-n">RA5</span><img src="imagenes/experiencia5/03-equipo.jpg" alt="Torneo en Chile" loading="lazy"><b>Trabajo colaborativo</b><small>Torneo en Chile</small><span class="ra-mini-dots" aria-label="6 de 7"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></a>
+                <a class="ra-sticker" href="experiencia6.html" style="--r:1.5deg"><span class="ra-n">RA6</span><img src="imagenes/experiencia6/05-circulo-testimonios.jpeg" alt="Sillas de ruedas + modelo.pe" loading="lazy"><b>Compromiso con temas de importancia global</b><small>Sillas de ruedas + modelo.pe</small><span class="ra-mini-dots" aria-label="6 de 7"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></a>
+                <a class="ra-sticker" href="proyecto1.html" style="--r:-2.5deg"><span class="ra-n">RA7</span><img src="imagenes/proyecto1/11-uso-de-ia.jpg" alt="modelo.pe" loading="lazy"><b>Considerar las implicaciones éticas</b><small>modelo.pe</small><span class="ra-mini-dots" aria-label="6 de 7"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></a>
             </div>
         </section>
 
