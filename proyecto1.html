@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto 1 — Mi Blog CAS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
@@ -204,9 +205,63 @@
             .photo-grid { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 600px) { nav { position: relative; } }
+
+        /* DIARIO CAS: etapas con foto, polaroids y RA final */
+        :root { --tape: rgba(168,216,154,0.75); --tape-2: rgba(232,199,116,0.7); --ink: #3e3529; --leaf: #5c7a52; }
+        .stage-section { padding-top: 40px !important; }
+        .stage-step { position: absolute; top: 12px; left: 30px; font-family: "Caveat", cursive; font-size: 1.15rem; color: #a8956e; }
+        .stage-step b { display: inline-grid; place-items: center; width: 24px; height: 24px; margin-right: 6px; border-radius: 50%; background: var(--leaf); color: #f5f0e8; font-family: "Inter", sans-serif; font-size: 0.75rem; }
+        .stage-row { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 2.2rem; align-items: center; }
+        .stage-row.flip { grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr); }
+        .stage-row.flip .stage-photo { order: -1; }
+        .stage-photo { position: relative; margin: 14px 6px 6px; background: #fff; padding: 10px 10px 46px; box-shadow: 0 12px 30px rgba(62,53,41,0.16), 0 2px 6px rgba(62,53,41,0.08); transform: rotate(-2.2deg); transition: transform 0.45s cubic-bezier(0.16,1,0.3,1), box-shadow 0.45s; }
+        .stage-row.flip .stage-photo { transform: rotate(2deg); }
+        .stage-photo:hover, .stage-row.flip .stage-photo:hover { transform: rotate(0deg) scale(1.03); box-shadow: 0 18px 40px rgba(62,53,41,0.22); }
+        .stage-photo::before { content: ""; position: absolute; top: -13px; left: 50%; width: 96px; height: 26px; background: var(--tape); transform: translateX(-50%) rotate(-4deg); box-shadow: 0 1px 2px rgba(0,0,0,0.08); z-index: 1; }
+        .stage-row.flip .stage-photo::before { background: var(--tape-2); transform: translateX(-50%) rotate(3deg); }
+        .stage-photo img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+        .stage-photo .ph-empty { display: grid; place-items: center; width: 100%; aspect-ratio: 4 / 5; background: repeating-linear-gradient(45deg, #efe8da, #efe8da 10px, #e8e0d0 10px, #e8e0d0 20px); color: #a8956e; font-size: 2.4rem; }
+        .stage-photo figcaption { position: absolute; left: 8px; right: 8px; bottom: 8px; text-align: center; font-family: "Caveat", cursive; font-size: 1.3rem; line-height: 1.05; color: var(--ink); }
+        .photo-grid .photo-item { background: #fff; padding: 9px 9px 12px; box-shadow: 0 8px 22px rgba(62,53,41,0.12); transform: rotate(-1.4deg); }
+        .photo-grid .photo-item:nth-child(even) { transform: rotate(1.3deg); }
+        .photo-grid .photo-item:nth-child(3n) { transform: rotate(-0.6deg); }
+        .photo-grid .photo-item:hover { transform: rotate(0deg) translateY(-6px); }
+        .photo-grid .photo-item img { border-radius: 2px; box-shadow: none; }
+        .photo-grid .photo-item:hover img { transform: none; box-shadow: none; }
+        .photo-grid .photo-item p { font-family: "Caveat", cursive; font-style: normal; font-size: 1.2rem; line-height: 1.15; color: var(--ink); }
+        .ra-final { position: relative; margin: 2.5rem 0 1rem; padding: 34px 32px 30px; border-radius: 22px; background: radial-gradient(circle at 12% 0%, rgba(168,216,154,0.35), transparent 45%), linear-gradient(145deg, #2d5a27, #3a5232 55%, #4a6341); color: #f5f0e8; box-shadow: 0 18px 45px rgba(45,90,39,0.3); overflow: hidden; }
+        .ra-final::after { content: ""; position: absolute; right: -40px; bottom: -40px; width: 180px; height: 180px; border-radius: 50%; border: 2px dashed rgba(245,240,232,0.18); }
+        .ra-final .ra-kicker { font-family: "Caveat", cursive; font-size: 1.45rem; color: #a8d89a; }
+        .ra-final h4 { font-family: "Playfair Display", Georgia, serif; font-size: 1.6rem; margin: 2px 0 18px; line-height: 1.25; }
+        .ra-head { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; margin-bottom: 20px; }
+        .ra-badge { display: grid; place-items: center; min-width: 92px; height: 92px; border-radius: 50%; background: #f5f0e8; color: #2d5a27; font-family: "Playfair Display", serif; font-weight: 700; font-size: 1.9rem; box-shadow: 0 0 0 6px rgba(245,240,232,0.15); transform: rotate(-6deg); }
+        .ra-score { flex: 1; min-width: 230px; }
+        .ra-score .label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.8; }
+        .ra-dots { display: flex; gap: 8px; margin: 8px 0 4px; }
+        .ra-dots span { width: 30px; height: 30px; border-radius: 50%; border: 2px solid rgba(245,240,232,0.5); display: grid; place-items: center; font-size: 0.75rem; font-weight: 600; color: rgba(245,240,232,0.6); }
+        .ra-dots span.on { background: #e8c774; border-color: #e8c774; color: #3a5232; }
+        .ra-score .num { font-family: "Caveat", cursive; font-size: 2rem; line-height: 1; }
+        .ra-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; position: relative; z-index: 1; }
+        .ra-card { background: rgba(245,240,232,0.1); border: 1px solid rgba(245,240,232,0.18); border-radius: 14px; padding: 16px 18px; }
+        .ra-card h5 { font-size: 0.95rem; margin-bottom: 6px; color: #e8c774; display: flex; gap: 8px; align-items: center; }
+        .ra-card p { font-size: 0.93rem; line-height: 1.6; text-align: left; }
+        .ra-card.wide { grid-column: 1 / -1; }
+        .ra-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+        .ra-chips span { background: #f5f0e8; color: #3a5232; border-radius: 20px; padding: 4px 12px; font-size: 0.8rem; font-weight: 500; }
+        .ra-final.pending .ra-badge { background: rgba(245,240,232,0.2); color: #f5f0e8; }
+        @media (max-width: 760px) {
+            .stage-row, .stage-row.flip { grid-template-columns: 1fr; gap: 1.2rem; }
+            .stage-row.flip .stage-photo { order: 0; }
+            .stage-photo { max-width: 300px; margin: 10px auto 4px; }
+            .stage-step { left: 18px; }
+            .ra-grid { grid-template-columns: 1fr; }
+            .ra-final { padding: 28px 20px 24px; }
+            .ra-dots { gap: 6px; }
+            .ra-dots span { width: 26px; height: 26px; }
+        }
     </style>
-    <link rel="stylesheet" href="css/juvenil.css?v=7">
-    <script src="js/juvenil.js?v=7" defer></script>
+    <link rel="stylesheet" href="css/juvenil.css?v=8">
+    <script src="js/juvenil.js?v=8" defer></script>
 </head>
 <body>
     <header>
@@ -245,15 +300,22 @@
         <a href="reflexiones.html"><i class="fas fa-pen-fancy"></i> Reflexiones</a>
     </nav>
     <div class="container">
-        <div class="exp-header">
-            <h2>Proyecto 1</h2>
-            <h3>modelo.pe &mdash; Modelos legales gratuitos para todos los peruanos</h3>
-        </div>
+        <header class="exp-hero">
+            <img class="cover" src="imagenes/proyecto1/05-inicio.jpg" alt="Página de inicio de modelo.pe" style="object-position: 50% 20%;">
+            <div class="hero-sticker" aria-hidden="true"><i class="fas fa-balance-scale"></i></div>
+            <div class="hero-stack"><figure style="--r:-8deg"><img src="imagenes/proyecto1/09-google.jpg" alt="modelo.pe primero en Google" loading="lazy"></figure><figure style="--r:5deg"><img src="imagenes/proyecto1/08-search-console.jpg" alt="Search Console de modelo.pe" loading="lazy"></figure><figure style="--r:-3deg"><img src="imagenes/proyecto1/07-calculadoras.jpg" alt="Calculadoras legales" loading="lazy"></figure></div>
+            <div class="hero-text">
+                <span class="hero-num">Proyecto 1</span>
+                <h2>modelo.pe</h2>
+                <p class="hero-sub">Modelos legales gratuitos para todos los peruanos · mayo 2026 y sigue creciendo</p>
+            </div>
+        </header>
         <div class="badges">
             <span class="badge badge-c"><i class="fas fa-palette"></i> Creatividad</span>
             <span class="badge badge-a"><i class="fas fa-running"></i> Actividad</span>
             <span class="badge badge-s"><i class="fas fa-hands-helping"></i> Servicio</span>
         </div>
+        <div class="exp-stats"><div class="stat" style="--c:#ffd166;--r:-2deg"><b>7307</b><span><i class="fas fa-file-word"></i>modelos legales gratis en Word</span></div><div class="stat" style="--c:#7cc6f2;--r:1.5deg"><b>64</b><span><i class="fas fa-sitemap"></i>áreas del derecho</span></div><div class="stat" style="--c:#b8e986;--r:-1deg"><b>14</b><span><i class="fas fa-calculator"></i>calculadoras legales</span></div><div class="stat" style="--c:#ff7b6b;--r:2deg"><b>47,5 mil</b><span><i class="fas fa-mouse-pointer"></i>visitas desde Google en 3 meses</span></div><div class="stat" style="--c:#b69cf2;--r:-1.5deg"><b>1,82 M</b><span><i class="fas fa-eye"></i>veces que apareció en Google</span></div><div class="stat" style="--c:#ffd166;--r:1deg"><b>#1</b><span><i class="fas fa-trophy"></i>en Google para “carta poder simple en word”</span></div></div>
 
         <!-- CAS PERCENTAGE BARS -->
         <div class="cas-percentages">
@@ -366,26 +428,73 @@
             </object>
         </section>
 
-        <section class="content-section">
+        <div class="filmstrip" aria-label="Rollo de fotos"><span class="filmstrip-label">rollo de fotos</span><div class="filmstrip-track"><img src="imagenes/proyecto1/04-redactar-con-ia.jpg" alt="redactar con ia" loading="lazy"><img src="imagenes/proyecto1/05-inicio.jpg" alt="inicio" loading="lazy"><img src="imagenes/proyecto1/06-modelos.jpg" alt="modelos" loading="lazy"><img src="imagenes/proyecto1/07-calculadoras.jpg" alt="calculadoras" loading="lazy"><img src="imagenes/proyecto1/08-search-console.jpg" alt="search console" loading="lazy"><img src="imagenes/proyecto1/09-google.jpg" alt="google" loading="lazy"><img src="imagenes/proyecto1/10-aviso-legal.jpg" alt="aviso legal" loading="lazy"><img src="imagenes/proyecto1/11-uso-de-ia.jpg" alt="uso de ia" loading="lazy"><img src="imagenes/proyecto1/04-redactar-con-ia.jpg" aria-hidden="true" alt="redactar con ia" loading="lazy"><img src="imagenes/proyecto1/05-inicio.jpg" aria-hidden="true" alt="inicio" loading="lazy"><img src="imagenes/proyecto1/06-modelos.jpg" aria-hidden="true" alt="modelos" loading="lazy"><img src="imagenes/proyecto1/07-calculadoras.jpg" aria-hidden="true" alt="calculadoras" loading="lazy"><img src="imagenes/proyecto1/08-search-console.jpg" aria-hidden="true" alt="search console" loading="lazy"><img src="imagenes/proyecto1/09-google.jpg" aria-hidden="true" alt="google" loading="lazy"><img src="imagenes/proyecto1/10-aviso-legal.jpg" aria-hidden="true" alt="aviso legal" loading="lazy"><img src="imagenes/proyecto1/11-uso-de-ia.jpg" aria-hidden="true" alt="uso de ia" loading="lazy"></div></div>
+
+        <section class="content-section stage-section">
+            <span class="stage-step"><b>&#9733;</b>así lo hice</span>
             <h4><i class="fas fa-cogs"></i> Desarrollo y ejecución</h4>
+            <div class="stage-row">
+                <div class="stage-text">
             <p>La idea salió de dos cosas que pasaron casi al mismo tiempo. Por un lado, un amigo de mi papá que tiene un bufete me contó que hasta a él, siendo abogado, le costaba encontrar un solo lugar de dónde sacar modelos de documentos: estaban todos separados, cada uno en una página distinta. Por otro lado, mi abuela estaba atravesando un juicio y le costaba muchísimo encontrar los modelos legales que necesitaba.</p>
             <p>Me puse a buscar yo mismo para ayudarla y fue casi imposible: no había un sitio específico de dónde sacarlos, todo estaba desperdigado. Ahí me di cuenta de que, si a un abogado con su propio bufete le costaba, a alguien que no sabe del tema y encima no puede pagar uno le tenía que ser mucho peor. Así que quise armar ese lugar que no existía.</p>
             <p>Empecé mirando otras páginas legales para ver qué les faltaba. Después armé la página y pensé cómo ordenar los documentos para que uno encuentre rápido lo que busca. Los borradores de los modelos los generé con inteligencia artificial, porque redactar 4000 documentos a mano habría sido imposible, y después los revisé y los ordené por áreas del derecho. La IA también me ayudó bastante a programar partes del sitio. Con el tiempo creció más de lo que había planeado: hoy tiene 7307 modelos en Word ordenados en 64 áreas del derecho, 14 calculadoras legales (plazos, pensión de alimentos, beneficios sociales y otras), un glosario y los valores oficiales 2026. Solo en los últimos 3 meses la página recibió más de 47 mil visitas desde Google y apareció 1,82 millones de veces en los resultados de búsqueda. Lo sigo manteniendo.</p>
             <p>Justamente porque los documentos salen de una IA y no de un abogado, puse un aviso legal bien visible en el sitio: son formatos referenciales, no están revisados por un especialista y conviene confirmarlos con un abogado colegiado antes de usarlos.</p>
+                </div>
+                <div class="stage-photos"><figure class="stage-photo"><img src="imagenes/proyecto1/04-redactar-con-ia.jpg" alt="completar un documento con IA" loading="lazy" style="aspect-ratio: 4 / 3; object-position: 50% 0;"><figcaption>completar un documento con IA</figcaption></figure><figure class="stage-mini"><img src="imagenes/proyecto1/11-uso-de-ia.jpg" alt="siendo honesto" loading="lazy" style="aspect-ratio: 4 / 3; object-position: 50% 0;"><figcaption>siendo honesto</figcaption></figure></div>
+            </div>
         </section>
 
         <section class="content-section">
             <h4><i class="fas fa-trophy"></i> Resultados de aprendizaje demostrados</h4>
-            <p><strong>RA6 &mdash; Demostrar compromiso con asuntos de importancia global.</strong> Que la gente sin plata no pueda acceder a la justicia es un problema que pasa en todos lados, no solo acá. Con modelo.pe puse 7307 documentos legales gratis, y en solo 3 meses más de 47 mil personas entraron desde Google a buscarlos. Entre lo que más buscan hay cosas muy concretas, como cartas poder, declaraciones juradas o si se puede pasar de la AFP a la ONP, que son trámites reales de gente común. No arregla el problema de fondo, pero es algo concreto que hice frente a una desigualdad real.</p>
-            <p><strong>RA7 &mdash; Reconocer y afrontar las implicancias éticas de mis acciones.</strong> Publicar documentos legales es una responsabilidad grande: si alguien usa uno mal, lo puede perjudicar. Y en mi caso hay algo más: los documentos los generé con inteligencia artificial, no un abogado. Pude haberlo ocultado para que el proyecto se viera más serio, pero me pareció deshonesto. Por eso el sitio dice claramente que son formatos referenciales, que no están revisados por un especialista y que hay que confirmarlos con un abogado colegiado. Tampoco pido datos personales. Para mí, decir de qué está hecho mi proyecto y cuáles son sus límites es la parte ética más importante de todo esto.</p>
+            <p>En este proyecto trabajé dos resultados de aprendizaje. Aquí me pongo un puntaje del 1 al 7 en cada uno y explico por qué.</p>
+        </section>
+        <section class="ra-final">
+            <div class="ra-kicker">Mi resultado de aprendizaje</div>
+            <h4>RA6: Demostrar compromiso con asuntos de importancia global</h4>
+            <div class="ra-head">
+                <div class="ra-badge">RA6</div>
+                <div class="ra-score">
+                    <div class="label">¿Cuánto lo logré? (del 1 al 7)</div>
+                    <div class="ra-dots"><span class="on">1</span><span class="on">2</span><span class="on">3</span><span class="on">4</span><span class="on">5</span><span class="on">6</span><span class="">7</span></div>
+                    <div class="num">6 de 7</div>
+                </div>
+            </div>
+            <div class="ra-grid">
+                <div class="ra-card"><h5><i class="fas fa-check-circle"></i> ¿Por qué me pongo un 6?</h5><p>Que la gente sin plata no pueda acceder a la justicia es un problema que pasa en todos lados, no solo acá. Con modelo.pe puse 7307 documentos legales gratis, y en solo 3 meses más de 47 mil personas entraron desde Google a buscarlos. Entre lo que más buscan hay cosas muy concretas, como cartas poder, declaraciones juradas o si se puede pasar de la AFP a la ONP, que son trámites reales de gente común. No arregla el problema de fondo, pero es algo concreto que hice frente a una desigualdad real.</p></div>
+                <div class="ra-card"><h5><i class="fas fa-arrow-up"></i> ¿Qué me faltó para el 7?</h5><p>Sé cuántas personas entran, pero no sé si los documentos de verdad les sirvieron en su trámite. Para llegar al 7 tendría que medir el impacto real: preguntarle a la gente cómo les fue, recoger sus comentarios y usar eso para mejorar los modelos que más se usan.</p></div>
+                <div class="ra-card wide"><h5><i class="fas fa-paperclip"></i> Evidencia en esta página</h5><div class="ra-chips"><span>47,5 mil visitas en 3 meses</span><span>Primero en Google</span><span>7307 modelos gratis</span><span>Búsquedas reales: AFP a ONP, cartas poder</span></div></div>
+            </div>
+        </section>
+        <section class="ra-final">
+            <div class="ra-kicker">Mi resultado de aprendizaje</div>
+            <h4>RA7: Reconocer y afrontar las implicancias éticas de mis acciones</h4>
+            <div class="ra-head">
+                <div class="ra-badge">RA7</div>
+                <div class="ra-score">
+                    <div class="label">¿Cuánto lo logré? (del 1 al 7)</div>
+                    <div class="ra-dots"><span class="on">1</span><span class="on">2</span><span class="on">3</span><span class="on">4</span><span class="on">5</span><span class="on">6</span><span class="">7</span></div>
+                    <div class="num">6 de 7</div>
+                </div>
+            </div>
+            <div class="ra-grid">
+                <div class="ra-card"><h5><i class="fas fa-check-circle"></i> ¿Por qué me pongo un 6?</h5><p>Publicar documentos legales es una responsabilidad grande: si alguien usa uno mal, lo puede perjudicar. Y en mi caso hay algo más: los documentos los generé con inteligencia artificial, no un abogado. Pude haberlo ocultado para que el proyecto se viera más serio, pero me pareció deshonesto. Por eso el sitio dice claramente que son formatos referenciales, que no están revisados por un especialista y que hay que confirmarlos con un abogado colegiado. Tampoco pido datos personales. Para mí, decir de qué está hecho mi proyecto y cuáles son sus límites es la parte ética más importante de todo esto.</p></div>
+                <div class="ra-card"><h5><i class="fas fa-arrow-up"></i> ¿Qué me faltó para el 7?</h5><p>Todavía hay cosas por mejorar: explico que uso inteligencia artificial en la página “Sobre”, pero no en el aviso legal, y los modelos aún no los revisa un abogado. Para llegar al 7 tendría que decirlo también en el aviso legal y conseguir abogados voluntarios que revisen los documentos más usados.</p></div>
+                <div class="ra-card wide"><h5><i class="fas fa-paperclip"></i> Evidencia en esta página</h5><div class="ra-chips"><span>Aviso legal</span><span>Página “Sobre” con el uso de IA</span><span>Sin registro ni datos personales</span></div></div>
+            </div>
         </section>
 
-        <section class="content-section">
+        <section class="content-section stage-section">
+            <span class="stage-step"><b>&#9733;</b>lo que me llevo</span>
             <h4><i class="fas fa-lightbulb"></i> Reflexión del proyecto</h4>
+            <div class="stage-row flip">
+                <div class="stage-text">
             <p>Esto empezó por el juicio de mi abuela y por un comentario del amigo de mi papá, y hoy lo usan miles de personas al mes. Todavía me parece raro pensarlo.</p>
             <p>Lo que más me quedó fue aprender a ser honesto con lo que publico. En un tema legal, un error le puede complicar la vida a alguien, y era fácil caer en la tentación de que el proyecto pareciera más serio de lo que es. Decidí hacer lo contrario: decir que los documentos los hizo una IA y que hay que revisarlos con un abogado. Prefiero eso a que alguien confíe de más en mi página.</p>
             <p>También aprendí bastante de programación y de cómo organizar tanta información. Y aprendí a usar la inteligencia artificial en serio: al principio sentía que apoyarme en ella era hacer trampa, pero igual tenía que entender el problema, saber qué pedirle y revisar todo lo que salía.</p>
             <p>Si lo volviera a hacer, buscaría que abogados voluntarios revisaran los modelos, para que la gente pueda confiar más. Por ahora me quedo contento de haber hecho algo útil que sigue creciendo.</p>
+                </div>
+                <div class="stage-photos"><figure class="stage-photo"><img src="imagenes/proyecto1/09-google.jpg" alt="¡primero en Google!" loading="lazy" style="aspect-ratio: 4 / 3; object-position: 50% 0;"><figcaption>¡primero en Google!</figcaption></figure><figure class="stage-mini"><img src="imagenes/proyecto1/08-search-console.jpg" alt="47,5 mil visitas" loading="lazy" style="aspect-ratio: 4 / 3; object-position: 50% 0;"><figcaption>47,5 mil visitas</figcaption></figure></div>
+            </div>
         </section>
 
         <section class="content-section">
