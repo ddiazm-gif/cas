@@ -259,6 +259,9 @@
             .ra-dots { gap: 6px; }
             .ra-dots span { width: 26px; height: 26px; }
         }
+        .stage-photos .stage-mini { width: 46%; bottom: -34px; right: -22px; }
+        .stage-row.flip .stage-photos .stage-mini { left: -22px; right: auto; }
+        .stage-section .stage-photos { padding-bottom: 36px; }
     </style>
     <link rel="stylesheet" href="css/juvenil.css?v=8">
     <script src="js/juvenil.js?v=8" defer></script>
@@ -303,7 +306,7 @@
         <header class="exp-hero">
             <img class="cover" src="imagenes/proyecto1/05-inicio.jpg" alt="Página de inicio de modelo.pe" style="object-position: 50% 20%;">
             <div class="hero-sticker" aria-hidden="true"><i class="fas fa-balance-scale"></i></div>
-            <div class="hero-stack"><figure style="--r:-8deg"><img src="imagenes/proyecto1/09-google.jpg" alt="modelo.pe primero en Google" loading="lazy"></figure><figure style="--r:5deg"><img src="imagenes/proyecto1/08-search-console.jpg" alt="Search Console de modelo.pe" loading="lazy"></figure><figure style="--r:-3deg"><img src="imagenes/proyecto1/07-calculadoras.jpg" alt="Calculadoras legales" loading="lazy"></figure></div>
+            <div class="hero-stack"><figure style="--r:-8deg"><img src="imagenes/proyecto1/09-google.jpg" alt="modelo.pe primero en Google" loading="lazy" style="object-fit: contain; background: #f4f6f8;"></figure><figure style="--r:5deg"><img src="imagenes/proyecto1/08-search-console.jpg" alt="Search Console de modelo.pe" loading="lazy" style="object-fit: contain; background: #f4f6f8;"></figure><figure style="--r:-3deg"><img src="imagenes/proyecto1/07-calculadoras.jpg" alt="Calculadoras legales" loading="lazy" style="object-fit: contain; background: #f4f6f8;"></figure></div>
             <div class="hero-text">
                 <span class="hero-num">Proyecto 1</span>
                 <h2>modelo.pe</h2>
@@ -315,7 +318,7 @@
             <span class="badge badge-a"><i class="fas fa-running"></i> Actividad</span>
             <span class="badge badge-s"><i class="fas fa-hands-helping"></i> Servicio</span>
         </div>
-        <div class="exp-stats"><div class="stat" style="--c:#ffd166;--r:-2deg"><b>7307</b><span><i class="fas fa-file-word"></i>modelos legales gratis en Word</span></div><div class="stat" style="--c:#7cc6f2;--r:1.5deg"><b>64</b><span><i class="fas fa-sitemap"></i>áreas del derecho</span></div><div class="stat" style="--c:#b8e986;--r:-1deg"><b>14</b><span><i class="fas fa-calculator"></i>calculadoras legales</span></div><div class="stat" style="--c:#ff7b6b;--r:2deg"><b>47,5 mil</b><span><i class="fas fa-mouse-pointer"></i>visitas desde Google en 3 meses</span></div><div class="stat" style="--c:#b69cf2;--r:-1.5deg"><b>1,82 M</b><span><i class="fas fa-eye"></i>veces que apareció en Google</span></div><div class="stat" style="--c:#ffd166;--r:1deg"><b>#1</b><span><i class="fas fa-trophy"></i>en Google para “carta poder simple en word”</span></div></div>
+        <div class="exp-stats"><div class="stat" style="--c:#ffd166;--r:-2deg"><b>7307</b><span><i class="fas fa-file-word"></i>modelos legales gratis en Word</span></div><div class="stat" style="--c:#7cc6f2;--r:1.5deg"><b>64</b><span><i class="fas fa-sitemap"></i>áreas del derecho</span></div><div class="stat" style="--c:#b8e986;--r:-1deg"><b>14</b><span><i class="fas fa-calculator"></i>calculadoras legales</span></div><div class="stat" style="--c:#ff7b6b;--r:2deg"><b>47,5 mil</b><span><i class="fas fa-mouse-pointer"></i>clics desde Google en 3 meses</span></div><div class="stat" style="--c:#b69cf2;--r:-1.5deg"><b>1,82 M</b><span><i class="fas fa-eye"></i>veces que apareció en Google</span></div><div class="stat" style="--c:#ffd166;--r:1deg"><b>#1</b><span><i class="fas fa-trophy"></i>en Google para “carta poder simple en word”</span></div></div>
 
         <!-- CAS PERCENTAGE BARS -->
         <div class="cas-percentages">
@@ -437,10 +440,10 @@
                 <div class="stage-text">
             <p>La idea salió de dos cosas que pasaron casi al mismo tiempo. Por un lado, un amigo de mi papá que tiene un bufete me contó que hasta a él, siendo abogado, le costaba encontrar un solo lugar de dónde sacar modelos de documentos: estaban todos separados, cada uno en una página distinta. Por otro lado, mi abuela estaba atravesando un juicio y le costaba muchísimo encontrar los modelos legales que necesitaba.</p>
             <p>Me puse a buscar yo mismo para ayudarla y fue casi imposible: no había un sitio específico de dónde sacarlos, todo estaba desperdigado. Ahí me di cuenta de que, si a un abogado con su propio bufete le costaba, a alguien que no sabe del tema y encima no puede pagar uno le tenía que ser mucho peor. Así que quise armar ese lugar que no existía.</p>
-            <p>Empecé mirando otras páginas legales para ver qué les faltaba. Después armé la página y pensé cómo ordenar los documentos para que uno encuentre rápido lo que busca. Los borradores de los modelos los generé con inteligencia artificial, porque redactar 4000 documentos a mano habría sido imposible, y después los revisé y los ordené por áreas del derecho. La IA también me ayudó bastante a programar partes del sitio. Con el tiempo creció más de lo que había planeado: hoy tiene 7307 modelos en Word ordenados en 64 áreas del derecho, 14 calculadoras legales (plazos, pensión de alimentos, beneficios sociales y otras), un glosario y los valores oficiales 2026. Solo en los últimos 3 meses la página recibió más de 47 mil visitas desde Google y apareció 1,82 millones de veces en los resultados de búsqueda. Lo sigo manteniendo.</p>
+            <p>Empecé mirando otras páginas legales para ver qué les faltaba. Después armé la página y pensé cómo ordenar los documentos para que uno encuentre rápido lo que busca. Los borradores de los modelos los generé con inteligencia artificial, porque redactar 4000 documentos a mano habría sido imposible, y después los revisé y los ordené por áreas del derecho. La IA también me ayudó bastante a programar partes del sitio. Con el tiempo creció más de lo que había planeado: hoy tiene 7307 modelos en Word ordenados en 64 áreas del derecho, 14 calculadoras legales (plazos, pensión de alimentos, beneficios sociales y otras), un glosario y los valores oficiales 2026. Solo en los últimos 3 meses la página recibió más de 47 mil clics desde Google y apareció 1,82 millones de veces en los resultados de búsqueda. Lo sigo manteniendo.</p>
             <p>Justamente porque los documentos salen de una IA y no de un abogado, puse un aviso legal bien visible en el sitio: son formatos referenciales, no están revisados por un especialista y conviene confirmarlos con un abogado colegiado antes de usarlos.</p>
                 </div>
-                <div class="stage-photos"><figure class="stage-photo"><img src="imagenes/proyecto1/04-redactar-con-ia.jpg" alt="completar un documento con IA" loading="lazy" style="aspect-ratio: 4 / 3; object-position: 50% 0;"><figcaption>completar un documento con IA</figcaption></figure><figure class="stage-mini"><img src="imagenes/proyecto1/11-uso-de-ia.jpg" alt="siendo honesto" loading="lazy" style="aspect-ratio: 4 / 3; object-position: 50% 0;"><figcaption>siendo honesto</figcaption></figure></div>
+                <div class="stage-photos"><figure class="stage-photo"><img src="imagenes/proyecto1/04-redactar-con-ia.jpg" alt="completar un documento con IA" loading="lazy" style="aspect-ratio: 4 / 3; object-fit: contain; background: #f4f6f8;"><figcaption>completar un documento con IA</figcaption></figure><figure class="stage-mini"><img src="imagenes/proyecto1/11-uso-de-ia.jpg" alt="siendo honesto" loading="lazy" style="aspect-ratio: 4 / 3; object-fit: contain; background: #f4f6f8;"><figcaption>siendo honesto</figcaption></figure></div>
             </div>
         </section>
 
@@ -460,9 +463,9 @@
                 </div>
             </div>
             <div class="ra-grid">
-                <div class="ra-card"><h5><i class="fas fa-check-circle"></i> ¿Por qué me pongo un 6?</h5><p>Que la gente sin plata no pueda acceder a la justicia es un problema que pasa en todos lados, no solo acá. Con modelo.pe puse 7307 documentos legales gratis, y en solo 3 meses más de 47 mil personas entraron desde Google a buscarlos. Entre lo que más buscan hay cosas muy concretas, como cartas poder, declaraciones juradas o si se puede pasar de la AFP a la ONP, que son trámites reales de gente común. No arregla el problema de fondo, pero es algo concreto que hice frente a una desigualdad real.</p></div>
-                <div class="ra-card"><h5><i class="fas fa-arrow-up"></i> ¿Qué me faltó para el 7?</h5><p>Sé cuántas personas entran, pero no sé si los documentos de verdad les sirvieron en su trámite. Para llegar al 7 tendría que medir el impacto real: preguntarle a la gente cómo les fue, recoger sus comentarios y usar eso para mejorar los modelos que más se usan.</p></div>
-                <div class="ra-card wide"><h5><i class="fas fa-paperclip"></i> Evidencia en esta página</h5><div class="ra-chips"><span>47,5 mil visitas en 3 meses</span><span>Primero en Google</span><span>7307 modelos gratis</span><span>Búsquedas reales: AFP a ONP, cartas poder</span></div></div>
+                <div class="ra-card"><h5><i class="fas fa-check-circle"></i> ¿Por qué me pongo un 6?</h5><p>Que la gente sin plata no pueda acceder a la justicia es un problema que pasa en todos lados, no solo acá. Con modelo.pe puse 7307 documentos legales gratis, y en solo 3 meses recibieron más de 47 mil clics desde Google. Entre lo que más buscan hay cosas muy concretas, como cartas poder, declaraciones juradas o si se puede pasar de la AFP a la ONP, que son trámites reales de gente común. No arregla el problema de fondo, pero es algo concreto que hice frente a una desigualdad real.</p></div>
+                <div class="ra-card"><h5><i class="fas fa-arrow-up"></i> ¿Qué me faltó para el 7?</h5><p>Sé cuántos clics recibe la página, pero no sé si los documentos de verdad les sirvieron en su trámite. Para llegar al 7 tendría que medir el impacto real: preguntarle a la gente cómo les fue, recoger sus comentarios y usar eso para mejorar los modelos que más se usan.</p></div>
+                <div class="ra-card wide"><h5><i class="fas fa-paperclip"></i> Evidencia en esta página</h5><div class="ra-chips"><span>47,5 mil clics en 3 meses</span><span>Primero en Google</span><span>7307 modelos gratis</span><span>Búsquedas reales: AFP a ONP, cartas poder</span></div></div>
             </div>
         </section>
         <section class="ra-final">
@@ -493,7 +496,7 @@
             <p>También aprendí bastante de programación y de cómo organizar tanta información. Y aprendí a usar la inteligencia artificial en serio: al principio sentía que apoyarme en ella era hacer trampa, pero igual tenía que entender el problema, saber qué pedirle y revisar todo lo que salía.</p>
             <p>Si lo volviera a hacer, buscaría que abogados voluntarios revisaran los modelos, para que la gente pueda confiar más. Por ahora me quedo contento de haber hecho algo útil que sigue creciendo.</p>
                 </div>
-                <div class="stage-photos"><figure class="stage-photo"><img src="imagenes/proyecto1/09-google.jpg" alt="¡primero en Google!" loading="lazy" style="aspect-ratio: 4 / 3; object-position: 50% 0;"><figcaption>¡primero en Google!</figcaption></figure><figure class="stage-mini"><img src="imagenes/proyecto1/08-search-console.jpg" alt="47,5 mil visitas" loading="lazy" style="aspect-ratio: 4 / 3; object-position: 50% 0;"><figcaption>47,5 mil visitas</figcaption></figure></div>
+                <div class="stage-photos"><figure class="stage-photo"><img src="imagenes/proyecto1/09-google.jpg" alt="¡primero en Google!" loading="lazy" style="aspect-ratio: 4 / 3; object-fit: contain; background: #f4f6f8;"><figcaption>¡primero en Google!</figcaption></figure><figure class="stage-mini"><img src="imagenes/proyecto1/08-search-console.jpg" alt="47,5 mil clics" loading="lazy" style="aspect-ratio: 4 / 3; object-fit: contain; background: #f4f6f8;"><figcaption>47,5 mil clics</figcaption></figure></div>
             </div>
         </section>
 
