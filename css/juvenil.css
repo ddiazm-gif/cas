@@ -148,3 +148,18 @@ body { background-color: var(--cream); background-image: radial-gradient(rgba(92
 }
 .photo-grid .photo-item p { text-align: center !important; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .desc-section p { text-align: left; }
+
+/* Fotos chicas un poco mas grandes */
+.photo-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); grid-auto-rows: 300px; }
+.stage-mini { width: 62%; right: -18px; bottom: -14px; }
+.stage-row.flip .stage-mini { left: -18px; }
+.stage-mini figcaption { font-size: 1.15rem; }
+.hero-stack figure { width: 165px; margin-left: -40px; }
+.filmstrip img { height: 190px; }
+@media (max-width: 760px) {
+    .photo-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 220px; }
+    .stage-mini { width: 55%; right: -8px; }
+    .stage-row.flip .stage-mini { left: auto; right: -8px; }
+    .hero-stack figure { width: 110px; margin-left: -30px; }
+    .filmstrip img { height: 140px; }
+}

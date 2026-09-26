@@ -164,7 +164,7 @@
             var gutter = (window.innerWidth - container.offsetWidth) / 2;
             if (gutter < 150) { layer.style.display = 'none'; return; }
             layer.style.display = '';
-            var w = Math.min(210, gutter - 44);
+            var w = Math.min(250, gutter - 36);
             var top = container.getBoundingClientRect().top + window.scrollY + 380;
             var bottom = docH - 520;
             var i = 0;
