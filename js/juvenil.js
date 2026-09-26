@@ -334,6 +334,48 @@
         });
     }
 
+    var HDR_PHOTOS = [
+        ['imagenes/experiencia5/03-equipo.jpg', '-9deg', '3%', '16%', '6s'],
+        ['imagenes/experiencia1/17-mirador-cn-tower.jpg', '8deg', '86%', '12%', '7s'],
+        ['imagenes/experiencia2/08-resultado-final.jpg', '6deg', '11%', '58%', '8s'],
+        ['imagenes/experiencia6/05-circulo-testimonios.jpeg', '-7deg', '78%', '55%', '6.5s'],
+        ['imagenes/proyecto1/05-inicio.jpg', '-4deg', '15%', '10%', '7.5s'],
+        ['imagenes/experiencia1/10-uno-con-amigos-asiaticos.jpg', '5deg', '74%', '8%', '9s']
+    ];
+
+    function fancyHeader() {
+        var header = document.querySelector('body > header');
+        if (!header || header.classList.contains('hdr-fun')) return;
+        header.classList.add('hdr-fun');
+        var blobs = [['#b8e986', 180, '6%', '60%', '9s'], ['#ffd166', 140, '82%', '-10%', '7s'], ['#ff7b6b', 90, '55%', '70%', '8s'], ['#7cc6f2', 110, '38%', '-20%', '10s']];
+        blobs.forEach(function (b) {
+            var d = document.createElement('span');
+            d.className = 'hdr-blob';
+            d.setAttribute('aria-hidden', 'true');
+            d.style.cssText = 'background:' + b[0] + ';width:' + b[1] + 'px;height:' + b[1] + 'px;left:' + b[2] + ';top:' + b[3] + ';--d:' + b[4];
+            header.appendChild(d);
+        });
+        var collage = document.createElement('div');
+        collage.className = 'hdr-collage';
+        collage.setAttribute('aria-hidden', 'true');
+        collage.innerHTML = HDR_PHOTOS.map(function (p) {
+            return '<figure style="--r:' + p[1] + ';left:' + p[2] + ';top:' + p[3] + ';--d:' + p[4] + '"><img src="' + p[0] + '" alt=""></figure>';
+        }).join('');
+        header.appendChild(collage);
+        var hand = document.createElement('div');
+        hand.className = 'hdr-hand';
+        hand.textContent = 'el diario CAS de Dylan Díaz';
+        var sub = header.querySelector('p');
+        (sub || header.querySelector('h1')).insertAdjacentElement('afterend', hand);
+        var words = ['Creatividad', 'Actividad', 'Servicio', 'Toronto', 'Valparaíso', 'Lima', 'modelo.pe', 'IB 2026'];
+        var row = words.map(function (w) { return '<span><i class="fas fa-star"></i>' + w + '</span>'; }).join('');
+        var mq = document.createElement('div');
+        mq.className = 'hdr-marquee';
+        mq.setAttribute('aria-hidden', 'true');
+        mq.innerHTML = '<div>' + row + row + row + row + '</div>';
+        header.appendChild(mq);
+    }
+
     function descPhoto() {
         var h = document.querySelector('.content-section h4 .fa-align-left');
         var pick = document.querySelectorAll('.hero-stack img')[1];
@@ -347,6 +389,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
+        fancyHeader();
         mobileNav();
         scrollProgress();
         stageColors();

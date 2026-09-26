@@ -246,3 +246,24 @@ nav > a.active, .dropdown.active > a { background: var(--sun) !important; color:
 .ra-rep-note { font-size: 0.92rem; color: #7a6b52; }
 .ra-album.repetidas { background: linear-gradient(135deg, #eef6ff, #f5efff); border-color: #c8c2e6; }
 .ra-dup { position: absolute; top: -12px; right: -10px; z-index: 2; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--coral); color: #fff; font-family: "Caveat", cursive; font-size: 1.3rem; font-weight: 700; border: 3px solid #fff; box-shadow: 0 6px 14px rgba(0,0,0,0.2); transform: rotate(10deg); }
+
+/* Encabezado creativo en todas las paginas */
+header.hdr-fun { position: relative; overflow: hidden; padding: 70px 20px 92px !important; background: radial-gradient(circle at 12% 18%, rgba(184,233,134,0.35), transparent 38%), radial-gradient(circle at 88% 78%, rgba(255,209,102,0.28), transparent 40%), radial-gradient(circle at 60% 10%, rgba(124,198,242,0.2), transparent 35%), linear-gradient(135deg, #1f3d1b, #3a5232 50%, #5c7a52) !important; }
+header.hdr-fun h1 { font-size: clamp(2.3rem, 1.3rem + 4vw, 4.2rem) !important; letter-spacing: 1px !important; text-shadow: 0 6px 24px rgba(0,0,0,0.35); position: relative; z-index: 3; }
+header.hdr-fun h1 i { color: var(--lime); display: inline-block; animation: leafSway 3.5s ease-in-out infinite; }
+@keyframes leafSway { 50% { transform: rotate(-14deg) translateY(-3px); } }
+header.hdr-fun > p { position: relative; z-index: 3; }
+.hdr-hand { position: relative; z-index: 3; display: inline-block; margin-top: 12px; font-family: "Caveat", cursive; font-size: 1.7rem; color: var(--sun); transform: rotate(-3deg); }
+.hdr-hand::after { content: ""; display: block; height: 3px; margin-top: -2px; border-radius: 3px; background: var(--coral); transform: rotate(1deg); }
+.hdr-collage figure { position: absolute; z-index: 2; width: 118px; margin: 0; padding: 6px 6px 20px; background: #fff; box-shadow: 0 12px 28px rgba(0,0,0,0.35); rotate: var(--r); animation: hdrFloat var(--d, 6s) ease-in-out infinite; }
+.hdr-collage img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; }
+.hdr-collage figure::before { content: ""; position: absolute; top: -9px; left: 50%; width: 50px; height: 16px; translate: -50% 0; background: rgba(255,209,102,0.85); rotate: -4deg; }
+@keyframes hdrFloat { 50% { translate: 0 -12px; } }
+.hdr-blob { position: absolute; z-index: 1; border-radius: 50%; filter: blur(2px); opacity: 0.55; animation: hdrFloat var(--d, 8s) ease-in-out infinite; }
+.hdr-marquee { position: absolute; left: -4%; right: -4%; bottom: 14px; z-index: 3; overflow: hidden; background: var(--sun); color: var(--ink); transform: rotate(-1.6deg); box-shadow: 0 6px 16px rgba(0,0,0,0.25); }
+.hdr-marquee div { display: flex; width: max-content; padding: 7px 0; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; font-size: 0.85rem; animation: film 28s linear infinite; }
+.hdr-marquee span { padding: 0 18px; white-space: nowrap; }
+.hdr-marquee span i { color: var(--coral); margin-right: 18px; }
+@media (max-width: 900px) { .hdr-collage figure { width: 78px; padding: 4px 4px 12px; } .hdr-collage figure:nth-child(n+5) { display: none; } }
+@media (max-width: 600px) { header.hdr-fun { padding: 54px 16px 84px !important; } .hdr-collage figure { width: 62px; opacity: 0.9; } .hdr-collage figure:nth-child(n+3) { display: none; } .hdr-hand { font-size: 1.35rem; } }
+@media (prefers-reduced-motion: reduce) { header.hdr-fun h1 i, .hdr-collage figure, .hdr-blob, .hdr-marquee div { animation: none; } }
