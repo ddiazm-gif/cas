@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto 2 — Mi Blog CAS</title>
+    <title>IB en Equipo · Proyecto 2 — Mi Blog CAS</title>
+    <meta name="description" content="Planificación de IB en Equipo: proyecto CAS de Dylan Díaz y Diego Chinen para crear una web de estudio de los cursos del IB para 4.º A.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
@@ -53,21 +54,6 @@
         .badge-c { background: linear-gradient(135deg, #5c7a52, #7a9e6e); }
         .badge-a { background: linear-gradient(135deg, #7a6b52, #a8956e); }
         .badge-s { background: linear-gradient(135deg, #4a6341, #6b8a5e); }
-
-        /* CAS PERCENTAGE BARS */
-        .cas-percentages { background: #ffffff; border-radius: 14px; padding: 25px 30px; margin: 20px 0 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border-left: 5px solid #5c7a52; position: relative; }
-        .cas-percentages h4 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.2rem; color: #5c7a52; margin-bottom: 18px; display: flex; align-items: center; gap: 8px; }
-        .cas-bar-item { margin-bottom: 14px; }
-        .cas-bar-item:last-child { margin-bottom: 0; }
-        .cas-bar-label { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-weight: 500; font-size: 0.9rem; }
-        .cas-bar-label i { margin-right: 6px; }
-        .cas-bar { height: 14px; background-color: #e8e0d0; border-radius: 10px; overflow: hidden; }
-        .cas-bar-fill { height: 100%; min-width: 10%; border-radius: 10px; position: relative; overflow: hidden; transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
-        .cas-bar-fill::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); animation: shimmer 2s infinite; }
-        @keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
-        .cas-bar-fill.bar-c { background: linear-gradient(90deg, #5c7a52, #7a9e6e); }
-        .cas-bar-fill.bar-a { background: linear-gradient(90deg, #7a6b52, #a8956e); }
-        .cas-bar-fill.bar-s { background: linear-gradient(90deg, #4a6341, #6b8a5e); }
 
         /* CAS STAGES */
         .cas-stages { display: flex; justify-content: space-between; gap: 10px; margin: 20px 0 30px; flex-wrap: wrap; }
@@ -122,62 +108,6 @@
         footer { background: linear-gradient(135deg, #3a5232, #4a6341); color: #f5f0e8; text-align: center; padding: 25px 20px; font-size: 0.9rem; margin-top: 2rem; }
         footer i { margin: 0 3px; }
 
-        /* EDIT MODE */
-        .edit-btn {
-            position: absolute; top: 12px; right: 12px;
-            width: 36px; height: 36px; border-radius: 50%;
-            background: linear-gradient(135deg, #5c7a52, #4a6341);
-            color: #f5f0e8; border: none; cursor: pointer;
-            font-size: 0.9rem; display: flex; align-items: center; justify-content: center;
-            transition: all 0.3s ease; box-shadow: 0 3px 10px rgba(92,122,82,0.3);
-            z-index: 5;
-        }
-        .edit-btn:hover { transform: scale(1.1); box-shadow: 0 5px 15px rgba(92,122,82,0.4); }
-        .edit-btn.active { background: linear-gradient(135deg, #c0392b, #e74c3c); }
-
-        .cas-slider-row { display: none; align-items: center; gap: 10px; margin-top: 8px; }
-        .cas-slider-row.show { display: flex; }
-        .cas-slider-row input[type=range] {
-            flex: 1; height: 6px; -webkit-appearance: none; appearance: none;
-            background: #e0d8cc; border-radius: 4px; outline: none;
-        }
-        .cas-slider-row input[type=range]::-webkit-slider-thumb {
-            -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%;
-            background: #5c7a52; cursor: pointer; border: 3px solid #fff;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-        }
-        .cas-slider-row .slider-val { font-weight: 600; font-size: 0.85rem; min-width: 35px; text-align: center; color: #5c7a52; }
-
-        .password-modal {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;
-            backdrop-filter: blur(4px);
-        }
-        .password-modal.show { display: flex; }
-        .password-box {
-            background: #fff; border-radius: 16px; padding: 35px; text-align: center;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2); max-width: 380px; width: 90%;
-            animation: modalIn 0.3s ease;
-        }
-        @keyframes modalIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-        .password-box h3 { font-family: 'Playfair Display', Georgia, serif; color: #5c7a52; margin-bottom: 8px; }
-        .password-box p { font-size: 0.85rem; color: #7a6b52; margin-bottom: 18px; }
-        .password-box input {
-            width: 100%; padding: 12px 16px; border: 2px solid #e0d8cc; border-radius: 10px;
-            font-size: 1rem; font-family: 'Inter', sans-serif; outline: none; transition: border-color 0.3s;
-        }
-        .password-box input:focus { border-color: #5c7a52; }
-        .password-box .btn-row { display: flex; gap: 10px; margin-top: 15px; }
-        .password-box button {
-            flex: 1; padding: 10px; border: none; border-radius: 10px; font-size: 0.9rem;
-            font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-family: 'Inter', sans-serif;
-        }
-        .btn-confirm { background: linear-gradient(135deg, #5c7a52, #4a6341); color: #f5f0e8; }
-        .btn-confirm:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(92,122,82,0.3); }
-        .btn-cancel { background: #e8e0d0; color: #3e3529; }
-        .btn-cancel:hover { background: #d4cbb8; }
-        .password-error { color: #c0392b; font-size: 0.8rem; margin-top: 8px; display: none; }
-
         @media (max-width: 600px) {
             header h1 { font-size: 1.6rem; }
             nav { flex-direction: column; align-items: stretch; }
@@ -192,6 +122,7 @@
         @media (max-width: 600px) { nav { position: relative; } }
     </style>
     <link rel="stylesheet" href="css/juvenil.css?v=13">
+    <link rel="stylesheet" href="css/proyecto2.css?v=1">
     <script src="js/juvenil.js?v=14" defer></script>
 </head>
 <body>
@@ -230,260 +161,121 @@
         </div>
         <a href="reflexiones.html"><i class="fas fa-pen-fancy"></i> Reflexiones</a>
     </nav>
-    <div class="container">
-        <div class="exp-header">
-            <h2>Proyecto 2</h2>
-            <h3>[Subtítulo del proyecto - descripción breve]</h3>
-        </div>
-        <div class="badges">
-            <span class="badge badge-c"><i class="fas fa-palette"></i> Creatividad</span>
-            <span class="badge badge-a"><i class="fas fa-running"></i> Actividad</span>
-            <span class="badge badge-s"><i class="fas fa-hands-helping"></i> Servicio</span>
-        </div>
+    <main class="container project-plan" id="planificacion">
+        <section class="project-banner" aria-labelledby="project-title">
+            <div class="project-kicker"><span>Proyecto CAS 2</span><span class="project-status">En planificación</span></div>
+            <h2 id="project-title">IB en Equipo</h2>
+            <p class="project-subtitle">Una web de estudio para 4.º A, construida con las ideas de nuestro salón.</p>
+            <p class="project-team"><i class="fas fa-users" aria-hidden="true"></i> Dylan Díaz y Diego Chinen</p>
+            <div class="project-facts"><span><b>7</b> cursos y áreas</span><span><b>6</b> semanas previstas</span><span><b>4.º A</b> comunidad inicial</span></div>
+            <div class="project-actions"><a class="plan-button" href="#encuesta"><i class="fas fa-poll" aria-hidden="true"></i> Encuesta inicial</a><a class="plan-button secondary" href="#cronograma">Ver el plan</a></div>
+        </section>
 
-        <!-- CAS PERCENTAGE BARS -->
-        <div class="cas-percentages">
-            <h4><i class="fas fa-chart-pie"></i> Distribución CAS</h4>
-            <div class="cas-bar-item">
-                <div class="cas-bar-label">
-                    <span><i class="fas fa-palette" style="color:#5c7a52"></i> Creatividad</span>
-                    <span>40%</span>
-                </div>
-                <div class="cas-bar"><div class="cas-bar-fill bar-c" style="width:40%"></div></div>
-                <div class="cas-slider-row">
-                    <input type="range" id="slider-c" min="0" max="100" value="40">
-                    <span class="slider-val" id="val-c">40%</span>
-                </div>
-            </div>
-            <div class="cas-bar-item">
-                <div class="cas-bar-label">
-                    <span><i class="fas fa-running" style="color:#7a6b52"></i> Actividad</span>
-                    <span>30%</span>
-                </div>
-                <div class="cas-bar"><div class="cas-bar-fill bar-a" style="width:30%"></div></div>
-                <div class="cas-slider-row">
-                    <input type="range" id="slider-a" min="0" max="100" value="30">
-                    <span class="slider-val" id="val-a">30%</span>
-                </div>
-            </div>
-            <div class="cas-bar-item">
-                <div class="cas-bar-label">
-                    <span><i class="fas fa-hands-helping" style="color:#4a6341"></i> Servicio</span>
-                    <span>30%</span>
-                </div>
-                <div class="cas-bar"><div class="cas-bar-fill bar-s" style="width:30%"></div></div>
-                <div class="cas-slider-row">
-                    <input type="range" id="slider-s" min="0" max="100" value="30">
-                    <span class="slider-val" id="val-s">30%</span>
-                </div>
-            </div>
+        <div class="badges"><span class="badge badge-c"><i class="fas fa-palette" aria-hidden="true"></i> Creatividad</span><span class="badge badge-s"><i class="fas fa-hands-helping" aria-hidden="true"></i> Servicio</span></div>
+        <p class="plan-note">Inicio de la planificación: <time datetime="2026-10-29">29 de octubre de 2026</time>. La web de estudio está por desarrollar. Esta página recoge nuestra propuesta inicial y se actualizará con evidencias reales del proceso.</p>
+
+        <div class="plan-steps" aria-label="Etapas del proyecto">
+            <a href="#investigacion"><span>01</span> Investigación</a><a href="#preparacion"><span>02</span> Preparación</a><a href="#accion"><span>03</span> Acción</a><a href="#reflexion"><span>04</span> Reflexión</a><a href="#demostracion"><span>05</span> Demostración</a>
         </div>
 
-        <!-- 5 CAS STAGES -->
-        <div class="cas-stages">
-            <div class="cas-stage">
-                <i class="fas fa-search"></i>
-                <span>Investigación</span>
+        <section class="content-section" id="investigacion">
+            <h4><i class="fas fa-search" aria-hidden="true"></i> 1. Investigación: escuchar al salón</h4>
+            <p>Queremos crear un espacio que ayude a nuestros compañeros de 4.º A a organizar su estudio y practicar los temas de sus cursos del IB. Antes de decidir las funciones, investigaremos qué dificultades encuentran, qué recursos utilizan y qué les gustaría mejorar.</p>
+            <p class="section-gap">Nuestra idea inicial es reunir materiales por curso y ofrecer herramientas de repaso activo. La encuesta nos permitirá comprobar si esta propuesta responde a una necesidad real y decidir el orden de desarrollo.</p>
+            <div class="plan-callout" id="encuesta">
+                <span class="small-label">Nuestro primer paso</span>
+                <h3>¿Cómo podemos estudiar mejor en 4.º A?</h3>
+                <p>Encuesta de 10 preguntas sobre cursos, temas difíciles, hábitos de estudio y funciones útiles. Tiempo estimado: 3–4 minutos. No solicita nombres, correos ni notas.</p>
+                <a class="plan-button" href="https://docs.google.com/forms/d/e/1FAIpQLSfGLdx3OPQQYxO3-iI7UdS0jUeCT2cO5T_QIuwJ2MobYveFPw/viewform" target="_blank" rel="noopener noreferrer">Responder en Google Forms <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                <p class="small-note">Participación voluntaria, dirigida a 4.º A. Analizaremos las respuestas de forma agrupada. Los resultados de la encuesta están pendientes.</p>
             </div>
-            <div class="cas-stage">
-                <i class="fas fa-clipboard-list"></i>
-                <span>Preparación</span>
-            </div>
-            <div class="cas-stage">
-                <i class="fas fa-bolt"></i>
-                <span>Acción</span>
-            </div>
-            <div class="cas-stage">
-                <i class="fas fa-brain"></i>
-                <span>Reflexión</span>
-            </div>
-            <div class="cas-stage">
-                <i class="fas fa-eye"></i>
-                <span>Demostración</span>
-            </div>
-        </div>
-
-        <section class="content-section">
-            <h4><i class="fas fa-clipboard-check"></i> Planificación</h4>
-
-            <div class="sub-heading"><i class="fas fa-bullseye"></i> Objetivo general</div>
-            <p class="placeholder">[Describe aquí el objetivo general del proyecto. Ejemplo: Contribuir al bienestar de la comunidad a través de...]</p>
-
-            <div class="sub-heading"><i class="fas fa-list-ol"></i> Objetivos específicos</div>
-            <ul class="spec-list">
-                <li class="placeholder">[Objetivo específico 1]</li>
-                <li class="placeholder">[Objetivo específico 2]</li>
-                <li class="placeholder">[Objetivo específico 3]</li>
-                <li class="placeholder">[Objetivo específico 4]</li>
-            </ul>
-
-            <div class="sub-heading"><i class="fas fa-calendar-alt"></i> Cronograma</div>
-            <div class="table-wrapper">
-                <table class="cronograma">
-                    <thead>
-                        <tr><th>Semana</th><th>Actividad</th><th>Responsable</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Semana 1</td><td class="placeholder">[Actividad planificada]</td><td class="placeholder">[Nombre]</td></tr>
-                        <tr><td>Semana 2</td><td class="placeholder">[Actividad planificada]</td><td class="placeholder">[Nombre]</td></tr>
-                        <tr><td>Semana 3</td><td class="placeholder">[Actividad planificada]</td><td class="placeholder">[Nombre]</td></tr>
-                        <tr><td>Semana 4</td><td class="placeholder">[Actividad planificada]</td><td class="placeholder">[Nombre]</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="sub-heading"><i class="fas fa-tools"></i> Recursos necesarios</div>
-            <p class="placeholder">[Lista los materiales, herramientas, espacios y otros recursos que necesitarás para llevar a cabo el proyecto.]</p>
-
-            <div class="sub-heading"><i class="fas fa-users"></i> Equipo de trabajo</div>
-            <p class="placeholder">[Menciona a los miembros del equipo y sus roles dentro del proyecto.]</p>
-
-            <div class="sub-heading"><i class="fas fa-file-upload"></i> Documento de planificación</div>
-            <div class="upload-placeholder">
-                <i class="fas fa-cloud-upload-alt"></i>
-                <p>Sube aquí una imagen o PDF de tu documento de planificación</p>
-                <p style="font-size:0.85rem;margin-top:0.5rem;opacity:0.7">[Arrastra tu archivo o haz clic para subir]</p>
-            </div>
+            <div class="sub-heading">Cómo usaremos las respuestas</div>
+            <ul class="spec-list"><li>Identificar los cursos y temas con mayor demanda de apoyo.</li><li>Elegir hasta tres funciones prioritarias para la primera versión.</li><li>Adaptar el diseño a los dispositivos y al tiempo de estudio del salón.</li><li>Invitar a compañeros interesados a probar la web y comentar sus dificultades.</li></ul>
         </section>
 
-        <section class="content-section">
-            <h4><i class="fas fa-cogs"></i> Desarrollo y ejecución</h4>
-            <p class="placeholder">[Describe cómo se llevó a cabo el proyecto paso a paso. Incluye los momentos clave, las decisiones que tomaste, los ajustes que hiciste durante el proceso y cómo trabajaste con tu equipo. Esta es la narrativa principal de tu proyecto.]</p>
-        </section>
-
-        <section class="content-section">
-            <h4><i class="fas fa-trophy"></i> Resultados de aprendizaje demostrados</h4>
-            <p class="placeholder">[Indica cuales resultados de aprendizaje CAS demostraste durante este proyecto y proporciona evidencia concreta de cada uno. Ejemplo: RA1 - Identificar fortalezas: Durante la planificación descubrí que tengo habilidad para...]</p>
-        </section>
-
-        <section class="content-section">
-            <h4><i class="fas fa-lightbulb"></i> Reflexión del proyecto</h4>
-            <p class="placeholder">[Reflexiona sobre la experiencia completa del proyecto. ¿Qué aprendiste? ¿Cómo creciste como persona? ¿Qué harías diferente? ¿Cuál fue el impacto en ti y en los demás?]</p>
-        </section>
-
-        <section class="content-section">
-            <h4><i class="fas fa-video"></i> Video</h4>
-            <div class="video-placeholder"><i class="fas fa-play-circle" style="font-size:2rem;margin-bottom:8px;display:block"></i>Video del proyecto<br>(reemplazar con iframe de YouTube)</div>
-        </section>
-
-        <section class="content-section">
-            <h4><i class="fas fa-camera"></i> Fotos</h4>
-            <div class="photo-grid">
-                <div class="photo-item"><div class="photo-placeholder">Foto 1</div><p>[Descripción de la foto 1]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 2</div><p>[Descripción de la foto 2]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 3</div><p>[Descripción de la foto 3]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 4</div><p>[Descripción de la foto 4]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 5</div><p>[Descripción de la foto 5]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 6</div><p>[Descripción de la foto 6]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 7</div><p>[Descripción de la foto 7]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 8</div><p>[Descripción de la foto 8]</p></div>
+        <section class="content-section" id="preparacion">
+            <h4><i class="fas fa-clipboard-list" aria-hidden="true"></i> 2. Preparación: objetivos y alcance</h4>
+            <div class="sub-heading">Objetivo general</div>
+            <p>Diseñar, desarrollar y probar de forma colaborativa una web gratuita de apoyo al estudio para los alumnos de 4.º A, que organice recursos de sus cursos del IB y facilite el repaso a partir de las necesidades identificadas en la encuesta.</p>
+            <div class="sub-heading">Objetivos específicos</div>
+            <ol class="spec-list"><li>Recoger y analizar las necesidades del salón antes de cerrar el diseño.</li><li>Crear una navegación clara para los siete cursos y áreas, usable en celular y computadora.</li><li>Preparar un primer tema de repaso por curso, con recursos propios o autorizados, fuentes identificadas y contenido revisado por el equipo.</li><li>Implementar las funciones prioritarias y realizar una prueba con al menos cinco compañeros voluntarios, según su disponibilidad.</li><li>Registrar el trabajo cada semana y realizar al menos dos ciclos de comentarios y mejoras antes del cierre.</li></ol>
+            <p class="small-note">Estas son metas de planificación; todavía no representan resultados alcanzados. Ajustaremos el volumen de contenido según las respuestas, el calendario escolar y la disponibilidad del equipo.</p>
+            <div class="sub-heading">Cursos y áreas incluidos</div>
+            <div class="course-grid">
+                <article class="course-card"><i class="fas fa-flask" aria-hidden="true"></i><h3>Química</h3><span>NM · Nivel Medio</span></article>
+                <article class="course-card"><i class="fas fa-language" aria-hidden="true"></i><h3>English</h3><span>HL · Higher Level</span></article>
+                <article class="course-card"><i class="fas fa-briefcase" aria-hidden="true"></i><h3>Gestión Empresarial</h3><span>NS · Nivel Superior</span></article>
+                <article class="course-card"><i class="fas fa-book-open" aria-hidden="true"></i><h3>Lengua y Literatura</h3><span>NS · Nivel Superior</span></article>
+                <article class="course-card"><i class="fas fa-brain" aria-hidden="true"></i><h3>Psicología</h3><span>NM · Nivel Medio</span></article>
+                <article class="course-card"><i class="fas fa-calculator" aria-hidden="true"></i><h3>Matemáticas: Aplicaciones e Interpretación</h3><span>NM · Nivel Medio</span></article>
+                <article class="course-card"><i class="fas fa-lightbulb" aria-hidden="true"></i><h3>Teoría del Conocimiento</h3><span>TOK · Componente troncal</span></article>
             </div>
+            <p class="small-note">La plataforma incluirá los siete espacios desde su primera estructura. Los temas y materiales se incorporarán progresivamente, siguiendo lo trabajado en clase.</p>
+            <div class="sub-heading">Funciones candidatas</div>
+            <ul class="spec-list"><li><strong>Repaso por tema:</strong> preguntas de práctica, respuestas explicadas y tarjetas de repaso.</li><li><strong>Organización:</strong> lista de temas, seguimiento del repaso y fechas de evaluación.</li><li><strong>Recursos compartidos:</strong> resúmenes, guías y enlaces ordenados por curso.</li></ul>
+            <p>La encuesta definirá cuáles tendrán prioridad. En TOK adaptaremos los recursos a preguntas de conocimiento, perspectivas y argumentación.</p>
         </section>
 
-        <div class="prev-next">
-            <a href="proyecto1.html">&larr; Anterior</a>
-            <a class="disabled" href="#">Siguiente &rarr;</a>
-        </div>
-    </div>
+        <section class="content-section" id="equipo">
+            <h4><i class="fas fa-users" aria-hidden="true"></i> Equipo de trabajo</h4>
+            <p><strong>Integrantes: Dylan Díaz y Diego Chinen.</strong> Ambos participaremos en la investigación, la planificación, la revisión de materiales y las pruebas. Este reparto inicial es una propuesta que podremos ajustar juntos.</p>
+            <div class="team-grid"><article><h3>Dylan Díaz</h3><p>Coordinación del desarrollo y diseño de la web, organización de las versiones y documentación técnica.</p></article><article><h3>Diego Chinen</h3><p>Coordinación de los materiales por curso, organización de los comentarios de los compañeros y seguimiento de las pruebas.</p></article></div>
+            <p>Cada integrante mantendrá su propio registro de aportes y reflexiones CAS. Pediremos orientación al coordinador CAS y, cuando sea posible, a los profesores de los cursos.</p>
+            <div class="sub-heading">Recursos previstos</div>
+            <ul class="spec-list"><li>Computadora, acceso a internet y celulares para comprobar la experiencia de uso.</li><li>Google Forms para la encuesta y una hoja de cálculo para analizar resultados agrupados.</li><li>Herramientas gratuitas de diseño, desarrollo y alojamiento, por definir al preparar el prototipo.</li><li>Apuntes propios, materiales autorizados y fuentes educativas identificadas.</li></ul>
+            <p><strong>Presupuesto inicial previsto:</strong> S/ 0, usando recursos disponibles y herramientas gratuitas. Revisaremos cualquier necesidad adicional antes de asumir un gasto.</p>
+        </section>
+
+        <section class="content-section" id="cronograma">
+            <h4><i class="fas fa-calendar-alt" aria-hidden="true"></i> Cronograma propuesto: seis semanas</h4>
+            <p>Organizaremos el trabajo en seis semanas, ajustando las fechas al calendario escolar. Las reflexiones y el registro de evidencias acompañarán todo el proceso.</p>
+            <div class="table-wrapper"><table class="cronograma"><caption>Plan de trabajo desde el inicio del proyecto</caption><thead><tr><th scope="col">Semana</th><th scope="col">Trabajo previsto</th><th scope="col">Responsables</th><th scope="col">Evidencia esperada</th></tr></thead><tbody>
+                <tr><td>1 · Investigar</td><td>Compartir la encuesta con 4.º A, analizar las respuestas y revisar la propuesta con el coordinador CAS.</td><td>Dylan y Diego</td><td>Encuesta, resultados agrupados y necesidades priorizadas.</td></tr>
+                <tr><td>2 · Diseñar</td><td>Definir funciones, dibujar las pantallas, organizar los siete cursos y acordar tareas.</td><td>Dylan y Diego</td><td>Bocetos, listado de temas y reparto de responsabilidades.</td></tr>
+                <tr><td>3 · Construir</td><td>Desarrollar la primera versión y preparar los primeros materiales revisados.</td><td>Dylan: desarrollo.<br>Diego: materiales.<br>Revisión conjunta.</td><td>Prototipo, recursos con fuentes e historial de cambios.</td></tr>
+                <tr><td>4 · Probar</td><td>Realizar el primer piloto, observar dificultades de uso y corregir errores.</td><td>Dylan y Diego, con compañeros voluntarios</td><td>Registro de pruebas y primer ciclo de mejoras.</td></tr>
+                <tr><td>5 · Mejorar</td><td>Ampliar los temas prioritarios y realizar una segunda ronda de comentarios y ajustes.</td><td>Dylan y Diego</td><td>Comparación de versiones y segundo ciclo de mejoras.</td></tr>
+                <tr><td>6 · Evaluar</td><td>Revisar las metas, recoger opiniones finales y presentar el proceso y los aprendizajes.</td><td>Dylan y Diego</td><td>Resumen de resultados, demostración y reflexiones individuales.</td></tr>
+            </tbody></table></div>
+        </section>
+
+        <section class="content-section" id="accion">
+            <h4><i class="fas fa-laptop-code" aria-hidden="true"></i> 3. Acción: desarrollar, probar y mejorar</h4>
+            <p><strong>Estado: pendiente de ejecución.</strong> Tras analizar la encuesta construiremos una primera versión, la probaremos con compañeros y registraremos los ajustes. El desarrollo y las pruebas se documentarán aquí conforme ocurran.</p>
+            <div class="sub-heading">Cómo sabremos si avanzamos</div>
+            <ul class="spec-list"><li>Los siete espacios de cursos estarán accesibles y sus recursos iniciales tendrán fuentes identificadas.</li><li>Los participantes del piloto intentarán encontrar un tema, usar un recurso y realizar una actividad de repaso.</li><li>Recogeremos qué tareas pudieron completar, qué les confundió y qué consideran útil.</li><li>Compararemos las versiones y anotaremos qué cambios surgieron de sus comentarios.</li></ul>
+            <p>La evaluación se centrará en la utilidad y facilidad de uso de la herramienta. Los resultados se describirán con los datos que realmente obtengamos.</p>
+        </section>
+
+        <section class="content-section" id="resultados-aprendizaje">
+            <h4><i class="fas fa-seedling" aria-hidden="true"></i> Resultados de aprendizaje que busco demostrar</h4>
+            <div class="ra-plan-grid">
+                <article class="ra-plan"><span class="ra-plan-label">RA3 · En desarrollo</span><h3>Iniciar y planificar una experiencia CAS</h3><p>Investigaré las necesidades del salón, justificaré las decisiones de diseño y organizaré los objetivos, recursos, tareas y tiempos con Diego.</p><p><strong>Evidencias previstas:</strong> encuesta, análisis, bocetos, cronograma y registro de decisiones.</p></article>
+                <article class="ra-plan"><span class="ra-plan-label">RA4 · Por desarrollar</span><h3>Compromiso y perseverancia</h3><p>Mantendré un trabajo regular, registraré las dificultades y revisaré la web a partir de las pruebas y de los comentarios recibidos.</p><p><strong>Evidencias previstas:</strong> bitácora semanal, versiones, problemas resueltos y ajustes entre pruebas.</p></article>
+            </div>
+            <p class="section-gap">También buscaremos reforzar <strong>RA5</strong> mediante la colaboración. Las habilidades nuevas podrán aportar a <strong>RA2</strong>, y el cuidado de las fuentes y de los datos a <strong>RA7</strong>, según las decisiones y evidencias que surjan.</p>
+            <p class="small-note">Los resultados se irán demostrando con acciones y reflexiones individuales. Su cumplimiento se revisará con el coordinador CAS.</p>
+        </section>
+
+        <section class="content-section" id="reflexion">
+            <h4><i class="fas fa-pen-fancy" aria-hidden="true"></i> 4. Reflexión durante el proceso</h4>
+            <p>Nuestro propósito inicial es aprender a convertir las necesidades del salón en una herramienta útil, organizarnos como equipo y sostener el proyecto mientras atendemos nuestras responsabilidades escolares.</p>
+            <div class="sub-heading">Preguntas para la bitácora semanal de cada integrante</div>
+            <ol class="spec-list"><li>¿Qué hice esta semana y cuál fue mi aporte concreto?</li><li>¿Qué dificultad encontré y cómo intenté resolverla?</li><li>¿Qué aprendí de los comentarios de mis compañeros?</li><li>¿Qué decisión tomamos juntos y por qué?</li><li>¿Qué cambiaré o continuaré la próxima semana?</li></ol>
+            <p class="small-note">Las reflexiones sobre la ejecución y el impacto se añadirán después de realizar las actividades.</p>
+        </section>
+
+        <section class="content-section" id="demostracion">
+            <h4><i class="fas fa-folder-open" aria-hidden="true"></i> 5. Demostración y evidencias</h4>
+            <p>Reuniremos el proceso en este blog: planificación, resultados agrupados de la encuesta, bocetos, versiones de la web, pruebas y reflexiones. Al cierre prepararemos una demostración del funcionamiento y explicaremos qué cambios hicimos y qué aprendimos.</p>
+            <ul class="evidence-list"><li><span class="evidence-status ready">Preparada</span><span>Planificación inicial y encuesta de necesidades.</span></li><li><span class="evidence-status">Pendiente</span><span>Respuestas de la encuesta y análisis de prioridades.</span></li><li><span class="evidence-status">Pendiente</span><span>Prototipo, materiales y pruebas con el salón.</span></li><li><span class="evidence-status">Pendiente</span><span>Resultados, demostración y reflexiones finales.</span></li></ul>
+            <p class="small-note">Publicaremos evidencias que cuiden la privacidad de nuestros compañeros. Los materiales compartidos incluirán sus fuentes y los permisos que correspondan. IB en Equipo será una iniciativa estudiantil de apoyo al estudio.</p>
+        </section>
+        <div class="prev-next"><a href="proyecto1.html">&larr; Proyecto 1</a><a href="#planificacion">Volver al inicio &uarr;</a></div>
+    </main>
+
     <footer>
-        <p><i class="fas fa-leaf"></i> Dylan Díaz &mdash; 2026</p>
+        <p><i class="fas fa-leaf"></i> Dylan Díaz &mdash; 2026 · Proyecto 2 con Diego Chinen</p>
     </footer>
-
-    <div class="password-modal" id="pwModal">
-        <div class="password-box">
-            <h3><i class="fas fa-lock"></i> Modo Editor</h3>
-            <p>Ingresa la contraseña para editar los porcentajes</p>
-            <input type="password" id="pwInput" placeholder="Contrasena...">
-            <div class="password-error" id="pwError">Contraseña incorrecta</div>
-            <div class="btn-row">
-                <button class="btn-cancel" onclick="closePwModal()">Cancelar</button>
-                <button class="btn-confirm" onclick="checkPassword()">Entrar</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        const EDIT_PASSWORD = 'dylan2026';
-        let editMode = false;
-
-        function getPageId() {
-            return window.location.pathname.split('/').pop().replace('.html','');
-        }
-
-        function loadSaved() {
-            const saved = localStorage.getItem('cas_' + getPageId());
-            if (saved) {
-                const d = JSON.parse(saved);
-                updateBar('c', d.c);
-                updateBar('a', d.a);
-                updateBar('s', d.s);
-            }
-        }
-
-        function updateBar(type, val) {
-            const fill = document.querySelector('.cas-bar-fill.bar-' + type);
-            const labels = document.querySelectorAll('.cas-bar-label');
-            const map = {c: 0, a: 1, s: 2};
-            if (fill) fill.style.width = val + '%';
-            if (labels[map[type]]) labels[map[type]].querySelector('span:last-child').textContent = val + '%';
-            const slider = document.getElementById('slider-' + type);
-            if (slider) slider.value = val;
-            const sliderVal = document.getElementById('val-' + type);
-            if (sliderVal) sliderVal.textContent = val + '%';
-        }
-
-        function saveValues() {
-            localStorage.setItem('cas_' + getPageId(), JSON.stringify({
-                c: +document.getElementById('slider-c').value,
-                a: +document.getElementById('slider-a').value,
-                s: +document.getElementById('slider-s').value
-            }));
-        }
-
-        function toggleEdit() {
-            if (!editMode) {
-                document.getElementById('pwModal').classList.add('show');
-                document.getElementById('pwInput').value = '';
-                document.getElementById('pwError').style.display = 'none';
-                setTimeout(() => document.getElementById('pwInput').focus(), 100);
-            } else {
-                editMode = false;
-                document.querySelector('.edit-btn').classList.remove('active');
-                document.querySelectorAll('.cas-slider-row').forEach(r => r.classList.remove('show'));
-            }
-        }
-
-        function closePwModal() {
-            document.getElementById('pwModal').classList.remove('show');
-        }
-
-        function checkPassword() {
-            if (document.getElementById('pwInput').value === EDIT_PASSWORD) {
-                editMode = true;
-                closePwModal();
-                document.querySelector('.edit-btn').classList.add('active');
-                document.querySelectorAll('.cas-slider-row').forEach(r => r.classList.add('show'));
-            } else {
-                document.getElementById('pwError').style.display = 'block';
-            }
-        }
-
-        document.getElementById('pwInput')?.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter') checkPassword();
-        });
-
-        ['c','a','s'].forEach(type => {
-            const slider = document.getElementById('slider-' + type);
-            if (slider) {
-                slider.addEventListener('input', function() {
-                    updateBar(type, +this.value);
-                    document.getElementById('val-' + type).textContent = this.value + '%';
-                    saveValues();
-                });
-            }
-        });
-
-        loadSaved();
-    </script>
 </body>
 </html>
