@@ -68,3 +68,28 @@
     .project-plan .table-wrapper { overflow: visible; }
     .project-plan table { min-width: 0; }
 }
+
+/* Resultados y evidencias documentados el 5 de noviembre de 2026. */
+.project-plan .team-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.survey-highlights { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 24px 0; }
+.survey-highlights article { padding: 20px; border-radius: 14px; background: #eff5e9; border: 1px solid #c9d9bc; }
+.survey-highlights strong { display: block; color: #2d5a27; font-size: 2rem; line-height: 1.2; margin-bottom: 10px; }
+.survey-highlights span { display: block; font-size: .9rem; line-height: 1.5; }
+.survey-highlights small { display: block; margin-top: 10px; color: #665847; }
+.survey-details { padding: 18px; border: 1px solid #e0d8cc; border-radius: 12px; background: #faf8f1; margin-top: 20px; }
+.survey-details summary { cursor: pointer; font-weight: 600; color: #37572d; }
+.survey-details p { margin-top: 14px; font-size: .9rem; }
+.evidence-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-top: 24px; }
+.evidence-card { margin: 0; border: 1px solid #e0d8cc; border-radius: 14px; background: #faf9f4; overflow: hidden; }
+.evidence-card > a { display: block; background: #ece9f5; }
+.evidence-card img { display: block; width: 100%; height: auto; }
+.evidence-card figcaption { padding: 18px; }
+.evidence-card h3 { color: #2e4d2c; font-size: 1rem; margin-bottom: 10px; }
+.evidence-card p { font-size: .88rem; line-height: 1.6; }
+.evidence-card small { display: block; color: #665847; font-size: .75rem; margin-top: 12px; }
+.project-plan .content-section a:not(.plan-button) { color: #2d5a27; text-underline-offset: 3px; }
+@media (max-width: 700px) {
+ .project-plan .team-grid, .survey-highlights, .evidence-gallery { grid-template-columns: 1fr; }
+ .survey-highlights strong { font-size: 1.75rem; }
+}
+@media print { .evidence-card { break-inside: avoid; } }
