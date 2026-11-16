@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experiencia 8 — Mi Blog CAS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
@@ -92,9 +93,11 @@
         .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
         .photo-item { text-align: center; transition: all 0.4s ease; }
         .photo-item:hover { transform: translateY(-5px); }
-        .photo-placeholder { width: 100%; height: 200px; background: linear-gradient(135deg, #d4cbb8, #c0b49e); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #7a6b52; font-size: 0.95rem; transition: all 0.3s ease; }
+        .photo-placeholder { width: 100%; height: 200px; background: linear-gradient(135deg, #d4cbb8, #c0b49e); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #7a6b52; font-size: 0.95rem; transition: all 0.3s ease; padding: 10px; }
         .photo-item:hover .photo-placeholder { box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
-        .photo-item p { margin-top: 0.5rem; font-size: 0.85rem; color: #7a6b52; font-style: italic; }
+        .photo-item img { width: 100%; height: 220px; object-fit: cover; border-radius: 10px; transition: all 0.4s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.08); cursor: pointer; }
+        .photo-item:hover img { box-shadow: 0 8px 25px rgba(0,0,0,0.15); transform: scale(1.02); }
+        .photo-item p { margin-top: 0.6rem; font-size: 0.85rem; color: #7a6b52; font-style: italic; }
 
         .prev-next { display: flex; justify-content: space-between; margin: 3rem 0 1rem; }
         .prev-next a { background: linear-gradient(135deg, #5c7a52, #4a6341); color: #f5f0e8; text-decoration: none; padding: 0.8rem 1.8rem; border-radius: 10px; font-size: 0.95rem; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(92,122,82,0.3); }
@@ -173,10 +176,68 @@
         .btn-cancel:hover { background: #d4cbb8; }
         .password-error { color: #c0392b; font-size: 0.8rem; margin-top: 8px; display: none; }
         html { scroll-behavior: smooth; }
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; align-items: start; }
+        .video-grid > div { min-width: 0; }
+        .cas-video { width: 100%; max-width: 480px; max-height: 360px; display: block; margin: 0 auto; border-radius: 12px; background: #1f2a1c; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .video-grid .video-placeholder { height: 240px; max-width: 100%; }
+
+        /* DIARIO CAS: etapas con foto, polaroids y RA final */
+        :root { --tape: rgba(168,216,154,0.75); --tape-2: rgba(232,199,116,0.7); --ink: #3e3529; --leaf: #5c7a52; }
+        .stage-section { padding-top: 40px !important; }
+        .stage-step { position: absolute; top: 12px; left: 30px; font-family: "Caveat", cursive; font-size: 1.15rem; color: #a8956e; }
+        .stage-step b { display: inline-grid; place-items: center; width: 24px; height: 24px; margin-right: 6px; border-radius: 50%; background: var(--leaf); color: #f5f0e8; font-family: "Inter", sans-serif; font-size: 0.75rem; }
+        .stage-row { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 2.2rem; align-items: center; }
+        .stage-row.flip { grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr); }
+        .stage-row.flip .stage-photo { order: -1; }
+        .stage-photo { position: relative; margin: 14px 6px 6px; background: #fff; padding: 10px 10px 46px; box-shadow: 0 12px 30px rgba(62,53,41,0.16), 0 2px 6px rgba(62,53,41,0.08); transform: rotate(-2.2deg); transition: transform 0.45s cubic-bezier(0.16,1,0.3,1), box-shadow 0.45s; }
+        .stage-row.flip .stage-photo { transform: rotate(2deg); }
+        .stage-photo:hover, .stage-row.flip .stage-photo:hover { transform: rotate(0deg) scale(1.03); box-shadow: 0 18px 40px rgba(62,53,41,0.22); }
+        .stage-photo::before { content: ""; position: absolute; top: -13px; left: 50%; width: 96px; height: 26px; background: var(--tape); transform: translateX(-50%) rotate(-4deg); box-shadow: 0 1px 2px rgba(0,0,0,0.08); z-index: 1; }
+        .stage-row.flip .stage-photo::before { background: var(--tape-2); transform: translateX(-50%) rotate(3deg); }
+        .stage-photo img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+        .stage-photo .ph-empty { display: grid; place-items: center; width: 100%; aspect-ratio: 4 / 5; background: repeating-linear-gradient(45deg, #efe8da, #efe8da 10px, #e8e0d0 10px, #e8e0d0 20px); color: #a8956e; font-size: 2.4rem; }
+        .stage-photo figcaption { position: absolute; left: 8px; right: 8px; bottom: 8px; text-align: center; font-family: "Caveat", cursive; font-size: 1.3rem; line-height: 1.05; color: var(--ink); }
+        .photo-grid .photo-item { background: #fff; padding: 9px 9px 12px; box-shadow: 0 8px 22px rgba(62,53,41,0.12); transform: rotate(-1.4deg); }
+        .photo-grid .photo-item:nth-child(even) { transform: rotate(1.3deg); }
+        .photo-grid .photo-item:nth-child(3n) { transform: rotate(-0.6deg); }
+        .photo-grid .photo-item:hover { transform: rotate(0deg) translateY(-6px); }
+        .photo-grid .photo-item img { border-radius: 2px; box-shadow: none; }
+        .photo-grid .photo-item:hover img { transform: none; box-shadow: none; }
+        .photo-grid .photo-item p { font-family: "Caveat", cursive; font-style: normal; font-size: 1.2rem; line-height: 1.15; color: var(--ink); }
+        .ra-final { position: relative; margin: 2.5rem 0 1rem; padding: 34px 32px 30px; border-radius: 22px; background: radial-gradient(circle at 12% 0%, rgba(168,216,154,0.35), transparent 45%), linear-gradient(145deg, #2d5a27, #3a5232 55%, #4a6341); color: #f5f0e8; box-shadow: 0 18px 45px rgba(45,90,39,0.3); overflow: hidden; }
+        .ra-final::after { content: ""; position: absolute; right: -40px; bottom: -40px; width: 180px; height: 180px; border-radius: 50%; border: 2px dashed rgba(245,240,232,0.18); }
+        .ra-final .ra-kicker { font-family: "Caveat", cursive; font-size: 1.45rem; color: #a8d89a; }
+        .ra-final h4 { font-family: "Playfair Display", Georgia, serif; font-size: 1.6rem; margin: 2px 0 18px; line-height: 1.25; }
+        .ra-head { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; margin-bottom: 20px; }
+        .ra-badge { display: grid; place-items: center; min-width: 92px; height: 92px; border-radius: 50%; background: #f5f0e8; color: #2d5a27; font-family: "Playfair Display", serif; font-weight: 700; font-size: 1.9rem; box-shadow: 0 0 0 6px rgba(245,240,232,0.15); transform: rotate(-6deg); }
+        .ra-score { flex: 1; min-width: 230px; }
+        .ra-score .label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.8; }
+        .ra-dots { display: flex; gap: 8px; margin: 8px 0 4px; }
+        .ra-dots span { width: 30px; height: 30px; border-radius: 50%; border: 2px solid rgba(245,240,232,0.5); display: grid; place-items: center; font-size: 0.75rem; font-weight: 600; color: rgba(245,240,232,0.6); }
+        .ra-dots span.on { background: #e8c774; border-color: #e8c774; color: #3a5232; }
+        .ra-score .num { font-family: "Caveat", cursive; font-size: 2rem; line-height: 1; }
+        .ra-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; position: relative; z-index: 1; }
+        .ra-card { background: rgba(245,240,232,0.1); border: 1px solid rgba(245,240,232,0.18); border-radius: 14px; padding: 16px 18px; }
+        .ra-card h5 { font-size: 0.95rem; margin-bottom: 6px; color: #e8c774; display: flex; gap: 8px; align-items: center; }
+        .ra-card p { font-size: 0.93rem; line-height: 1.6; text-align: left; }
+        .ra-card.wide { grid-column: 1 / -1; }
+        .ra-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+        .ra-chips span { background: #f5f0e8; color: #3a5232; border-radius: 20px; padding: 4px 12px; font-size: 0.8rem; font-weight: 500; }
+        .ra-final.pending .ra-badge { background: rgba(245,240,232,0.2); color: #f5f0e8; }
+        @media (max-width: 760px) {
+            .stage-row, .stage-row.flip { grid-template-columns: 1fr; gap: 1.2rem; }
+            .stage-row.flip .stage-photo { order: 0; }
+            .stage-photo { max-width: 300px; margin: 10px auto 4px; }
+            .stage-step { left: 18px; }
+            .ra-grid { grid-template-columns: 1fr; }
+            .ra-final { padding: 28px 20px 24px; }
+            .ra-dots { gap: 6px; }
+            .ra-dots span { width: 26px; height: 26px; }
+        }
         @media (max-width: 600px) { nav { position: relative; } }
     </style>
     <link rel="stylesheet" href="css/juvenil.css?v=13">
-    <script src="js/juvenil.js?v=14" defer></script>
+    <script src="js/juvenil.js?v=15" defer></script>
 </head>
 <body>
     <header>
@@ -215,15 +276,22 @@
         <a href="reflexiones.html"><i class="fas fa-pen-fancy"></i> Reflexiones</a>
     </nav>
     <div class="container">
-        <div class="exp-header">
-            <h2>Experiencia 8</h2>
-            <h3>[Nombre de la experiencia]</h3>
-        </div>
+        <header class="exp-hero">
+            <img class="cover" src="imagenes/experiencia8/02-el-club-sakura-antes-del-desfile.jpg" alt="Matsuri 2026: desfilando con el Club Sakura" style="object-position: 50% 62%;">
+            <div class="hero-sticker" aria-hidden="true"><i class="fas fa-torii-gate"></i></div>
+            <div class="hero-stack"><figure style="--r:-8deg"><img src="imagenes/experiencia8/03-desfilando-con-el-club.jpg" alt="Desfilando con el Club Sakura" loading="lazy"></figure><figure style="--r:5deg"><img src="imagenes/experiencia8/07-fuegos-artificiales.jpg" alt="Fuegos artificiales" loading="lazy"></figure><figure style="--r:-3deg"><img src="imagenes/experiencia8/06-comida-japonesa.jpg" alt="Comida japonesa" loading="lazy"></figure></div>
+            <div class="hero-text">
+                <span class="hero-num">Experiencia 8</span>
+                <h2>Matsuri 2026: desfilando con el Club Sakura</h2>
+                <p class="hero-sub">Una noche de cultura japonesa en Lima, con mi amigo Nikkei y su club</p>
+            </div>
+        </header>
         <div class="badges">
-            <span class="badge badge-c"><i class="fas fa-palette"></i> Creatividad</span>
             <span class="badge badge-a"><i class="fas fa-running"></i> Actividad</span>
+            <span class="badge badge-c"><i class="fas fa-palette"></i> Creatividad</span>
             <span class="badge badge-s"><i class="fas fa-hands-helping"></i> Servicio</span>
         </div>
+        <div class="exp-stats"><div class="stat" style="--c:#ff7b6b;--r:-2deg"><b>1 noche</b><span><i class="fas fa-moon"></i>de matsuri en la AELU</span></div><div class="stat" style="--c:#7cc6f2;--r:1.5deg"><b>1899</b><span><i class="fas fa-ship"></i>llegó el Sakura Maru al Perú</span></div><div class="stat" style="--c:#ffd166;--r:-1deg"><b>桜</b><span><i class="fas fa-spa"></i>sakura: flor de cerezo</span></div><div class="stat" style="--c:#b8e986;--r:2deg"><b>1</b><span><i class="fas fa-flag"></i>desfile con el Club Sakura</span></div></div>
 
         <!-- CAS PERCENTAGE BARS -->
         <div class="cas-percentages">
@@ -234,74 +302,165 @@
                     <span>40%</span>
                 </div>
                 <div class="cas-bar"><div class="cas-bar-fill bar-c" style="width:40%"></div></div>
+                <div class="cas-slider-row"><input type="range" id="slider-c" min="0" max="100" value="40"><span class="slider-val" id="val-c">40%</span></div>
             </div>
             <div class="cas-bar-item">
                 <div class="cas-bar-label">
                     <span><i class="fas fa-running" style="color:#7a6b52"></i> Actividad</span>
-                    <span>30%</span>
+                    <span>40%</span>
                 </div>
-                <div class="cas-bar"><div class="cas-bar-fill bar-a" style="width:30%"></div></div>
+                <div class="cas-bar"><div class="cas-bar-fill bar-a" style="width:40%"></div></div>
+                <div class="cas-slider-row"><input type="range" id="slider-a" min="0" max="100" value="40"><span class="slider-val" id="val-a">40%</span></div>
             </div>
             <div class="cas-bar-item">
                 <div class="cas-bar-label">
                     <span><i class="fas fa-hands-helping" style="color:#4a6341"></i> Servicio</span>
-                    <span>30%</span>
+                    <span>20%</span>
                 </div>
-                <div class="cas-bar"><div class="cas-bar-fill bar-s" style="width:30%"></div></div>
+                <div class="cas-bar"><div class="cas-bar-fill bar-s" style="width:20%"></div></div>
+                <div class="cas-slider-row"><input type="range" id="slider-s" min="0" max="100" value="20"><span class="slider-val" id="val-s">20%</span></div>
             </div>
         </div>
 
         <!-- 5 CAS STAGES -->
         <div class="cas-stages">
-            <div class="cas-stage">
-                <i class="fas fa-search"></i>
-                <span>Investigación</span>
-            </div>
-            <div class="cas-stage">
-                <i class="fas fa-clipboard-list"></i>
-                <span>Preparación</span>
-            </div>
-            <div class="cas-stage">
-                <i class="fas fa-bolt"></i>
-                <span>Acción</span>
-            </div>
-            <div class="cas-stage">
-                <i class="fas fa-brain"></i>
-                <span>Reflexión</span>
-            </div>
-            <div class="cas-stage">
-                <i class="fas fa-eye"></i>
-                <span>Demostración</span>
-            </div>
+            <div class="cas-stage"><i class="fas fa-search"></i><span>Investigación</span></div>
+            <div class="cas-stage"><i class="fas fa-clipboard-list"></i><span>Preparación</span></div>
+            <div class="cas-stage"><i class="fas fa-bolt"></i><span>Acción</span></div>
+            <div class="cas-stage"><i class="fas fa-brain"></i><span>Reflexión</span></div>
+            <div class="cas-stage"><i class="fas fa-eye"></i><span>Demostración</span></div>
         </div>
 
         <div class="learning-outcome">
-            <strong><i class="fas fa-trophy"></i> Resultado de aprendizaje asociado:</strong> [Describe aquí el resultado de aprendizaje asociado a esta experiencia]
+            <strong><i class="fas fa-trophy"></i> Resultado de aprendizaje asociado:</strong> RA6 - Demostrar compromiso con asuntos de importancia global. Participar en el matsuri con un club Nikkei me acercó a la cultura japonesa y a la historia de la inmigración japonesa en el Perú.
         </div>
 
         <section class="content-section">
             <h4><i class="fas fa-align-left"></i> Descripción</h4>
-            <p>[Escribe aquí la descripción de tu experiencia CAS. Explica en qué consistió la actividad, dónde se llevó a cabo, quiénes participaron y cuál fue tu rol. Detalla los objetivos que te planteaste y cómo los abordaste a lo largo de la experiencia.]</p>
+            <p>Para esta experiencia CAS fui al <strong>Matsuri 2026</strong>, el gran festival de verano de la comunidad japonesa en el Perú, que se hizo en el estadio de la AELU. Fui invitado por un amigo Nikkei, es decir, descendiente de japoneses nacido en el Perú, y lo más especial fue que <strong>desfilé con su club, el Club Sakura</strong>, con el happi rosado del club puesto.</p>
+            <p>Además del desfile, recorrí el festival con mis amigos: vimos bailes tradicionales, el paso del mikoshi (el santuario que cargan entre muchas personas), probamos comida japonesa y terminamos la noche con fuegos artificiales.</p>
         </section>
-        <section class="content-section">
+
+        <div class="filmstrip" aria-label="Rollo de fotos"><span class="filmstrip-label">rollo de fotos</span><div class="filmstrip-track"><img src="imagenes/experiencia8/01-con-el-happi-de-sakura.jpg" alt="con el happi de sakura" loading="lazy"><img src="imagenes/experiencia8/02-el-club-sakura-antes-del-desfile.jpg" alt="el club sakura antes del desfile" loading="lazy"><img src="imagenes/experiencia8/03-desfilando-con-el-club.jpg" alt="desfilando con el club" loading="lazy"><img src="imagenes/experiencia8/04-ambiente-del-matsuri.jpg" alt="ambiente del matsuri" loading="lazy"><img src="imagenes/experiencia8/05-comiendo-con-mis-amigos.jpg" alt="comiendo con mis amigos" loading="lazy"><img src="imagenes/experiencia8/06-comida-japonesa.jpg" alt="comida japonesa" loading="lazy"><img src="imagenes/experiencia8/07-fuegos-artificiales.jpg" alt="fuegos artificiales" loading="lazy"><img src="imagenes/experiencia8/01-con-el-happi-de-sakura.jpg" aria-hidden="true" alt="con el happi de sakura" loading="lazy"><img src="imagenes/experiencia8/02-el-club-sakura-antes-del-desfile.jpg" aria-hidden="true" alt="el club sakura antes del desfile" loading="lazy"><img src="imagenes/experiencia8/03-desfilando-con-el-club.jpg" aria-hidden="true" alt="desfilando con el club" loading="lazy"><img src="imagenes/experiencia8/04-ambiente-del-matsuri.jpg" aria-hidden="true" alt="ambiente del matsuri" loading="lazy"><img src="imagenes/experiencia8/05-comiendo-con-mis-amigos.jpg" aria-hidden="true" alt="comiendo con mis amigos" loading="lazy"><img src="imagenes/experiencia8/06-comida-japonesa.jpg" aria-hidden="true" alt="comida japonesa" loading="lazy"><img src="imagenes/experiencia8/07-fuegos-artificiales.jpg" aria-hidden="true" alt="fuegos artificiales" loading="lazy"></div></div>
+
+        <section class="content-section stage-section">
+            <span class="stage-step"><b>1</b>etapa 1 de 4</span>
+            <h4><i class="fas fa-search"></i> Indagación</h4>
+            <div class="stage-row">
+                <div class="stage-text">
+            <p>Antes de ir quise entender qué era un matsuri. Aprendí que en Japón los matsuri son festivales tradicionales donde la gente se junta a celebrar con desfiles, bailes, comida y música, y que en el Perú la comunidad Nikkei mantiene esta tradición desde hace muchos años.</p>
+            <p>También descubrí algo que me llamó la atención: los primeros inmigrantes japoneses llegaron al Perú en <strong>1899</strong> en un barco que se llamaba <strong>Sakura Maru</strong>. Me pareció una coincidencia bonita desfilar justo con un club que se llama Sakura, que significa flor de cerezo.</p>
+                </div>
+                <div class="stage-photos"><figure class="stage-photo"><img src="imagenes/experiencia8/04-ambiente-del-matsuri.jpg" alt="el matsuri por dentro" loading="lazy"><figcaption>el matsuri por dentro</figcaption></figure><figure class="stage-mini"><img src="imagenes/experiencia8/06-comida-japonesa.jpg" alt="comida japonesa" loading="lazy"><figcaption>comida japonesa</figcaption></figure></div>
+            </div>
+        </section>
+
+        <section class="content-section stage-section">
+            <span class="stage-step"><b>2</b>etapa 2 de 4</span>
+            <h4><i class="fas fa-clipboard-list"></i> Preparación</h4>
+            <div class="stage-row flip">
+                <div class="stage-text">
+            <p>Mi amigo me explicó cómo iba a ser el desfile y qué significaba para su club participar en el matsuri. Antes de salir nos pusimos el <strong>happi</strong>, la chaqueta tradicional que se usa en estos festivales, con el nombre del club escrito en japonés: さくら (sakura).</p>
+            <p>Al principio me sentía un poco fuera de lugar, porque no soy Nikkei y era mi primera vez en algo así, pero ver a todo el club con el mismo happi me hizo sentir parte del grupo.</p>
+                </div>
+                <div class="stage-photos"><figure class="stage-photo"><img src="imagenes/experiencia8/01-con-el-happi-de-sakura.jpg" alt="listos con el happi" loading="lazy"><figcaption>listos con el happi</figcaption></figure></div>
+            </div>
+        </section>
+
+        <section class="content-section stage-section">
+            <span class="stage-step"><b>3</b>etapa 3 de 4</span>
+            <h4><i class="fas fa-bolt"></i> Acción</h4>
+            <div class="stage-row">
+                <div class="stage-text">
+            <p>El momento más importante fue el <strong>desfile</strong>. Entramos con el Club Sakura al campo, rodeados de otros clubes con sus propios colores y estandartes, mientras miles de personas miraban desde las tribunas. Caminar con el club, frente al escenario y con los farolillos encima, fue increíble.</p>
+            <p>Después recorrimos el festival. Vimos bailes tradicionales con trajes y sombreros de paja, el paso del <strong>mikoshi</strong> cargado por decenas de personas al mismo ritmo, y comimos comida japonesa sentados en el pasto. La noche terminó con fuegos artificiales.</p>
+                </div>
+                <div class="stage-photos"><figure class="stage-photo"><img src="imagenes/experiencia8/03-desfilando-con-el-club.jpg" alt="desfilando con el club" loading="lazy"><figcaption>desfilando con el club</figcaption></figure><figure class="stage-mini"><img src="imagenes/experiencia8/02-el-club-sakura-antes-del-desfile.jpg" alt="el Club Sakura" loading="lazy"><figcaption>el Club Sakura</figcaption></figure></div>
+            </div>
+        </section>
+
+        <section class="content-section stage-section">
+            <span class="stage-step"><b>4</b>etapa 4 de 4</span>
             <h4><i class="fas fa-lightbulb"></i> Reflexión</h4>
-            <p>[Escribe aquí tu reflexión personal sobre esta experiencia. ¿Qué aprendiste? ¿Cómo te sentiste? ¿Qué desafíos enfrentaste y cómo los superaste? ¿De qué manera esta experiencia contribuyó a tu crecimiento personal?]</p>
+            <div class="stage-row flip">
+                <div class="stage-text">
+            <p><strong>¿Qué aprendí?</strong> Aprendí que la cultura japonesa es parte de la historia del Perú. La comunidad Nikkei lleva más de cien años aquí y mantiene sus tradiciones vivas, pero también las comparte con todos, incluso con alguien como yo que no tiene raíces japonesas.</p>
+            <p><strong>¿Cómo me sentí?</strong> Al inicio, un poco nervioso por no saber bien qué hacer. Durante el desfile me sentí orgulloso y muy bien recibido, y al final me quedé con ganas de aprender más sobre Japón, un país al que quiero viajar.</p>
+            <p><strong>¿Qué desafíos enfrenté?</strong> Salir de mi zona de confort: participar en una tradición que no es la mía, frente a muchísima gente, y respetar la forma en que el club hace las cosas.</p>
+            <p><strong>¿Cómo contribuyó a mi crecimiento?</strong> Me ayudó a ver que conocer otras culturas no es solo viajar lejos: aquí mismo, en Lima, hay comunidades con historias que vale la pena entender y respetar.</p>
+                </div>
+                <div class="stage-photos"><figure class="stage-photo"><img src="imagenes/experiencia8/07-fuegos-artificiales.jpg" alt="¡fuegos artificiales!" loading="lazy"><figcaption>¡fuegos artificiales!</figcaption></figure><figure class="stage-mini"><img src="imagenes/experiencia8/05-comiendo-con-mis-amigos.jpg" alt="con mis amigos" loading="lazy"><figcaption>con mis amigos</figcaption></figure></div>
+            </div>
         </section>
+
         <section class="content-section">
-            <h4><i class="fas fa-video"></i> Video</h4>
-            <div class="video-placeholder"><i class="fas fa-play-circle" style="font-size:2rem;margin-bottom:8px;display:block"></i>Sube tu video aquí<br>(reemplazar con iframe de YouTube)</div>
+            <h4><i class="fas fa-video"></i> Videos</h4>
+            <div class="video-grid">
+                <div>
+                    <p style="text-align:center;font-weight:600;color:#5c7a52;margin-bottom:10px"><i class="fas fa-play-circle"></i> Video 1: Baile tradicional japonés en el escenario central</p>
+                    <video controls preload="metadata" class="cas-video">
+                        <source src="videos/experiencia8/video1-baile-tradicional.mp4" type="video/mp4">
+                        Tu navegador no soporta este video.
+                    </video>
+                </div>
+                <div>
+                    <p style="text-align:center;font-weight:600;color:#5c7a52;margin-bottom:10px"><i class="fas fa-play-circle"></i> Video 2: El mikoshi, el santuario que cargan entre decenas de personas</p>
+                    <video controls preload="metadata" class="cas-video">
+                        <source src="videos/experiencia8/video2-mikoshi.mp4" type="video/mp4">
+                        Tu navegador no soporta este video.
+                    </video>
+                </div>
+            </div>
         </section>
+
         <section class="content-section">
-            <h4><i class="fas fa-camera"></i> Fotos</h4>
+            <h4><i class="fas fa-camera"></i> Fotos del Proceso</h4>
             <div class="photo-grid">
-                <div class="photo-item"><div class="photo-placeholder">Foto 1</div><p>[Descripción de la foto 1]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 2</div><p>[Descripción de la foto 2]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 3</div><p>[Descripción de la foto 3]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 4</div><p>[Descripción de la foto 4]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 5</div><p>[Descripción de la foto 5]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 6</div><p>[Descripción de la foto 6]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 7</div><p>[Descripción de la foto 7]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 8</div><p>[Descripción de la foto 8]</p></div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia8/01-con-el-happi-de-sakura.jpg" alt="Con mis amigos y el happi del Club Sakura">
+                    <p>Con mis amigos y el happi del Club Sakura</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia8/02-el-club-sakura-antes-del-desfile.jpg" alt="El Club Sakura listo para desfilar frente al escenario">
+                    <p>El Club Sakura listo para desfilar frente al escenario</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia8/03-desfilando-con-el-club.jpg" alt="Desfilando con el club en el estadio de la AELU">
+                    <p>Desfilando con el club en el estadio de la AELU</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia8/04-ambiente-del-matsuri.jpg" alt="El ambiente del matsuri: farolillos, música y mucha gente">
+                    <p>El ambiente del matsuri: farolillos, música y mucha gente</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia8/05-comiendo-con-mis-amigos.jpg" alt="Comiendo en el pasto con mis amigos">
+                    <p>Comiendo en el pasto con mis amigos</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia8/06-comida-japonesa.jpg" alt="Probando comida japonesa con palitos">
+                    <p>Probando comida japonesa con palitos</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia8/07-fuegos-artificiales.jpg" alt="Los fuegos artificiales al final de la noche">
+                    <p>Los fuegos artificiales al final de la noche</p>
+                </div>
+            </div>
+        </section>
+        <section class="ra-final">
+            <div class="ra-kicker">Mi resultado de aprendizaje</div>
+            <h4>RA6: Demostrar compromiso con asuntos de importancia global</h4>
+            <div class="ra-head">
+                <div class="ra-badge">RA6</div>
+                <div class="ra-score">
+                    <div class="label">¿Cuánto lo logré? (del 1 al 7)</div>
+                    <div class="ra-dots"><span class="on">1</span><span class="on">2</span><span class="on">3</span><span class="on">4</span><span class="on">5</span><span class="">6</span><span class="">7</span></div>
+                    <div class="num">5 de 7</div>
+                </div>
+            </div>
+            <div class="ra-grid">
+                <div class="ra-card"><h5><i class="fas fa-check-circle"></i> ¿Por qué me pongo un 5?</h5><p>Porque me acerqué de verdad a otra cultura: no fui solo a mirar, desfilé con un club Nikkei y aprendí sobre la historia de la inmigración japonesa en el Perú, que empezó en 1899. Entendí que la diversidad cultural también está aquí, en Lima, y que respetarla y conocerla es parte de ser ciudadano del mundo.</p></div>
+                <div class="ra-card"><h5><i class="fas fa-arrow-up"></i> ¿Qué me faltó para el 7?</h5><p>Fue una sola noche y fui como invitado. Para llegar al 7 tendría que comprometerme más: conversar con personas mayores de la comunidad Nikkei sobre cómo llegaron sus familias, volver a participar con el club o compartir con mis compañeros lo que aprendí.</p></div>
+                <div class="ra-card wide"><h5><i class="fas fa-paperclip"></i> Evidencia en esta página</h5><div class="ra-chips"><span>Desfilando con el Club Sakura</span><span>Historia del Sakura Maru</span><span>Video del baile tradicional</span><span>Video del mikoshi</span></div></div>
             </div>
         </section>
         <div class="prev-next">

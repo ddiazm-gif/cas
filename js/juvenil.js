@@ -290,7 +290,7 @@
         var LIMA = [-12.0464, -77.0428];
         var places = [
             { at: LIMA, label: 'Lima', img: 'imagenes/experiencia2/08-resultado-final.jpg', title: 'Lima, Perú',
-              links: [['experiencia2.html', '🍪 Exp. 2: Galletas desde cero'], ['experiencia6.html', '♿ Exp. 6: Sillas de ruedas'], ['proyecto1.html', '⚖️ Proyecto 1: modelo.pe']] },
+              links: [['experiencia2.html', '🍪 Exp. 2: Galletas desde cero'], ['experiencia6.html', '♿ Exp. 6: Sillas de ruedas'], ['experiencia8.html', '🏮 Exp. 8: Matsuri 2026'], ['proyecto1.html', '⚖️ Proyecto 1: modelo.pe']] },
             { at: [-33.0472, -71.6127], label: 'Valparaíso', img: 'imagenes/experiencia5/03-equipo.jpg', title: 'Valparaíso, Chile',
               links: [['experiencia5.html', '🏀 Exp. 5: Copa Pancho 2026']] },
             { at: [43.6629, -79.3957], label: 'Toronto', img: 'imagenes/experiencia1/17-mirador-cn-tower.jpg', title: 'Toronto, Canadá',
