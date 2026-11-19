@@ -93,3 +93,81 @@
  .survey-highlights strong { font-size: 1.75rem; }
 }
 @media print { .evidence-card { break-inside: avoid; } }
+
+/* Actualización del 18 de noviembre: historia, revisiones, diseños y la web hoy. */
+.p2-hero .project-actions { margin-top: 16px; }
+.p2-hero .cover { filter: saturate(1.05); }
+.course-card.new { border: 2px dashed #b69cf2; background: #f7f2ff; }
+.course-card.new i { color: #7d5bd6; }
+
+.p2-legend { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 22px; }
+.p2-tag { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; font-size: .74rem; font-weight: 600; background: #eef3e8; color: #2d5a27; }
+.p2-tag.t-form { background: #fff1c7; color: #6b4e00; }
+.p2-tag.t-diseno { background: #ffe3dd; color: #8a2f1f; }
+.p2-tag.t-ronda { background: #e3f1fb; color: #1f5b80; }
+.p2-tag.t-wip { background: #efe7ff; color: #5a3fb0; }
+.p2-tl { position: relative; display: grid; gap: 26px; padding-left: 8px; }
+.p2-tl::before { content: ""; position: absolute; left: 25px; top: 10px; bottom: 10px; width: 3px; border-radius: 3px; background: linear-gradient(#7cc6f2, #ffd166, #ff7b6b, #b69cf2); }
+.p2-week-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; margin: 0 0 10px 54px; }
+.p2-week-head span { font-family: "Caveat", cursive; font-size: 1.35rem; color: #a8956e; }
+.p2-week-head h4 { margin: 0 !important; padding: 0 !important; border: 0 !important; font-size: 1.15rem !important; }
+.p2-week ol { list-style: none; display: grid; gap: 12px; }
+.p2-ev { display: grid; grid-template-columns: 38px 1fr; gap: 16px; align-items: start; }
+.p2-ev > div { padding: 12px 16px; border-radius: 14px; background: #fff; border: 1px solid #e6dfd2; box-shadow: 0 6px 16px rgba(62,53,41,.07); transition: transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s; }
+.p2-ev > div:hover { transform: translateX(4px); box-shadow: 0 10px 24px rgba(62,53,41,.12); }
+.p2-dot { position: relative; z-index: 1; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: #5c7a52; color: #fff; font-size: .85rem; border: 3px solid #fff; box-shadow: 0 4px 10px rgba(0,0,0,.15); }
+.t-form .p2-dot { background: #e0a91b; } .t-diseno .p2-dot { background: #ff7b6b; } .t-ronda .p2-dot { background: #3f97cf; } .t-wip .p2-dot { background: #8f6ce0; }
+.p2-ev time { font-family: "Caveat", cursive; font-size: 1.2rem; color: #3e3529; margin-right: 8px; }
+.p2-ev h5 { font-size: .98rem; margin: 4px 0 2px; color: #2e4d2c; }
+.p2-ev p { font-size: .88rem; color: #4b4136; }
+.t-form > div { border-color: #f0d27a; background: #fffaf0; }
+.t-wip > div { border-style: dashed; border-color: #c9b6f2; }
+
+.p2-forms { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 18px; }
+.p2-form { display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center; padding: 18px; border: 2px solid #3e3529; border-radius: 18px; background: #fff; box-shadow: 6px 6px 0 #ffd166; }
+.p2-form:nth-child(2) { box-shadow: 6px 6px 0 #b8e986; }
+.p2-form-n { font-family: "Caveat", cursive; font-size: 3.4rem; line-height: 1; color: #2d5a27; }
+.p2-form h5 { font-size: 1.05rem; margin-bottom: 4px; }
+.p2-form p { font-size: .88rem; }
+
+.p2-designs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
+.p2-design { position: relative; padding: 16px; border-radius: 16px; background: var(--bg); border: 1px solid rgba(0,0,0,.06); transform: rotate(-1deg); transition: transform .3s; }
+.p2-design:nth-child(even) { transform: rotate(1.2deg); }
+.p2-design:hover { transform: rotate(0) translateY(-4px); }
+.p2-design time { font-family: "Caveat", cursive; font-size: 1.2rem; color: #7a6b52; }
+.p2-design h5 { font-family: "Playfair Display", serif; font-size: 1.05rem; margin: 4px 0 6px; color: #2e4d2c; }
+.p2-design p { font-size: .84rem; }
+
+.p2-bento { display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px; margin-top: 16px; }
+.p2-box { padding: 18px 20px; border-radius: 18px; background: #fff; border: 1px solid #e6dfd2; border-top: 6px solid var(--c); }
+.p2-box:first-child { grid-row: span 2; }
+.p2-box h5 { font-size: 1rem; margin-bottom: 10px; color: #2e4d2c; }
+.p2-box h5 i { color: var(--c); filter: brightness(.75); margin-right: 4px; }
+.p2-box ul { list-style: none; display: grid; gap: 7px; }
+.p2-box li { font-size: .88rem; padding-left: 20px; position: relative; }
+.p2-box li::before { content: "✦"; position: absolute; left: 0; color: var(--c); filter: brightness(.8); }
+.p2-agenda { margin-top: 18px; padding: 20px 22px; border-radius: 18px; border: 2px dashed #b69cf2; background: repeating-linear-gradient(45deg, #faf7ff, #faf7ff 12px, #f4eeff 12px, #f4eeff 24px); }
+.p2-agenda h5 { font-family: "Playfair Display", serif; font-size: 1.3rem; color: #4a3592; margin-bottom: 10px; }
+.p2-agenda ul { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 18px; padding-left: 18px; }
+.p2-agenda li { font-size: .88rem; }
+
+.p2-como { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin: 14px 0 6px; }
+.p2-como article { padding: 16px; border-radius: 16px; background: #f6f9f2; border: 1px solid #d8e4cd; }
+.p2-como i { font-size: 1.4rem; color: #5c7a52; margin-bottom: 8px; }
+.p2-como h5 { font-size: .95rem; margin-bottom: 6px; color: #2e4d2c; }
+.p2-como p { font-size: .84rem; }
+
+@media (max-width: 860px) { .p2-designs, .p2-como { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 700px) {
+    .p2-forms, .p2-bento, .p2-agenda ul { grid-template-columns: 1fr; }
+    .p2-box:first-child { grid-row: auto; }
+    .p2-week-head { margin-left: 50px; }
+    .p2-ev { grid-template-columns: 34px 1fr; gap: 12px; }
+    .p2-dot { width: 34px; height: 34px; }
+    .p2-tl::before { left: 23px; }
+}
+@media (max-width: 480px) { .p2-designs, .p2-como { grid-template-columns: 1fr; } }
+@media print { .p2-ev > div, .p2-form, .p2-design, .p2-box { break-inside: avoid; } }
+.p2-box:last-child { grid-column: 1 / -1; }
+.p2-box:last-child ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 700px) { .p2-box:last-child ul { grid-template-columns: 1fr; } }
