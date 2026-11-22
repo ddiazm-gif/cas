@@ -26,7 +26,7 @@ Las fechas salen del historial de cambios de la web (sus commits) y de este blog
 | 16 nov. | Ronda R7 publicada, con seis formas nuevas de estudiar. |
 | 16 nov. | **Segunda revisión del formulario:** 34 respuestas, con la lista de lo que faltaba. |
 | 16 a 19 nov. | Ronda R8: lo que pidió la encuesta, el curso de Historia y la **Agenda del día**, ya terminada. |
-| 22 nov. | Cursos clicables en la portada, revisión final de R8 y comparación con RevisionDojo para R9. |
+| 22 nov. | **R8 publicada:** Agenda del día, curso de Historia y cursos clicables en la portada. Empieza R9. |
 
 ## Semana por semana
 
@@ -130,7 +130,9 @@ Las fechas salen del historial de cambios de la web (sus commits) y de este blog
 - **22 de noviembre:**
   - **Cursos clicables en la portada:** las tarjetas de los cursos ahora llevan a las clases de ese curso. Si el alumno no tiene cuenta, primero se registra y luego entra directo a ese curso.
   - **Revisión de RevisionDojo:** se comparan sus funciones con las de la web para planear la siguiente ronda (R9).
-  - Empieza la revisión final completa de R8 antes de publicarla.
+  - R8 pasa su revisión final (61 comprobaciones) y **se publica en la web** con la Agenda, Historia y los cursos clicables.
+  - Se arreglan dos detalles encontrados en la revisión: un aviso de error en la consola del navegador y una prueba automática que fallaba a veces.
+  - Empieza la ronda R9 con las funciones elegidas de RevisionDojo.
 
 ## Revisiones del formulario
 
@@ -187,7 +189,7 @@ La encuesta es voluntaria y anónima. Los resultados se publican agrupados, sin 
 - el material del colegio está protegido detrás del login;
 - modo claro y oscuro.
 
-## Agenda del día (pedido del 18 de noviembre, terminada; se publica con R8)
+## Agenda del día (pedido del 18 de noviembre, publicada el 22 de noviembre)
 
 La Agenda sirve para organizar el día por horas:
 
@@ -212,7 +214,6 @@ La Agenda sirve para organizar el día por horas:
 
 ## Pendientes
 
-- Publicar R8 y la Agenda después de su revisión final.
 - Construir la ronda R9 con las mejores funciones de RevisionDojo, hechas a nuestra manera y sin copiar sus textos ni sus preguntas.
 - Agregar los temas de Historia de las Américas cuando el docente comparta la lista de secciones.
 - Hacer la prueba con al menos cinco compañeros voluntarios y registrar sus comentarios (objetivo del Proyecto 2).
