@@ -56,6 +56,7 @@
         section.content-section p { text-align: justify; }
 
         p.placeholder { color: #7a6b52; font-style: italic; }
+        .content-section a { color: #4a6341; font-weight: 600; text-decoration: underline; text-decoration-color: rgba(92,122,82,0.35); text-underline-offset: 3px; }
 
         /* RA CARDS */
         .ra-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1.2rem; margin-top: 1.2rem; }
@@ -98,6 +99,8 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.06); transition: all 0.4s ease;
         }
         .moment-card:hover { transform: translateY(-5px); box-shadow: 0 10px 35px rgba(0,0,0,0.12); }
+        .moment-card .moment-img { display: block; width: 100%; height: 220px; object-fit: cover; transition: transform 0.5s ease; }
+        .moment-card:hover .moment-img { transform: scale(1.05); }
         .moment-card .img-placeholder {
             width: 100%; height: 220px;
             background: linear-gradient(135deg, #d4cbb8, #c0b49e);
@@ -169,32 +172,32 @@
 
         <section class="content-section">
             <h4><i class="fas fa-seedling"></i> Reflexión sobre crecimiento personal</h4>
-            <p class="placeholder">[Reflexiona sobre cómo has crecido como persona a lo largo de tu experiencia CAS. ¿Qué versión de ti mismo eras al comenzar y quién eres ahora? ¿Qué momentos marcaron un antes y un después en tu desarrollo personal?]</p>
+            <p>Cuando empecé CAS pensaba que era una lista de horas que había que cumplir. Hoy lo veo distinto. En un año viví un mes solo en Toronto, jugué un torneo internacional en Chile, desfilé en un matsuri, aprendí a surfear, armé sillas de ruedas, ayudé a organizar una colecta de sangre y construí dos páginas web que usan miles de personas. El Dylan del inicio esperaba que otros le dijeran qué hacer; el de ahora se anima a proponer, a empezar cosas y a terminarlas.</p>
         </section>
 
         <section class="content-section">
             <h4><i class="fas fa-star"></i> Lo que aprendí sobre mis fortalezas</h4>
-            <p class="placeholder">[Describe las fortalezas que descubriste o confirmaste durante CAS. ¿Qué habilidades no sabías que tenías? ¿En qué áreas te destacaste? ¿Cómo puedes aplicar estas fortalezas en el futuro?]</p>
+            <p>Descubrí que soy bueno convirtiendo una idea en algo real. Con <a href="proyecto1.html">modelo.pe</a> y <a href="proyecto2.html">Dojo Libre</a> aprendí que puedo aprender solo lo que necesito, organizarme y no soltar un proyecto hasta que funcione. También me di cuenta de que me adapto rápido: en Canadá terminé haciendo de traductor para mis amigos. Lo que todavía tengo que trabajar es animarme a hablar con gente nueva, sobre todo cuando no comparto su idioma.</p>
         </section>
 
         <section class="content-section">
             <h4><i class="fas fa-mountain"></i> Desafíos que me transformaron</h4>
-            <p class="placeholder">[Habla sobre los retos más significativos que enfrentaste. ¿Cómo los superaste? ¿Qué aprendiste de los momentos difíciles? ¿Cómo te fortalecieron estas experiencias?]</p>
+            <p>El más duro fue el <a href="experiencia5.html">torneo en Chile</a>: perdimos y en un partido me tocó quedarme en la banca. Aprendí que también se aporta alentando al equipo. El <a href="experiencia4.html">surf</a> me enseñó lo mismo de otra forma: me caí muchísimas veces antes de pararme en una ola. Y con modelo.pe aprendí que los números no siempre suben: en noviembre los clics bajaron y tuve que aceptar que hay cosas que no controlo y que toca investigar.</p>
         </section>
 
         <section class="content-section">
             <h4><i class="fas fa-users"></i> Valor del trabajo en equipo</h4>
-            <p class="placeholder">[Reflexiona sobre las experiencias de colaboración. ¿Qué aprendiste al trabajar con otros? ¿Cómo manejaste los conflictos? ¿Qué rol tendías a asumir en los equipos y por qué?]</p>
+            <p>Trabajé en equipo de muchas formas: en la cancha con la Academia Marcelo Silva, armando sillas de ruedas con otros voluntarios, en la colecta de sangre y, sobre todo, en Dojo Libre con Diego Chinen y Aitana Castagnola. Aprendí que un equipo funciona cuando cada uno sabe qué le toca y cuando las decisiones se toman escuchando a los demás, no imponiendo. En el taller del CADE tuve que trabajar con chicos que no conocía y descubrí que escuchar también es liderar.</p>
         </section>
 
         <section class="content-section">
             <h4><i class="fas fa-globe-americas"></i> Conexión con el mundo</h4>
-            <p class="placeholder">[¿Cómo te conectaste con tu comunidad y el mundo a través de CAS? ¿Qué problemas sociales o globales comprendes mejor ahora? ¿Cómo cambió tu perspectiva sobre tu rol en la sociedad?]</p>
+            <p>CAS me hizo mirar más allá de mi salón. Con <a href="experiencia6.html">las sillas de ruedas</a> escuché las historias de personas con discapacidad y entendí cuánto cambia su vida tener una silla propia. Con la <a href="experiencia3.html">colecta</a> supe que en el Perú muy pocas donaciones de sangre son voluntarias. Con <a href="proyecto1.html">modelo.pe</a> vi que mucha gente no puede pagar un abogado para un documento simple. Y en el <a href="experiencia8.html">matsuri</a> descubrí que la historia de la inmigración japonesa también es parte de la historia del Perú.</p>
         </section>
 
         <section class="content-section">
             <h4><i class="fas fa-balance-scale"></i> Ética y valores</h4>
-            <p class="placeholder">[¿Qué dilemas éticos enfrentaste durante CAS? ¿Cómo influyeron tus valores en tus decisiones? ¿Qué principios guiaron tus acciones y cómo se fortalecieron a lo largo del programa?]</p>
+            <p>Con modelo.pe tuve que decidir cómo usar la inteligencia artificial de forma responsable: los borradores salieron de una IA, pero tenía que dejar claro que no reemplazan a un abogado. Con Dojo Libre cuidamos que el formulario fuera anónimo y que la web no tuviera chat entre alumnos menores de edad. Y en el <a href="experiencia7.html">CADE Escolar</a> hablamos de noticias falsas, ciberacoso y algoritmos; desde entonces reviso dos veces antes de compartir algo.</p>
         </section>
 
         <section class="content-section">
@@ -202,31 +205,31 @@
             <div class="ra-grid">
                 <div class="ra-card">
                     <h5><i class="fas fa-search"></i> RA 1: Identificar fortalezas y áreas de crecimiento</h5>
-                    <p>[Breve resumen de cómo demostraste este resultado a lo largo de CAS.]</p>
+                    <p>Lo demostré en <a href="experiencia1.html">Canadá</a>: descubrí que me adapto rápido y que puedo ayudar a otros con el idioma, pero también que me cuesta socializar con quienes no hablan español.</p>
                 </div>
                 <div class="ra-card">
                     <h5><i class="fas fa-tools"></i> RA 2: Desarrollar nuevas habilidades</h5>
-                    <p>[Breve resumen de cómo demostraste este resultado a lo largo de CAS.]</p>
+                    <p>Lo demostré haciendo <a href="experiencia2.html">galletas desde cero</a> y aprendiendo a programar y diseñar páginas web para mis dos proyectos.</p>
                 </div>
                 <div class="ra-card">
                     <h5><i class="fas fa-clipboard-list"></i> RA 3: Planificar e iniciar actividades</h5>
-                    <p>[Breve resumen de cómo demostraste este resultado a lo largo de CAS.]</p>
+                    <p>Lo demostré ayudando a organizar la <a href="experiencia3.html">colecta de sangre</a> y planificando <a href="proyecto2.html">Dojo Libre</a> a partir de una encuesta al salón.</p>
                 </div>
                 <div class="ra-card">
                     <h5><i class="fas fa-fist-raised"></i> RA 4: Compromiso y perseverancia</h5>
-                    <p>[Breve resumen de cómo demostraste este resultado a lo largo de CAS.]</p>
+                    <p>Lo demostré <a href="experiencia4.html">aprendiendo a surfear</a> a pesar de las caídas y sosteniendo Dojo Libre siete semanas hasta dejarlo operativo.</p>
                 </div>
                 <div class="ra-card">
                     <h5><i class="fas fa-handshake"></i> RA 5: Trabajo colaborativo</h5>
-                    <p>[Breve resumen de cómo demostraste este resultado a lo largo de CAS.]</p>
+                    <p>Lo demostré en el <a href="experiencia5.html">torneo de básquet en Chile</a>, apoyando al equipo incluso desde la banca, y trabajando con Diego y Aitana en Dojo Libre.</p>
                 </div>
                 <div class="ra-card">
                     <h5><i class="fas fa-globe"></i> RA 6: Compromiso con temas de importancia global</h5>
-                    <p>[Breve resumen de cómo demostraste este resultado a lo largo de CAS.]</p>
+                    <p>Lo demostré con las <a href="experiencia6.html">sillas de ruedas</a>, con <a href="proyecto1.html">modelo.pe</a> (información legal gratis para todos) y en el <a href="experiencia8.html">matsuri</a>.</p>
                 </div>
                 <div class="ra-card">
                     <h5><i class="fas fa-balance-scale"></i> RA 7: Reconocer y considerar aspectos éticos</h5>
-                    <p>[Breve resumen de cómo demostraste este resultado a lo largo de CAS.]</p>
+                    <p>Lo demostré en el <a href="experiencia7.html">CADE Escolar 2026</a> y con el uso responsable de la IA en modelo.pe y la privacidad de los alumnos en Dojo Libre.</p>
                 </div>
             </div>
         </section>
@@ -235,7 +238,7 @@
             <h4><i class="fas fa-envelope-open-text"></i> Mensaje para futuros estudiantes CAS</h4>
             <div class="message-box">
                 <i class="fas fa-quote-right quote-icon"></i>
-                <p>[Escribe un mensaje sincero para los estudiantes que están por comenzar su recorrido CAS. ¿Qué consejo les darías? ¿Qué te hubiera gustado saber al inicio? ¿Qué les deseas para su experiencia?]</p>
+                <p>No esperes a que te asignen una actividad. Mira lo que ya te gusta o lo que te molesta de tu entorno y conviértelo en una experiencia: un deporte nuevo, una web, una campaña. Toma fotos desde el primer día y escribe lo que sientes en el momento, porque después se olvida. Y no tengas miedo de equivocarte: mis mejores aprendizajes vinieron de perder un torneo, de caerme de la tabla y de corregir una web una y otra vez.</p>
             </div>
         </section>
 
@@ -243,16 +246,16 @@
             <h4><i class="fas fa-heart"></i> Mis momentos CAS favoritos</h4>
             <div class="moments-grid">
                 <div class="moment-card">
-                    <div class="img-placeholder"><i class="fas fa-image" style="font-size:2rem;margin-right:8px;opacity:0.5"></i> Foto 1 (280x220)</div>
-                    <p>[Descripción de tu momento CAS favorito]</p>
+                    <a href="experiencia8.html"><img class="moment-img" src="imagenes/experiencia8/03-desfilando-con-el-club.jpg" alt="Desfilar con el Club Sakura en el Matsuri 2026, frente a miles de personas." loading="lazy"></a>
+                    <p>Desfilar con el Club Sakura en el Matsuri 2026, frente a miles de personas.</p>
                 </div>
                 <div class="moment-card">
-                    <div class="img-placeholder"><i class="fas fa-image" style="font-size:2rem;margin-right:8px;opacity:0.5"></i> Foto 2 (280x220)</div>
-                    <p>[Descripción de otro momento memorable]</p>
+                    <a href="experiencia5.html"><img class="moment-img" src="imagenes/experiencia5/03-equipo.jpg" alt="Viajar a Valparaíso con mi equipo para la Copa Pancho 2026. Perdimos, pero aprendí muchísimo." loading="lazy"></a>
+                    <p>Viajar a Valparaíso con mi equipo para la Copa Pancho 2026. Perdimos, pero aprendí muchísimo.</p>
                 </div>
                 <div class="moment-card">
-                    <div class="img-placeholder"><i class="fas fa-image" style="font-size:2rem;margin-right:8px;opacity:0.5"></i> Foto 3 (280x220)</div>
-                    <p>[Descripción de un tercer momento especial]</p>
+                    <a href="experiencia7.html"><img class="moment-img" src="imagenes/experiencia7/08-con-mis-amigos.jpg" alt="El CADE Escolar 2026 con mis amigos: un día entero pensando en qué tipo de líder quiero ser." loading="lazy"></a>
+                    <p>El CADE Escolar 2026 con mis amigos: un día entero pensando en qué tipo de líder quiero ser.</p>
                 </div>
             </div>
         </section>
