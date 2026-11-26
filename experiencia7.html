@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experiencia 7 — Mi Blog CAS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
@@ -92,9 +93,11 @@
         .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
         .photo-item { text-align: center; transition: all 0.4s ease; }
         .photo-item:hover { transform: translateY(-5px); }
-        .photo-placeholder { width: 100%; height: 200px; background: linear-gradient(135deg, #d4cbb8, #c0b49e); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #7a6b52; font-size: 0.95rem; transition: all 0.3s ease; }
+        .photo-placeholder { width: 100%; height: 200px; background: linear-gradient(135deg, #d4cbb8, #c0b49e); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #7a6b52; font-size: 0.95rem; transition: all 0.3s ease; padding: 10px; }
         .photo-item:hover .photo-placeholder { box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
-        .photo-item p { margin-top: 0.5rem; font-size: 0.85rem; color: #7a6b52; font-style: italic; }
+        .photo-item img { width: 100%; height: 220px; object-fit: cover; border-radius: 10px; transition: all 0.4s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.08); cursor: pointer; }
+        .photo-item:hover img { box-shadow: 0 8px 25px rgba(0,0,0,0.15); transform: scale(1.02); }
+        .photo-item p { margin-top: 0.6rem; font-size: 0.85rem; color: #7a6b52; font-style: italic; }
 
         .prev-next { display: flex; justify-content: space-between; margin: 3rem 0 1rem; }
         .prev-next a { background: linear-gradient(135deg, #5c7a52, #4a6341); color: #f5f0e8; text-decoration: none; padding: 0.8rem 1.8rem; border-radius: 10px; font-size: 0.95rem; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(92,122,82,0.3); }
@@ -173,10 +176,68 @@
         .btn-cancel:hover { background: #d4cbb8; }
         .password-error { color: #c0392b; font-size: 0.8rem; margin-top: 8px; display: none; }
         html { scroll-behavior: smooth; }
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; align-items: start; }
+        .video-grid > div { min-width: 0; }
+        .cas-video { width: 100%; max-width: 480px; max-height: 360px; display: block; margin: 0 auto; border-radius: 12px; background: #1f2a1c; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .video-grid .video-placeholder { height: 240px; max-width: 100%; }
+
+        /* DIARIO CAS: etapas con foto, polaroids y RA final */
+        :root { --tape: rgba(168,216,154,0.75); --tape-2: rgba(232,199,116,0.7); --ink: #3e3529; --leaf: #5c7a52; }
+        .stage-section { padding-top: 40px !important; }
+        .stage-step { position: absolute; top: 12px; left: 30px; font-family: "Caveat", cursive; font-size: 1.15rem; color: #a8956e; }
+        .stage-step b { display: inline-grid; place-items: center; width: 24px; height: 24px; margin-right: 6px; border-radius: 50%; background: var(--leaf); color: #f5f0e8; font-family: "Inter", sans-serif; font-size: 0.75rem; }
+        .stage-row { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 2.2rem; align-items: center; }
+        .stage-row.flip { grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr); }
+        .stage-row.flip .stage-photo { order: -1; }
+        .stage-photo { position: relative; margin: 14px 6px 6px; background: #fff; padding: 10px 10px 46px; box-shadow: 0 12px 30px rgba(62,53,41,0.16), 0 2px 6px rgba(62,53,41,0.08); transform: rotate(-2.2deg); transition: transform 0.45s cubic-bezier(0.16,1,0.3,1), box-shadow 0.45s; }
+        .stage-row.flip .stage-photo { transform: rotate(2deg); }
+        .stage-photo:hover, .stage-row.flip .stage-photo:hover { transform: rotate(0deg) scale(1.03); box-shadow: 0 18px 40px rgba(62,53,41,0.22); }
+        .stage-photo::before { content: ""; position: absolute; top: -13px; left: 50%; width: 96px; height: 26px; background: var(--tape); transform: translateX(-50%) rotate(-4deg); box-shadow: 0 1px 2px rgba(0,0,0,0.08); z-index: 1; }
+        .stage-row.flip .stage-photo::before { background: var(--tape-2); transform: translateX(-50%) rotate(3deg); }
+        .stage-photo img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+        .stage-photo .ph-empty { display: grid; place-items: center; width: 100%; aspect-ratio: 4 / 5; background: repeating-linear-gradient(45deg, #efe8da, #efe8da 10px, #e8e0d0 10px, #e8e0d0 20px); color: #a8956e; font-size: 2.4rem; }
+        .stage-photo figcaption { position: absolute; left: 8px; right: 8px; bottom: 8px; text-align: center; font-family: "Caveat", cursive; font-size: 1.3rem; line-height: 1.05; color: var(--ink); }
+        .photo-grid .photo-item { background: #fff; padding: 9px 9px 12px; box-shadow: 0 8px 22px rgba(62,53,41,0.12); transform: rotate(-1.4deg); }
+        .photo-grid .photo-item:nth-child(even) { transform: rotate(1.3deg); }
+        .photo-grid .photo-item:nth-child(3n) { transform: rotate(-0.6deg); }
+        .photo-grid .photo-item:hover { transform: rotate(0deg) translateY(-6px); }
+        .photo-grid .photo-item img { border-radius: 2px; box-shadow: none; }
+        .photo-grid .photo-item:hover img { transform: none; box-shadow: none; }
+        .photo-grid .photo-item p { font-family: "Caveat", cursive; font-style: normal; font-size: 1.2rem; line-height: 1.15; color: var(--ink); }
+        .ra-final { position: relative; margin: 2.5rem 0 1rem; padding: 34px 32px 30px; border-radius: 22px; background: radial-gradient(circle at 12% 0%, rgba(168,216,154,0.35), transparent 45%), linear-gradient(145deg, #2d5a27, #3a5232 55%, #4a6341); color: #f5f0e8; box-shadow: 0 18px 45px rgba(45,90,39,0.3); overflow: hidden; }
+        .ra-final::after { content: ""; position: absolute; right: -40px; bottom: -40px; width: 180px; height: 180px; border-radius: 50%; border: 2px dashed rgba(245,240,232,0.18); }
+        .ra-final .ra-kicker { font-family: "Caveat", cursive; font-size: 1.45rem; color: #a8d89a; }
+        .ra-final h4 { font-family: "Playfair Display", Georgia, serif; font-size: 1.6rem; margin: 2px 0 18px; line-height: 1.25; }
+        .ra-head { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; margin-bottom: 20px; }
+        .ra-badge { display: grid; place-items: center; min-width: 92px; height: 92px; border-radius: 50%; background: #f5f0e8; color: #2d5a27; font-family: "Playfair Display", serif; font-weight: 700; font-size: 1.9rem; box-shadow: 0 0 0 6px rgba(245,240,232,0.15); transform: rotate(-6deg); }
+        .ra-score { flex: 1; min-width: 230px; }
+        .ra-score .label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.8; }
+        .ra-dots { display: flex; gap: 8px; margin: 8px 0 4px; }
+        .ra-dots span { width: 30px; height: 30px; border-radius: 50%; border: 2px solid rgba(245,240,232,0.5); display: grid; place-items: center; font-size: 0.75rem; font-weight: 600; color: rgba(245,240,232,0.6); }
+        .ra-dots span.on { background: #e8c774; border-color: #e8c774; color: #3a5232; }
+        .ra-score .num { font-family: "Caveat", cursive; font-size: 2rem; line-height: 1; }
+        .ra-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; position: relative; z-index: 1; }
+        .ra-card { background: rgba(245,240,232,0.1); border: 1px solid rgba(245,240,232,0.18); border-radius: 14px; padding: 16px 18px; }
+        .ra-card h5 { font-size: 0.95rem; margin-bottom: 6px; color: #e8c774; display: flex; gap: 8px; align-items: center; }
+        .ra-card p { font-size: 0.93rem; line-height: 1.6; text-align: left; }
+        .ra-card.wide { grid-column: 1 / -1; }
+        .ra-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+        .ra-chips span { background: #f5f0e8; color: #3a5232; border-radius: 20px; padding: 4px 12px; font-size: 0.8rem; font-weight: 500; }
+        .ra-final.pending .ra-badge { background: rgba(245,240,232,0.2); color: #f5f0e8; }
+        @media (max-width: 760px) {
+            .stage-row, .stage-row.flip { grid-template-columns: 1fr; gap: 1.2rem; }
+            .stage-row.flip .stage-photo { order: 0; }
+            .stage-photo { max-width: 300px; margin: 10px auto 4px; }
+            .stage-step { left: 18px; }
+            .ra-grid { grid-template-columns: 1fr; }
+            .ra-final { padding: 28px 20px 24px; }
+            .ra-dots { gap: 6px; }
+            .ra-dots span { width: 26px; height: 26px; }
+        }
         @media (max-width: 600px) { nav { position: relative; } }
     </style>
-    <link rel="stylesheet" href="css/juvenil.css?v=13">
-    <script src="js/juvenil.js?v=15" defer></script>
+    <link rel="stylesheet" href="css/juvenil.css?v=14">
+    <script src="js/juvenil.js?v=17" defer></script>
 </head>
 <body>
     <header>
@@ -215,15 +276,22 @@
         <a href="reflexiones.html"><i class="fas fa-pen-fancy"></i> Reflexiones</a>
     </nav>
     <div class="container">
-        <div class="exp-header">
-            <h2>Experiencia 7</h2>
-            <h3>[Nombre de la experiencia]</h3>
-        </div>
+        <header class="exp-hero">
+            <img class="cover" src="imagenes/experiencia7/06-auditorio-panoramico.jpg" alt="CADE Escolar 2026: del ser al hacer" style="object-position: 50% 55%;">
+            <div class="hero-sticker" aria-hidden="true"><i class="fas fa-microphone-alt"></i></div>
+            <div class="hero-stack"><figure style="--r:-7deg"><img src="imagenes/experiencia7/08-con-mis-amigos.jpg" alt="Con mis amigos y nuestras credenciales" loading="lazy"></figure><figure style="--r:5deg"><img src="imagenes/experiencia7/02-taller-en-grupo.jpg" alt="Taller en grupo" loading="lazy"></figure><figure style="--r:-3deg"><img src="imagenes/experiencia7/07-mi-grupo-con-credenciales.jpg" alt="Mi grupo del taller" loading="lazy"></figure></div>
+            <div class="hero-text">
+                <span class="hero-num">Experiencia 7</span>
+                <h2>CADE Escolar 2026: del ser al hacer</h2>
+                <p class="hero-sub">Un día de liderazgo con estudiantes de todo el Perú, organizado por IPAE Acción Empresarial</p>
+            </div>
+        </header>
         <div class="badges">
-            <span class="badge badge-c"><i class="fas fa-palette"></i> Creatividad</span>
             <span class="badge badge-a"><i class="fas fa-running"></i> Actividad</span>
+            <span class="badge badge-c"><i class="fas fa-palette"></i> Creatividad</span>
             <span class="badge badge-s"><i class="fas fa-hands-helping"></i> Servicio</span>
         </div>
+        <div class="exp-stats"><div class="stat" style="--c:#ff7b6b;--r:-2deg"><b>~550</b><span><i class="fas fa-users"></i>escolares de 4.° y 5.° de secundaria</span></div><div class="stat" style="--c:#7cc6f2;--r:1.5deg"><b>2.ª</b><span><i class="fas fa-flag"></i>edición del CADE Escolar</span></div><div class="stat" style="--c:#ffd166;--r:-1deg"><b>3</b><span><i class="fas fa-layer-group"></i>ejes: ser, propósito y acción</span></div><div class="stat" style="--c:#b8e986;--r:2deg"><b>1 día</b><span><i class="fas fa-calendar-day"></i>de charlas y talleres</span></div></div>
 
         <!-- CAS PERCENTAGE BARS -->
         <div class="cas-percentages">
@@ -231,77 +299,186 @@
             <div class="cas-bar-item">
                 <div class="cas-bar-label">
                     <span><i class="fas fa-palette" style="color:#5c7a52"></i> Creatividad</span>
-                    <span>40%</span>
+                    <span>50%</span>
                 </div>
-                <div class="cas-bar"><div class="cas-bar-fill bar-c" style="width:40%"></div></div>
+                <div class="cas-bar"><div class="cas-bar-fill bar-c" style="width:50%"></div></div>
+                <div class="cas-slider-row"><input type="range" id="slider-c" min="0" max="100" value="50"><span class="slider-val" id="val-c">50%</span></div>
             </div>
             <div class="cas-bar-item">
                 <div class="cas-bar-label">
                     <span><i class="fas fa-running" style="color:#7a6b52"></i> Actividad</span>
-                    <span>30%</span>
+                    <span>15%</span>
                 </div>
-                <div class="cas-bar"><div class="cas-bar-fill bar-a" style="width:30%"></div></div>
+                <div class="cas-bar"><div class="cas-bar-fill bar-a" style="width:15%"></div></div>
+                <div class="cas-slider-row"><input type="range" id="slider-a" min="0" max="100" value="15"><span class="slider-val" id="val-a">15%</span></div>
             </div>
             <div class="cas-bar-item">
                 <div class="cas-bar-label">
                     <span><i class="fas fa-hands-helping" style="color:#4a6341"></i> Servicio</span>
-                    <span>30%</span>
+                    <span>35%</span>
                 </div>
-                <div class="cas-bar"><div class="cas-bar-fill bar-s" style="width:30%"></div></div>
+                <div class="cas-bar"><div class="cas-bar-fill bar-s" style="width:35%"></div></div>
+                <div class="cas-slider-row"><input type="range" id="slider-s" min="0" max="100" value="35"><span class="slider-val" id="val-s">35%</span></div>
             </div>
         </div>
 
         <!-- 5 CAS STAGES -->
         <div class="cas-stages">
-            <div class="cas-stage">
-                <i class="fas fa-search"></i>
-                <span>Investigación</span>
-            </div>
-            <div class="cas-stage">
-                <i class="fas fa-clipboard-list"></i>
-                <span>Preparación</span>
-            </div>
-            <div class="cas-stage">
-                <i class="fas fa-bolt"></i>
-                <span>Acción</span>
-            </div>
-            <div class="cas-stage">
-                <i class="fas fa-brain"></i>
-                <span>Reflexión</span>
-            </div>
-            <div class="cas-stage">
-                <i class="fas fa-eye"></i>
-                <span>Demostración</span>
-            </div>
+            <div class="cas-stage"><i class="fas fa-search"></i><span>Investigación</span></div>
+            <div class="cas-stage"><i class="fas fa-clipboard-list"></i><span>Preparación</span></div>
+            <div class="cas-stage"><i class="fas fa-bolt"></i><span>Acción</span></div>
+            <div class="cas-stage"><i class="fas fa-brain"></i><span>Reflexión</span></div>
+            <div class="cas-stage"><i class="fas fa-eye"></i><span>Demostración</span></div>
         </div>
 
         <div class="learning-outcome">
-            <strong><i class="fas fa-trophy"></i> Resultado de aprendizaje asociado:</strong> [Describe aquí el resultado de aprendizaje asociado a esta experiencia]
+            <strong><i class="fas fa-trophy"></i> Resultado de aprendizaje asociado:</strong> RA7 - Demostrar el compromiso ético y la toma de decisiones informadas. En el CADE Escolar reflexioné sobre temas éticos de mi generación, como las noticias falsas, el ciberacoso y el poder de los algoritmos, y sobre cómo tomar decisiones informadas como líder.
         </div>
 
         <section class="content-section">
             <h4><i class="fas fa-align-left"></i> Descripción</h4>
-            <p>[Escribe aquí la descripción de tu experiencia CAS. Explica en qué consistió la actividad, dónde se llevó a cabo, quiénes participaron y cuál fue tu rol. Detalla los objetivos que te planteaste y cómo los abordaste a lo largo de la experiencia.]</p>
+            <p>Para esta experiencia CAS asistí al <strong>CADE Escolar 2026</strong>, un encuentro de liderazgo organizado por <strong>IPAE Acción Empresarial</strong>, la misma institución que organiza la CADE Ejecutivos, uno de los foros más importantes del país. Fui en representación de mi colegio.</p>
+            <p>Fue la segunda edición y reunió a cerca de <strong>550 estudiantes de 4.° y 5.° de secundaria</strong> de distintos colegios. El lema fue <strong>“Del ser al hacer”</strong>: pasar de pensar qué tipo de líder quieres ser a hacer algo concreto por tu comunidad.</p>
         </section>
-        <section class="content-section">
+
+        <div class="filmstrip" aria-label="Rollo de fotos"><span class="filmstrip-label">rollo de fotos</span><div class="filmstrip-track"><img src="imagenes/experiencia7/01-escenario-del-auditorio.jpg" alt="el escenario" loading="lazy"><img src="imagenes/experiencia7/03-ingreso-al-cade.jpg" alt="el ingreso" loading="lazy"><img src="imagenes/experiencia7/04-auditorio-lleno.jpg" alt="auditorio lleno" loading="lazy"><img src="imagenes/experiencia7/05-presentacion-con-datos.jpg" alt="charla con datos" loading="lazy"><img src="imagenes/experiencia7/02-taller-en-grupo.jpg" alt="taller en grupo" loading="lazy"><img src="imagenes/experiencia7/07-mi-grupo-con-credenciales.jpg" alt="mi grupo" loading="lazy"><img src="imagenes/experiencia7/08-con-mis-amigos.jpg" alt="con mis amigos" loading="lazy"><img src="imagenes/experiencia7/06-auditorio-panoramico.jpg" alt="el auditorio" loading="lazy"><img src="imagenes/experiencia7/01-escenario-del-auditorio.jpg" aria-hidden="true" alt="el escenario" loading="lazy"><img src="imagenes/experiencia7/03-ingreso-al-cade.jpg" aria-hidden="true" alt="el ingreso" loading="lazy"><img src="imagenes/experiencia7/04-auditorio-lleno.jpg" aria-hidden="true" alt="auditorio lleno" loading="lazy"><img src="imagenes/experiencia7/05-presentacion-con-datos.jpg" aria-hidden="true" alt="charla con datos" loading="lazy"><img src="imagenes/experiencia7/02-taller-en-grupo.jpg" aria-hidden="true" alt="taller en grupo" loading="lazy"><img src="imagenes/experiencia7/07-mi-grupo-con-credenciales.jpg" aria-hidden="true" alt="mi grupo" loading="lazy"><img src="imagenes/experiencia7/08-con-mis-amigos.jpg" aria-hidden="true" alt="con mis amigos" loading="lazy"><img src="imagenes/experiencia7/06-auditorio-panoramico.jpg" aria-hidden="true" alt="el auditorio" loading="lazy"></div></div>
+
+        <section class="content-section stage-section">
+            <span class="stage-step"><b>1</b>etapa 1 de 4</span>
+            <h4><i class="fas fa-search"></i> Indagación</h4>
+            <div class="stage-row">
+                <div class="stage-text">
+            <p>Antes del evento investigué qué era CADE y por qué IPAE organiza una versión para escolares. Aprendí que la idea es que los jóvenes conversen sobre los problemas del país y se vean a sí mismos como parte de la solución, no solo como espectadores.</p>
+            <p>El programa tenía tres ejes: <strong>Ser para liderar</strong>, <strong>Liderar con propósito</strong> y <strong>Liderazgo en acción</strong>. Entre los temas estaban las noticias falsas, el ciberacoso, la inteligencia artificial (“¿Quién controla el algoritmo?”) y el liderazgo responsable.</p>
+                </div>
+                <div class="stage-photos"><figure class="stage-photo"><img src="imagenes/experiencia7/03-ingreso-al-cade.jpg" alt="llegando al CADE" loading="lazy"><figcaption>llegando al CADE</figcaption></figure><figure class="stage-mini"><img src="imagenes/experiencia7/01-escenario-del-auditorio.jpg" alt="el escenario" loading="lazy"><figcaption>el escenario</figcaption></figure></div>
+            </div>
+        </section>
+
+        <section class="content-section stage-section">
+            <span class="stage-step"><b>2</b>etapa 2 de 4</span>
+            <h4><i class="fas fa-clipboard-list"></i> Preparación</h4>
+            <div class="stage-row flip">
+                <div class="stage-text">
+            <p>Me preparé pensando en qué quería sacar del evento: ideas para ser un mejor líder en mi colegio y en mis proyectos CAS, como mi página modelo.pe y Dojo Libre. Fui con compañeros de mi colegio, con nuestras credenciales amarillas, listos para participar y no solo escuchar.</p>
+            <p>También me propuse algo: hablar con estudiantes de otros colegios, aunque no los conociera, y llevarme al menos una idea concreta para aplicar.</p>
+                </div>
+                <div class="stage-photos"><figure class="stage-photo"><img src="imagenes/experiencia7/08-con-mis-amigos.jpg" alt="¡listos con las credenciales!" loading="lazy"><figcaption>¡listos con las credenciales!</figcaption></figure></div>
+            </div>
+        </section>
+
+        <section class="content-section stage-section">
+            <span class="stage-step"><b>3</b>etapa 3 de 4</span>
+            <h4><i class="fas fa-bolt"></i> Acción</h4>
+            <div class="stage-row">
+                <div class="stage-text">
+            <p>En el auditorio escuchamos charlas de líderes y especialistas. Una de las que más me marcó mostró, con un gráfico, cómo cambió la <strong>pobreza monetaria en el Perú entre 2016 y 2025</strong>. Ver los datos me hizo entender que detrás de cada número hay familias reales, y que las decisiones de los líderes tienen consecuencias.</p>
+            <p>Después vinieron los talleres. En uno de ellos, <strong>“Conforma tu equipo”</strong>, trabajamos en el piso con papelógrafos, mezclados con chicos de otros colegios, para armar un equipo y una propuesta. Tuvimos que ponernos de acuerdo rápido, escuchar ideas distintas y decidir juntos.</p>
+                </div>
+                <div class="stage-photos"><figure class="stage-photo"><img src="imagenes/experiencia7/02-taller-en-grupo.jpg" alt="taller en grupo" loading="lazy"><figcaption>taller en grupo</figcaption></figure><figure class="stage-mini"><img src="imagenes/experiencia7/05-presentacion-con-datos.jpg" alt="charla con datos" loading="lazy"><figcaption>charla con datos</figcaption></figure></div>
+            </div>
+        </section>
+
+        <section class="content-section stage-section">
+            <span class="stage-step"><b>4</b>etapa 4 de 4</span>
             <h4><i class="fas fa-lightbulb"></i> Reflexión</h4>
-            <p>[Escribe aquí tu reflexión personal sobre esta experiencia. ¿Qué aprendiste? ¿Cómo te sentiste? ¿Qué desafíos enfrentaste y cómo los superaste? ¿De qué manera esta experiencia contribuyó a tu crecimiento personal?]</p>
+            <div class="stage-row flip">
+                <div class="stage-text">
+            <p><strong>¿Qué aprendí?</strong> Que la ética no es algo abstracto: está en decisiones de todos los días, como compartir o no una noticia sin verificarla, quedarse callado ante un caso de ciberacoso o confiar ciegamente en lo que te muestra un algoritmo.</p>
+            <p><strong>¿Cómo me sentí?</strong> Motivado y un poco abrumado al inicio, por la cantidad de gente. Al final me sentí parte de algo grande: cientos de jóvenes pensando en cómo mejorar el país.</p>
+            <p><strong>¿Qué desafíos enfrenté?</strong> Trabajar con personas que no conocía y defender mis ideas sin imponerlas. En el taller tuve que escuchar más de lo que hablaba.</p>
+            <p><strong>¿Cómo contribuyó a mi crecimiento?</strong> Ahora reviso dos veces antes de compartir algo en redes y pienso en el impacto de lo que publico. Con modelo.pe y Dojo Libre, que usan muchos estudiantes, siento la responsabilidad de que la información sea correcta.</p>
+                </div>
+                <div class="stage-photos"><figure class="stage-photo"><img src="imagenes/experiencia7/07-mi-grupo-con-credenciales.jpg" alt="mi grupo del taller" loading="lazy"><figcaption>mi grupo del taller</figcaption></figure><figure class="stage-mini"><img src="imagenes/experiencia7/04-auditorio-lleno.jpg" alt="auditorio lleno" loading="lazy"><figcaption>auditorio lleno</figcaption></figure></div>
+            </div>
         </section>
+
         <section class="content-section">
-            <h4><i class="fas fa-video"></i> Video</h4>
-            <div class="video-placeholder"><i class="fas fa-play-circle" style="font-size:2rem;margin-bottom:8px;display:block"></i>Sube tu video aquí<br>(reemplazar con iframe de YouTube)</div>
+            <h4><i class="fas fa-video"></i> Videos</h4>
+            <div class="video-grid">
+                <div>
+                    <p style="text-align:center;font-weight:600;color:#5c7a52;margin-bottom:10px"><i class="fas fa-play-circle"></i> Video 1: El auditorio al inicio del CADE Escolar</p>
+                    <video controls preload="metadata" class="cas-video">
+                        <source src="videos/experiencia7/video1-inicio-en-el-auditorio.mp4" type="video/mp4">
+                        Tu navegador no soporta este video.
+                    </video>
+                </div>
+                <div>
+                    <p style="text-align:center;font-weight:600;color:#5c7a52;margin-bottom:10px"><i class="fas fa-play-circle"></i> Video 2: Una de las charlas en el escenario principal</p>
+                    <video controls preload="metadata" class="cas-video">
+                        <source src="videos/experiencia7/video2-en-el-escenario.mp4" type="video/mp4">
+                        Tu navegador no soporta este video.
+                    </video>
+                </div>
+                <div>
+                    <p style="text-align:center;font-weight:600;color:#5c7a52;margin-bottom:10px"><i class="fas fa-play-circle"></i> Video 3: La charla con datos sobre la pobreza en el Perú</p>
+                    <video controls preload="metadata" class="cas-video">
+                        <source src="videos/experiencia7/video3-charla-con-datos.mp4" type="video/mp4">
+                        Tu navegador no soporta este video.
+                    </video>
+                </div>
+                <div>
+                    <p style="text-align:center;font-weight:600;color:#5c7a52;margin-bottom:10px"><i class="fas fa-play-circle"></i> Video 4: El taller “Conforma tu equipo”</p>
+                    <video controls preload="metadata" class="cas-video">
+                        <source src="videos/experiencia7/video4-taller-conforma-tu-equipo.mp4" type="video/mp4">
+                        Tu navegador no soporta este video.
+                    </video>
+                </div>
+            </div>
         </section>
+
         <section class="content-section">
-            <h4><i class="fas fa-camera"></i> Fotos</h4>
+            <h4><i class="fas fa-camera"></i> Fotos del Proceso</h4>
             <div class="photo-grid">
-                <div class="photo-item"><div class="photo-placeholder">Foto 1</div><p>[Descripción de la foto 1]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 2</div><p>[Descripción de la foto 2]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 3</div><p>[Descripción de la foto 3]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 4</div><p>[Descripción de la foto 4]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 5</div><p>[Descripción de la foto 5]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 6</div><p>[Descripción de la foto 6]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 7</div><p>[Descripción de la foto 7]</p></div>
-                <div class="photo-item"><div class="photo-placeholder">Foto 8</div><p>[Descripción de la foto 8]</p></div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia7/01-escenario-del-auditorio.jpg" alt="El escenario principal del CADE Escolar">
+                    <p>El escenario principal del CADE Escolar</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia7/02-taller-en-grupo.jpg" alt="Trabajando en el piso con papelógrafos en el taller">
+                    <p>Trabajando en el piso con papelógrafos en el taller</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia7/03-ingreso-al-cade.jpg" alt="Cientos de estudiantes llegando al evento">
+                    <p>Cientos de estudiantes llegando al evento</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia7/04-auditorio-lleno.jpg" alt="El auditorio lleno durante las charlas">
+                    <p>El auditorio lleno durante las charlas</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia7/05-presentacion-con-datos.jpg" alt="Charla sobre la pobreza monetaria en el Perú (2016-2025)">
+                    <p>Charla sobre la pobreza monetaria en el Perú (2016-2025)</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia7/06-auditorio-panoramico.jpg" alt="Vista del auditorio desde los costados">
+                    <p>Vista del auditorio desde los costados</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia7/07-mi-grupo-con-credenciales.jpg" alt="Mi grupo del taller, con estudiantes de otros colegios">
+                    <p>Mi grupo del taller, con estudiantes de otros colegios</p>
+                </div>
+                <div class="photo-item">
+                    <img src="imagenes/experiencia7/08-con-mis-amigos.jpg" alt="Con mis amigos y nuestras credenciales del CADE">
+                    <p>Con mis amigos y nuestras credenciales del CADE</p>
+                </div>
+            </div>
+        </section>
+        <section class="ra-final">
+            <div class="ra-kicker">Mi resultado de aprendizaje</div>
+            <h4>RA7: Demostrar el compromiso ético y la toma de decisiones informadas</h4>
+            <div class="ra-head">
+                <div class="ra-badge">RA7</div>
+                <div class="ra-score">
+                    <div class="label">¿Cuánto lo logré? (del 1 al 7)</div>
+                    <div class="ra-dots"><span class="on">1</span><span class="on">2</span><span class="on">3</span><span class="on">4</span><span class="on">5</span><span class="">6</span><span class="">7</span></div>
+                    <div class="num">5 de 7</div>
+                </div>
+            </div>
+            <div class="ra-grid">
+                <div class="ra-card"><h5><i class="fas fa-check-circle"></i> ¿Por qué me pongo un 5?</h5><p>Porque el CADE me hizo pensar en serio sobre temas éticos que me tocan directamente, como las noticias falsas, el ciberacoso y la inteligencia artificial, y porque cambió algo concreto en cómo actúo: verifico antes de compartir y cuido la información de mis propios proyectos.</p></div>
+                <div class="ra-card"><h5><i class="fas fa-arrow-up"></i> ¿Qué me faltó para el 7?</h5><p>Fue un solo día y sobre todo escuché y participé en talleres. Para llegar al 7 tendría que llevar lo aprendido a la acción: por ejemplo, proponer en mi colegio una charla sobre cómo detectar noticias falsas o tomar una decisión difícil donde lo correcto no sea lo más fácil.</p></div>
+                <div class="ra-card wide"><h5><i class="fas fa-paperclip"></i> Evidencia en esta página</h5><div class="ra-chips"><span>8 fotos del evento</span><span>4 videos de charlas y talleres</span><span>Taller “Conforma tu equipo”</span><span>Temas: fake news, ciberacoso e IA</span></div></div>
             </div>
         </section>
         <div class="prev-next">

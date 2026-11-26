@@ -267,3 +267,10 @@ header.hdr-fun > p { position: relative; z-index: 3; }
 @media (max-width: 900px) { .hdr-collage figure { width: 78px; padding: 4px 4px 12px; } .hdr-collage figure:nth-child(n+5) { display: none; } }
 @media (max-width: 600px) { header.hdr-fun { padding: 54px 16px 84px !important; } .hdr-collage figure { width: 62px; opacity: 0.9; } .hdr-collage figure:nth-child(n+3) { display: none; } .hdr-hand { font-size: 1.35rem; } }
 @media (prefers-reduced-motion: reduce) { header.hdr-fun h1 i, .hdr-collage figure, .hdr-blob, .hdr-marquee div { animation: none; } }
+/* Foto pendiente: marco de polaroid con un aviso, para experiencias que aún no tienen fotos */
+.pending-photo .ph { display: grid; place-items: center; align-content: center; gap: 8px; width: 100%; aspect-ratio: 1; background: repeating-linear-gradient(45deg, #eef3e8 0 12px, #e4ecdb 12px 24px); color: #5c7a52; text-align: center; padding: 12px; font-family: "Caveat", cursive; font-size: 1.3rem; line-height: 1.1; }
+.pending-photo .ph i { font-size: 1.8rem; opacity: 0.7; }
+.stage-mini.pending-photo .ph { font-size: 1.05rem; }
+.stage-mini.pending-photo .ph i { font-size: 1.2rem; }
+.pending-photo { cursor: default; }
+.ra-q.ra-icon { font-size: 3.4rem; color: #fff; background: radial-gradient(circle at 30% 20%, #9fd8f5, #2f8fc2 60%, #1d5f8a); box-shadow: inset 0 -10px 20px rgba(0,0,0,0.15); }

@@ -171,3 +171,30 @@
 .p2-box:last-child { grid-column: 1 / -1; }
 .p2-box:last-child ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @media (max-width: 700px) { .p2-box:last-child ul { grid-template-columns: 1fr; } }
+/* Tarjetas finales de RA (mismo estilo que las experiencias) */
+.ra-final { position: relative; margin: 2.5rem 0 1rem; padding: 34px 32px 30px; border-radius: 22px; background: radial-gradient(circle at 12% 0%, rgba(168,216,154,0.35), transparent 45%), linear-gradient(145deg, #2d5a27, #3a5232 55%, #4a6341); color: #f5f0e8; box-shadow: 0 18px 45px rgba(45,90,39,0.3); overflow: hidden; }
+.ra-final::after { content: ""; position: absolute; right: -40px; bottom: -40px; width: 180px; height: 180px; border-radius: 50%; border: 2px dashed rgba(245,240,232,0.18); }
+.ra-final .ra-kicker { font-family: "Caveat", cursive; font-size: 1.45rem; color: #a8d89a; }
+.ra-final h4 { font-family: "Playfair Display", Georgia, serif; font-size: 1.6rem; margin: 2px 0 18px; line-height: 1.25; }
+.ra-head { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; margin-bottom: 20px; }
+.ra-badge { display: grid; place-items: center; min-width: 92px; height: 92px; border-radius: 50%; background: #f5f0e8; color: #2d5a27; font-family: "Playfair Display", serif; font-weight: 700; font-size: 1.9rem; box-shadow: 0 0 0 6px rgba(245,240,232,0.15); transform: rotate(-6deg); }
+.ra-score { flex: 1; min-width: 230px; }
+.ra-score .label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.8; }
+.ra-dots { display: flex; gap: 8px; margin: 8px 0 4px; }
+.ra-dots span { width: 30px; height: 30px; border-radius: 50%; border: 2px solid rgba(245,240,232,0.5); display: grid; place-items: center; font-size: 0.75rem; font-weight: 600; color: rgba(245,240,232,0.6); }
+.ra-dots span.on { background: #e8c774; border-color: #e8c774; color: #3a5232; }
+.ra-score .num { font-family: "Caveat", cursive; font-size: 2rem; line-height: 1; }
+.ra-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; position: relative; z-index: 1; }
+.ra-card { background: rgba(245,240,232,0.1); border: 1px solid rgba(245,240,232,0.18); border-radius: 14px; padding: 16px 18px; }
+.ra-card h5 { font-size: 0.95rem; margin-bottom: 6px; color: #e8c774; display: flex; gap: 8px; align-items: center; }
+.ra-card p { font-size: 0.93rem; line-height: 1.6; text-align: left; }
+.ra-card.wide { grid-column: 1 / -1; }
+.ra-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.ra-chips span { background: #f5f0e8; color: #3a5232; border-radius: 20px; padding: 4px 12px; font-size: 0.8rem; font-weight: 500; }
+.ra-final.pending .ra-badge { background: rgba(245,240,232,0.2); color: #f5f0e8; }
+@media (max-width: 760px) { .ra-grid { grid-template-columns: 1fr; } .ra-final { padding: 28px 20px 24px; } .ra-dots { gap: 6px; } .ra-dots span { width: 26px; height: 26px; } }
+/* Sello de proyecto culminado */
+.p2-done { display: flex; align-items: center; gap: 16px; margin: 0 0 1.2rem; padding: 16px 20px; border-radius: 16px; background: linear-gradient(135deg, #e9f6e2, #f5f0e8); border: 2px solid #8fbf7f; box-shadow: 0 10px 24px rgba(92,122,82,0.15); transform: rotate(-0.6deg); }
+.p2-done > i { font-size: 2.2rem; color: #4a8a3c; }
+.p2-done strong { display: block; font-family: "Playfair Display", Georgia, serif; font-size: 1.2rem; color: #2d5a27; }
+.p2-done span { font-size: 0.92rem; color: #4d5a45; }

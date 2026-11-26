@@ -230,14 +230,16 @@
 
             function render() {
                 var W = box.clientWidth, H = box.clientHeight, L = 44, R = 12, T = 22, B = 28;
-                var max = 1500, n = data.length;
+                var top = Math.max.apply(null, data.map(function (d) { return d[1]; }));
+                var max = Math.max(1500, Math.ceil(top * 1.08 / 500) * 500), n = data.length;
+                var ticks = []; for (var t = 0; t <= max; t += 500) ticks.push(t);
                 var x = function (i) { return L + (W - L - R) * i / (n - 1); };
                 var y = function (v) { return T + (H - T - B) * (1 - v / max); };
                 var pts = data.map(function (d, i) { return x(i).toFixed(1) + ',' + y(d[1]).toFixed(1); });
-                var grid = [0, 500, 1000, 1500].map(function (v) {
+                var grid = ticks.map(function (v) {
                     return '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + y(v) + '" y2="' + y(v) + '"/>';
                 }).join('');
-                var ylab = [0, 500, 1000, 1500].map(function (v) {
+                var ylab = ticks.map(function (v) {
                     return '<text x="' + (L - 8) + '" y="' + (y(v) + 4) + '" text-anchor="end">' + (v >= 1000 ? (v / 1000).toString().replace('.', ',') + ' mil' : v) + '</text>';
                 }).join('');
                 var step = W < 500 ? 30 : 15, xlab = '';
@@ -290,7 +292,7 @@
         var LIMA = [-12.0464, -77.0428];
         var places = [
             { at: LIMA, label: 'Lima', img: 'imagenes/experiencia2/08-resultado-final.jpg', title: 'Lima, Perú',
-              links: [['experiencia2.html', '🍪 Exp. 2: Galletas desde cero'], ['experiencia6.html', '♿ Exp. 6: Sillas de ruedas'], ['experiencia8.html', '🏮 Exp. 8: Matsuri 2026'], ['proyecto1.html', '⚖️ Proyecto 1: modelo.pe']] },
+              links: [['experiencia2.html', '🍪 Exp. 2: Galletas desde cero'], ['experiencia3.html', '🩸 Exp. 3: Colecta de sangre'], ['experiencia4.html', '🏄 Exp. 4: Aprender a surfear'], ['experiencia6.html', '♿ Exp. 6: Sillas de ruedas'], ['experiencia7.html', '🎤 Exp. 7: CADE Escolar 2026'], ['experiencia8.html', '🏮 Exp. 8: Matsuri 2026'], ['proyecto1.html', '⚖️ Proyecto 1: modelo.pe'], ['proyecto2.html', '🥋 Proyecto 2: Dojo Libre']] },
             { at: [-33.0472, -71.6127], label: 'Valparaíso', img: 'imagenes/experiencia5/03-equipo.jpg', title: 'Valparaíso, Chile',
               links: [['experiencia5.html', '🏀 Exp. 5: Copa Pancho 2026']] },
             { at: [43.6629, -79.3957], label: 'Toronto', img: 'imagenes/experiencia1/17-mirador-cn-tower.jpg', title: 'Toronto, Canadá',
@@ -340,7 +342,7 @@
         ['imagenes/experiencia2/08-resultado-final.jpg', '6deg', '11%', '58%', '8s'],
         ['imagenes/experiencia6/05-circulo-testimonios.jpeg', '-7deg', '78%', '55%', '6.5s'],
         ['imagenes/proyecto1/05-inicio.jpg', '-4deg', '15%', '10%', '7.5s'],
-        ['imagenes/experiencia1/10-uno-con-amigos-asiaticos.jpg', '5deg', '74%', '8%', '9s']
+        ['imagenes/experiencia7/08-con-mis-amigos.jpg', '5deg', '74%', '8%', '9s']
     ];
 
     function fancyHeader() {
