@@ -147,9 +147,16 @@
     var TAPES = ['rgba(255,209,102,0.8)', 'rgba(124,198,242,0.8)', 'rgba(255,123,107,0.75)', 'rgba(184,233,134,0.85)'];
 
     function sideLayer() {
-        var source = Array.prototype.slice.call(document.querySelectorAll('.filmstrip-track img:not([aria-hidden])'));
+        // Solo fotos que no se ven ya en la página: así ninguna se repite al costado.
+        var shown = {};
+        Array.prototype.forEach.call(document.querySelectorAll('.hero-stack img, .stage-photo img, .stage-mini img, .photo-grid img, .desc-photo img, .exp-hero .cover'), function (im) {
+            shown[im.getAttribute('src')] = true;
+        });
+        var source = Array.prototype.slice.call(document.querySelectorAll('.filmstrip-track img:not([aria-hidden])')).filter(function (im) {
+            return !shown[im.getAttribute('src')];
+        });
         var container = document.querySelector('.container');
-        if (!source.length || !container) return;
+        if (!container || !document.querySelector('.filmstrip-track')) return;
         var layer = document.createElement('div');
         layer.className = 'side-layer';
         layer.setAttribute('aria-hidden', 'true');
@@ -172,7 +179,8 @@
                 var left = i % 2 === 0;
                 var x = left ? (gutter - w) / 2 : window.innerWidth - gutter + (gutter - w) / 2;
                 var jitterX = (i * 37 % 30) - 15;
-                if (i % 3 === 2) {
+                var photoIdx = i - Math.floor((i + 1) / 3);
+                if (i % 3 === 2 || photoIdx >= source.length) {
                     var d = document.createElement('div');
                     d.className = 'side-doodle';
                     d.innerHTML = DOODLES[i % DOODLES.length];
@@ -182,7 +190,7 @@
                     layer.appendChild(d);
                     items.push({ el: d, y: y, speed: 0.18 });
                 } else {
-                    var img = source[i % source.length];
+                    var img = source[photoIdx];
                     var fig = document.createElement('figure');
                     fig.className = 'side-photo';
                     fig.style.width = w + 'px';
@@ -380,7 +388,14 @@
 
     function descPhoto() {
         var h = document.querySelector('.content-section h4 .fa-align-left');
-        var pick = document.querySelectorAll('.hero-stack img')[1];
+        // Una foto del rollo que no aparezca ya en la página; si no hay, no se pone nada.
+        var used = {};
+        Array.prototype.forEach.call(document.querySelectorAll('.hero-stack img, .stage-photo img, .stage-mini img, .photo-grid img, .exp-hero .cover'), function (im) {
+            used[im.getAttribute('src')] = true;
+        });
+        var pick = Array.prototype.filter.call(document.querySelectorAll('.filmstrip-track img:not([aria-hidden])'), function (im) {
+            return !used[im.getAttribute('src')];
+        })[0];
         if (!h || !pick) return;
         var section = h.closest('.content-section');
         section.classList.add('desc-section');

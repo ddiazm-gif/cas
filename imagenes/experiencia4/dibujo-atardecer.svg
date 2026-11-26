@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+<defs><linearGradient id="s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff9a7a"/><stop offset="1" stop-color="#ffe0a8"/></linearGradient></defs>
+<rect width="400" height="500" fill="url(#s)"/>
+<circle cx="200" cy="270" r="80" fill="#ffd166" stroke="#3b2a2a" stroke-width="6"/>
+<path d="M-10 280c70-14 140 8 210-4s140-12 210 0v224H-10z" fill="#4fa3d9" stroke="#3b2a2a" stroke-width="7" stroke-linejoin="round"/>
+<path d="M-10 380c90-24 180 14 260-4s110-10 160 0v124H-10z" fill="#f3d9a4" stroke="#3b2a2a" stroke-width="7" stroke-linejoin="round"/>
+<g transform="rotate(8 300 330)"><path d="M300 210c22 24 30 80 26 130-4 30-14 44-26 48-12-4-22-18-26-48-4-50 4-106 26-130z" fill="#ff7b6b" stroke="#3b2a2a" stroke-width="6" stroke-linejoin="round"/></g>
+<g fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".8"><path d="M60 320c24-6 48-6 72 0M220 330c24-6 48-6 72 0"/></g>
+<path d="M70 120c14-10 28-10 42 0M130 96c12-8 24-8 36 0" fill="none" stroke="#3b2a2a" stroke-width="5" stroke-linecap="round"/>
+<text x="180" y="470" text-anchor="middle" font-family="Caveat, 'Comic Sans MS', cursive" font-size="36" fill="#3b2a2a">cansado, pero feliz</text>
+</svg>

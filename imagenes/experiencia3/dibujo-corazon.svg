@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+<rect width="400" height="500" fill="#f3fbea"/>
+<path d="M200 380C120 320 66 266 70 196c4-52 44-84 86-80 22 2 36 14 44 30 8-16 22-28 44-30 42-4 82 28 86 80 4 70-50 124-130 184z" fill="#ff7b6b" stroke="#3b2a2a" stroke-width="7" stroke-linejoin="round"/>
+<path d="M200 190v110M145 245h110" stroke="#fff" stroke-width="26" stroke-linecap="round"/>
+<path d="M108 190c4-26 22-42 44-44" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" opacity=".7"/>
+<g fill="none" stroke="#7cc6f2" stroke-width="6" stroke-linecap="round"><path d="M50 110l-16-12M48 140h-20M350 110l16-12M352 140h20"/></g>
+<text x="200" y="450" text-anchor="middle" font-family="Caveat, 'Comic Sans MS', cursive" font-size="38" fill="#3b2a2a">a los 18, dono yo</text>
+</svg>
